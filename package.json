@@ -1,33 +1,9 @@
 {
-  "name": "random-wait-action",
-  "version": "0.0.1",
-  "private": true,
-  "description": "A Github Action to introduce a random delay in a Job",
-  "packageManager": "pnpm@7.14.2",
-  "main": "lib/main.js",
-  "scripts": {
-    "build": "tsc",
-    "format": "prettier --write '**/*.ts'",
-    "format-check": "prettier --check '**/*.ts'",
-    "lint": "eslint src/**/*.ts",
-    "package": "ncc build --source-map --license licenses.txt",
-    "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AliSajid/random-wait-action"
-  },
-  "keywords": [
-    "actions",
-    "node",
-    "setup"
-  ],
   "author": "",
-  "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0"
   },
+  "description": "A Github Action to introduce a random delay in a Job",
   "devDependencies": {
     "@types/jest": "^29.2.1",
     "@types/node": "^18.11.9",
@@ -41,5 +17,29 @@
     "prettier": "^2.7.1",
     "ts-jest": "^29.0.3",
     "typescript": "^4.8.4"
-  }
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup"
+  ],
+  "license": "MIT",
+  "main": "lib/main.js",
+  "name": "random-wait-action",
+  "packageManager": "pnpm@7.14.2",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliSajid/random-wait-action"
+  },
+  "scripts": {
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
+    "build": "tsc",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "test": "jest"
+  },
+  "version": "0.0.1"
 }
