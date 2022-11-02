@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "random-wait-action",
+  "version": "0.0.1",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "A Github Action to introduce a random delay in a Job",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
