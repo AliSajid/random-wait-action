@@ -10,6 +10,9 @@ inputs:
     required: true
     description: 'Maximum wait time in seconds'
     default: '10'
+outputs:
+  wait_time:
+    description: 'The time waited in seconds'
 runs:
   using: 'node16'
   main: 'dist/index.js'
