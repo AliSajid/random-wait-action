@@ -28,14 +28,25 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          run_install: false
 
-      - name: Rebuild the dist/ directory
+      - name: Get pnpm store directory
+        id: pnpm-cache
         run: |
-          pnpm run build
-          pnpm run package
-
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - run: |
+          pnpm install
+      - run: |
+          pnpm run all
       - name: Compare the expected and actual dist/ directories
         run: |
           if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
