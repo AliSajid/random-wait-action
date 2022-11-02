@@ -17,6 +17,6 @@ test('wait between 1 and 5 seconds', async () => {
   await wait(1, 5)
   const end = new Date()
   var delta = Math.abs(end.getTime() - start.getTime())
-  expect(delta).toBeGreaterThan(1000)
-  expect(delta).toBeLessThan(10000)
+  expect(delta).toBeGreaterThanOrEqual(1000)
+  expect(delta).toBeLessThanOrEqual(5000)
 })
