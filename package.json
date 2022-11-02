@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "A Github Action to introduce a random delay in a Job",
+  "packageManager": "pnpm@7.14.2",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
