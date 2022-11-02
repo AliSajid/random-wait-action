@@ -1,9 +1,16 @@
-export async function wait(milliseconds: number): Promise<string> {
+export async function wait(minimum: number, maximum: number): Promise<string> {
   return new Promise(resolve => {
-    if (isNaN(milliseconds)) {
-      throw new Error('milliseconds not a number')
+    if (isNaN(minimum) || isNaN(maximum)) {
+      throw new Error('minimum and maximum must be numbers')
     }
 
-    setTimeout(() => resolve('done!'), milliseconds)
+    if (minimum > maximum) {
+      throw new Error('minimum must be less than maximum')
+    }
+
+    const ms = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+
+    setTimeout(() => resolve('done!'), ms * 1000)
+    return ms / 1000
   })
 }
