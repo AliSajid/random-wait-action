@@ -1,11 +1,15 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Random Wait Action'
+description: 'A Github Action to introduce a random delay in a Job'
+author: 'Ali Sajid Imami'
 inputs:
-  milliseconds: # change this
+  minimum: # change this
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'Minimum wait time in seconds'
+    default: '1'
+  maximum: # change this
+    required: true
+    description: 'Maximum wait time in seconds'
+    default: '10'
 runs:
   using: 'node16'
   main: 'dist/index.js'
