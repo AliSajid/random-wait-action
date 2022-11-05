@@ -3,11 +3,11 @@ description: 'A Github Action to introduce a random delay in a Job'
 author: 'Ali Sajid Imami'
 inputs:
   minimum: # change this
-    required: true
+    required: false
     description: 'Minimum wait time in seconds'
     default: '1'
   maximum: # change this
-    required: true
+    required: false
     description: 'Maximum wait time in seconds'
     default: '10'
 outputs:
