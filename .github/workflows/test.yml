@@ -29,11 +29,16 @@ jobs:
           pnpm install
       - run: |
           pnpm run all
-  test: # make sure the action works on a clean machine without building
+  test-with-params: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
         with:
           minimum: 1
-          maximum: 10
+          maximum: 5
+  test-without-params: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
