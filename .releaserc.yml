@@ -14,5 +14,5 @@ plugins:
     - '@semantic-release/github'
     - - '@semantic-release/exec'
       - prepareCmd: 'echo "Preparing to release ${nextRelease.version}"'
-      - generateNotes: 'cz bump --files-only'
+        generateNotes: 'cz bump --files-only'
 
