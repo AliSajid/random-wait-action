@@ -88,9 +88,8 @@ function wait(minimum, maximum) {
             if (minimum > maximum) {
                 throw new Error('minimum must be less than maximum');
             }
-            const ms = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-            setTimeout(() => resolve('done!'), ms * 1000);
-            return ms / 1000;
+            const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+            setTimeout(() => resolve(String(secs)), secs * 1000);
         });
     });
 }
