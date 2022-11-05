@@ -1,0 +1,11 @@
+[tool]
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.0.0"
+tag_format = "v$major.$minor.$patch"
+version_files = [
+    "package.json"
+]
+gpg_sign = true
+update_changelog_on_bump = false
+changelog_incremental = false
