@@ -15,9 +15,9 @@ SPDX-License-Identifier: MIT
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9500/badge)](https://www.bestpractices.dev/projects/9500)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/AliSajid/random-wait-action/badge)](https://scorecard.dev/viewer/?uri=github.com/AliSajid/random-wait-action)
 
-This is a very simple GitHub action that lets you wait for a random amount of
-time in seconds. This is useful for workflows that have a lot of parallel jobs
-and you want to avoid them all hitting the same API at the same time.
+
+
+This is a very simple github action that lets you wait for a random amount of time in seconds. This is useful for workflows that have a lot of parallel jobs and you want to avoid them all hitting the same API at the same time.
 
 I ran into this when I was trying to use the excellent
 [schneegans/dynamic-badges-action](https://github.com/schneegans/dynamic-badges-action)
@@ -28,16 +28,12 @@ to add a random delay to each job so that they would hit the API at different ti
 
 ## Inputs
 
-| name      | type    | default | required |
-| --------- | ------- | ------- | -------- |
-| _minimum_ | integer | 1       | no       |
-| _maximum_ | integer | 10      | no       |
+- minimum: The minimum number of seconds to wait. _required_
+- maximum: The maximum number of seconds to wait. _required_
 
 ## Outputs
 
-| name        | type    | description                                          |
-| ----------- | ------- | ---------------------------------------------------- |
-| _wait_time_ | integer | The amount of time in seconds that the action waited |
+- wait_time: The number of seconds that the job waited.
 
 ## Example usage
 
