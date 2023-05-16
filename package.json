@@ -6,7 +6,7 @@
   "description": "A Github Action to introduce a random delay in a Job",
   "devDependencies": {
     "@types/jest": "^29.2.1",
-    "@types/node": "^18.11.9",
+    "@types/node": "^20.1.5",
     "@typescript-eslint/parser": "^5.42.0",
     "@vercel/ncc": "^0.36.1",
     "eslint": "^8.26.0",
