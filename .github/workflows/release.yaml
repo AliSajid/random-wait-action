@@ -28,7 +28,7 @@ jobs:
             run: pip install -U commitizen
 
           - name: Semantic Release
-            uses: cycjimmy/semantic-release-action@v3
+            uses: cycjimmy/semantic-release-action@v4
             id: semantic
             with:
                 semantic_version: 19
