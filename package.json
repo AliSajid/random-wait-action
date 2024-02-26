@@ -41,5 +41,5 @@
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest"
   },
-  "version": "2.2.0"
+  "version": "2.2.1"
 }
