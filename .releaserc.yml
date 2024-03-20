@@ -1,8 +1,8 @@
 branches:
-  - v[0-9]+.[0-9]+.[0-9]+
-  - main
-  - name: next
-    prerelease: true
+    - v[0-9]+.[0-9]+.[0-9]+
+    - main
+    - name: next
+      prerelease: true
 
 plugins:
     - '@semantic-release/commit-analyzer'
