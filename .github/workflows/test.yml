@@ -1,44 +1,44 @@
 name: 'Build Tests'
 on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
+    pull_request:
+    push:
+        branches:
+            - main
+            - 'releases/*'
 
 jobs:
-  build: # make sure build/ci work properly
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
-        with:
-          run_install: false
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-      - run: |
-          pnpm install
-      - run: |
-          pnpm run all
-  test-with-params: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./
-        with:
-          minimum: 1
-          maximum: 5
-  test-without-params: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./
+    build: # make sure build/ci work properly
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v3
+              with:
+                  run_install: false
+            - name: Get pnpm store directory
+              id: pnpm-cache
+              run: |
+                  echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v4
+              name: Setup pnpm cache
+              with:
+                  path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+            - run: |
+                  pnpm install
+            - run: |
+                  pnpm run all
+    test-with-params: # make sure the action works on a clean machine without building
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: ./
+              with:
+                  minimum: 1
+                  maximum: 5
+    test-without-params: # make sure the action works on a clean machine without building
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: ./
