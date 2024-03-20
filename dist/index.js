@@ -621,8 +621,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
-const http_client_1 = __nccwpck_require__(1759);
-const auth_1 = __nccwpck_require__(1366);
+const http_client_1 = __nccwpck_require__(6372);
+const auth_1 = __nccwpck_require__(8603);
 const core_1 = __nccwpck_require__(9093);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
@@ -1091,7 +1091,7 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 1366:
+/***/ 8603:
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
@@ -1179,7 +1179,7 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 
 /***/ }),
 
-/***/ 1759:
+/***/ 6372:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1221,7 +1221,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
 const http = __importStar(__nccwpck_require__(3685));
 const https = __importStar(__nccwpck_require__(5687));
-const pm = __importStar(__nccwpck_require__(9379));
+const pm = __importStar(__nccwpck_require__(2067));
 const tunnel = __importStar(__nccwpck_require__(4225));
 const undici_1 = __nccwpck_require__(2988);
 var HttpCodes;
@@ -1687,7 +1687,7 @@ class HttpClient {
         if (this._keepAlive && useProxy) {
             agent = this._proxyAgent;
         }
-        if (this._keepAlive && !useProxy) {
+        if (!useProxy) {
             agent = this._agent;
         }
         // if agent is already assigned use that agent.
@@ -1719,15 +1719,11 @@ class HttpClient {
             agent = tunnelAgent(agentOptions);
             this._proxyAgent = agent;
         }
-        // if reusing agent across request and tunneling agent isn't assigned create a new agent
-        if (this._keepAlive && !agent) {
+        // if tunneling agent isn't assigned create a new agent
+        if (!agent) {
             const options = { keepAlive: this._keepAlive, maxSockets };
             agent = usingSsl ? new https.Agent(options) : new http.Agent(options);
             this._agent = agent;
-        }
-        // if not using private agent and tunnel agent isn't setup then use global agent
-        if (!agent) {
-            agent = usingSsl ? https.globalAgent : http.globalAgent;
         }
         if (usingSsl && this._ignoreSslError) {
             // we don't want to set NODE_TLS_REJECT_UNAUTHORIZED=0 since that will affect request for entire process
@@ -1842,7 +1838,7 @@ const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCa
 
 /***/ }),
 
-/***/ 9379:
+/***/ 2067:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -10112,7 +10108,7 @@ module.exports = Dispatcher
 "use strict";
 
 
-const Busboy = __nccwpck_require__(6783)
+const Busboy = __nccwpck_require__(6954)
 const util = __nccwpck_require__(143)
 const {
   ReadableStreamFrom,
@@ -25026,7 +25022,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 4712:
+/***/ 5992:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -25035,10 +25031,10 @@ module.exports = require("zlib");
 const WritableStream = (__nccwpck_require__(4492).Writable)
 const inherits = (__nccwpck_require__(7261).inherits)
 
-const StreamSearch = __nccwpck_require__(2817)
+const StreamSearch = __nccwpck_require__(3304)
 
-const PartStream = __nccwpck_require__(501)
-const HeaderParser = __nccwpck_require__(1233)
+const PartStream = __nccwpck_require__(4215)
+const HeaderParser = __nccwpck_require__(5412)
 
 const DASH = 45
 const B_ONEDASH = Buffer.from('-')
@@ -25110,7 +25106,7 @@ Dicer.prototype._write = function (data, encoding, cb) {
   if (this._headerFirst && this._isPreamble) {
     if (!this._part) {
       this._part = new PartStream(this._partOpts)
-      if (this._events.preamble) { this.emit('preamble', this._part) } else { this._ignore() }
+      if (this.listenerCount('preamble') !== 0) { this.emit('preamble', this._part) } else { this._ignore() }
     }
     const r = this._hparser.push(data)
     if (!this._inHeader && r !== undefined && r < data.length) { data = data.slice(r) } else { return cb() }
@@ -25167,7 +25163,7 @@ Dicer.prototype._oninfo = function (isMatch, data, start, end) {
       }
     }
     if (this._dashes === 2) {
-      if ((start + i) < end && this._events.trailer) { this.emit('trailer', data.slice(start + i, end)) }
+      if ((start + i) < end && this.listenerCount('trailer') !== 0) { this.emit('trailer', data.slice(start + i, end)) }
       this.reset()
       this._finished = true
       // no more parts will be added
@@ -25185,7 +25181,13 @@ Dicer.prototype._oninfo = function (isMatch, data, start, end) {
     this._part._read = function (n) {
       self._unpause()
     }
-    if (this._isPreamble && this._events.preamble) { this.emit('preamble', this._part) } else if (this._isPreamble !== true && this._events.part) { this.emit('part', this._part) } else { this._ignore() }
+    if (this._isPreamble && this.listenerCount('preamble') !== 0) {
+      this.emit('preamble', this._part)
+    } else if (this._isPreamble !== true && this.listenerCount('part') !== 0) {
+      this.emit('part', this._part)
+    } else {
+      this._ignore()
+    }
     if (!this._isPreamble) { this._inHeader = true }
   }
   if (data && start < end && !this._ignoreData) {
@@ -25241,7 +25243,7 @@ module.exports = Dicer
 
 /***/ }),
 
-/***/ 1233:
+/***/ 5412:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -25249,9 +25251,9 @@ module.exports = Dicer
 
 const EventEmitter = (__nccwpck_require__(5673).EventEmitter)
 const inherits = (__nccwpck_require__(7261).inherits)
-const getLimit = __nccwpck_require__(8689)
+const getLimit = __nccwpck_require__(2160)
 
-const StreamSearch = __nccwpck_require__(2817)
+const StreamSearch = __nccwpck_require__(3304)
 
 const B_DCRLF = Buffer.from('\r\n\r\n')
 const RE_CRLF = /\r\n/g
@@ -25349,7 +25351,7 @@ module.exports = HeaderParser
 
 /***/ }),
 
-/***/ 501:
+/***/ 4215:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -25370,7 +25372,7 @@ module.exports = PartStream
 
 /***/ }),
 
-/***/ 2817:
+/***/ 3304:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -25606,7 +25608,7 @@ module.exports = SBMH
 
 /***/ }),
 
-/***/ 6783:
+/***/ 6954:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -25614,11 +25616,11 @@ module.exports = SBMH
 
 const WritableStream = (__nccwpck_require__(4492).Writable)
 const { inherits } = __nccwpck_require__(7261)
-const Dicer = __nccwpck_require__(4712)
+const Dicer = __nccwpck_require__(5992)
 
-const MultipartParser = __nccwpck_require__(7197)
-const UrlencodedParser = __nccwpck_require__(3373)
-const parseParams = __nccwpck_require__(5764)
+const MultipartParser = __nccwpck_require__(6311)
+const UrlencodedParser = __nccwpck_require__(6173)
+const parseParams = __nccwpck_require__(3576)
 
 function Busboy (opts) {
   if (!(this instanceof Busboy)) { return new Busboy(opts) }
@@ -25699,7 +25701,7 @@ module.exports.Dicer = Dicer
 
 /***/ }),
 
-/***/ 7197:
+/***/ 6311:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -25715,12 +25717,12 @@ module.exports.Dicer = Dicer
 const { Readable } = __nccwpck_require__(4492)
 const { inherits } = __nccwpck_require__(7261)
 
-const Dicer = __nccwpck_require__(4712)
+const Dicer = __nccwpck_require__(5992)
 
-const parseParams = __nccwpck_require__(5764)
-const decodeText = __nccwpck_require__(9028)
-const basename = __nccwpck_require__(3180)
-const getLimit = __nccwpck_require__(8689)
+const parseParams = __nccwpck_require__(3576)
+const decodeText = __nccwpck_require__(884)
+const basename = __nccwpck_require__(6504)
+const getLimit = __nccwpck_require__(2160)
 
 const RE_BOUNDARY = /^boundary$/i
 const RE_FIELD = /^form-data$/i
@@ -25868,7 +25870,7 @@ function Multipart (boy, cfg) {
 
         ++nfiles
 
-        if (!boy._events.file) {
+        if (boy.listenerCount('file') === 0) {
           self.parser._ignore()
           return
         }
@@ -26013,15 +26015,15 @@ module.exports = Multipart
 
 /***/ }),
 
-/***/ 3373:
+/***/ 6173:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-const Decoder = __nccwpck_require__(7306)
-const decodeText = __nccwpck_require__(9028)
-const getLimit = __nccwpck_require__(8689)
+const Decoder = __nccwpck_require__(9687)
+const decodeText = __nccwpck_require__(884)
+const getLimit = __nccwpck_require__(2160)
 
 const RE_CHARSET = /^charset$/i
 
@@ -26211,7 +26213,7 @@ module.exports = UrlEncoded
 
 /***/ }),
 
-/***/ 7306:
+/***/ 9687:
 /***/ ((module) => {
 
 "use strict";
@@ -26273,7 +26275,7 @@ module.exports = Decoder
 
 /***/ }),
 
-/***/ 3180:
+/***/ 6504:
 /***/ ((module) => {
 
 "use strict";
@@ -26295,7 +26297,7 @@ module.exports = function basename (path) {
 
 /***/ }),
 
-/***/ 9028:
+/***/ 884:
 /***/ (function(module) {
 
 "use strict";
@@ -26397,7 +26399,7 @@ const decoders = {
     if (textDecoders.has(this.toString())) {
       try {
         return textDecoders.get(this).decode(data)
-      } catch (e) { }
+      } catch {}
     }
     return typeof data === 'string'
       ? data
@@ -26417,7 +26419,7 @@ module.exports = decodeText
 
 /***/ }),
 
-/***/ 8689:
+/***/ 2160:
 /***/ ((module) => {
 
 "use strict";
@@ -26441,14 +26443,14 @@ module.exports = function getLimit (limits, name, defaultLimit) {
 
 /***/ }),
 
-/***/ 5764:
+/***/ 3576:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 /* eslint-disable object-property-newline */
 
 
-const decodeText = __nccwpck_require__(9028)
+const decodeText = __nccwpck_require__(884)
 
 const RE_ENCODED = /%[a-fA-F0-9][a-fA-F0-9]/g
 
