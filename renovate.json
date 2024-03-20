@@ -1,6 +1,26 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "assignees": [
+        "AliSajid"
+    ],
+    "baseBranches": [
+        "next"
+    ],
+    "extends": [
+        "config:recommended"
+    ],
+    "gitAuthor": "Imamiland CI Bot <152510784+imamiland-bot@users.noreply.github.com>",
+    "labels": [
+        "dependencies",
+        "renovate"
+    ],
+    "platformCommit": true,
+    "pre-commit": {
+        "enabled": true
+    },
+    "schedule": [
+        "after 10pm and before 5am every weekday",
+        "every weekend"
+    ],
+    "semanticCommits": "enabled"
 }

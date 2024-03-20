@@ -6,59 +6,59 @@
 name: Check dist/
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
-  workflow_dispatch:
+    push:
+        branches:
+            - main
+        paths-ignore:
+            - '**.md'
+    pull_request:
+        paths-ignore:
+            - '**.md'
+    workflow_dispatch:
 
 jobs:
-  check-dist:
-    runs-on: ubuntu-latest
+    check-dist:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Set Node.js 20.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
+            - name: Set Node.js 20.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
 
-      - uses: pnpm/action-setup@v3
-        with:
-          run_install: false
+            - uses: pnpm/action-setup@v3
+              with:
+                  run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-      - run: |
-          pnpm install
-      - run: |
-          pnpm run all
-      - name: Compare the expected and actual dist/ directories
-        run: |
-          if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
-            echo "Detected uncommitted changes after build.  See status below:"
-            git diff
-            exit 1
-          fi
-        id: diff
+            - name: Get pnpm store directory
+              id: pnpm-cache
+              run: |
+                  echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v4
+              name: Setup pnpm cache
+              with:
+                  path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+            - run: |
+                  pnpm install
+            - run: |
+                  pnpm run all
+            - name: Compare the expected and actual dist/ directories
+              run: |
+                  if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
+                    echo "Detected uncommitted changes after build.  See status below:"
+                    git diff
+                    exit 1
+                  fi
+              id: diff
 
-      # If index.js was different than expected, upload the expected version as an artifact
-      - uses: actions/upload-artifact@v4
-        if: ${{ failure() && steps.diff.conclusion == 'failure' }}
-        with:
-          name: dist
-          path: dist/
+            # If index.js was different than expected, upload the expected version as an artifact
+            - uses: actions/upload-artifact@v4
+              if: ${{ failure() && steps.diff.conclusion == 'failure' }}
+              with:
+                  name: dist
+                  path: dist/
