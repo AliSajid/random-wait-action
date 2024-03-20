@@ -1,30 +1,16 @@
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-
-import { Result } from 'true-myth';
-import { validateInputs } from './utils/validateInputs.js';
-import { InputValidationError } from './utils/errors.js';
-
-/**
- * Waits for a random number of seconds between minimum and maximum.
- * @param minimum The minimum number of seconds to wait.
- * @param maximum The maximum number of seconds to wait.
- * @returns A Promise that resolves to a Result containing the wait time (in seconds) or an error.
- */
-export async function wait(
-    minimum: number,
-    maximum: number
-): Promise<Result<number, InputValidationError>> {
-    const validation = validateInputs(minimum, maximum);
-    if (validation.isErr) {
-        return Result.err(validation.error);
-    }
-
-    const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+export async function wait(minimum: number, maximum: number): Promise<string> {
     return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(Result.ok(secs));
-        }, secs * 1000);
-    });
+        if (isNaN(minimum) || isNaN(maximum)) {
+            throw new Error('minimum and maximum must be numbers')
+        }
+
+        if (minimum > maximum) {
+            throw new Error('minimum must be less than maximum')
+        }
+
+        const secs =
+            Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+
+        setTimeout(() => resolve(String(secs)), secs * 1000)
+    })
 }

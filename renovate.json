@@ -13,24 +13,18 @@
         ":reviewer(AliSajid)",
         "security:minimumReleaseAgeNpm"
     ],
-    "packageRules": [
-        {
-            "automerge": true,
-            "groupName": "Pre-Commit and GitHub Actions",
-            "groupSlug": "pre-commit-and-github-actions",
-            "matchManagers": ["pre-commit", "github-actions"],
-            "schedule": ["before 5am every weekday"]
-        },
-        {
-            "automerge": true,
-            "matchDepTypes": ["devDependencies", "minor", "patch"],
-            "matchPackageNames": [
-                "eslint{/,}**",
-                "stylistic{/,}**",
-                "prettier{/,}**",
-                "vitest{/,}**"
-            ]
-        }
+    "gitAuthor": "Imamiland CI Bot <152510784+imamiland-bot@users.noreply.github.com>",
+    "labels": [
+        "dependencies",
+        "renovate"
+    ],
+    "platformCommit": true,
+    "pre-commit": {
+        "enabled": true
+    },
+    "schedule": [
+        "after 10pm and before 5am every weekday",
+        "every weekend"
     ],
     "platformCommit": "enabled",
     "pre-commit": {
