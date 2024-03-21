@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
 name: 'Random Wait Action'
 description: 'A Github Action to introduce a random delay in a Job'
 author: 'Ali Sajid Imami'
