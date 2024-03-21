@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+
 import * as core from '@actions/core'
 import { wait } from './wait'
 

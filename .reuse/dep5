@@ -1,0 +1,74 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: random-wait-action
+Upstream-Contact: Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+Source: https://github.com/AliSajid/random-wait-action
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+# License: ...
+
+Files: renovate.json
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: tsconfig.json
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: package.json
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: dist/*
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: lib/*
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: .github/workflows/*.yaml
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: .eslintignore
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: .gitignore
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: .markdownlintignore
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: .prettierignore
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: .secrets.baseline
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: .gitleaksignore
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: .gitattributes
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: CODEOWNERS
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: CC0-1.0
+
+Files: *.json
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
+
+Files: pnpm-lock.yaml
+Copyright: 2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>
+License: MIT
