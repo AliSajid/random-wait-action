@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+
+SPDX-License-Identifier: MIT
+-->
+
 # Wait for a random amount of time
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/AliSajid/random-wait-action)

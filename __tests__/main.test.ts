@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+
 import { wait } from '../src/wait'
 import * as process from 'process'
 import * as cp from 'child_process'
