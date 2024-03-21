@@ -6,6 +6,9 @@ require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 
 "use strict";
 
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -68,6 +71,9 @@ run();
 
 "use strict";
 
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
