@@ -7,6 +7,13 @@
     "extends": [
         "plugin:github/recommended"
     ],
+    "ignoresPatterns": [
+        "dist/",
+"lib/",
+"node_modules/",
+"jest.config.js",
+"**/*.test.ts"
+    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 9,
