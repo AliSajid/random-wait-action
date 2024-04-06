@@ -102,7 +102,7 @@ repos:
                 - 'prettier-plugin-multiline-arrays@3.0.4'
             exclude: '^dist/.*$'
     - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: 'v8.56.0' # Use the sha / tag you want to point at
+      rev: 'v9.0.0' # Use the sha / tag you want to point at
       hooks:
           - id: eslint
             files: \.[jt]sx?$
