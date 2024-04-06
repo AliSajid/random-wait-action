@@ -83,7 +83,7 @@ repos:
                 - '.secrets.baseline'
             exclude: 'pnpm-lock.yaml'
     - repo: https://github.com/sirosen/texthooks
-      rev: 0.6.4
+      rev: 0.6.6
       hooks:
           - id: fix-smartquotes
           - id: fix-ligatures
@@ -102,7 +102,7 @@ repos:
                 - 'prettier-plugin-multiline-arrays@3.0.4'
             exclude: '^dist/.*$'
     - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: 'v8.56.0' # Use the sha / tag you want to point at
+      rev: 'v9.0.0' # Use the sha / tag you want to point at
       hooks:
           - id: eslint
             files: \.[jt]sx?$
