@@ -8,8 +8,8 @@ SPDX-License-Identifier: MIT
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/AliSajid/random-wait-action)
 ![GitHub](https://img.shields.io/github/license/AliSajid/random-wait-action)
-[![Tests](https://github.com/AliSajid/random-wait-action/actions/workflows/test.yml/badge.svg)](https://github.com/AliSajid/random-wait-action/actions/workflows/test.yml)
-[![CodeQL](https://github.com/AliSajid/random-wait-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/AliSajid/random-wait-action/actions/workflows/codeql-analysis.yml)
+[![Build Tests](https://github.com/AliSajid/random-wait-action/actions/workflows/test.yaml/badge.svg)](https://github.com/AliSajid/random-wait-action/actions/workflows/test.yaml)
+[![CodeQL](https://github.com/AliSajid/random-wait-action/actions/workflows/codeql-analysis.yaml/badge.svg)](https://github.com/AliSajid/random-wait-action/actions/workflows/codeql-analysis.yaml)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![REUSE status](https://api.reuse.software/badge/github.com/AliSajid/random-wait-action)](https://api.reuse.software/info/github.com/AliSajid/random-wait-action)
 
