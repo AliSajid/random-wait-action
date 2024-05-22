@@ -5,7 +5,7 @@
 exclude: '^dist/.*$'
 repos:
     - repo: https://github.com/commitizen-tools/commitizen
-      rev: v3.24.0
+      rev: v3.27.0
       hooks:
           - id: commitizen
 
@@ -111,7 +111,7 @@ repos:
             exclude: '^dist/.*$'
 
     - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: 'v9.1.1' # Use the sha / tag you want to point at
+      rev: 'v9.3.0' # Use the sha / tag you want to point at
       hooks:
           - id: eslint
             files: \.[jt]sx?$
