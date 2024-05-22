@@ -14,6 +14,38 @@
         "dependencies",
         "renovate"
     ],
+    "lockFileMaintenance": {
+        "automerge": true,
+        "automergeType": "pr",
+        "branchTopic": "lock-file-maintenance",
+        "commitMessageAction": "Lock file maintenance",
+        "enabled": true,
+        "prBodyDefinitions": {
+            "Change": "All locks refreshed"
+        },
+        "rebaseStalePrs": true,
+        "recreateWhen": "always"
+    },
+    "packageRules": [
+        {
+            "automerge": true,
+            "matchManagers": [
+                "pre-commit"
+            ]
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies",
+                "minor",
+                "patch"
+            ],
+            "matchPackagePrefixes": [
+                "eslint",
+                "prettier",
+                "jest"
+            ]
+        }
+    ],
     "platformCommit": true,
     "pre-commit": {
         "enabled": true
