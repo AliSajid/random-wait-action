@@ -109,3 +109,11 @@ repos:
                 - eslint@8.56.0
                 - eslint-plugin-github@4.4.0
                 - eslint-plugin-jest@27.1.3
+    - repo: https://github.com/fsfe/reuse-tool
+      rev: 'v3.0.2'
+      hooks:
+          - id: reuse
+    - repo: https://github.com/renovatebot/pre-commit-hooks
+      rev: 37.374.3
+      hooks:
+          - id: renovate-config-validator
