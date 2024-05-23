@@ -34,6 +34,7 @@
             ]
         },
         {
+            "automerge": true,
             "matchDepTypes": [
                 "devDependencies",
                 "minor",
