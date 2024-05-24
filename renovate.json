@@ -1,44 +1,24 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "assignees": [
-        "AliSajid"
-    ],
-    "baseBranches": [
-        "next"
-    ],
+    "assignees": ["AliSajid"],
+    "baseBranches": ["next"],
     "extends": [
         "config:best-practices",
         "group:definitelyTyped",
         "group:githubArtifactActions",
         "group:linters"
     ],
-    "labels": [
-        "dependencies",
-        "renovate"
-    ],
+    "labels": ["dependencies", "renovate"],
     "packageRules": [
         {
             "automerge": true,
-            "matchManagers": [
-                "pre-commit",
-                "github-actions"
-            ],
-            "schedule": [
-                "before 5am every weekday"
-            ]
+            "matchManagers": ["pre-commit", "github-actions"],
+            "schedule": ["before 5am every weekday"]
         },
         {
             "automerge": true,
-            "matchDepTypes": [
-                "devDependencies",
-                "minor",
-                "patch"
-            ],
-            "matchPackagePatterns": [
-                "eslint",
-                "prettier",
-                "jest"
-            ]
+            "matchDepTypes": ["devDependencies", "minor", "patch"],
+            "matchPackagePatterns": ["eslint", "prettier", "jest"]
         }
     ],
     "platformCommit": true,
@@ -46,8 +26,9 @@
         "enabled": true
     },
     "schedule": [
-        "after 10pm and before 5am every weekday",
-        "every weekend"
+        "after 10pm every weekday",
+        "every weekend",
+        "before 5am every weekday"
     ],
     "semanticCommits": "enabled"
 }
