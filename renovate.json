@@ -7,9 +7,11 @@
         "next"
     ],
     "extends": [
-        "config:recommended"
+        "config:best-practices",
+        "group:definitelyTyped",
+        "group:githubArtifactActions",
+        "group:linters"
     ],
-    "gitAuthor": "Imamiland CI Bot <152510784+imamiland-bot@users.noreply.github.com>",
     "labels": [
         "dependencies",
         "renovate"
@@ -18,7 +20,11 @@
         {
             "automerge": true,
             "matchManagers": [
-                "pre-commit"
+                "pre-commit",
+                "github-actions"
+            ],
+            "schedule": [
+                "before 5am every weekday"
             ]
         },
         {
@@ -28,7 +34,7 @@
                 "minor",
                 "patch"
             ],
-            "matchPackagePrefixes": [
+            "matchPackagePatterns": [
                 "eslint",
                 "prettier",
                 "jest"
