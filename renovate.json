@@ -7,30 +7,24 @@
         "next"
     ],
     "extends": [
-        "config:recommended"
+        "config:best-practices",
+        "group:definitelyTyped",
+        "group:githubArtifactActions",
+        "group:linters"
     ],
-    "gitAuthor": "Imamiland CI Bot <152510784+imamiland-bot@users.noreply.github.com>",
     "labels": [
         "dependencies",
         "renovate"
     ],
-    "lockFileMaintenance": {
-        "automerge": true,
-        "automergeType": "pr",
-        "branchTopic": "lock-file-maintenance",
-        "commitMessageAction": "Lock file maintenance",
-        "enabled": true,
-        "prBodyDefinitions": {
-            "Change": "All locks refreshed"
-        },
-        "rebaseStalePrs": true,
-        "recreateWhen": "always"
-    },
     "packageRules": [
         {
             "automerge": true,
             "matchManagers": [
-                "pre-commit"
+                "pre-commit",
+                "github-actions"
+            ],
+            "schedule": [
+                "before 5am every weekday"
             ]
         },
         {
@@ -40,7 +34,7 @@
                 "minor",
                 "patch"
             ],
-            "matchPackagePrefixes": [
+            "matchPackagePatterns": [
                 "eslint",
                 "prettier",
                 "jest"
