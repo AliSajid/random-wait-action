@@ -16,7 +16,7 @@
         "js-yaml": "4.1.0",
         "prettier": "3.2.5",
         "prettier-plugin-multiline-arrays": "3.0.4",
-        "ts-jest": "29.1.3",
+        "ts-jest": "29.1.4",
         "typescript": "5.4.5"
     },
     "keywords": [
