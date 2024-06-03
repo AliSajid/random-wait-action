@@ -111,7 +111,7 @@ repos:
             exclude: '^dist/.*$'
 
     - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: 'v9.3.0' # Use the sha / tag you want to point at
+      rev: 'v9.4.0' # Use the sha / tag you want to point at
       hooks:
           - id: eslint
             files: \.[jt]sx?$
