@@ -13,10 +13,10 @@ importers:
         version: 1.10.1
     devDependencies:
       '@types/jest':
-        specifier: ^29.5.12
+        specifier: 29.5.12
         version: 29.5.12
       '@types/node':
-        specifier: ^20.11.30
+        specifier: 20.12.7
         version: 20.12.7
       '@typescript-eslint/parser':
         specifier: 7.13.0
