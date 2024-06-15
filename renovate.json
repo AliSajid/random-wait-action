@@ -8,7 +8,6 @@
         "group:githubArtifactActions",
         "group:linters"
     ],
-    "labels": ["dependencies", "renovate"],
     "packageRules": [
         {
             "automerge": true,
@@ -17,8 +16,16 @@
         },
         {
             "automerge": true,
-            "matchDepTypes": ["devDependencies", "minor", "patch"],
-            "matchPackagePatterns": ["eslint", "prettier", "jest"]
+            "matchDepTypes": [
+                "devDependencies",
+                "minor",
+                "patch"
+            ],
+            "matchPackagePrefixes": [
+                "eslint",
+                "prettier",
+                "jest"
+            ]
         }
     ],
     "platformCommit": true,
