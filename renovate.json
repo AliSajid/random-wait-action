@@ -1,25 +1,18 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "assignees": [
-        "AliSajid"
-    ],
-    "baseBranches": [
-        "next"
-    ],
+    "assignees": ["AliSajid"],
+    "baseBranches": ["next"],
     "extends": [
-        "config:recommended"
-    ],
-    "gitAuthor": "Imamiland CI Bot <152510784+imamiland-bot@users.noreply.github.com>",
-    "labels": [
-        "dependencies",
-        "renovate"
+        "config:best-practices",
+        "group:definitelyTyped",
+        "group:githubArtifactActions",
+        "group:linters"
     ],
     "packageRules": [
         {
             "automerge": true,
-            "matchManagers": [
-                "pre-commit"
-            ]
+            "matchManagers": ["pre-commit", "github-actions"],
+            "schedule": ["before 5am every weekday"]
         },
         {
             "automerge": true,
@@ -40,8 +33,9 @@
         "enabled": true
     },
     "schedule": [
-        "after 10pm and before 5am every weekday",
-        "every weekend"
+        "after 10pm every weekday",
+        "every weekend",
+        "before 5am every weekday"
     ],
     "semanticCommits": "enabled"
 }
