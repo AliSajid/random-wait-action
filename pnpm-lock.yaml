@@ -40,8 +40,8 @@ importers:
         specifier: 28.6.0
         version: 28.6.0(@typescript-eslint/eslint-plugin@7.3.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0)(jest@29.7.0(@types/node@20.14.2))(typescript@5.4.5)
       globals:
-        specifier: 15.4.0
-        version: 15.4.0
+        specifier: 15.6.0
+        version: 15.6.0
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.2)
@@ -1180,8 +1180,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.4.0:
-    resolution: {integrity: sha512-unnwvMZpv0eDUyjNyh9DH/yxUaRYrEjW/qK4QcdrHg3oO11igUQrCSgODHEqxlKg8v2CD2Sd7UkqqEBoz5U7TQ==}
+  globals@15.6.0:
+    resolution: {integrity: sha512-UzcJi88Hw//CurUIRa9Jxb0vgOCcuD/MNjwmXp633cyaRKkCWACkoqHCtfZv43b1kqXGg/fpOa8bwgacCeXsVg==}
     engines: {node: '>=18'}
 
   globalthis@1.0.3:
@@ -3653,7 +3653,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.4.0: {}
+  globals@15.6.0: {}
 
   globalthis@1.0.3:
     dependencies:
