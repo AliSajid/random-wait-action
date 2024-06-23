@@ -1,7 +1,11 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "assignees": ["AliSajid"],
-    "baseBranches": ["next"],
+    "assignees": [
+        "AliSajid"
+    ],
+    "baseBranches": [
+        "next"
+    ],
     "extends": [
         "config:best-practices",
         "group:definitelyTyped",
@@ -12,8 +16,15 @@
     "packageRules": [
         {
             "automerge": true,
-            "matchManagers": ["pre-commit", "github-actions"],
-            "schedule": ["before 5am every weekday"]
+            "groupName": "Pre-Commit and GitHub Actions",
+            "groupSlug": "pre-commit-and-github-actions",
+            "matchManagers": [
+                "pre-commit",
+                "github-actions"
+            ],
+            "schedule": [
+                "before 5am every weekday"
+            ]
         },
         {
             "automerge": true,
