@@ -2,9 +2,12 @@
     "cSpell.words": [
         "autofix",
         "automerge",
+        "camelcase",
+        "commitizen",
         "Imamiland",
         "Sajid",
-        "schneegans"
+        "schneegans",
+        "tseslint"
     ],
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
