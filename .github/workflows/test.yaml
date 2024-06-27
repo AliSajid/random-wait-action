@@ -10,35 +10,44 @@ jobs:
     build: # make sure build/ci work properly
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-            - uses: pnpm/action-setup@v3
+            - name: Checkout repository
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+            - name: Set up pnpm
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   run_install: false
+
             - name: Get pnpm store directory
               id: pnpm-cache
               run: |
                   echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-            - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-              name: Setup pnpm cache
+
+            - name: Setup pnpm cache
+              uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
               with:
                   path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
                   key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
                   restore-keys: |
                       ${{ runner.os }}-pnpm-store-
-            - run: |
-                  pnpm install
-            - run: |
-                  pnpm run all
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Run the build process
+              run: pnpm run all
+
     test-with-params: # make sure the action works on a clean machine without building
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - uses: ./
               with:
                   minimum: 1
                   maximum: 5
+
     test-without-params: # make sure the action works on a clean machine without building
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - uses: ./
