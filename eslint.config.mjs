@@ -2,41 +2,31 @@
 //
 // SPDX-License-Identifier: MIT
 
-import jest from 'eslint-plugin-jest'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import jestPlugin from 'eslint-plugin-jest'
 import globals from 'globals'
-import tsParser from '@typescript-eslint/parser'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
 
-export default [
+export default tseslint.config(
     {
         ignores: [
-            'dist/',
-            'lib/',
-            'node_modules/',
-            'jest.config.js',
-            '__tests__/'
+            '**/dist/**',
+            '**/lib/**'
         ]
     },
-    {
-        files: [
-            '**/*.ts',
-            '**/*.cts',
-            '**.*.mts'
-        ]
-    },
+    eslint.configs.recommended,
     {
         plugins: {
-            jest,
-            '@typescript-eslint': typescriptEslint
+            jest: jestPlugin,
+            '@typescript-eslint': tseslint.plugin
         },
 
         languageOptions: {
             globals: {
-                ...jest.environments.globals.globals,
                 ...globals.node
             },
 
-            parser: tsParser,
+            parser: tseslint.parser,
             ecmaVersion: 9,
             sourceType: 'module',
 
@@ -98,5 +88,14 @@ export default [
             'no-unused-vars': 'off',
             semi: 'off'
         }
+    },
+    {
+        files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
+        ...tseslint.configs.disableTypeChecked
+    },
+    {
+        // enable jest rules on test files
+        files: ['__test__/**'],
+        ...jestPlugin.configs['flat/recommended']
     }
-]
+)
