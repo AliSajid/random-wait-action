@@ -1,12 +1,20 @@
 {
     "cSpell.words": [
+        "Autobuild",
         "autofix",
         "automerge",
+        "bidi",
         "camelcase",
+        "codeql",
         "commitizen",
+        "cycjimmy",
+        "gitleaks",
         "Imamiland",
+        "linebreak",
+        "markdownlint",
         "Sajid",
         "schneegans",
+        "smartquotes",
         "tseslint"
     ],
     "editor.formatOnPaste": true,
