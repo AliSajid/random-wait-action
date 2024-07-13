@@ -46,11 +46,11 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       prettier:
-        specifier: 3.3.2
-        version: 3.3.2
+        specifier: 3.3.3
+        version: 3.3.3
       prettier-plugin-multiline-arrays:
         specifier: 3.0.6
-        version: 3.0.6(prettier@3.3.2)
+        version: 3.0.6(prettier@3.3.3)
       ts-jest:
         specifier: 29.2.2
         version: 29.2.2(@babel/core@7.24.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.7))(jest@29.7.0(@types/node@20.14.10))(typescript@5.5.3)
@@ -1414,8 +1414,8 @@ packages:
     peerDependencies:
       prettier: '>=3.0.0'
 
-  prettier@3.3.2:
-    resolution: {integrity: sha512-rAVeHYMcv8ATV5d508CFdn+8/pHPpXeIid1DdrPwXnaAdH7cqjVbpJaT5eq4yRAFU/lsbwYwSF/n5iNrdJHPQA==}
+  prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3412,13 +3412,13 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-multiline-arrays@3.0.6(prettier@3.3.2):
+  prettier-plugin-multiline-arrays@3.0.6(prettier@3.3.3):
     dependencies:
       '@augment-vir/common': 28.2.4
-      prettier: 3.3.2
+      prettier: 3.3.3
       proxy-vir: 1.0.0
 
-  prettier@3.3.2: {}
+  prettier@3.3.3: {}
 
   pretty-format@29.7.0:
     dependencies:
