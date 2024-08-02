@@ -42,14 +42,15 @@
                 "minor",
                 "patch"
             ],
-            "matchPackagePatterns": [
+            "matchPackagePrefixes": [
                 "eslint",
+                "stylistic",
                 "prettier",
                 "jest"
             ]
         }
     ],
-    "platformCommit": true,
+    "platformCommit": "enabled",
     "pre-commit": {
         "enabled": true
     },
