@@ -28,11 +28,20 @@
         },
         {
             "automerge": true,
-            "matchDepTypes": ["devDependencies", "minor", "patch"],
-            "matchPackagePatterns": ["eslint", "prettier", "jest"]
+            "matchDepTypes": [
+                "devDependencies",
+                "minor",
+                "patch"
+            ],
+            "matchPackagePrefixes": [
+                "eslint",
+                "stylistic",
+                "prettier",
+                "jest"
+            ]
         }
     ],
-    "platformCommit": true,
+    "platformCommit": "enabled",
     "pre-commit": {
         "enabled": true
     },
