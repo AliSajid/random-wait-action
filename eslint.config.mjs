@@ -6,6 +6,7 @@ import jestPlugin from 'eslint-plugin-jest'
 import globals from 'globals'
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default tseslint.config(
     {
@@ -18,7 +19,8 @@ export default tseslint.config(
     {
         plugins: {
             jest: jestPlugin,
-            '@typescript-eslint': tseslint.plugin
+            '@typescript-eslint': tseslint.plugin,
+            '@stylistic': stylistic
         },
 
         languageOptions: {
@@ -55,7 +57,7 @@ export default tseslint.config(
                 }
             ],
 
-            '@typescript-eslint/func-call-spacing': ['error', 'never'],
+            '@stylistic/func-call-spacing': ['error', 'never'],
             '@typescript-eslint/no-array-constructor': 'error',
             '@typescript-eslint/no-empty-interface': 'error',
             '@typescript-eslint/no-explicit-any': 'error',
@@ -78,8 +80,8 @@ export default tseslint.config(
             '@typescript-eslint/promise-function-async': 'error',
             '@typescript-eslint/require-array-sort-compare': 'error',
             '@typescript-eslint/restrict-plus-operands': 'error',
-            '@typescript-eslint/semi': ['error', 'never'],
-            '@typescript-eslint/type-annotation-spacing': 'error',
+            '@stylistic/semi': ['error', 'never'],
+            '@stylistic/type-annotation-spacing': 'error',
             '@typescript-eslint/unbound-method': 'error',
             camelcase: 'off',
             'eslint-comments/no-use': 'off',
