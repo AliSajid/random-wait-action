@@ -39,9 +39,18 @@ to add a random delay to each job so that they would hit the API at different ti
 
 ## Example usage
 
+### Simple Specification
+
 ```yaml
 name: Random Wait
-uses: AliSajid/random-wait-action@v1
+uses: AliSajid/random-wait-action@v2
+```
+
+## Pinned SHA version with explicit parameters
+
+```yaml
+name: Add Random Waiting Time
+uses: AliSajid/random-wait-action@cb425203a562475bca039ba4dbf90c7f9ac790f4 # v2.4.1
 with:
     minimum: 1
     maximum: 10
