@@ -101,7 +101,7 @@ repos:
                 - 'prettier@3.1.0'
                 - 'prettier-plugin-multiline-arrays@3.0.4'
     - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: 'v8.56.0' # Use the sha / tag you want to point at
+      rev: 'v9.9.0' # Use the sha / tag you want to point at
       hooks:
           - id: eslint
             files: \.[jt]sx?$
@@ -114,6 +114,6 @@ repos:
       hooks:
           - id: reuse
     - repo: https://github.com/renovatebot/pre-commit-hooks
-      rev: 38.20.1
+      rev: 38.25.0
       hooks:
           - id: renovate-config-validator
