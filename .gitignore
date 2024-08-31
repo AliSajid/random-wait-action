@@ -98,5 +98,8 @@ Thumbs.db
 __tests__/runner/*
 lib/**/*
 
-# Ignore ltex-specific neovim files
+# Ignore ltex-specific neovim filesa
 ltex.*
+
+# Ignmore megalinter files
+megalinter-reports/*
