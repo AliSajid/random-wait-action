@@ -38,7 +38,7 @@
         "url": "git+https://github.com/AliSajid/random-wait-action"
     },
     "scripts": {
-        "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
+        "all": "pnpm run build && pnpm run format && pnpm run lint && pnpm run package && pnpm test",
         "build": "tsc",
         "format": "prettier --write '**/*.ts'",
         "format-check": "prettier --check '**/*.ts'",
