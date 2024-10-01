@@ -17,6 +17,9 @@ importers:
             '@eslint/js':
                 specifier: 9.11.1
                 version: 9.11.1
+            '@fast-check/jest':
+                specifier: ^2.0.2
+                version: 2.0.2(@jest/expect@29.7.0)(@jest/globals@29.7.0)
             '@stylistic/eslint-plugin':
                 specifier: 2.8.0
                 version: 2.8.0(eslint@9.11.1)(typescript@5.6.2)
@@ -433,6 +436,21 @@ packages:
                 integrity: sha512-vH9PiIMMwvhCx31Af3HiGzsVNULDbyVkHXwlemn/B0TFj/00ho3y55efXrUZTfQipxoHC5u4xq6zblww1zm1Ig==
             }
         engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
+
+    '@fast-check/jest@2.0.2':
+        resolution:
+            {
+                integrity: sha512-MDBM3c18rvUo3r2VnUKG3eqWFnucuDC2kTuna3lQpn5nNwnsEtF//ewxUjmJEhSqN3crFDukrBK15rWLFoRYHw==
+            }
+        peerDependencies:
+            '@fast-check/worker': '>=0.0.7 <0.5.0'
+            '@jest/expect': '>=28.0.0'
+            '@jest/globals': '>=25.5.2'
+        peerDependenciesMeta:
+            '@fast-check/worker':
+                optional: true
+            '@jest/expect':
+                optional: true
 
     '@fastify/busboy@2.1.1':
         resolution:
@@ -3195,6 +3213,13 @@ snapshots:
     '@eslint/plugin-kit@0.2.0':
         dependencies:
             levn: 0.4.1
+
+    '@fast-check/jest@2.0.2(@jest/expect@29.7.0)(@jest/globals@29.7.0)':
+        dependencies:
+            '@jest/globals': 29.7.0
+            fast-check: 3.22.0
+        optionalDependencies:
+            '@jest/expect': 29.7.0
 
     '@fastify/busboy@2.1.1': {}
 
