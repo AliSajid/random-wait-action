@@ -12,6 +12,8 @@ SPDX-License-Identifier: MIT
 [![CodeQL](https://github.com/AliSajid/random-wait-action/actions/workflows/codeql-analysis.yaml/badge.svg)](https://github.com/AliSajid/random-wait-action/actions/workflows/codeql-analysis.yaml)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![REUSE status](https://api.reuse.software/badge/github.com/AliSajid/random-wait-action)](https://api.reuse.software/info/github.com/AliSajid/random-wait-action)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9500/badge)](https://www.bestpractices.dev/projects/9500)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/AliSajid/random-wait-action/badge)](https://scorecard.dev/viewer/?uri=github.com/AliSajid/random-wait-action)
 
 This is a very simple GitHub action that lets you wait for a random amount of
 time in seconds. This is useful for workflows that have a lot of parallel jobs
