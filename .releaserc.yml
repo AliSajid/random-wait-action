@@ -22,6 +22,3 @@ plugins:
             - path: 'dist/attestation.jsonl'
               label: 'Attestation file'
               name: 'attestation-${nextRelease.version}.jsonl'
-    - - '@semantic-release/exec'
-      - prepareCmd: 'echo "Preparing to release ${nextRelease.version}"'
-        generateNotes: 'cz bump --files-only'
