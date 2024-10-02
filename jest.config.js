@@ -5,6 +5,7 @@
 module.exports = {
     clearMocks: true,
     moduleFileExtensions: ['js', 'ts'],
+    setupFiles: ['./jest.setup.ts'],
     testTimeout: 30000,
     testMatch: ['**/*.test.ts'],
     transform: {
