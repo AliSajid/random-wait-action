@@ -1,4 +1,12 @@
-export async function wait(minimum: number, maximum: number): Promise<string> {
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+
+const limit: number = 100
+
+type WaitPromise = Promise
+
+export async function wait(minimum: number, maximum: number): WaitPromise {
     return new Promise(resolve => {
         if (isNaN(minimum) || isNaN(maximum)) {
             throw new Error('minimum and maximum must be numbers')
