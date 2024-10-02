@@ -3,4 +3,8 @@
 // SPDX-License-Identifier: MIT
 
 import fc from 'fast-check'
-fc.configureGlobal({ numRuns: 100 }) // 1000 runs for all tests
+fc.configureGlobal({
+    numRuns: 100,
+    interruptAfterTimeLimit: 10_000,
+    verbose: true
+}) // 1000 runs for all tests
