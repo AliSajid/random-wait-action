@@ -32,7 +32,7 @@
     "license": "MIT",
     "main": "lib/main.js",
     "name": "random-wait-action",
-    "packageManager": "pnpm@9.12.1",
+    "packageManager": "pnpm@9.12.0",
     "private": true,
     "repository": {
         "type": "git",
