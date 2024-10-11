@@ -116,3 +116,9 @@ path = "CONTRIBUTING.md"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "sonar-project.properties"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-License-Identifier = "CC0-1.0"
