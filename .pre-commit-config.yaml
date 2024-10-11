@@ -102,12 +102,12 @@ repos:
           - id: gitleaks
 
     - repo: https://github.com/pre-commit/mirrors-prettier
-      rev: 'v3.1.0'
+      rev: 'v4.0.0-alpha.8'
       hooks:
           - id: prettier
             additional_dependencies:
-                - 'prettier@3.1.0'
-                - 'prettier-plugin-multiline-arrays@3.0.4'
+                - 'prettier@3.3.3'
+                - 'prettier-plugin-multiline-arrays@3.0.6'
             exclude: '^dist/.*$'
 
     - repo: https://github.com/pre-commit/mirrors-eslint
@@ -123,6 +123,6 @@ repos:
       hooks:
           - id: reuse
     - repo: https://github.com/renovatebot/pre-commit-hooks
-      rev: 38.114.0
+      rev: 38.116.0
       hooks:
           - id: renovate-config-validator
