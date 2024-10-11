@@ -23,6 +23,8 @@ export async function wait(minimum: number, maximum: number): WaitPromise {
         const secs =
             Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
 
-        setTimeout(() => resolve(String(secs)), secs * 1000)
+        setTimeout(() => {
+            return resolve(String(secs))
+        }, secs * 1000)
     })
 }

@@ -101,5 +101,5 @@ lib/**/*
 # Ignore ltex-specific neovim filesa
 ltex.*
 
-# Ignmore megalinter files
+# Ignore megalinter files
 megalinter-reports/*
