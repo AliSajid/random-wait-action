@@ -44,7 +44,8 @@
         "format-check": "prettier --check '**/*.ts'",
         "lint": "eslint",
         "package": "ncc build --source-map --license licenses.txt",
-        "test": "jest"
+        "test": "jest",
+        "test:coverage": "jest --coverage"
     },
     "version": "2.5.0-next.1"
 }
