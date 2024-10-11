@@ -1,45 +1,46 @@
 name: Run SonarCloud scan
 on:
-    push:
-        branches:
-            - main
-            - next
-    pull_request:
-        types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+      - next
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-    sonarcloud:
-        name: SonarCloud
-        runs-on: ubuntu-latest
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
-              with:
-                  egress-policy: audit
-            - name: Checkout repository
-              uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
-              with:
-                  fetch-depth: 0
-            - name: Set up pnpm
-              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
-              with:
-                  run_install: false
-            - name: Get pnpm store directory
-              id: pnpm-cache
-              run: |
-                  echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-            - name: Setup pnpm cache
-              uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4.1.1
-              with:
-                  path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
-            - name: Install dependencies
-              run: pnpm install
-            - name: Generate Coverage Report
-              run: pnpm run test:coverage
-            - name: SonarCloud Scan
-              uses: SonarSource/sonarcloud-github-action@master
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+        with:
+          run_install: false
+          version: 9.11.0
+
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
+        with:
+          node-version: 20.x
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Generate Coverage Report
+        run: pnpm run test:coverage
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
