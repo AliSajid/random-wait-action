@@ -147,31 +147,31 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/AliSaj
 
 ### Your First Code Contribution
 
-This project uses [mise](https://mise.jdx.dev/) for managing the environment, including the installed node version.
-For dependency management we use [pnpm](https://pnpm.io/). This allows for easy bootstrapping of the project
-in your environment.
+This project uses three tools to establish consistent environment and enforce coding guidelines. These tools are:
 
-For quicker setup, there's a [Gitpod](https://www.gitpod.io/) link and associated container that can be used to
-quickly start hacking.
+1. [pnpm](https://pnpm.io/): This is a JavaScript package manager that allows fast and non-redundant installation of packages.
+1. [mise](https://mise.jdx.dev/): This is a tool we use to ensure there is a consistent environment for everyone working on the project.
+1. [pre-commit](https://pre-commit.com): This ensures that the project state, formatting and coding practices are consistent.
+
+Follow the following steps to set up the environment:
+
+1. Install all of the above tools as needed for your platform.
+2. Clone the git repository.
+3. Run `pnpm i` inside the cloned git repository.
+4. Run `mise install` inside the cloned git repository.
+5. Run `pre-commit install --install-hooks`
+
+This should set you up for working on this project.
 
 ### Improving The Documentation
 
-<!-- TODO
-Updating, improving and correcting the documentation
-
--->
+All documentation is added next to the necessary code us JSDoc. This documentation is generated into a website using [Docusaurus](https://docusaurus.io) using a pre-commit hook.
 
 ## Style Guides
 
 ### Commit Messages
 
 This project uses the `conventional-commit` standard for commit messages.
-
-## Join The Project Team
-
-<!-- TODO -->
-
-<!-- omit in toc -->
 
 ## Governance
 
