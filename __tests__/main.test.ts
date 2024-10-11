@@ -37,6 +37,14 @@ test('fails if minimum is higher than limit', async () => {
     )
 })
 
+test('fails if maximum is lower than minimum', async () => {
+    const minimum = 10
+    const maximum = 5
+    await expect(wait(minimum, maximum)).rejects.toThrow(
+        'minimum must be less than maximum'
+    )
+})
+
 test('fails if maximum is higher than limit', async () => {
     const minimum = 100
     const maximum = 101
