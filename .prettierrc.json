@@ -1,6 +1,15 @@
 {
     "arrowParens": "avoid",
     "bracketSpacing": true,
+    "overrides": [
+        {
+            "files": "*.yaml",
+            "options": {
+                "singleQuote": false,
+                "tabWidth": 2
+            }
+        }
+    ],
     "plugins": [
         "prettier-plugin-multiline-arrays"
     ],
