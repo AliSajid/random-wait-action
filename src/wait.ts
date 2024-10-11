@@ -4,7 +4,7 @@
 
 const limit: number = 100
 
-type WaitPromise = Promise
+type WaitPromise = Promise<String>
 
 export async function wait(minimum: number, maximum: number): WaitPromise {
     return new Promise(resolve => {
