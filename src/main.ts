@@ -5,7 +5,7 @@
 import * as core from '@actions/core'
 import { wait } from './wait'
 
-async function run(): Promise {
+async function run(): Promise<void> {
     try {
         const minimum: string = core.getInput('minimum')
         const maximum: string = core.getInput('maximum')
