@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+
+SPDX-License-Identifier: MIT
+-->
+
 <!-- omit in toc -->
 
 # Contributing to Random Wait GitHub Action
@@ -166,6 +172,10 @@ This project uses the `conventional-commit` standard for commit messages.
 <!-- TODO -->
 
 <!-- omit in toc -->
+
+## Governance
+
+This project uses a benevolent dictator model where the project owner makes all final decisions. As the project grows, more contributors may take on formal roles in governance. See [GOVERNANCE.md](GOVERNANCE.md) for details.
 
 ## Attribution
 
