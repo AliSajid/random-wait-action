@@ -177,6 +177,10 @@ This project uses the `conventional-commit` standard for commit messages.
 
 This project uses a benevolent dictator model where the project owner makes all final decisions. As the project grows, more contributors may take on formal roles in governance. See [GOVERNANCE.md](GOVERNANCE.md) for details.
 
+## Governance
+
+This project uses a benevolent dictator model where the project owner makes all final decisions. As the project grows, more contributors may take on formal roles in governance. See [GOVERNANCE.md](GOVERNANCE.md) for details.
+
 ## Attribution
 
 This guide is based on the **contributing-gen**. [Make your own](https://github.com/bttger/contributing-gen)!
