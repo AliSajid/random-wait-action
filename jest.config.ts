@@ -2,7 +2,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-module.exports = {
+import type { Config } from 'jest'
+
+const config: Config = {
     clearMocks: true,
     moduleFileExtensions: ['js', 'ts'],
     testTimeout: 30000,
@@ -21,3 +23,5 @@ module.exports = {
     ],
     verbose: true
 }
+
+export default config
