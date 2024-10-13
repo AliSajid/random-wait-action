@@ -136,6 +136,7 @@
         "ts-jest": "29.2.5",
         "ts-node": "10.9.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "typescript": "5.6.3",
         "typescript-eslint": "8.8.1"
     },
@@ -381,6 +382,11 @@
 ||||||| parent of 281ce97 (chore(deps): pin dependency ts-node to 10.9.2)
 =======
         "typescript": "5.6.2",
+||||||| parent of 510b80b (chore(deps): update dependency typescript to v5.6.3)
+        "typescript": "5.6.2",
+=======
+        "typescript": "5.6.3",
+>>>>>>> 510b80b (chore(deps): update dependency typescript to v5.6.3)
         "typescript-eslint": "8.8.1"
     },
     "keywords": [
