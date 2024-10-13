@@ -5,6 +5,14 @@
 import * as core from '@actions/core'
 import { wait } from './wait'
 
+/**
+ * Main function to execute the action.
+ *
+ * This function retrieves the 'minimum' and 'maximum' input values, waits for a random amount of time
+ * between these values, and then sets the output 'wait_time' to the number of seconds waited.
+ *
+ * @returns {Promise<void>} A promise that resolves when the function completes.
+ */
 async function run(): Promise<void> {
     try {
         const minimum: string = core.getInput('minimum')
