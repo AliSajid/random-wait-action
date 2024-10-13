@@ -107,19 +107,5 @@ ltex.*
 # Ignore megalinter files
 megalinter-reports/*
 
-guide/book
-
-# Vale styles directory
-styles/*
-
-## Unignore the vocabulary files
-!styles/config/
-
-# Scripts
-!scripts/
-
-!tsconfig.base.json
-
-# mise local configuration
-.mise.local.toml
-.mise.*.local.toml
+# Ignore generated docusaurus files
+docs/docs
