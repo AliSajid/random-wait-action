@@ -273,6 +273,7 @@ repos:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of ab834d7 (chore(deps): update pre-commit and github actions)
 =======
 >>>>>>> ab834d7 (chore(deps): update pre-commit and github actions)
@@ -280,6 +281,9 @@ repos:
 <<<<<<< HEAD
 =======
 >>>>>>> c93bcc4 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1)
+||||||| parent of f0d5414 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
+=======
+>>>>>>> f0d5414 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: "v9.12.0" # Use the sha / tag you want to point at
     hooks:
@@ -297,6 +301,7 @@ repos:
     hooks:
       - id: renovate-config-validator
         language_version: 20.18.0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 ||||||| parent of 264d497 (chore(deps): update pre-commit and github actions)
@@ -569,3 +574,41 @@ repos:
       - id: renovate-config-validator
         language_version: 20.18.0
 >>>>>>> c023eab (fix: update the bundles of generated files)
+||||||| parent of f0d5414 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
+=======
+||||||| parent of 74162b3 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
+    - repo: https://github.com/pre-commit/mirrors-eslint
+      rev: 'v9.12.0' # Use the sha / tag you want to point at
+      hooks:
+          - id: eslint
+            files: \.[jt]sx?$
+            additional_dependencies:
+                - eslint@9.5.0
+                - eslint-plugin-jest@28.6.0
+    - repo: https://github.com/fsfe/reuse-tool
+      rev: 'v4.0.3'
+      hooks:
+          - id: reuse
+    - repo: https://github.com/renovatebot/pre-commit-hooks
+      rev: 38.119.0
+      hooks:
+          - id: renovate-config-validator
+=======
+    - repo: https://github.com/pre-commit/mirrors-eslint
+      rev: 'v9.12.0' # Use the sha / tag you want to point at
+      hooks:
+          - id: eslint
+            files: \.[jt]sx?$
+            additional_dependencies:
+                - eslint@9.5.0
+                - eslint-plugin-jest@28.6.0
+    - repo: https://github.com/fsfe/reuse-tool
+      rev: 'v4.0.3'
+      hooks:
+          - id: reuse
+    - repo: https://github.com/renovatebot/pre-commit-hooks
+      rev: 38.120.1
+      hooks:
+          - id: renovate-config-validator
+>>>>>>> 74162b3 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
+>>>>>>> f0d5414 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
