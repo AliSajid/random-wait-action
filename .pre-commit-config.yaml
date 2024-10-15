@@ -255,10 +255,22 @@ repos:
       - id: fix-ligatures
       - id: forbid-bidi-controls
 
+<<<<<<< HEAD
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.21.0
     hooks:
       - id: gitleaks
+||||||| parent of 3c251f6 (chore(deps): update pre-commit and github actions)
+    - repo: https://github.com/zricethezav/gitleaks
+      rev: v8.20.1
+      hooks:
+          - id: gitleaks
+=======
+    - repo: https://github.com/zricethezav/gitleaks
+      rev: v8.21.0
+      hooks:
+          - id: gitleaks
+>>>>>>> 3c251f6 (chore(deps): update pre-commit and github actions)
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: "v4.0.0-alpha.8"
@@ -607,7 +619,7 @@ repos:
       hooks:
           - id: reuse
     - repo: https://github.com/renovatebot/pre-commit-hooks
-      rev: 38.120.1
+      rev: 38.122.0
       hooks:
           - id: renovate-config-validator
 >>>>>>> 74162b3 (chore(deps): update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1)
