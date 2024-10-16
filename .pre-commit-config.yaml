@@ -36,25 +36,25 @@ repos:
           - --markdown-linebreak-ext=md
       - id: check-added-large-files
 
-  - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v3.6.0
-    hooks:
-      - id: conventional-pre-commit
-        args:
-          - build
-          - chore
-          - ci
-          - docs
-          - feat
-          - fix
-          - perf
-          - refactor
-          - revert
-          - style
-          - test
-          - bump
-        stages:
-          - commit-msg
+    - repo: https://github.com/compilerla/conventional-pre-commit
+      rev: v3.5.0
+      hooks:
+          - id: conventional-pre-commit
+            args:
+                - build
+                - chore
+                - ci
+                - docs
+                - feat
+                - fix
+                - perf
+                - refactor
+                - revert
+                - style
+                - test
+                - bump
+            stages:
+                - commit-msg
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.5
@@ -123,6 +123,6 @@ repos:
       hooks:
           - id: reuse
     - repo: https://github.com/renovatebot/pre-commit-hooks
-      rev: 38.122.0
+      rev: 38.124.1
       hooks:
           - id: renovate-config-validator
