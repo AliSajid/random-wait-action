@@ -36,6 +36,7 @@ repos:
           - --markdown-linebreak-ext=md
       - id: check-added-large-files
 
+<<<<<<< HEAD
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v3.6.0
     hooks:
@@ -55,6 +56,47 @@ repos:
           - bump
         stages:
           - commit-msg
+||||||| parent of 264d497 (chore(deps): update pre-commit and github actions)
+    - repo: https://github.com/compilerla/conventional-pre-commit
+      rev: v3.5.0
+      hooks:
+          - id: conventional-pre-commit
+            args:
+                - build
+                - chore
+                - ci
+                - docs
+                - feat
+                - fix
+                - perf
+                - refactor
+                - revert
+                - style
+                - test
+                - bump
+            stages:
+                - commit-msg
+=======
+    - repo: https://github.com/compilerla/conventional-pre-commit
+      rev: v3.6.0
+      hooks:
+          - id: conventional-pre-commit
+            args:
+                - build
+                - chore
+                - ci
+                - docs
+                - feat
+                - fix
+                - perf
+                - refactor
+                - revert
+                - style
+                - test
+                - bump
+            stages:
+                - commit-msg
+>>>>>>> 264d497 (chore(deps): update pre-commit and github actions)
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.5
@@ -110,6 +152,7 @@ repos:
           - "prettier-plugin-multiline-arrays@3.0.6"
         exclude: "^dist/.*$"
 
+<<<<<<< HEAD
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: "v9.12.0" # Use the sha / tag you want to point at
     hooks:
@@ -127,3 +170,38 @@ repos:
     hooks:
       - id: renovate-config-validator
         language_version: 20.18.0
+||||||| parent of 264d497 (chore(deps): update pre-commit and github actions)
+    - repo: https://github.com/pre-commit/mirrors-eslint
+      rev: 'v9.12.0' # Use the sha / tag you want to point at
+      hooks:
+          - id: eslint
+            files: \.[jt]sx?$
+            additional_dependencies:
+                - eslint@9.5.0
+                - eslint-plugin-jest@28.6.0
+    - repo: https://github.com/fsfe/reuse-tool
+      rev: 'v4.0.3'
+      hooks:
+          - id: reuse
+    - repo: https://github.com/renovatebot/pre-commit-hooks
+      rev: 38.124.1
+      hooks:
+          - id: renovate-config-validator
+=======
+    - repo: https://github.com/pre-commit/mirrors-eslint
+      rev: 'v9.12.0' # Use the sha / tag you want to point at
+      hooks:
+          - id: eslint
+            files: \.[jt]sx?$
+            additional_dependencies:
+                - eslint@9.5.0
+                - eslint-plugin-jest@28.6.0
+    - repo: https://github.com/fsfe/reuse-tool
+      rev: 'v4.0.3'
+      hooks:
+          - id: reuse
+    - repo: https://github.com/renovatebot/pre-commit-hooks
+      rev: 38.124.3
+      hooks:
+          - id: renovate-config-validator
+>>>>>>> 264d497 (chore(deps): update pre-commit and github actions)
