@@ -8,6 +8,8 @@ importers:
       "@docusaurus/core":
         specifier: 3.6.3
         version: 3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.11)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
+        specifier: 3.6.2
+        version: 3.6.2(@mdx-js/react@3.1.0(@types/react@18.3.11)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
       "@docusaurus/preset-classic":
         specifier: 3.6.3
         version: 3.6.3(@algolia/client-search@4.24.0)(@mdx-js/react@3.1.0(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.7.2)
@@ -12277,6 +12279,7 @@ snapshots:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+
   wrap-ansi@8.1.0:
     dependencies:
       ansi-styles: 6.2.1
