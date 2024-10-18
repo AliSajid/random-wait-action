@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-
 'use strict'
 var __importDefault =
     (this && this.__importDefault) ||
