@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
+||||||| parent of 67a7c2b (docs: add docs)
+=======
+>>>>>>> 67a7c2b (docs: add docs)
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs'
 
 /**
