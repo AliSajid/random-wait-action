@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 [tools]
-node = "18"
+node = "20"
 
 [env]
 NODE_OPTIONS="--experimental-vm-modules"
