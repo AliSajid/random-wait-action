@@ -55,25 +55,6 @@ repos:
           - bump
         stages:
           - commit-msg
-  - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v3.6.0
-    hooks:
-      - id: conventional-pre-commit
-        args:
-          - build
-          - chore
-          - ci
-          - docs
-          - feat
-          - fix
-          - perf
-          - refactor
-          - revert
-          - style
-          - test
-          - bump
-        stages:
-          - commit-msg
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.5
@@ -90,23 +71,6 @@ repos:
           - --config=$(pwd)/.yamllint.yml
         stages:
           - commit-msg
-
-  - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
-    hooks:
-      - id: forbid-crlf
-      - id: remove-crlf
-      - id: forbid-tabs
-      - id: remove-tabs
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
-    hooks:
-      - id: yamllint
-        args:
-          - --config=$(pwd)/.yamllint.yml
-        stages:
-          - commit-msg
-
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.42.0
     hooks:
