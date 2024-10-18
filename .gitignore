@@ -105,4 +105,5 @@ ltex.*
 megalinter-reports/*
 
 # Ignore generated docusaurus files
+!docs/
 docs/docs
