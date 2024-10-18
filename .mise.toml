@@ -6,4 +6,4 @@
 node = "22"
 
 [env]
-NODE_OPTIONS="--experimental-vm-modules"
+NODE_OPTIONS = "--experimental-vm-modules"
