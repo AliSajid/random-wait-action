@@ -2,127 +2,128 @@
 #
 # SPDX-License-Identifier: MIT
 
-exclude: '^dist/.*$'
+exclude: "^dist/.*$"
 repos:
-    - repo: https://github.com/commitizen-tools/commitizen
-      rev: v3.29.1
-      hooks:
-          - id: commitizen
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.29.1
+    hooks:
+      - id: commitizen
 
-    - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v5.0.0
-      hooks:
-          - id: check-json
-          - id: no-commit-to-branch
-            args:
-                - --branch
-                - main
-                - --branch
-                - next
-          - id: check-merge-conflict
-          - id: check-toml
-          - id: check-xml
-          - id: check-yaml
-          - id: end-of-file-fixer
-          - id: mixed-line-ending
-            args:
-                - --fix=no
-          - id: pretty-format-json
-            args:
-                - --indent=4
-                - --autofix
-          - id: trailing-whitespace
-            args:
-                - --markdown-linebreak-ext=md
-          - id: check-added-large-files
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-json
+      - id: no-commit-to-branch
+        args:
+          - --branch
+          - main
+          - --branch
+          - next
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - --fix=no
+      - id: pretty-format-json
+        args:
+          - --indent=4
+          - --autofix
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+      - id: check-added-large-files
 
-    - repo: https://github.com/compilerla/conventional-pre-commit
-      rev: v3.6.0
-      hooks:
-          - id: conventional-pre-commit
-            args:
-                - build
-                - chore
-                - ci
-                - docs
-                - feat
-                - fix
-                - perf
-                - refactor
-                - revert
-                - style
-                - test
-                - bump
-            stages:
-                - commit-msg
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.6.0
+    hooks:
+      - id: conventional-pre-commit
+        args:
+          - build
+          - chore
+          - ci
+          - docs
+          - feat
+          - fix
+          - perf
+          - refactor
+          - revert
+          - style
+          - test
+          - bump
+        stages:
+          - commit-msg
 
-    - repo: https://github.com/Lucas-C/pre-commit-hooks
-      rev: v1.5.5
-      hooks:
-          - id: forbid-crlf
-          - id: remove-crlf
-          - id: forbid-tabs
-          - id: remove-tabs
-    - repo: https://github.com/adrienverge/yamllint
-      rev: v1.35.1
-      hooks:
-          - id: yamllint
-            args:
-                - --config=$(pwd)/.yamllint.yml
-            stages:
-                - commit-msg
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.5
+    hooks:
+      - id: forbid-crlf
+      - id: remove-crlf
+      - id: forbid-tabs
+      - id: remove-tabs
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args:
+          - --config=$(pwd)/.yamllint.yml
+        stages:
+          - commit-msg
 
-    - repo: https://github.com/igorshubovych/markdownlint-cli
-      rev: v0.42.0
-      hooks:
-          - id: markdownlint
-            args:
-                - --ignore
-                - CHANGELOG.md
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.42.0
+    hooks:
+      - id: markdownlint
+        args:
+          - --ignore
+          - CHANGELOG.md
 
-    - repo: https://github.com/Yelp/detect-secrets
-      rev: v1.5.0
-      hooks:
-          - id: detect-secrets
-            args:
-                - '--baseline'
-                - '.secrets.baseline'
-            exclude: 'pnpm-lock.yaml'
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args:
+          - "--baseline"
+          - ".secrets.baseline"
+        exclude: "pnpm-lock.yaml"
 
-    - repo: https://github.com/sirosen/texthooks
-      rev: 0.6.7
-      hooks:
-          - id: fix-smartquotes
-          - id: fix-ligatures
-          - id: forbid-bidi-controls
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.6.7
+    hooks:
+      - id: fix-smartquotes
+      - id: fix-ligatures
+      - id: forbid-bidi-controls
 
-    - repo: https://github.com/zricethezav/gitleaks
-      rev: v8.21.0
-      hooks:
-          - id: gitleaks
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.21.0
+    hooks:
+      - id: gitleaks
 
-    - repo: https://github.com/pre-commit/mirrors-prettier
-      rev: 'v4.0.0-alpha.8'
-      hooks:
-          - id: prettier
-            additional_dependencies:
-                - 'prettier@3.3.3'
-                - 'prettier-plugin-multiline-arrays@3.0.6'
-            exclude: '^dist/.*$'
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v4.0.0-alpha.8"
+    hooks:
+      - id: prettier
+        additional_dependencies:
+          - "prettier@3.3.3"
+          - "prettier-plugin-multiline-arrays@3.0.6"
+        exclude: "^dist/.*$"
 
-    - repo: https://github.com/pre-commit/mirrors-eslint
-      rev: 'v9.12.0' # Use the sha / tag you want to point at
-      hooks:
-          - id: eslint
-            files: \.[jt]sx?$
-            additional_dependencies:
-                - eslint@9.5.0
-                - eslint-plugin-jest@28.6.0
-    - repo: https://github.com/fsfe/reuse-tool
-      rev: 'v4.0.3'
-      hooks:
-          - id: reuse
-    - repo: https://github.com/renovatebot/pre-commit-hooks
-      rev: 38.126.1
-      hooks:
-          - id: renovate-config-validator
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: "v9.12.0" # Use the sha / tag you want to point at
+    hooks:
+      - id: eslint
+        files: \.[jt]sx?$
+        additional_dependencies:
+          - eslint@9.5.0
+          - eslint-plugin-jest@28.6.0
+  - repo: https://github.com/fsfe/reuse-tool
+    rev: "v4.0.3"
+    hooks:
+      - id: reuse
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 38.122.0
+    hooks:
+      - id: renovate-config-validator
+        language_version: 20.18.0
