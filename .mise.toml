@@ -12,23 +12,7 @@
 # Run `mise install` to install all tools
 
 [tools]
-# Runtime (Node.js 22 for GitHub Actions compatibility)
-node = "20.17.0"
-
-# Package manager (locked version for consistency)
-pnpm = "10.18.3"
-"ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
-
-# Python tools
-python = "3.12"
-pre-commit = "4.3.0"
-
-# Documentation tooling
-"cargo:mdbook" = "0.4.44"
-
-# =============================================================================
-# Environment Variables
-# =============================================================================
+node = "18"
 
 [env]
 # Node.js VM modules for ESM compatibility
