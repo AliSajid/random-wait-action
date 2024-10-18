@@ -37,6 +37,7 @@ repos:
       - id: check-added-large-files
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v3.6.0
     hooks:
@@ -97,6 +98,47 @@ repos:
             stages:
                 - commit-msg
 >>>>>>> 264d497 (chore(deps): update pre-commit and github actions)
+||||||| parent of e2016dd (fix: update the bundles of generated files)
+    - repo: https://github.com/compilerla/conventional-pre-commit
+      rev: v3.6.0
+      hooks:
+          - id: conventional-pre-commit
+            args:
+                - build
+                - chore
+                - ci
+                - docs
+                - feat
+                - fix
+                - perf
+                - refactor
+                - revert
+                - style
+                - test
+                - bump
+            stages:
+                - commit-msg
+=======
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.6.0
+    hooks:
+      - id: conventional-pre-commit
+        args:
+          - build
+          - chore
+          - ci
+          - docs
+          - feat
+          - fix
+          - perf
+          - refactor
+          - revert
+          - style
+          - test
+          - bump
+        stages:
+          - commit-msg
+>>>>>>> e2016dd (fix: update the bundles of generated files)
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.5
@@ -153,6 +195,7 @@ repos:
         exclude: "^dist/.*$"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: "v9.12.0" # Use the sha / tag you want to point at
     hooks:
@@ -205,3 +248,48 @@ repos:
       hooks:
           - id: renovate-config-validator
 >>>>>>> 264d497 (chore(deps): update pre-commit and github actions)
+||||||| parent of e2016dd (fix: update the bundles of generated files)
+    - repo: https://github.com/pre-commit/mirrors-prettier
+      rev: 'v4.0.0-alpha.8'
+      hooks:
+          - id: prettier
+            additional_dependencies:
+                - 'prettier@3.3.3'
+                - 'prettier-plugin-multiline-arrays@3.0.6'
+            exclude: '^dist/.*$'
+
+    - repo: https://github.com/pre-commit/mirrors-eslint
+      rev: 'v9.12.0' # Use the sha / tag you want to point at
+      hooks:
+          - id: eslint
+            files: \.[jt]sx?$
+            additional_dependencies:
+                - eslint@9.5.0
+                - eslint-plugin-jest@28.6.0
+    - repo: https://github.com/fsfe/reuse-tool
+      rev: 'v4.0.3'
+      hooks:
+          - id: reuse
+    - repo: https://github.com/renovatebot/pre-commit-hooks
+      rev: 38.124.3
+      hooks:
+          - id: renovate-config-validator
+=======
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: "v9.12.0" # Use the sha / tag you want to point at
+    hooks:
+      - id: eslint
+        files: \.[jt]sx?$
+        additional_dependencies:
+          - eslint@9.5.0
+          - eslint-plugin-jest@28.6.0
+  - repo: https://github.com/fsfe/reuse-tool
+    rev: "v4.0.3"
+    hooks:
+      - id: reuse
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 38.122.0
+    hooks:
+      - id: renovate-config-validator
+        language_version: 20.18.0
+>>>>>>> e2016dd (fix: update the bundles of generated files)
