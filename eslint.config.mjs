@@ -12,7 +12,8 @@ export default tseslint.config(
     {
         ignores: [
             '**/dist/**',
-            '**/lib/**'
+            '**/lib/**',
+            'docs/**'
         ]
     },
     eslint.configs.recommended,
