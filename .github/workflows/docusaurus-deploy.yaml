@@ -22,13 +22,7 @@ jobs:
         with:
           run_install: false
 
-<<<<<<< HEAD
       - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
-||||||| parent of 67a7c2b (docs: add docs)
-      - uses: actions/setup-node@v4
-=======
-      - uses: actions/setup-node@v4
->>>>>>> 67a7c2b (docs: add docs)
         with:
           node-version: 18
           cache: pnpm
@@ -37,14 +31,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build website
-<<<<<<< HEAD
         run: pnpm run build
         working-directory: docs
-||||||| parent of 67a7c2b (docs: add docs)
-        run: yarn build
-=======
-        run: pnpm build
->>>>>>> 67a7c2b (docs: add docs)
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
