@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
+||||||| parent of 67a7c2b (docs: add docs)
+=======
+>>>>>>> 67a7c2b (docs: add docs)
 'use strict'
 var __importDefault =
     (this && this.__importDefault) ||
