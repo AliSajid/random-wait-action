@@ -12,6 +12,7 @@
         "node_modules",
         "**/*.test.ts",
         "megalinter-reports/**/*.js",
-        "jest.config.ts"
+        "jest.config.ts",
+        "docs"
     ]
 }
