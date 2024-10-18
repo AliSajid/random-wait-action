@@ -44,6 +44,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(4708));
 const wait_1 = __nccwpck_require__(9140);
+/**
+ * Main function to execute the action.
+ *
+ * This function retrieves the 'minimum' and 'maximum' input values, waits for a random amount of time
+ * between these values, and then sets the output 'wait_time' to the number of seconds waited.
+ *
+ * @returns {Promise<void>} A promise that resolves when the function completes.
+ */
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -86,6 +94,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.wait = wait;
 const limit = 100;
+/**
+ * Waits for a random amount of time between the specified minimum and maximum values.
+ *
+ * @param {number} minimum - The minimum number of seconds to wait.
+ * @param {number} maximum - The maximum number of seconds to wait.
+ * @returns {Promise<string>} A promise that resolves to the number of seconds waited as a string.
+ * @throws {Error} If the minimum or maximum values are not numbers.
+ * @throws {Error} If the minimum value is greater than the maximum value.
+ * @throws {Error} If the minimum or maximum values are greater than the limit (100).
+ */
 function wait(minimum, maximum) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise(resolve => {
