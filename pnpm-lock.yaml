@@ -49,8 +49,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       jsdoc-to-markdown:
-        specifier: 9.0.2
-        version: 9.0.2
+        specifier: 9.0.3
+        version: 9.0.3
       prettier:
         specifier: 3.4.1
         version: 3.4.1
@@ -71,6 +71,11 @@ importers:
         version: 8.10.0(eslint@9.13.0)(typescript@5.6.3)
 
 packages:
+
+  '@75lb/jsdoc-node23-fix@4.0.3':
+    resolution: {integrity: sha512-ZfrAPNDK0/6EzHVDNfD8TrVY+kyqAzVeHmQ71QPbBonrumJrpkGn2fuZn6TdCz1JmbAiOSbRtfTMV+rWP3qQCw==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
 
   '@actions/core@1.11.1':
     resolution: {integrity: sha512-hXJCSrkwfA46Vd9Z3q4cpEpHB1rL5NG04+/rbqW9d3+CSvtB1tYe8UTpAlixa1vj0m/ULglfEK2UKxMGxCxv5A==}
@@ -1373,8 +1378,8 @@ packages:
   js2xmlparser@4.0.2:
     resolution: {integrity: sha512-6n4D8gLlLf1n5mNLQPRfViYzu9RATblzPEtm1SthMX1Pjao0r9YI9nw7ZIfRxQMERS87mcswrg+r/OYrPRX6jA==}
 
-  jsdoc-api@9.3.1:
-    resolution: {integrity: sha512-pgZ5nrLnzF8Swxbv5OV8RYAoM/S3Cbf1UHncNYMRCQwU4KlCfg5bz5/VZlg0a1EATSHclIBf9Hm55GkXz0VItA==}
+  jsdoc-api@9.3.2:
+    resolution: {integrity: sha512-lyb9L8JMIOu+C9MEbxNXCM2JWV1x4BAZMDNf6RnC3YXImH4yul9Ot/AgbIVhniM/nw8dB835z+JizncnZ//cpg==}
     engines: {node: '>=12.17'}
     peerDependencies:
       '@75lb/nature': latest
@@ -1386,8 +1391,8 @@ packages:
     resolution: {integrity: sha512-MQA+lCe3ioZd0uGbyB3nDCDZcKgKC7m/Ivt0LgKZdUoOlMJxUWJQ3WI6GeyHp9ouznKaCjlp7CU9sw5k46yZTw==}
     engines: {node: '>=12'}
 
-  jsdoc-to-markdown@9.0.2:
-    resolution: {integrity: sha512-4T/7sCxq5RDXT37inCpVLetXOyjaFCMtVYH4Yvyfk/0v2aksMn74FqYdtSOc/+wceu+5ItJop6krCtGZjpJTxA==}
+  jsdoc-to-markdown@9.0.3:
+    resolution: {integrity: sha512-WRJ0i3LO3/1EwlTujC/CA6TY+4X9d8x2sHRUbqnK2Oo9034+5F0JSV/8ec+rks8zlHNxwz3OyzWUIavcr/YKUQ==}
     engines: {node: '>=12.17'}
     hasBin: true
     peerDependencies:
@@ -1395,11 +1400,6 @@ packages:
     peerDependenciesMeta:
       '@75lb/nature':
         optional: true
-
-  jsdoc@4.0.3:
-    resolution: {integrity: sha512-Nu7Sf35kXJ1MWDZIMAuATRQTg1iIPdzh7tqJ6jjvaU/GfDf+qi5UV8zJR3Mo+/pYFvm8mzay4+6O5EWigaQBQw==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
 
   jsesc@3.0.2:
     resolution: {integrity: sha512-xKqzzWXDttJuOcawBt4KnKHHIf5oQ/Cxax+0PWFG+DFDgHNAdi+TXECADI+RYiFUMmx8792xsMbbgXj4CwnP4g==}
@@ -2008,6 +2008,24 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
+
+  '@75lb/jsdoc-node23-fix@4.0.3':
+    dependencies:
+      '@babel/parser': 7.25.8
+      '@jsdoc/salty': 0.2.8
+      '@types/markdown-it': 14.1.2
+      bluebird: 3.7.2
+      catharsis: 0.9.0
+      escape-string-regexp: 2.0.0
+      js2xmlparser: 4.0.2
+      klaw: 3.0.0
+      markdown-it: 14.1.0
+      markdown-it-anchor: 8.6.7(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+      marked: 4.3.0
+      mkdirp: 1.0.4
+      requizzle: 0.2.4
+      strip-json-comments: 3.1.1
+      underscore: 1.13.7
 
   '@actions/core@1.11.1':
     dependencies:
@@ -3696,13 +3714,13 @@ snapshots:
     dependencies:
       xmlcreate: 2.0.4
 
-  jsdoc-api@9.3.1:
+  jsdoc-api@9.3.2:
     dependencies:
+      '@75lb/jsdoc-node23-fix': 4.0.3
       array-back: 6.2.2
       cache-point: 3.0.0
       current-module-paths: 1.1.2
       file-set: 5.2.2
-      jsdoc: 4.0.3
       object-to-spawn-args: 2.0.1
       walk-back: 5.1.1
 
@@ -3715,34 +3733,16 @@ snapshots:
     transitivePeerDependencies:
       - '@75lb/nature'
 
-  jsdoc-to-markdown@9.0.2:
+  jsdoc-to-markdown@9.0.3:
     dependencies:
       array-back: 6.2.2
       command-line-args: 6.0.0
       command-line-usage: 7.0.3
       config-master: 3.1.0
       dmd: 7.0.7
-      jsdoc-api: 9.3.1
+      jsdoc-api: 9.3.2
       jsdoc-parse: 6.2.4
       walk-back: 5.1.1
-
-  jsdoc@4.0.3:
-    dependencies:
-      '@babel/parser': 7.25.8
-      '@jsdoc/salty': 0.2.8
-      '@types/markdown-it': 14.1.2
-      bluebird: 3.7.2
-      catharsis: 0.9.0
-      escape-string-regexp: 2.0.0
-      js2xmlparser: 4.0.2
-      klaw: 3.0.0
-      markdown-it: 14.1.0
-      markdown-it-anchor: 8.6.7(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
-      marked: 4.3.0
-      mkdirp: 1.0.4
-      requizzle: 0.2.4
-      strip-json-comments: 3.1.1
-      underscore: 1.13.7
 
   jsesc@3.0.2: {}
 
