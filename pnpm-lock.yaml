@@ -49,8 +49,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       jsdoc-to-markdown:
-        specifier: 9.0.4
-        version: 9.0.4
+        specifier: 9.0.5
+        version: 9.0.5
       prettier:
         specifier: 3.4.1
         version: 3.4.1
@@ -804,9 +804,14 @@ packages:
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
-  command-line-args@6.0.0:
-    resolution: {integrity: sha512-zDdHxHzlCp/gA1gy0VtPK3YL0Aob3ijJdwZ7H3HSl55hh8EziLtRlyj/od8EGRJfX8IjussC/mQkScl2Ms5Suw==}
+  command-line-args@6.0.1:
+    resolution: {integrity: sha512-Jr3eByUjqyK0qd8W0SGFW1nZwqCaNCtbXjRo2cRJC1OYxWl3MZ5t1US3jq+cO4sPavqgw4l9BMGX0CBe+trepg==}
     engines: {node: '>=12.20'}
+    peerDependencies:
+      '@75lb/nature': latest
+    peerDependenciesMeta:
+      '@75lb/nature':
+        optional: true
 
   command-line-usage@7.0.3:
     resolution: {integrity: sha512-PqMLy5+YGwhMh1wS04mVG44oqDsgyLRSKJBdOo1bnYhMKBW65gZF1dRp2OZRhiTjgUHljy99qkO7bsctLaw35Q==}
@@ -1373,8 +1378,8 @@ packages:
   js2xmlparser@4.0.2:
     resolution: {integrity: sha512-6n4D8gLlLf1n5mNLQPRfViYzu9RATblzPEtm1SthMX1Pjao0r9YI9nw7ZIfRxQMERS87mcswrg+r/OYrPRX6jA==}
 
-  jsdoc-api@9.3.3:
-    resolution: {integrity: sha512-DSMq0K/pSuzBEwE+w7f2ZXNnkBAJoL+ytfMr6Cl0CV5CDk0fy4jb2BAdkPFZqJlmtdIVNWpeb8cPj5+S4rp9Qw==}
+  jsdoc-api@9.3.4:
+    resolution: {integrity: sha512-di8lggLACEttpyAZ6WjKKafUP4wC4prAGjt40nMl7quDpp2nD7GmLt6/WxhRu9Q6IYoAAySsNeidBXYVAMwlqg==}
     engines: {node: '>=12.17'}
     peerDependencies:
       '@75lb/nature': latest
@@ -1386,8 +1391,8 @@ packages:
     resolution: {integrity: sha512-MQA+lCe3ioZd0uGbyB3nDCDZcKgKC7m/Ivt0LgKZdUoOlMJxUWJQ3WI6GeyHp9ouznKaCjlp7CU9sw5k46yZTw==}
     engines: {node: '>=12'}
 
-  jsdoc-to-markdown@9.0.4:
-    resolution: {integrity: sha512-kPlZ0Zw8l05LBS3kYNExwlUTOv2e38zuRnMgEbyOt15YSFrQuAPS7hnJbqmh//OCfy3wSaj2Gjy08bkrzic7xw==}
+  jsdoc-to-markdown@9.0.5:
+    resolution: {integrity: sha512-lqvKgSva+wGUusRz6xtImdM92lrjHNmyi7LyWdLMQBijCnoFwTZjNF3zUqm6uahsSaRALQNyzGXmjaef6IUE4g==}
     engines: {node: '>=12.17'}
     hasBin: true
     peerDependencies:
@@ -2956,14 +2961,12 @@ snapshots:
 
   color-name@1.1.4: {}
 
-  command-line-args@6.0.0:
+  command-line-args@6.0.1:
     dependencies:
       array-back: 6.2.2
       find-replace: 5.0.2
       lodash.camelcase: 4.3.0
       typical: 7.2.0
-    transitivePeerDependencies:
-      - '@75lb/nature'
 
   command-line-usage@7.0.3:
     dependencies:
@@ -3696,7 +3699,7 @@ snapshots:
     dependencies:
       xmlcreate: 2.0.4
 
-  jsdoc-api@9.3.3:
+  jsdoc-api@9.3.4:
     dependencies:
       array-back: 6.2.2
       cache-point: 3.0.0
@@ -3715,14 +3718,14 @@ snapshots:
     transitivePeerDependencies:
       - '@75lb/nature'
 
-  jsdoc-to-markdown@9.0.4:
+  jsdoc-to-markdown@9.0.5:
     dependencies:
       array-back: 6.2.2
-      command-line-args: 6.0.0
+      command-line-args: 6.0.1
       command-line-usage: 7.0.3
       config-master: 3.1.0
       dmd: 7.0.7
-      jsdoc-api: 9.3.3
+      jsdoc-api: 9.3.4
       jsdoc-parse: 6.2.4
       walk-back: 5.1.1
 
