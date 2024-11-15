@@ -11,7 +11,7 @@
     "@types/eslint__js": "8.42.3",
     "@types/jest": "29.5.14",
     "@types/node": "22.9.0",
-    "@vercel/ncc": "0.38.2",
+    "@vercel/ncc": "0.38.3",
     "eslint": "9.15.0",
     "eslint-plugin-jest": "28.9.0",
     "globals": "15.12.0",
