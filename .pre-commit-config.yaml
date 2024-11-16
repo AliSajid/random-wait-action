@@ -119,7 +119,7 @@ repos:
           - eslint@9.5.0
           - eslint-plugin-jest@28.6.0
   - repo: https://github.com/fsfe/reuse-tool
-    rev: "v4.0.3"
+    rev: "v5.0.2"
     hooks:
       - id: reuse
   - repo: https://github.com/renovatebot/pre-commit-hooks
