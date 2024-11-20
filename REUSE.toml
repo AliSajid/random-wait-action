@@ -16,7 +16,7 @@ SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = "package.json"
+path = ["package.json", "docs/package.json"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
@@ -46,7 +46,7 @@ SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = ".gitignore"
+path = [".gitignore", "docs/.gitignore"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
@@ -94,7 +94,7 @@ SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = "pnpm-lock.yaml"
+path = ["pnpm-lock.yaml", "docs/pnpm-lock.yaml"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
@@ -109,13 +109,13 @@ SPDX-License-Identifier = "CC0-1.0"
 path = "CODE_OF_CONDUCT.md"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
+SPDX-License-Identifier = "MIT"
 
 [[annotations]]
 path = "CONTRIBUTING.md"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
+SPDX-License-Identifier = "MIT"
 
 [[annotations]]
 path = "sonar-project.properties"
