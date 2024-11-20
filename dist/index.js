@@ -42,8 +42,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core = __importStar(__nccwpck_require__(4708));
-const wait_1 = __nccwpck_require__(9140);
+const core = __importStar(__nccwpck_require__(9999));
+const wait_1 = __nccwpck_require__(6245);
 /**
  * Main function to execute the action.
  *
