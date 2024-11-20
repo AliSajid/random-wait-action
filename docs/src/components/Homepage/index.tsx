@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
-||||||| parent of 67a7c2b (docs: add docs)
-=======
->>>>>>> 67a7c2b (docs: add docs)
 import clsx from 'clsx'
 import Heading from '@theme/Heading'
 import styles from './styles.module.css'
