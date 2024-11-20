@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+
 import clsx from 'clsx'
 import Heading from '@theme/Heading'
 import styles from './styles.module.css'
