@@ -5,7 +5,6 @@
 import { themes as prismThemes } from 'prism-react-renderer'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
-import { warn } from 'console'
 
 const config: Config = {
     title: 'Random Wait Action',
@@ -21,7 +20,7 @@ const config: Config = {
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'Ali Sajid Imami', // Usually your GitHub org/user name.
+    organizationName: 'Imamiland', // Usually your GitHub org/user name.
     projectName: 'Random Wait Action', // Usually your repo name.
 
     onBrokenLinks: 'throw',
