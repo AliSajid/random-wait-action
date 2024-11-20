@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
@@ -23,36 +21,6 @@ const config: Config = {
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: 'Imamiland', // Usually your GitHub org/user name.
-||||||| parent of 67a7c2b (docs: add docs)
-=======
-||||||| parent of 8570590 (docs(reuse): added license information to the repository for REUSE compliance)
-=======
-// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-
->>>>>>> 8570590 (docs(reuse): added license information to the repository for REUSE compliance)
-import { themes as prismThemes } from 'prism-react-renderer'
-import type { Config } from '@docusaurus/types'
-import type * as Preset from '@docusaurus/preset-classic'
-import { warn } from 'console'
-
-const config: Config = {
-    title: 'Random Wait Action',
-    tagline:
-        'A simple GitHub Action to inject wait for a random amount of time',
-    favicon: 'img/favicon.ico',
-
-    // Set the production url of your site here
-    url: 'https://imamiland.com',
-    // Set the /<baseUrl>/ pathname under which your site is served
-    // For GitHub pages deployment, it is often '/<projectName>/'
-    baseUrl: '/random-wait-action/',
-
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'Ali Sajid Imami', // Usually your GitHub org/user name.
->>>>>>> 67a7c2b (docs: add docs)
     projectName: 'Random Wait Action', // Usually your repo name.
 
     onBrokenLinks: 'throw',
