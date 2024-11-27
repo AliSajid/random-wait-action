@@ -1,5 +1,4 @@
 name: Deploy site to GitHub Pages
-
 on:
   push:
     branches:
@@ -8,7 +7,6 @@ on:
     branches:
       - main
       - next
-
 jobs:
   build:
     name: Build Docusaurus Website
@@ -17,28 +15,23 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
-
       - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         with:
           run_install: false
-
       - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
-          node-version: 18
+          node-version: 20
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
+        working-directory: docs
       - name: Build website
         run: pnpm run build
         working-directory: docs
-
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: build
-
   deploy:
     name: Deploy to GitHub Pages
     needs: build
@@ -46,11 +39,9 @@ jobs:
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
