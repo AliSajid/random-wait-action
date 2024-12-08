@@ -5,7 +5,7 @@
 exclude: "^dist/.*$"
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.0.0
+    rev: v4.1.0
     hooks:
       - id: commitizen
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -114,7 +114,7 @@ repos:
     hooks:
       - id: reuse
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 39.46.0
+    rev: 39.57.4
     hooks:
       - id: renovate-config-validator
         language_version: 20.18.0
