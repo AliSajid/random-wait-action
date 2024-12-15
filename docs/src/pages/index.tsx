@@ -9,13 +9,14 @@ import Layout from '@theme/Layout'
 import Heading from '@theme/Heading'
 
 import styles from './index.module.css'
+import Homepage from '../components/Homepage'
 
 export default function Home(): JSX.Element {
     const { siteConfig } = useDocusaurusContext()
     return (
         <Layout
-            title={`Hello from ${siteConfig.title}`}
-            description="Description will go into a meta tag in <head />"
+            title={`${siteConfig.title} - Documentation`}
+            description="Documentation fot the Random Wait Action GitHub Action, a simple GitHub Action to inject wait for a random amount of time"
         >
             <main></main>
         </Layout>
