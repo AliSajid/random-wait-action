@@ -49,8 +49,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       jsdoc-to-markdown:
-        specifier: 9.0.5
-        version: 9.0.5
+        specifier: 9.1.1
+        version: 9.1.1
       prettier:
         specifier: 3.4.2
         version: 3.4.2
@@ -1429,8 +1429,8 @@ packages:
     resolution: {integrity: sha512-MQA+lCe3ioZd0uGbyB3nDCDZcKgKC7m/Ivt0LgKZdUoOlMJxUWJQ3WI6GeyHp9ouznKaCjlp7CU9sw5k46yZTw==}
     engines: {node: '>=12'}
 
-  jsdoc-to-markdown@9.0.5:
-    resolution: {integrity: sha512-lqvKgSva+wGUusRz6xtImdM92lrjHNmyi7LyWdLMQBijCnoFwTZjNF3zUqm6uahsSaRALQNyzGXmjaef6IUE4g==}
+  jsdoc-to-markdown@9.1.1:
+    resolution: {integrity: sha512-QqYVSo58iHXpD5Jwi1u4AFeuMcQp4jfk7SmWzvXKc3frM9Kop17/OHudmi0phzkT/K137Rlroc9Q0y+95XpUsw==}
     engines: {node: '>=12.17'}
     hasBin: true
     peerDependencies:
@@ -3785,7 +3785,7 @@ snapshots:
     transitivePeerDependencies:
       - '@75lb/nature'
 
-  jsdoc-to-markdown@9.0.5:
+  jsdoc-to-markdown@9.1.1:
     dependencies:
       array-back: 6.2.2
       command-line-args: 6.0.1
