@@ -7,9 +7,10 @@ SPDX-License-Identifier: MIT
 ---
 
 ## title: Markdown page example
+
 ---
-title: Markdown page example
----
+
+## title: Markdown page example
 
 ## Markdown page example
 
