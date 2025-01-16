@@ -34,15 +34,29 @@ const config: Config = {
         locales: ['en']
     },
 
+    /// Add typedoc plugin
+    plugins: [
+        [
+            'docusaurus-plugin-typedoc',
+
+            // Options
+            {
+                entryPoints: ['src/main.ts'],
+                tsconfig: 'tsconfig.json'
+            }
+        ]
+
+    ],
+
     presets: [
         [
             'classic',
             {
                 docs: {
-                    sidebarPath: './sidebars.ts'
+                    sidebarPath: './docs/sidebars.ts'
                 },
                 theme: {
-                    customCss: './src/css/custom.css'
+                    customCss: './docs/src/css/custom.css'
                 }
             } satisfies Preset.Options
 
@@ -52,7 +66,7 @@ const config: Config = {
 
     themeConfig: {
         // Replace with your project's social card
-        image: 'img/docusaurus-social-card.jpg',
+        image: 'docs/img/docusaurus-social-card.jpg',
         navbar: {
             title: 'Random Wait Action',
             items: [
@@ -91,7 +105,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Blog',
-                            to: '/blog'
+                            to: '/docs/intro'
                         },
                         {
                             label: 'GitHub',
