@@ -18,7 +18,9 @@ export default function Home(): JSX.Element {
             title={`${siteConfig.title} - Documentation`}
             description="Documentation fot the Random Wait Action GitHub Action, a simple GitHub Action to inject wait for a random amount of time"
         >
-            <main></main>
+            <main>
+                <h1> I am a big heading </h1>
+            </main>
         </Layout>
     )
 }
