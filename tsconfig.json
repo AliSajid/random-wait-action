@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
+        "baseUrl": "./docs",
         "esModuleInterop": true,
+        "jsx": "react-jsx",
         "module": "commonjs",
         "noImplicitAny": true,
         "outDir": "./lib",
@@ -12,6 +14,8 @@
         "node_modules",
         "**/*.test.ts",
         "megalinter-reports/**/*.js",
-        "jest.config.ts"
-    ]
+        "jest.config.ts",
+        "docs"
+    ],
+    "extends": "@docusaurus/tsconfig"
 }
