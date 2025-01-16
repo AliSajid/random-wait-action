@@ -55,8 +55,8 @@ importers:
         specifier: 3.4.2
         version: 3.4.2
       prettier-plugin-multiline-arrays:
-        specifier: 4.0.1
-        version: 4.0.1(prettier@3.4.2)
+        specifier: 4.0.2
+        version: 4.0.2(prettier@3.4.2)
       ts-jest:
         specifier: 29.2.5
         version: 29.2.5(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(jest@29.7.0(@types/node@22.10.7)(ts-node@10.9.2(@types/node@22.10.7)(typescript@5.7.2)))(typescript@5.7.2)
@@ -96,12 +96,16 @@ packages:
     resolution: {integrity: sha512-XkHv28mNA2bnQV66qzJMv2Wya7Ovd387DZHAjZ8N8J+nUdcMgbZVXK4W1nsmMFw5iS7fCQGmUYukwBcTXh8M4Q==}
     engines: {node: '>=22'}
 
+  '@augment-vir/assert@31.7.2':
+    resolution: {integrity: sha512-0p38nsPjYkjWIxbXuDpAg3Yb7Lau+T6B7cJE+aVx2pgTXa7qAOT++CVJZz1pLsoOhvqmHW/u1eOu+aj/HYRYsw==}
+    engines: {node: '>=22'}
+
   '@augment-vir/common@30.8.4':
     resolution: {integrity: sha512-3w4WJOQKycuHmSod0BMjVyrUjHlHj+6vmabKvtRT96mz+b9Rstqg2EfM4zzlkuoM2k9biAbjeYSllwpmf631uQ==}
     engines: {node: '>=22'}
 
-  '@augment-vir/common@31.2.0':
-    resolution: {integrity: sha512-K00yUD3LWCxJGTx0v7miKCLo+ljc3w3f8L4KWMZ/QQqACu+edZKE2v6KeFx5ULCwLulA/3iQQVZFEkdud7b6pQ==}
+  '@augment-vir/common@31.7.2':
+    resolution: {integrity: sha512-piunxXVUVqHWYGfwcViyaG7Df6yDOzPQ/gxcH8702m4WWvOv4VeYb1GDK+XORA0WhTsjN+5cbEESP2axI3VJuA==}
     engines: {node: '>=22'}
 
   '@augment-vir/core@30.8.4':
@@ -110,6 +114,10 @@ packages:
 
   '@augment-vir/core@31.2.0':
     resolution: {integrity: sha512-5ugzaqNGuubzHPjwI5P7S5COm9js8QSz4qUXGKDEsAqvCXr3agwMi/8ZKnVicIBOV2KqBp8vGwLdZD6talcP+w==}
+    engines: {node: '>=22'}
+
+  '@augment-vir/core@31.7.2':
+    resolution: {integrity: sha512-oA0wCAHO33HC/I69hDnJiwarH3DF7sHgS0HcojfyDWsxe/u8nhf0T2Mi6w0O3rkMjTDged3Q7cOeAL2n7hYZbg==}
     engines: {node: '>=22'}
 
   '@babel/code-frame@7.25.7':
@@ -287,6 +295,10 @@ packages:
 
   '@date-vir/duration@7.1.1':
     resolution: {integrity: sha512-eiSgx5uQbSlBWFyPEp8ED5AwG4c2htNVl4KVSX01iAwiBN1669LLVvKdaftPhZNCbLV6oKrAW9Vy0d+GeZiodA==}
+    engines: {node: '>=22'}
+
+  '@date-vir/duration@7.1.2':
+    resolution: {integrity: sha512-RpQ+29HisknHauOx7lhlNZVtVhprnvdD7JzL1Tlhqw+H6BLb34Jro51fpuVwyetJ5CeJ8LbOIDuUjx0ZlEid0A==}
     engines: {node: '>=22'}
 
   '@eslint-community/eslint-utils@4.4.0':
@@ -1714,8 +1726,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-multiline-arrays@4.0.1:
-    resolution: {integrity: sha512-NB51ZXCiuh6ojwwI8aJfePVv8gfqDI2Vz//bjTCPfFp+yumm8sxX5tlnGTHGe6DnWr2zKu3vcp5I6dcfjKYuaw==}
+  prettier-plugin-multiline-arrays@4.0.2:
+    resolution: {integrity: sha512-j8aWPMQl3QsTRR7e2HuNfwp429mB0IL1NQ8PjO0xq5W20O5L5h2XZ99vnqirceJizKhqhm8sOMmsmGcKEtlCFg==}
     engines: {node: '>=22'}
     peerDependencies:
       prettier: '>=3.0.0'
@@ -1961,6 +1973,10 @@ packages:
     resolution: {integrity: sha512-UJShLPYi1aWqCdq9HycOL/gwsuqda1OISdBO3t8RlXQC4QvtuIz4b5FCfe2dQIWEpmlRExKmcTBfP1r9bhY7ig==}
     engines: {node: '>=16'}
 
+  type-fest@4.32.0:
+    resolution: {integrity: sha512-rfgpoi08xagF3JSdtJlCwMq9DGNDE0IMh3Mkpc1wUypg9vPi786AiqeBBKcqvIkq42azsBM85N490fyZjeUftw==}
+    engines: {node: '>=16'}
+
   typed-event-target@4.0.2:
     resolution: {integrity: sha512-vIAqC5HN/yuAn4+K4MFB6QBz4pAjp3se55KkRIbxX+EjGRyBJwbVasj2jgzUDhYeda9b0YbDng2N11A/bXvYwA==}
     engines: {node: '>=22'}
@@ -2105,10 +2121,10 @@ snapshots:
   '@augment-vir/assert@30.8.4':
     dependencies:
       '@augment-vir/core': 30.8.4
-      '@date-vir/duration': 7.1.1
+      '@date-vir/duration': 7.1.2
       deep-eql: 5.0.2
       expect-type: 1.1.0
-      type-fest: 4.30.2
+      type-fest: 4.32.0
 
   '@augment-vir/assert@31.2.0':
     dependencies:
@@ -2118,32 +2134,40 @@ snapshots:
       expect-type: 1.1.0
       type-fest: 4.30.2
 
+  '@augment-vir/assert@31.7.2':
+    dependencies:
+      '@augment-vir/core': 31.7.2
+      '@date-vir/duration': 7.1.2
+      deep-eql: 5.0.2
+      expect-type: 1.1.0
+      type-fest: 4.32.0
+
   '@augment-vir/common@30.8.4':
     dependencies:
       '@augment-vir/assert': 30.8.4
       '@augment-vir/core': 30.8.4
-      '@date-vir/duration': 7.1.1
+      '@date-vir/duration': 7.1.2
       ansi-styles: 6.2.1
       json5: 2.2.3
-      type-fest: 4.30.2
+      type-fest: 4.32.0
       typed-event-target: 4.0.2
 
-  '@augment-vir/common@31.2.0':
+  '@augment-vir/common@31.7.2':
     dependencies:
-      '@augment-vir/assert': 31.2.0
-      '@augment-vir/core': 31.2.0
-      '@date-vir/duration': 7.1.1
+      '@augment-vir/assert': 31.7.2
+      '@augment-vir/core': 31.7.2
+      '@date-vir/duration': 7.1.2
       ansi-styles: 6.2.1
       json5: 2.2.3
-      type-fest: 4.30.2
+      type-fest: 4.32.0
       typed-event-target: 4.0.2
 
   '@augment-vir/core@30.8.4':
     dependencies:
-      '@date-vir/duration': 7.1.1
+      '@date-vir/duration': 7.1.2
       browser-or-node: 3.0.0
       json5: 2.2.3
-      type-fest: 4.30.2
+      type-fest: 4.32.0
 
   '@augment-vir/core@31.2.0':
     dependencies:
@@ -2151,6 +2175,13 @@ snapshots:
       browser-or-node: 3.0.0
       json5: 2.2.3
       type-fest: 4.30.2
+
+  '@augment-vir/core@31.7.2':
+    dependencies:
+      '@date-vir/duration': 7.1.2
+      browser-or-node: 3.0.0
+      json5: 2.2.3
+      type-fest: 4.32.0
 
   '@babel/code-frame@7.25.7':
     dependencies:
@@ -2362,6 +2393,12 @@ snapshots:
       '@types/luxon': 3.4.2
       luxon: 3.5.0
       type-fest: 4.30.2
+
+  '@date-vir/duration@7.1.2':
+    dependencies:
+      '@types/luxon': 3.4.2
+      luxon: 3.5.0
+      type-fest: 4.32.0
 
   '@eslint-community/eslint-utils@4.4.0(eslint@9.17.0)':
     dependencies:
@@ -4090,9 +4127,9 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-multiline-arrays@4.0.1(prettier@3.4.2):
+  prettier-plugin-multiline-arrays@4.0.2(prettier@3.4.2):
     dependencies:
-      '@augment-vir/common': 31.2.0
+      '@augment-vir/common': 31.7.2
       prettier: 3.4.2
       proxy-vir: 2.0.1
 
@@ -4112,7 +4149,7 @@ snapshots:
   proxy-vir@2.0.1:
     dependencies:
       '@augment-vir/assert': 31.2.0
-      '@augment-vir/common': 31.2.0
+      '@augment-vir/common': 31.7.2
 
   punycode.js@2.3.1: {}
 
@@ -4292,6 +4329,8 @@ snapshots:
   type-fest@0.21.3: {}
 
   type-fest@4.30.2: {}
+
+  type-fest@4.32.0: {}
 
   typed-event-target@4.0.2:
     dependencies:
