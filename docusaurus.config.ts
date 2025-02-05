@@ -60,6 +60,10 @@ const config: Config = {
                 pages: {
                     routeBasePath: '/pages'
                 },
+                blog: false,
+                pages: {
+                    routeBasePath: '/pages'
+                },
                 theme: {
                     customCss: './docs/src/css/custom.css'
                 }
