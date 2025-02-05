@@ -81,6 +81,7 @@
         "package": "ncc build --source-map --license licenses.txt",
         "test": "jest",
         "test:coverage": "jest --coverage",
+        "docs:typedoc": "docusaurus generate-typedoc",
         "write-heading-ids": "docusaurus write-heading-ids",
         "write-translations": "docusaurus write-translations"
     },
