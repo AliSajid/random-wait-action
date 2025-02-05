@@ -15,7 +15,7 @@
         "**/*.test.ts",
         "megalinter-reports/**/*.js",
         "jest.config.ts",
+        "docusaurus.config.ts",
         "docs"
-    ],
-    "extends": "@docusaurus/tsconfig"
+    ]
 }
