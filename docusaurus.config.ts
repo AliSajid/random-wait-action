@@ -5,6 +5,7 @@
 import { themes as prismThemes } from 'prism-react-renderer'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import { warn } from 'console'
 
 const config: Config = {
     title: 'Random Wait Action',
@@ -55,6 +56,10 @@ const config: Config = {
                 docs: {
                     sidebarPath: './docs/sidebars.ts'
                 },
+                blog: false,
+                pages: {
+                    routeBasePath: '/pages'
+                },
                 theme: {
                     customCss: './docs/src/css/custom.css'
                 }
@@ -70,12 +75,6 @@ const config: Config = {
         navbar: {
             title: 'Random Wait Action',
             items: [
-                {
-                    type: 'docSidebar',
-                    sidebarId: 'tutorialSidebar',
-                    position: 'left',
-                    label: 'Tutorial'
-                },
                 {
                     href: 'https://github.com/marketplace/actions/random-wait-action',
                     position: 'left',
@@ -96,7 +95,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Tutorial',
-                            to: '/docs/intro'
+                            to: '/api'
                         }
                     ]
                 },
@@ -105,7 +104,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Blog',
-                            to: '/docs/intro'
+                            to: '/api/globals'
                         },
                         {
                             label: 'GitHub',

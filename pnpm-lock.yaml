@@ -14,6 +14,9 @@ importers:
       "@docusaurus/core":
         specifier: 3.7.0
         version: 3.7.0(@mdx-js/react@3.1.0(@types/react@18.3.18)(react@18.3.1))(acorn@8.14.0)(eslint@9.17.0(jiti@1.21.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
+      "@docusaurus/plugin-content-docs":
+        specifier: ^3.7.0
+        version: 3.7.0(@mdx-js/react@3.1.0(@types/react@18.3.18)(react@18.3.1))(acorn@8.14.0)(eslint@9.17.0(jiti@1.21.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
       "@docusaurus/preset-classic":
         specifier: 3.7.0
         version: 3.7.0(@algolia/client-search@5.19.0)(@mdx-js/react@3.1.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(acorn@8.14.0)(eslint@9.17.0(jiti@1.21.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@5.7.2)
@@ -32,6 +35,9 @@ importers:
       "@stylistic/eslint-plugin":
         specifier: 2.11.0
         version: 2.11.0(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2)
+      "@tsconfig/docusaurus":
+        specifier: ^2.0.3
+        version: 2.0.3
       "@types/eslint__js":
         specifier: 8.42.3
         version: 8.42.3
@@ -2527,6 +2533,12 @@ packages:
         integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
       }
     engines: { node: ">=10.13.0" }
+
+  "@tsconfig/docusaurus@2.0.3":
+    resolution:
+      {
+        integrity: sha512-3l1L5PzWVa7l0691TjnsZ0yOIEwG9DziSqu5IPZPlI5Dowi7z42cEym8Y35GHbgHvPcBfNxfrbxm7Cncn4nByQ==
+      }
 
   "@tsconfig/node10@1.0.11":
     resolution:
@@ -12988,6 +13000,8 @@ snapshots:
       defer-to-connect: 2.0.1
 
   "@trysound/sax@0.2.0": {}
+
+  "@tsconfig/docusaurus@2.0.3": {}
 
   "@tsconfig/node10@1.0.11": {}
 
