@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 [tools]
+"cargo:mdbook" = "0.4.44"
 node = "22"
 
 [env]
