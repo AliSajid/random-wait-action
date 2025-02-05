@@ -10,6 +10,7 @@ import Heading from '@theme/Heading'
 
 import styles from './index.module.css'
 import Homepage from '../components/Homepage'
+import React from 'react'
 
 export default function Home(): JSX.Element {
     const { siteConfig } = useDocusaurusContext()
