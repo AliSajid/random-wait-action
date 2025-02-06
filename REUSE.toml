@@ -46,7 +46,7 @@ SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = [".gitignore", "docs/.gitignore"]
+path = [".gitignore", "guide/.gitignore"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
@@ -119,6 +119,18 @@ SPDX-License-Identifier = "MIT"
 
 [[annotations]]
 path = "sonar-project.properties"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "guide/src/**/*.md"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
+
+[[annotations]]
+path = "guide/book.toml"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
