@@ -17,6 +17,32 @@ permissions:
 jobs:
   build_book:
     runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
+        with:
+          egress-policy: audit
+
+      - name: Checkout the Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install mdbook
+        uses: taiki-e/install-action@510b3ecd7915856b6909305605afa7a8a57c1b04 # v2.48.1
+        with:
+          tool: mdbook
+      - name: Build the Book
+        run: mdbook build guide
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          name: book
+          path: guide/book
+          retention-days: 1
+  deploy_book:
+    runs-on: ubuntu-latest
+    needs: [build_book]
+    env:
+      name: book
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       pages: write
       id-token: write
@@ -24,7 +50,7 @@ jobs:
       deployment_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+        uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
         with:
           disable-sudo: true
           egress-policy: audit
