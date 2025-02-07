@@ -42,7 +42,6 @@ jobs:
     needs: [build_book]
     env:
       name: book
-      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       pages: write
       id-token: write
