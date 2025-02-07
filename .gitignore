@@ -105,3 +105,11 @@ ltex.*
 megalinter-reports/*
 
 guide/book
+
+# Vale styles directory
+styles/*
+## Unignore the vocabulary files
+!styles/config/
+
+# Scripts
+!scripts/
