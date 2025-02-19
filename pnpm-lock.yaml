@@ -19,8 +19,8 @@ importers:
         specifier: 9.20.0
         version: 9.20.0
       '@stylistic/eslint-plugin':
-        specifier: 3.1.0
-        version: 3.1.0(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)
+        specifier: 4.0.1
+        version: 4.0.1(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)
       '@types/eslint__js':
         specifier: 8.42.3
         version: 8.42.3
@@ -456,11 +456,11 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
-  '@stylistic/eslint-plugin@3.1.0':
-    resolution: {integrity: sha512-pA6VOrOqk0+S8toJYhQGv2MWpQQR0QpeUo9AhNkC49Y26nxBQ/nH1rta9bUU1rPw2fJ1zZEMV5oCX5AazT7J2g==}
+  '@stylistic/eslint-plugin@4.0.1':
+    resolution: {integrity: sha512-RwKkRKiDrF4ptiur54ckDhOByQYKYZ1dEmI5K8BJCmuGpauFJXzVL1UQYTA2zq702CqMFdYiJcVFJWfokIgFxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: '>=8.40.0'
+      eslint: '>=9.0.0'
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -2319,9 +2319,9 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@stylistic/eslint-plugin@3.1.0(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)':
+  '@stylistic/eslint-plugin@4.0.1(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)':
     dependencies:
-      '@typescript-eslint/utils': 8.23.0(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)
+      '@typescript-eslint/utils': 8.24.1(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)
       eslint: 9.20.1(jiti@1.21.7)
       eslint-visitor-keys: 4.2.0
       espree: 10.3.0
