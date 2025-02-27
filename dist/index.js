@@ -1,6 +1,25 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 6971:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MAXIMUM_ALLOWED = exports.MINIMUM_ALLOWED = void 0;
+// A file to store and manage the constants
+// Set the minimum time limit to 0 seconds
+exports.MINIMUM_ALLOWED = 0;
+// Set the maximum time limit to 2 minutes (120 seconds)
+exports.MAXIMUM_ALLOWED = 120;
+
+
+/***/ }),
+
 /***/ 1293:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -54,6 +73,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(9999));
 const wait_1 = __nccwpck_require__(6245);
+const validateInputs_1 = __nccwpck_require__(3229);
 /**
  * Main function to execute the action.
  *
@@ -65,12 +85,13 @@ const wait_1 = __nccwpck_require__(6245);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const minimum = core.getInput('minimum');
-            const maximum = core.getInput('maximum');
+            const minimum = parseInt(core.getInput('minimum'));
+            const maximum = parseInt(core.getInput('maximum'));
+            (0, validateInputs_1.validateInputs)(minimum, maximum);
             core.debug(`Waiting between ${minimum} and ${maximum} seconds...`);
-            core.debug(new Date().toTimeString());
-            const wait_time = yield (0, wait_1.wait)(parseInt(minimum), parseInt(maximum));
-            core.debug(new Date().toTimeString());
+            core.debug(`Start Time: ${new Date().toTimeString()}`);
+            const wait_time = yield (0, wait_1.wait)(minimum, maximum);
+            core.debug(`End Time: ${new Date().toTimeString()}`);
             core.setOutput('wait_time', wait_time);
         }
         catch (error) {
@@ -84,8 +105,50 @@ run();
 
 /***/ }),
 
+/***/ 3229:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.validateInputs = validateInputs;
+const constants_1 = __nccwpck_require__(6971);
+/**
+ * Validates the minimum and maximum wait time inputs.
+ *
+ * @param {number} minimum - The minimum number of seconds to wait.
+ * @param {number} maximum - The maximum number of seconds to wait.
+ * @throws {Error} If the minimum or maximum values are not numbers.
+ * @throws {Error} If the minimum or maximum values are not positive integers.
+ * @throws {Error} If the minimum or maximum values are outside the allowed range.
+ * @throws {Error} If the minimum value is greater than the maximum value.
+ */
+function validateInputs(minimum, maximum) {
+    if (isNaN(minimum) || isNaN(maximum)) {
+        throw new Error('minimum and maximum must be numbers');
+    }
+    if (!Number.isInteger(minimum) || !Number.isInteger(maximum)) {
+        throw new Error('minimum and maximum values must be positive integers');
+    }
+    if (minimum > constants_1.MAXIMUM_ALLOWED || maximum > constants_1.MAXIMUM_ALLOWED) {
+        throw new Error(`minimum and maximum must be less than or equal to ${constants_1.MAXIMUM_ALLOWED}`);
+    }
+    if (minimum < constants_1.MINIMUM_ALLOWED || maximum < constants_1.MINIMUM_ALLOWED) {
+        throw new Error(`minimum and maximum values must be greater than ${constants_1.MINIMUM_ALLOWED}`);
+    }
+    if (minimum >= maximum) {
+        throw new Error('minimum must be strictly less than maximum');
+    }
+}
+
+
+/***/ }),
+
 /***/ 6245:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
@@ -103,7 +166,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.wait = wait;
-const limit = 100;
+const validateInputs_1 = __nccwpck_require__(3229);
 /**
  * Waits for a random amount of time between the specified minimum and maximum values.
  *
@@ -111,21 +174,14 @@ const limit = 100;
  * @param {number} maximum - The maximum number of seconds to wait.
  * @returns {Promise<string>} A promise that resolves to the number of seconds waited as a string.
  * @throws {Error} If the minimum or maximum values are not numbers.
+ * @throws {Error} If the minimum or maximum values are not positive integers.
+ * @throws {Error} If the minimum or maximum values are outside the allowed range.
  * @throws {Error} If the minimum value is greater than the maximum value.
- * @throws {Error} If the minimum or maximum values are greater than the limit (100).
  */
 function wait(minimum, maximum) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise(resolve => {
-            if (isNaN(minimum) || isNaN(maximum)) {
-                throw new Error('minimum and maximum must be numbers');
-            }
-            if (minimum > maximum) {
-                throw new Error('minimum must be less than maximum');
-            }
-            if (minimum > limit || maximum > limit) {
-                throw new Error('minimum and maximum must be less than 100');
-            }
+            (0, validateInputs_1.validateInputs)(minimum, maximum);
             const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
             setTimeout(() => {
                 return resolve(String(secs));
