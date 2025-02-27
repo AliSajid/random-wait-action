@@ -4,6 +4,7 @@
 
 import * as core from '@actions/core'
 import { wait } from './wait'
+import { validateInputs } from './utils/validateInputs'
 
 /**
  * Main function to execute the action.
@@ -15,13 +16,16 @@ import { wait } from './wait'
  */
 async function run(): Promise<void> {
     try {
-        const minimum: string = core.getInput('minimum')
-        const maximum: string = core.getInput('maximum')
+        const minimum: number = parseInt(core.getInput('minimum'))
+        const maximum: number = parseInt(core.getInput('maximum'))
+
+        validateInputs(minimum, maximum)
+
         core.debug(`Waiting between ${minimum} and ${maximum} seconds...`)
 
-        core.debug(new Date().toTimeString())
-        const wait_time = await wait(parseInt(minimum), parseInt(maximum))
-        core.debug(new Date().toTimeString())
+        core.debug(`Start Time: ${new Date().toTimeString()}`)
+        const wait_time = await wait(minimum, maximum)
+        core.debug(`End Time: ${new Date().toTimeString()}`)
 
         core.setOutput('wait_time', wait_time)
     } catch (error) {
