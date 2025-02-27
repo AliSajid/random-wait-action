@@ -69,3 +69,4 @@ Unsplash
 devicon
 wordmark
 (?i)lockfile
+(?i)npm
