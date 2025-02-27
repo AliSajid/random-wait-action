@@ -61,19 +61,8 @@
         "format-check": "prettier --check '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
         "lint": "eslint",
         "package": "ncc build --source-map --license licenses.txt",
-<<<<<<< HEAD
-        "test": "jest",
-        "test:coverage": "jest --coverage",
-        "typedoc": "docusaurus generate-typedoc",
-        "write-heading-ids": "docusaurus write-heading-ids",
-        "write-translations": "docusaurus write-translations"
-||||||| parent of 451c6b1 (feat: update the structure to use true-myth)
-        "test": "jest",
-        "test:coverage": "jest --coverage"
-=======
         "test": "vitest",
         "test:coverage": "vitest --coverage"
->>>>>>> 451c6b1 (feat: update the structure to use true-myth)
     },
-    "version": "2.8.0-next.3"
+    "version": "2.9.0"
 }
