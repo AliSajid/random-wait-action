@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-const limit: number = 100
+// Set the maximum time limit to 2 minutes (120 seconds)
+const limit: number = 120
 
 type WaitPromise = Promise<string>
 
@@ -27,7 +28,7 @@ export async function wait(minimum: number, maximum: number): WaitPromise {
         }
 
         if (minimum > limit || maximum > limit) {
-            throw new Error('minimum and maximum must be less than 100')
+            throw new Error('minimum and maximum must be less than 120')
         }
 
         const secs =
