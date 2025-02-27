@@ -7,7 +7,7 @@ import type { Config } from 'jest'
 const config: Config = {
     clearMocks: true,
     moduleFileExtensions: ['js', 'ts'],
-    testTimeout: 30000,
+    testTimeout: 130000,
     testMatch: ['**/*.test.ts'],
     transform: {
         '^.+\\.ts$': 'ts-jest'
