@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./docs",
         "esModuleInterop": true,
-        "module": "commonjs",
+        "module": "NodeNext",
         "noImplicitAny": true,
         "outDir": "./lib",
         "rootDir": "./src",
