@@ -2,8 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./docs",
         "esModuleInterop": true,
-        "jsx": "react-jsx",
-        "module": "commonjs",
+        "module": "NodeNext",
         "noImplicitAny": true,
         "outDir": "./lib",
         "rootDir": "./src",
