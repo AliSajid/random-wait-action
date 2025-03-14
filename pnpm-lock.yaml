@@ -43,8 +43,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3
       prettier-plugin-multiline-arrays:
-        specifier: 4.0.2
-        version: 4.0.2(prettier@3.5.3)
+        specifier: 4.0.3
+        version: 4.0.3(prettier@3.5.3)
       ts-jest:
         specifier: 29.2.6
         version: 29.2.6(@babel/core@7.28.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.5))(jest@29.7.0(@types/node@22.13.5)(ts-node@10.9.2(@types/node@22.13.5)(typescript@5.8.2)))(typescript@5.8.2)
@@ -1454,9 +1454,9 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-multiline-arrays@4.0.2:
-    resolution: {integrity: sha512-j8aWPMQl3QsTRR7e2HuNfwp429mB0IL1NQ8PjO0xq5W20O5L5h2XZ99vnqirceJizKhqhm8sOMmsmGcKEtlCFg==}
-    engines: {node: '>=22'}
+  prettier-plugin-multiline-arrays@4.0.3:
+    resolution: {integrity: sha512-H1f/0zbvlO/FR0Fmyl31sSBodsIZkuQF0Omi9BrptLU31rZ+Almt9BbrE8IS3BFT/DGKePKb55XqN660LTnmsQ==}
+    engines: {node: '>=20'}
     peerDependencies:
       prettier: '>=3.0.0'
 
@@ -3527,7 +3527,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-multiline-arrays@4.0.2(prettier@3.5.3):
+  prettier-plugin-multiline-arrays@4.0.3(prettier@3.5.3):
     dependencies:
       '@augment-vir/common': 31.47.0
       prettier: 3.5.3
