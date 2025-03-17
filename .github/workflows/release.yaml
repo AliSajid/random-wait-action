@@ -38,7 +38,7 @@ jobs:
           version: 9.11.0
 
       - name: Set Node.js 20.x
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
           node-version: 20.x
           cache: pnpm
@@ -65,22 +65,13 @@ jobs:
       - name: Move attestation file to dist/
         run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.jsonl
 
-            - name: Attest build provenance
-              id: attest
-              uses: actions/attest-build-provenance@310b0a4a3b0b78ef57ecda988ee04b132db73ef8 # v1.4.1
-              with:
-                  subject-path: dist/index.js
-
-            - name: Move attestation file to dist/
-              run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.jsonl
-
-            - name: Semantic Release
-              uses: cycjimmy/semantic-release-action@v4
-              id: semantic
-              with:
-                  semantic_version: 22
-                  extra_plugins: |
-                      @semantic-release/exec@6
-                      @semantic-release/git@10
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@0a51e81a6baff2acad3ee88f4121c589c73d0f0e # v4.2.0
+        id: semantic
+        with:
+          semantic_version: 24.0.0
+          extra_plugins: |
+            @semantic-release/exec@6
+            @semantic-release/git@10
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
