@@ -24,14 +24,14 @@ jobs:
       deployment_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
         with:
           egress-policy: audit
 
       - name: Checkout the Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Install mdbook
-        uses: taiki-e/install-action@daa3c1f1f9a9d46f686d9fc2f65773d0c293688b # v2.49.40
+        uses: taiki-e/install-action@575f713d0233afba556737a7b85080563be14186 # v2.49.43
         with:
           tool: mdbook
       - name: Build the Book
