@@ -88,8 +88,8 @@ describe('validateInputs (property-based)', () => {
 
         fc.assert(
             fc.property(
-                fc.integer({ max: 0 }),
-                fc.integer({ max: 0 }),
+                fc.integer({ max: -1 }),
+                fc.integer({ max: -1 }),
                 (min, max) => {
                     const result = validateInputs(min, max)
 
