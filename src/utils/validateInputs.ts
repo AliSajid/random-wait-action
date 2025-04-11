@@ -1,52 +1,54 @@
-// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
-import Result, { err, ok } from 'true-myth/result'
-import { MINIMUM_ALLOWED, MAXIMUM_ALLOWED } from '../constants'
-import {
-    NotANumberError,
-    NotAnIntegerError,
-    ExceedsMaximumAllowedTimeError,
-    MinimumNotLessThanMaximumError,
-    BelowMinimumAllowedError,
-    InputValidationError
-} from '../types/validationErrorTypes'
-import { InputValidationSuccess } from '../types/validationSuccessTypes'
+// src/utils/validateInputs.ts
+import { Result, Unit } from 'true-myth'
+import { InputValidationError } from './errors'
 
 /**
- * Validates the minimum and maximum wait time inputs.
- *
- * @param {number} minimum - The minimum number of seconds to wait.
- * @param {number} maximum - The maximum number of seconds to wait.
- * @throws {Error} If the minimum or maximum values are not numbers.
- * @throws {Error} If the minimum or maximum values are not positive integers.
- * @throws {Error} If the minimum or maximum values are outside the allowed range.
- * @throws {Error} If the minimum value is greater than the maximum value.
+ * Validates the input values.
+ * @param minimum The minimum seconds.
+ * @param maximum The maximum seconds.
+ * @returns A Result; Ok if valid, or an InputValidationError if invalid.
  */
 export function validateInputs(
     minimum: number,
     maximum: number
-): Result<InputValidationSuccess, InputValidationError> {
+): Result<Unit, InputValidationError> {
     if (isNaN(minimum) || isNaN(maximum)) {
-        return err(new NotANumberError())
+        return Result.err(
+            new InputValidationError(
+                'Both minimum and maximum must be numbers.'
+            )
+        )
     }
 
     if (!Number.isInteger(minimum) || !Number.isInteger(maximum)) {
-        return err(new NotAnIntegerError())
+        return Result.err(
+            new InputValidationError(
+                'Both minimum and maximum must be integers.'
+            )
+        )
     }
 
-    if (minimum > MAXIMUM_ALLOWED || maximum > MAXIMUM_ALLOWED) {
-        return err(new ExceedsMaximumAllowedTimeError(MAXIMUM_ALLOWED))
+    if (minimum == 0 && maximum == 0) {
+        return Result.err(
+            new InputValidationError('Both minimum and maximum cannot be zero.')
+        )
     }
 
-    if (minimum < MINIMUM_ALLOWED || maximum < MINIMUM_ALLOWED) {
-        return err(new BelowMinimumAllowedError(MINIMUM_ALLOWED))
+    if (minimum < 0 || maximum < 0) {
+        return Result.err(
+            new InputValidationError(
+                'Both minimum and maximum must be positive integers.'
+            )
+        )
     }
-
-    if (minimum >= maximum) {
-        return err(new MinimumNotLessThanMaximumError())
+    if (minimum > maximum) {
+        return Result.err(
+            new InputValidationError('Minimum cannot be greater than maximum.')
+        )
     }
-
-    return ok(new InputValidationSuccess())
+    return Result.ok(Unit)
 }

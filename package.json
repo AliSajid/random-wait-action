@@ -21,17 +21,17 @@
         "@eslint/js": "9.24.0",
         "@stylistic/eslint-plugin": "4.2.0",
         "@types/eslint": "9.6.1",
-        "@types/jest": "29.5.14",
         "@vercel/ncc": "0.38.3",
+        "@vitest/coverage-v8": "^3.1.1",
+        "@vitest/ui": "^3.1.1",
         "eslint": "9.24.0",
-        "eslint-plugin-jest": "28.11.0",
+        "fast-check": "^4.1.1",
         "globals": "16.0.0",
-        "jest": "29.7.0",
         "prettier": "3.5.3",
         "prettier-plugin-multiline-arrays": "4.0.3",
-        "ts-jest": "29.3.1",
         "typescript": "5.8.3",
-        "typescript-eslint": "8.29.1"
+        "typescript-eslint": "8.29.1",
+        "vitest": "^3.1.1"
     },
     "keywords": [
         "actions",
@@ -54,8 +54,8 @@
         "format-check": "prettier --check '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
         "lint": "eslint",
         "package": "ncc build --source-map --license licenses.txt",
-        "test": "jest",
-        "test:coverage": "jest --coverage"
+        "test": "vitest",
+        "test:coverage": "vitest --coverage"
     },
     "version": "2.9.0-next.2"
 }
