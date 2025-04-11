@@ -18,6 +18,8 @@ describe('validateInputs (unit cases)', () => {
         ['minimum greater than maximum', 11, 10, /greater than/]
     ])('%s', (_desc, min, max, expectedError) => {
         it(`should return error when min=${min}, max=${max}`, () => {
+            expect.hasAssertions()
+
             const result = validateInputs(min, max)
 
             expect(result.isErr).toBe(true)
@@ -35,13 +37,18 @@ describe('validateInputs (unit cases)', () => {
     })
 
     it('returns ok when inputs are valid', () => {
+        expect.hasAssertions()
+
         const result = validateInputs(5, 10)
+
         expect(result.isOk).toBe(true)
     })
 })
 
 describe('validateInputs (property-based)', () => {
     it('always returns ok for positive integers where min <= max', () => {
+        expect.hasAssertions()
+
         fc.assert(
             fc.property(
                 fc.integer({ min: 1, max: 1000 }),
@@ -50,6 +57,7 @@ describe('validateInputs (property-based)', () => {
                     const min = Math.min(a, b)
                     const max = Math.max(a, b)
                     const result = validateInputs(min, max)
+
                     expect(result.isOk).toBe(true)
                 }
             )
@@ -57,6 +65,8 @@ describe('validateInputs (property-based)', () => {
     })
 
     it('always returns error when min > max', () => {
+        expect.hasAssertions()
+
         fc.assert(
             fc.property(
                 fc.integer({ min: 1, max: 1000 }),
@@ -65,6 +75,7 @@ describe('validateInputs (property-based)', () => {
                     if (a <= b) return // skip valid cases
                     const result = validateInputs(a, b)
                     if (result.isErr) {
+                        // eslint-disable-next-line vitest/no-conditional-expect
                         expect(result.error.message).toMatch(/greater than/)
                     }
                 }
@@ -73,13 +84,17 @@ describe('validateInputs (property-based)', () => {
     })
 
     it('never accepts negative inputs', () => {
+        expect.hasAssertions()
+
         fc.assert(
             fc.property(
                 fc.integer({ max: 0 }),
                 fc.integer({ max: 0 }),
                 (min, max) => {
                     const result = validateInputs(min, max)
+
                     expect(result.isErr).toBe(true)
+
                     result.match({
                         Ok: () => {
                             throw new Error('Expected Err but got Ok')
