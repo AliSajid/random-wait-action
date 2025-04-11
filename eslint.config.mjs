@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-import jestPlugin from 'eslint-plugin-jest'
-import globals from 'globals'
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import stylistic from '@stylistic/eslint-plugin'
+import vitest from '@vitest/eslint-plugin'
 
 export default tseslint.config(
     {
@@ -54,8 +54,11 @@ export default tseslint.config(
         ...tseslint.configs.disableTypeChecked
     },
     {
-        // enable jest rules on test files
-        files: ['__test__/**'],
-        ...jestPlugin.configs['flat/recommended']
+        files: ['__tests__/*.test.ts'],
+        plugins: { vitest },
+        rules: {
+            ...vitest.configs.all.rules,
+            'vitest/max-nested-describe': ['error', { max: 3 }]
+        }
     }
 )
