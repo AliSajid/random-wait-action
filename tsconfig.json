@@ -13,7 +13,7 @@
         "node_modules",
         "**/*.test.ts",
         "megalinter-reports/**/*.js",
-        "jest.config.ts",
+        "vitest.config.ts",
         "docs"
     ],
     "extends": "@docusaurus/tsconfig"
