@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 
 SPDX-License-Identifier: MIT
 -->
@@ -16,18 +16,18 @@ This document outlines how decisions are made for this project, defines the role
 
 The Project Owner currently makes all final decisions on the project's direction, design, and functionality. This role is responsible for:
 
--   Approving or rejecting contributions (such as pull requests)
--   Setting the project roadmap and priorities
--   Managing project releases
--   Resolving disputes or conflicting opinions
+- Approving or rejecting contributions (such as pull requests)
+- Setting the project roadmap and priorities
+- Managing project releases
+- Resolving disputes or conflicting opinions
 
 ### Contributors
 
 Contributors are anyone who submits code, documentation, or other changes to the project. Contributions are made via pull requests and are subject to review by the Project Owner. Contributors:
 
--   Suggest improvements to the project
--   Participate in discussions and feedback sessions
--   Submit code, documentation, or bug reports
+- Suggest improvements to the project
+- Participate in discussions and feedback sessions
+- Submit code, documentation, or bug reports
 
 ## Decision-Making Process
 
