@@ -1,33 +1,39 @@
-// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
 import * as core from '@actions/core'
-import { wait } from './wait'
-import { validateInputs } from './utils/validateInputs'
+import { Maybe } from 'true-myth'
+import { RandomWaitAction } from './RandomWaitAction'
+import { MAXIMUM_ALLOWED, MINIMUM_ALLOWED } from './constants'
 
-/**
- * Main function to execute the action.
- *
- * This function retrieves the 'minimum' and 'maximum' input values, waits for a random amount of time
- * between these values, and then sets the output 'wait_time' to the number of seconds waited.
- *
- * @returns {Promise<void>} A promise that resolves when the function completes.
- */
 async function run(): Promise<void> {
     try {
-        const minimum: number = parseInt(core.getInput('minimum'))
-        const maximum: number = parseInt(core.getInput('maximum'))
+        // Retrieve input values from GitHub Action inputs
+        const minInput = core.getInput('minimum')
+        const maxInput = core.getInput('maximum')
 
-        validateInputs(minimum, maximum)
+        // Use Maybe to safely parse inputs into numbers
+        const minimum = Maybe.of(minInput).mapOr(MINIMUM_ALLOWED, parseInt)
+        const maximum = Maybe.of(maxInput).mapOr(MAXIMUM_ALLOWED, parseInt)
 
-        core.debug(`Waiting between ${minimum} and ${maximum} seconds...`)
-
+        // Create instance of pure business logic class
+        const action = new RandomWaitAction(minimum, maximum)
+        core.debug(
+            `Executing random wait between ${minimum} and ${maximum} seconds...`
+        )
         core.debug(`Start Time: ${new Date().toTimeString()}`)
-        const wait_time = await wait(minimum, maximum)
-        core.debug(`End Time: ${new Date().toTimeString()}`)
 
-        core.setOutput('wait_time', wait_time)
+        // Execute the wait logic
+        const result = await action.execute()
+        if (result.isErr) {
+            core.setFailed(result.error.message)
+            return
+        }
+
+        const waitTime = result.value
+        core.debug(`End Time: ${new Date().toTimeString()}`)
+        core.setOutput('wait_time', waitTime.toString())
     } catch (error) {
         if (error instanceof Error) core.setFailed(error.message)
     }
