@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-import globals from 'globals'
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import stylistic from '@stylistic/eslint-plugin'
+import vitest from '@vitest/eslint-plugin'
 
 export default tseslint.config(
     {
@@ -93,5 +93,13 @@ export default tseslint.config(
     {
         files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
         ...tseslint.configs.disableTypeChecked
+    },
+    {
+        files: ['__tests__/*.test.ts'],
+        plugins: { vitest },
+        rules: {
+            ...vitest.configs.all.rules,
+            'vitest/max-nested-describe': ['error', { max: 3 }]
+        }
     }
 )
