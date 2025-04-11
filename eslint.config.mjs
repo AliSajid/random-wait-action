@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-import jestPlugin from 'eslint-plugin-jest'
 import globals from 'globals'
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
@@ -19,7 +18,6 @@ export default tseslint.config(
     eslint.configs.recommended,
     {
         plugins: {
-            jest: jestPlugin,
             '@typescript-eslint': tseslint.plugin,
             '@stylistic': stylistic
         },
@@ -95,10 +93,5 @@ export default tseslint.config(
     {
         files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
         ...tseslint.configs.disableTypeChecked
-    },
-    {
-        // enable jest rules on test files
-        files: ['__test__/**'],
-        ...jestPlugin.configs['flat/recommended']
     }
 )
