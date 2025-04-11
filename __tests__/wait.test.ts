@@ -1,25 +1,59 @@
-// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
+import { describe, it, expect, vi } from 'vitest'
 import { wait } from '../src/wait'
 
-test('wait between 1 and 5 seconds', async () => {
-    const start = new Date()
-    await wait(1, 5)
-    const end = new Date()
+const timingBuffer = 1000 // milliseconds to account for timer inaccuracy and async delays
 
-    var delta = Math.abs(end.getTime() - start.getTime())
-    expect(delta).toBeGreaterThanOrEqual(1000)
-    expect(delta).toBeLessThanOrEqual(6000)
+describe('wait', () => {
+    it('resolves between 1 and 5 seconds', async () => {
+        const start = Date.now()
+        await wait(1, 5)
+        const end = Date.now()
+
+        const delta = end - start
+        expect(delta).toBeGreaterThanOrEqual(1000)
+        expect(delta).toBeLessThanOrEqual(5000 + timingBuffer)
+    })
+
+    it('resolves between 5 and 10 seconds', async () => {
+        const start = Date.now()
+        await wait(5, 10)
+        const end = Date.now()
+
+        const delta = end - start
+        expect(delta).toBeGreaterThanOrEqual(5000)
+        expect(delta).toBeLessThanOrEqual(10000 + timingBuffer)
+    })
 })
 
-test('wait between 5 and 10 seconds', async () => {
-    const start = new Date()
-    await wait(5, 10)
-    const end = new Date()
+describe('wait (mocked setTimeout)', () => {
+    beforeEach(() => {
+        vi.useFakeTimers()
+    })
 
-    var delta = Math.abs(end.getTime() - start.getTime())
-    expect(delta).toBeGreaterThanOrEqual(5000)
-    expect(delta).toBeLessThanOrEqual(11000)
+    afterEach(() => {
+        vi.useRealTimers()
+    })
+
+    it('waits and resolves with a number string in range', async () => {
+        const promise = wait(2, 4) // should pick 2, 3, or 4
+        // advance time to max possible delay to ensure resolution
+        vi.advanceTimersByTime(4000)
+
+        const result = await promise
+
+        result.match({
+            Ok: num => {
+                expect(typeof num).toBe('number')
+                expect(num).toBeGreaterThanOrEqual(2)
+                expect(num).toBeLessThanOrEqual(4)
+            },
+            Err: () => {
+                throw new Error('Expected Ok but got Err')
+            }
+        })
+    })
 })
