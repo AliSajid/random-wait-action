@@ -2,18 +2,18 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { Result } from 'true-myth';
-import { wait } from './wait.js';
-import { validateInputs } from './utils/validateInputs.js';
-import { InputValidationError } from './utils/errors.js';
+import { Result } from 'true-myth'
+import { wait } from './wait'
+import { validateInputs } from './utils/validateInputs'
+import { InputValidationError } from './utils/errors'
 
 export class RandomWaitAction {
-    private readonly minimum: number;
-    private readonly maximum: number;
+    private minimum: number
+    private maximum: number
 
     constructor(minimum: number, maximum: number) {
-        this.minimum = minimum;
-        this.maximum = maximum;
+        this.minimum = minimum
+        this.maximum = maximum
     }
 
     /**
@@ -21,11 +21,11 @@ export class RandomWaitAction {
      * @returns Promise resolving to a Result wrapping the number of seconds waited, or an error.
      */
     public async execute(): Promise<Result<number, InputValidationError>> {
-        const validationResult = validateInputs(this.minimum, this.maximum);
+        const validationResult = validateInputs(this.minimum, this.maximum)
         if (validationResult.isErr) {
-            return Result.err(validationResult.error);
+            return Result.err(validationResult.error)
         }
 
-        return wait(this.minimum, this.maximum);
+        return wait(this.minimum, this.maximum)
     }
 }
