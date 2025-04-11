@@ -2,19 +2,19 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { describe, test, expect, vi, beforeEach } from 'vitest'
+import { describe, expect, vi, it } from 'vitest'
 import { RandomWaitAction } from '../src/RandomWaitAction'
 import { InputValidationError } from '../src/utils/errors'
 
 vi.useFakeTimers()
 
-describe('RandomWaitAction', () => {
-    beforeEach(() => {
+describe('test RandomWaitAction class', () => {
+    it('waits for a time between 1 and 3 seconds when inputs are valid', async () => {
+        expect.hasAssertions()
+
         vi.restoreAllMocks()
         vi.clearAllTimers()
-    })
 
-    test('waits for a time between 1 and 3 seconds when inputs are valid', async () => {
         const action = new RandomWaitAction(1, 3)
 
         const promise = action.execute()
@@ -34,7 +34,9 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('resolves immediately when min and max are equal', async () => {
+    it('resolves immediately when min and max are equal', async () => {
+        expect.hasAssertions()
+
         const action = new RandomWaitAction(2, 2)
 
         const promise = action.execute()
@@ -51,10 +53,13 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('returns error if minimum is greater than maximum', async () => {
+    it('returns error if minimum is greater than maximum', async () => {
+        expect.hasAssertions()
+
         const action = new RandomWaitAction(10, 5)
 
         const result = await action.execute()
+
         expect(result.isErr).toBe(true)
 
         result.match({
@@ -68,10 +73,13 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('returns error if minimum is negative', async () => {
+    it('returns error if minimum is negative', async () => {
+        expect.hasAssertions()
+
         const action = new RandomWaitAction(-2, 5)
 
         const result = await action.execute()
+
         expect(result.isErr).toBe(true)
 
         result.match({
@@ -84,10 +92,13 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('returns error if maximum is negative', async () => {
+    it('returns error if maximum is negative', async () => {
+        expect.hasAssertions()
+
         const action = new RandomWaitAction(2, -5)
 
         const result = await action.execute()
+
         expect(result.isErr).toBe(true)
 
         result.match({
@@ -100,10 +111,13 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('returns error if both are zero', async () => {
+    it('returns error if both are zero', async () => {
+        expect.hasAssertions()
+
         const action = new RandomWaitAction(0, 0)
 
         const result = await action.execute()
+
         expect(result.isErr).toBe(true)
 
         result.match({
@@ -116,7 +130,9 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('returns error if maximum is zero and minimum is positive', async () => {
+    it('returns error if maximum is zero and minimum is positive', async () => {
+        expect.hasAssertions()
+
         const action = new RandomWaitAction(1, 0)
 
         const result = await action.execute()
@@ -133,7 +149,9 @@ describe('RandomWaitAction', () => {
         })
     })
 
-    test('calls setTimeout with the correct duration', async () => {
+    it('calls setTimeout with the correct duration', async () => {
+        expect.hasAssertions()
+
         const setTimeoutSpy = vi.spyOn(global, 'setTimeout')
 
         const action = new RandomWaitAction(2, 2) // predictable delay
