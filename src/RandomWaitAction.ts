@@ -8,8 +8,8 @@ import { validateInputs } from './utils/validateInputs'
 import { InputValidationError } from './utils/errors'
 
 export class RandomWaitAction {
-    private minimum: number
-    private maximum: number
+    private readonly minimum: number
+    private readonly maximum: number
 
     constructor(minimum: number, maximum: number) {
         this.minimum = minimum
