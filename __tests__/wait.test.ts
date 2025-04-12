@@ -4,6 +4,7 @@
 
 import { describe, it, expect, vi } from 'vitest'
 import { wait } from '../src/wait'
+import { InputValidationError } from '../src/utils/errors'
 
 const timingBuffer = 1000 // milliseconds to account for timer inaccuracy and async delays
 
@@ -57,5 +58,71 @@ describe('wait (mocked setTimeout)', () => {
             }
         })
         vi.useRealTimers()
+    })
+})
+
+describe('wait errors out on invalid inputs', () => {
+    it('errors out if maximum is less than minimum', async () => {
+        expect.hasAssertions()
+
+        const result = await wait(2, 0)
+
+        result.match({
+            Ok: () => {
+                throw new Error('Expected Err but got Ok')
+            },
+            Err: error => {
+                expect(error).toBeInstanceOf(InputValidationError)
+                expect(error.message).toMatch(/minimum.*greater.*maximum/i)
+            }
+        })
+    })
+
+    it('errors out if both minimum and maximum are zero', async () => {
+        expect.hasAssertions()
+
+        const result = await wait(0, 0)
+
+        result.match({
+            Ok: () => {
+                throw new Error('Expected Err but got Ok')
+            },
+            Err: error => {
+                expect(error).toBeInstanceOf(InputValidationError)
+                expect(error.message).toMatch(/cannot be zero/i)
+            }
+        })
+    })
+
+    it('errors out if both minimum and maximum are not integers', async () => {
+        expect.hasAssertions()
+
+        const result = await wait(2.5, 4.5)
+
+        result.match({
+            Ok: () => {
+                throw new Error('Expected Err but got Ok')
+            },
+            Err: error => {
+                expect(error).toBeInstanceOf(InputValidationError)
+                expect(error.message).toMatch(/integers/i)
+            }
+        })
+    })
+
+    it('errors out if both minimum and maximum are not numbers', async () => {
+        expect.hasAssertions()
+
+        const result = await wait('a', 'd')
+
+        result.match({
+            Ok: () => {
+                throw new Error('Expected Err but got Ok')
+            },
+            Err: error => {
+                expect(error).toBeInstanceOf(InputValidationError)
+                expect(error.message).toMatch(/numbers/i)
+            }
+        })
     })
 })
