@@ -28,19 +28,19 @@ importers:
         specifier: 0.38.3
         version: 0.38.3
       '@vitest/coverage-v8':
-        specifier: ^3.1.1
+        specifier: 3.1.1
         version: 3.1.1(vitest@3.1.1)
       '@vitest/eslint-plugin':
-        specifier: ^1.1.42
+        specifier: 1.1.42
         version: 1.1.42(@typescript-eslint/utils@8.29.1(eslint@9.24.0(jiti@1.21.7))(typescript@5.7.3))(eslint@9.24.0(jiti@1.21.7))(typescript@5.7.3)(vitest@3.1.1)
       '@vitest/ui':
-        specifier: ^3.1.1
+        specifier: 3.1.1
         version: 3.1.1(vitest@3.1.1)
       eslint:
         specifier: 9.24.0
         version: 9.24.0(jiti@1.21.7)
       fast-check:
-        specifier: ^4.1.1
+        specifier: 4.1.1
         version: 4.1.1
       globals:
         specifier: 16.0.0
@@ -58,7 +58,7 @@ importers:
         specifier: 8.29.1
         version: 8.29.1(eslint@9.24.0(jiti@1.21.7))(typescript@5.7.3)
       vitest:
-        specifier: ^3.1.1
+        specifier: 3.1.1
         version: 3.1.1(@types/node@22.13.5)(@vitest/ui@3.1.1)(jiti@1.21.7)
 
 packages:
@@ -807,10 +807,6 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
 
-  expect-type@1.1.0:
-    resolution: {integrity: sha512-bFi65yM+xZgk+u/KRIpekdSYkTB5W1pEf0Lt8Q8Msh7b+eQ7LXVtIB1Bkm4fvclDEL1b2CZkMhv2mOeF8tMdkA==}
-    engines: {node: '>=12.0.0'}
-
   expect-type@1.2.0:
     resolution: {integrity: sha512-80F22aiJ3GLyVnS/B3HzgR6RelZVumzj9jkL0Rhz4h0xYbNW9PjlQz5h3J/SShErbXBc295vseR4/MIbVmUbeA==}
     engines: {node: '>=12.0.0'}
@@ -1421,7 +1417,7 @@ snapshots:
       '@augment-vir/core': 31.9.2
       '@date-vir/duration': 7.2.1
       deep-eql: 5.0.2
-      expect-type: 1.1.0
+      expect-type: 1.2.0
       type-fest: 4.35.0
 
   '@augment-vir/common@31.10.1':
@@ -2129,11 +2125,9 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.6
+      '@types/estree': 1.0.7
 
   esutils@2.0.3: {}
-
-  expect-type@1.1.0: {}
 
   expect-type@1.2.0: {}
 
