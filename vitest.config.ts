@@ -9,8 +9,9 @@ export default defineConfig({
         globals: true, // So you don't need to import `describe`, `it`, etc.
         environment: 'node',
         coverage: {
+            enabled: true,
             provider: 'v8', // Or 'c8'
-            reporter: ['text', 'html', 'json'],
+            reporter: ['text', 'html', 'json', 'json-summary', 'lcov'],
             exclude: [
                 'lib',
                 'node_modules',
