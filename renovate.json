@@ -10,7 +10,12 @@
         "config:best-practices",
         "group:definitelyTyped",
         "group:githubArtifactActions",
-        "group:linters"
+        "group:linters",
+        ":pinDependencies",
+        ":pinDevDependencies",
+        ":pinSkipCi",
+        ":reviewer(AliSajid)",
+        "npm:unpublishSafe\u00b6"
     ],
     "packageRules": [
         {
@@ -36,7 +41,7 @@
                 "eslint{/,}**",
                 "stylistic{/,}**",
                 "prettier{/,}**",
-                "jest{/,}**"
+                "vitest{/,}**"
             ]
         }
     ],
@@ -46,8 +51,7 @@
     },
     "schedule": [
         "after 10pm every weekday",
-        "every weekend",
-        "before 5am every weekday"
+        "every weekend"
     ],
     "semanticCommits": "enabled"
 }
