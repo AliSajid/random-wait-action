@@ -6,7 +6,12 @@
         "config:best-practices",
         "group:definitelyTyped",
         "group:githubArtifactActions",
-        "group:linters"
+        "group:linters",
+        ":pinDependencies",
+        ":pinDevDependencies",
+        ":pinSkipCi",
+        ":reviewer(AliSajid)",
+        "npm:unpublishSafe\u00b6"
     ],
     "labels": [
         "dependencies",
@@ -42,11 +47,11 @@
                 "minor",
                 "patch"
             ],
-            "matchPackagePrefixes": [
-                "eslint",
-                "stylistic",
-                "prettier",
-                "jest"
+            "matchPackageNames": [
+                "eslint{/,}**",
+                "stylistic{/,}**",
+                "prettier{/,}**",
+                "vitest{/,}**"
             ]
         }
     ],
@@ -55,7 +60,7 @@
         "enabled": true
     },
     "schedule": [
-        "after 10pm and before 5am every weekday",
+        "after 10pm every weekday",
         "every weekend"
     ],
     "platformCommit": "enabled",
