@@ -38,7 +38,7 @@ You can specify just the `minimum`:
 - name: Insert Random Wait
   uses: AliSajid/random-wait-action@v2
   with:
-      minimum: 5
+    minimum: 5
 ```
 
 or just the `maximum`:
@@ -47,7 +47,7 @@ or just the `maximum`:
 - name: Insert Random Wait
   uses: AliSajid/random-wait-action@v2
   with:
-      maximum: 5
+    maximum: 5
 ```
 
 ### Recommended Usage
@@ -59,6 +59,6 @@ and using a pinned hash to the latest version.
 name: Add Random Waiting Time
 uses: AliSajid/random-wait-action@f9109712daa7a8103f7be16b68634b9d376587a7 # v2.4.1
 with:
-    minimum: 1
-    maximum: 10
+  minimum: 1
+  maximum: 10
 ```
