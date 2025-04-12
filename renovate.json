@@ -15,7 +15,7 @@
         ":pinDevDependencies",
         ":pinSkipCi",
         ":reviewer(AliSajid)",
-        "npm:unpublishSafe\u00b6"
+        "npm:unpublishSafe"
     ],
     "labels": ["dependencies", "renovate"],
     "packageRules": [
