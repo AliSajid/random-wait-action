@@ -7,10 +7,7 @@
         "outDir": "./lib",
         "rootDir": "./src",
         "strict": true,
-        "target": "es6",
-        "types": [
-            "vitest"
-        ]
+        "target": "es6"
     },
     "exclude": [
         "node_modules",
