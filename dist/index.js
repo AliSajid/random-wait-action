@@ -20,7 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RandomWaitAction = void 0;
-const true_myth_1 = __nccwpck_require__(7378);
+const true_myth_1 = __nccwpck_require__(6457);
 const wait_1 = __nccwpck_require__(6245);
 const validateInputs_1 = __nccwpck_require__(3229);
 class RandomWaitAction {
@@ -117,7 +117,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(9999));
-const true_myth_1 = __nccwpck_require__(7378);
+const true_myth_1 = __nccwpck_require__(6457);
 const RandomWaitAction_1 = __nccwpck_require__(1148);
 const constants_1 = __nccwpck_require__(6971);
 function run() {
@@ -187,7 +187,7 @@ exports.InputValidationError = InputValidationError;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.validateInputs = validateInputs;
 // src/utils/validateInputs.ts
-const true_myth_1 = __nccwpck_require__(7378);
+const true_myth_1 = __nccwpck_require__(6457);
 const errors_1 = __nccwpck_require__(7669);
 /**
  * Validates the input values.
@@ -236,7 +236,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.wait = wait;
-const true_myth_1 = __nccwpck_require__(7378);
+const true_myth_1 = __nccwpck_require__(6457);
 const validateInputs_1 = __nccwpck_require__(3229);
 /**
  * Waits for a random number of seconds between minimum and maximum.
@@ -27775,7 +27775,7 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 7334:
+/***/ 6499:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -27820,7 +27820,7 @@ exports.safeToString = safeToString;
 
 /***/ }),
 
-/***/ 7378:
+/***/ 6457:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -27835,22 +27835,22 @@ exports.safeToString = safeToString;
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Toolbelt = exports.Task = exports.Unit = exports.ResultNS = exports.Result = exports.MaybeNS = exports.Maybe = void 0;
-var maybe_js_1 = __nccwpck_require__(3642);
+var maybe_js_1 = __nccwpck_require__(1113);
 Object.defineProperty(exports, "Maybe", ({ enumerable: true, get: function () { return maybe_js_1.default; } }));
-exports.MaybeNS = __nccwpck_require__(3642);
-var result_js_1 = __nccwpck_require__(2705);
+exports.MaybeNS = __nccwpck_require__(1113);
+var result_js_1 = __nccwpck_require__(3132);
 Object.defineProperty(exports, "Result", ({ enumerable: true, get: function () { return result_js_1.default; } }));
-exports.ResultNS = __nccwpck_require__(2705);
-var unit_js_1 = __nccwpck_require__(2148);
+exports.ResultNS = __nccwpck_require__(3132);
+var unit_js_1 = __nccwpck_require__(3365);
 Object.defineProperty(exports, "Unit", ({ enumerable: true, get: function () { return unit_js_1.default; } }));
-var task_js_1 = __nccwpck_require__(933);
+var task_js_1 = __nccwpck_require__(6372);
 Object.defineProperty(exports, "Task", ({ enumerable: true, get: function () { return task_js_1.default; } }));
-exports.Toolbelt = __nccwpck_require__(1343);
+exports.Toolbelt = __nccwpck_require__(1178);
 //# sourceMappingURL=index.cjs.map
 
 /***/ }),
 
-/***/ 3642:
+/***/ 1113:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -27862,7 +27862,7 @@ exports.Toolbelt = __nccwpck_require__(1343);
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Maybe = exports.wrapReturn = exports.safe = exports.get = exports.property = exports.transposeArray = exports.last = exports.first = exports.find = exports.isInstance = exports.ap = exports.equals = exports.match = exports.toJSON = exports.toString = exports.unwrapOrElse = exports.unwrapOr = exports.orElse = exports.or = exports.andThen = exports.and = exports.mapOrElse = exports.mapOr = exports.map = exports.of = exports.nothing = exports.isNothing = exports.isJust = exports.just = exports.Variant = void 0;
-const utils_js_1 = __nccwpck_require__(7334);
+const utils_js_1 = __nccwpck_require__(6499);
 /**
   Discriminant for the {@linkcode Just} and {@linkcode Nothing} type instances.
 
@@ -28486,7 +28486,7 @@ exports["default"] = exports.Maybe;
 
 /***/ }),
 
-/***/ 2705:
+/***/ 3132:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -28498,8 +28498,8 @@ exports["default"] = exports.Maybe;
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Result = exports.isInstance = exports.safe = exports.ap = exports.equals = exports.match = exports.toJSON = exports.toString = exports.unwrapOrElse = exports.unwrapOr = exports.orElse = exports.or = exports.andThen = exports.and = exports.mapErr = exports.mapOrElse = exports.mapOr = exports.map = exports.tryOrElse = exports.err = exports.isErr = exports.isOk = exports.ok = exports.tryOr = exports.Variant = void 0;
-const unit_js_1 = __nccwpck_require__(2148);
-const utils_js_1 = __nccwpck_require__(7334);
+const unit_js_1 = __nccwpck_require__(3365);
+const utils_js_1 = __nccwpck_require__(6499);
 /**
   Discriminant for {@linkcode Ok} and {@linkcode Err} variants of the
   {@linkcode Result} type.
@@ -28934,7 +28934,7 @@ exports["default"] = exports.Result;
 
 /***/ }),
 
-/***/ 933:
+/***/ 6372:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -28946,11 +28946,11 @@ exports["default"] = exports.Result;
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.isRetryFailed = exports.RETRY_FAILED_NAME = exports.stopRetrying = exports.withRetries = exports.toPromise = exports.timeout = exports.match = exports.orElse = exports.or = exports.andThen = exports.and = exports.mapRejected = exports.map = exports.safeNullable = exports.safe = exports.safelyTryOrElse = exports.safelyTryOr = exports.safelyTry = exports.fromUnsafePromise = exports.fromResult = exports.fromPromise = exports.withResolvers = exports.reject = exports.resolve = exports.Task = exports.tryOrElse = exports.tryOr = exports.InvalidAccess = exports.UnsafePromise = exports.TaskExecutorException = exports.State = exports.AggregateRejection = exports.race = exports.any = exports.allSettled = exports.all = exports.timer = exports.Delay = void 0;
-const utils_js_1 = __nccwpck_require__(7334);
-const maybe_js_1 = __nccwpck_require__(3642);
-const result_js_1 = __nccwpck_require__(2705);
-const unit_js_1 = __nccwpck_require__(2148);
-const Delay = __nccwpck_require__(2693);
+const utils_js_1 = __nccwpck_require__(6499);
+const maybe_js_1 = __nccwpck_require__(1113);
+const result_js_1 = __nccwpck_require__(3132);
+const unit_js_1 = __nccwpck_require__(3365);
+const Delay = __nccwpck_require__(2004);
 exports.Delay = Delay;
 /**
   Internal implementation details for {@linkcode Task}.
@@ -29242,13 +29242,13 @@ class TaskImpl {
       import Task from 'true-myth/task';
       const double = n => n * 2;
   
-      const aResolvedTask = Task.resolved(12);
+      const aResolvedTask = Task.resolve(12);
       const mappedResolved = aResolvedTask.map(double);
       let resolvedResult = await aResolvedTask;
       console.log(resolvedResult.toString()); // Ok(24)
   
-      const aRejectedTask = Task.rejected("nothing here!");
-      const mappedRejected = map(double, aRejectedTask);
+      const aRejectedTask = Task.reject("nothing here!");
+      const mappedRejected = aRejectedTask.map(double);
       let rejectedResult = await aRejectedTask;
       console.log(rejectedResult.toString()); // Err("nothing here!")
       ```
@@ -29277,12 +29277,12 @@ class TaskImpl {
   
       const extractReason = (err: { code: number, reason: string }) => err.reason;
   
-      const aResolvedTask = Task.resolved(12);
-      const mappedResolved = aResolvedTask.mapErr(extractReason);
+      const aResolvedTask = Task.resolve(12);
+      const mappedResolved = aResolvedTask.mapRejected(extractReason);
       console.log(mappedOk));  // Ok(12)
   
-      const aRejectedTask = Task.rejected({ code: 101, reason: 'bad file' });
-      const mappedRejection = await aRejectedTask.map(extractReason);
+      const aRejectedTask = Task.reject({ code: 101, reason: 'bad file' });
+      const mappedRejection = await aRejectedTask.mapRejected(extractReason);
       console.log(toString(mappedRejection));  // Err("bad file")
       ```
   
@@ -29313,10 +29313,12 @@ class TaskImpl {
       ## Examples
   
       ```ts
-      let resolvedA = Task.resolved<string, string>('A');
-      let resolvedB = Task.resolved<string, string>('B');
-      let rejectedA = Task.rejected<string, string>('bad');
-      let rejectedB = Task.rejected<string, string>('lame');
+      import Task from 'true-myth/task';
+  
+      let resolvedA = Task.resolve<string, string>('A');
+      let resolvedB = Task.resolve<string, string>('B');
+      let rejectedA = Task.reject<string, string>('bad');
+      let rejectedB = Task.reject<string, string>('lame');
   
       let aAndB = resolvedA.and(resolvedB);
       await aAndB;
@@ -29387,11 +29389,11 @@ class TaskImpl {
   
       const toLengthAsResult = (s: string) => ok(s.length);
   
-      const aResolvedTask = Task.resolved('just a string');
+      const aResolvedTask = Task.resolve('just a string');
       const lengthAsResult = await aResolvedTask.andThen(toLengthAsResult);
       console.log(lengthAsResult.toString());  // Ok(13)
   
-      const aRejectedTask = Task.rejected(['srsly', 'whatever']);
+      const aRejectedTask = Task.reject(['srsly', 'whatever']);
       const notLengthAsResult = await aRejectedTask.andThen(toLengthAsResult);
       console.log(notLengthAsResult.toString());  // Err(srsly,whatever)
       ```
@@ -29432,10 +29434,10 @@ class TaskImpl {
       ```ts
       import Task from 'true-utils/task';
   
-      const resolvedA = Task.resolved<string, string>('a');
-      const resolvedB = Task.resolved<string, string>('b');
-      const rejectedWat = Task.rejected<string, string>(':wat:');
-      const rejectedHeaddesk = Task.rejected<string, string>(':headdesk:');
+      const resolvedA = Task.resolve<string, string>('a');
+      const resolvedB = Task.resolve<string, string>('b');
+      const rejectedWat = Task.reject<string, string>(':wat:');
+      const rejectedHeaddesk = Task.reject<string, string>(':headdesk:');
   
       console.log(resolvedA.or(resolvedB).toString());  // Resolved("a")
       console.log(resolvedA.or(rejectedWat).toString());  // Resolved("a")
@@ -29625,13 +29627,14 @@ function all(tasks) {
         return exports.Task.resolve([]);
     }
     let total = tasks.length;
-    let oks = new Array();
+    let oks = Array.from({ length: tasks.length });
+    let resolved = 0;
     let hasRejected = false;
     return new exports.Task((resolve, reject) => {
         // Because all tasks will *always* resolve, we need to manage this manually,
         // rather than using `Promise.all`, so that we produce a rejected `Task` as
         // soon as *any* `Task` rejects.
-        for (let task of tasks) {
+        for (let [idx, task] of tasks.entries()) {
             // Instead, each `Task` wires up handlers for resolution and rejection.
             task.match({
                 // If it rejected, then check whether one of the other tasks has already
@@ -29655,8 +29658,9 @@ function all(tasks) {
                     if (hasRejected) {
                         return;
                     }
-                    oks.push(value);
-                    if (oks.length === total) {
+                    oks[idx] = value;
+                    resolved += 1;
+                    if (resolved === total) {
                         resolve(oks);
                     }
                 },
@@ -29675,18 +29679,20 @@ function allSettled(tasks) {
     });
 }
 exports.allSettled = allSettled;
+// export function all<A extends readonly AnyTask[]>(tasks: readonly [...A]): All<[...A]>;
 function any(tasks) {
     if (tasks.length === 0) {
         return exports.Task.reject(new AggregateRejection([]));
     }
     let total = tasks.length;
     let hasResolved = false;
-    let rejections = new Array();
+    let rejections = Array.from({ length: tasks.length });
+    let rejected = 0;
     return new exports.Task((resolve, reject) => {
         // We cannot use `Promise.any`, because it will only return the first `Task`
         // that resolves, and the `Promise` for a `Task` *always* either resolves if
         // it settles.
-        for (let task of tasks) {
+        for (let [idx, task] of tasks.entries()) {
             // Instead, each `Task` wires up handlers for resolution and rejection.
             task.match({
                 // If it resolved, then check whether one of the other tasks has already
@@ -29710,8 +29716,9 @@ function any(tasks) {
                     if (hasResolved) {
                         return;
                     }
-                    rejections.push(reason);
-                    if (rejections.length === total) {
+                    rejections[idx] = reason;
+                    rejected += 1;
+                    if (rejected === total) {
                         reject(new AggregateRejection(rejections));
                     }
                 },
@@ -29873,11 +29880,13 @@ exports.fromPromise = fromPromise;
   > This does not (and by definition cannot) handle errors that happen during
   > construction of the `Result`, because those happen before this is called.
   > See {@linkcode tryOr} and {@linkcode tryOrElse} as well as the corresponding
-  > `Result.tryOr` and `Result.tryOrElse` methods for synchronous functions.
+  > {@linkcode "result".tryOr result.tryOr} and {@linkcode "result".tryOrElse
+  > result.tryOrElse} methods for synchronous functions.
 
   ## Examples
 
-  Given an `Ok`, `fromResult` will produces a {@linkcode Resolved} task.
+  Given an {@linkcode "result".Ok Ok<T, E>}, `fromResult` will produces a
+  {@linkcode Resolved Resolved<T, E>} task.
 
   ```ts
   import { fromResult } from 'true-myth/task';
@@ -30408,7 +30417,7 @@ exports.isRetryFailed = isRetryFailed;
 
 /***/ }),
 
-/***/ 2693:
+/***/ 2004:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -30536,7 +30545,7 @@ exports.jitter = jitter;
 
 /***/ }),
 
-/***/ 1343:
+/***/ 1178:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -30556,9 +30565,9 @@ exports.jitter = jitter;
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromResult = exports.toOkOrElseErr = exports.toOkOrErr = exports.transposeMaybe = exports.fromMaybe = exports.toMaybe = exports.transposeResult = void 0;
-const result_js_1 = __nccwpck_require__(2705);
-const maybe_js_1 = __nccwpck_require__(3642);
-const utils_js_1 = __nccwpck_require__(7334);
+const result_js_1 = __nccwpck_require__(3132);
+const maybe_js_1 = __nccwpck_require__(1113);
+const utils_js_1 = __nccwpck_require__(6499);
 /**
   Transposes a {@linkcode Result} of a {@linkcode Maybe} into a `Maybe` of a
   `Result`.
@@ -30653,7 +30662,7 @@ exports.fromResult = fromResult;
 
 /***/ }),
 
-/***/ 2148:
+/***/ 3365:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
