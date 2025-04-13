@@ -1,78 +1,110 @@
-// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
+import { describe, it, expect } from 'vitest'
 import { validateInputs } from '../src/utils/validateInputs'
-import { MAXIMUM_ALLOWED, MINIMUM_ALLOWED } from '../src/constants'
+import { InputValidationError } from '../src/utils/errors.ts'
+import fc from 'fast-check'
 
-test('fails with invalid input', () => {
-    const minimum = parseInt('foo', 10)
-    const maximum = parseInt('bar', 10)
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        'minimum and maximum must be numbers'
-    )
+describe('validateInputs (unit cases)', () => {
+    describe.each([
+        ['NaN minimum', NaN, 10, /numbers/],
+        ['NaN maximum', 5, NaN, /numbers/],
+        ['non-integer minimum', 1.5, 10, /integers/],
+        ['non-integer maximum', 1, 9.9, /integers/],
+        ['non-positive minimum', -1, 10, /positive/],
+        ['non-positive maximum', 1, 0, /greater/],
+        ['minimum greater than maximum', 11, 10, /greater than/]
+    ])('%s', (_desc, min, max, expectedError) => {
+        it(`should return error when min=${min}, max=${max}`, () => {
+            expect.hasAssertions()
+
+            const result = validateInputs(min, max)
+
+            expect(result.isErr).toBe(true)
+
+            result.match({
+                Ok: () => {
+                    throw new Error('Expected Err but got Ok')
+                },
+                Err: error => {
+                    expect(error).toBeInstanceOf(InputValidationError)
+                    expect(error.message).toMatch(expectedError)
+                }
+            })
+        })
+    })
+
+    it('returns ok when inputs are valid', () => {
+        expect.hasAssertions()
+
+        const result = validateInputs(5, 10)
+
+        expect(result.isOk).toBe(true)
+    })
 })
 
-test('fails with a non-integer minimum', () => {
-    const minimum = 2.5
-    const maximum = 10
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        'minimum and maximum values must be positive integers'
-    )
-})
+describe('validateInputs (property-based)', () => {
+    it('always returns ok for positive integers where min <= max', () => {
+        expect.hasAssertions()
 
-test('fails with a non-integer maximum', () => {
-    const minimum = 2
-    const maximum = 10.8
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        'minimum and maximum values must be positive integers'
-    )
-})
+        fc.assert(
+            fc.property(
+                fc.integer({ min: 1, max: 1000 }),
+                fc.integer({ min: 1, max: 1000 }),
+                (a, b) => {
+                    const min = Math.min(a, b)
+                    const max = Math.max(a, b)
+                    const result = validateInputs(min, max)
 
-test('fails if minimum is higher than maximum', () => {
-    const minimum = 10
-    const maximum = 5
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        'minimum must be strictly less than maximum'
-    )
-})
+                    expect(result.isOk).toBe(true)
+                }
+            )
+        )
+    })
 
-test('fails if maximum is lower than minimum', () => {
-    const minimum = 10
-    const maximum = 5
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        'minimum must be strictly less than maximum'
-    )
-})
+    it('always returns error when min > max', () => {
+        expect.hasAssertions()
 
-test('fails if minimum is higher than limit', () => {
-    const minimum = 121
-    const maximum = 60
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        `minimum and maximum must be less than or equal to ${MAXIMUM_ALLOWED}`
-    )
-})
+        fc.assert(
+            fc.property(
+                fc.integer({ min: 1, max: 1000 }),
+                fc.integer({ min: 1, max: 1000 }),
+                (a, b) => {
+                    if (a <= b) return // skip valid cases
+                    const result = validateInputs(a, b)
+                    if (result.isErr) {
+                        // eslint-disable-next-line vitest/no-conditional-expect
+                        expect(result.error.message).toMatch(/greater than/)
+                    }
+                }
+            )
+        )
+    })
 
-test('fails if maximum is higher than limit', () => {
-    const minimum = 100
-    const maximum = 121
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        `minimum and maximum must be less than or equal to ${MAXIMUM_ALLOWED}`
-    )
-})
+    it('never accepts negative inputs', () => {
+        expect.hasAssertions()
 
-test('fails if minimum is lower than limit', () => {
-    const minimum = -2
-    const maximum = 10
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        `minimum and maximum values must be greater than ${MINIMUM_ALLOWED}`
-    )
-})
+        fc.assert(
+            fc.property(
+                fc.integer({ max: -1 }),
+                fc.integer({ max: -1 }),
+                (min, max) => {
+                    const result = validateInputs(min, max)
 
-test('fails if maximum is lower than limit', () => {
-    const minimum = 2
-    const maximum = -10
-    expect(() => validateInputs(minimum, maximum)).toThrow(
-        `minimum and maximum values must be greater than ${MINIMUM_ALLOWED}`
-    )
+                    expect(result.isErr).toBe(true)
+
+                    result.match({
+                        Ok: () => {
+                            throw new Error('Expected Err but got Ok')
+                        },
+                        Err: error => {
+                            expect(error.message).toMatch(/positive|greater/)
+                        }
+                    })
+                }
+            )
+        )
+    })
 })

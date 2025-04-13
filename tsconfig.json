@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./docs",
         "esModuleInterop": true,
-        "module": "commonjs",
+        "module": "NodeNext",
         "noImplicitAny": true,
         "outDir": "./lib",
         "rootDir": "./src",
@@ -13,7 +13,7 @@
         "node_modules",
         "**/*.test.ts",
         "megalinter-reports/**/*.js",
-        "jest.config.ts",
+        "vitest.config.ts",
         "docs"
     ]
 }
