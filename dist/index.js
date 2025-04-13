@@ -149,7 +149,7 @@ function run() {
         }
     });
 }
-run();
+void run();
 
 
 /***/ }),
@@ -252,7 +252,9 @@ function wait(minimum, maximum) {
         }
         const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
         return new Promise(resolve => {
-            setTimeout(() => resolve(true_myth_1.Result.ok(secs)), secs * 1000);
+            setTimeout(() => {
+                resolve(true_myth_1.Result.ok(secs));
+            }, secs * 1000);
         });
     });
 }
