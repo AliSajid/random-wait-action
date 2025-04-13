@@ -64,5 +64,5 @@
         "test": "vitest",
         "test:coverage": "vitest --coverage"
     },
-    "version": "2.10.0-next.1"
+    "version": "2.10.0"
 }
