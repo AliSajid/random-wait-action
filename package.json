@@ -13,24 +13,26 @@
         ]
     },
     "dependencies": {
-        "@actions/core": "^1.11.1"
+        "@actions/core": "1.11.1",
+        "true-myth": "8.5.3"
     },
     "description": "A Github Action to introduce a random delay in a Job",
     "devDependencies": {
-        "@eslint/js": "9.21.0",
-        "@stylistic/eslint-plugin": "4.1.0",
+        "@eslint/js": "9.24.0",
+        "@stylistic/eslint-plugin": "4.2.0",
         "@types/eslint": "9.6.1",
-        "@types/jest": "29.5.14",
         "@vercel/ncc": "0.38.3",
-        "eslint": "9.21.0",
-        "eslint-plugin-jest": "28.11.0",
+        "@vitest/coverage-v8": "3.1.1",
+        "@vitest/eslint-plugin": "1.1.42",
+        "@vitest/ui": "3.1.1",
+        "eslint": "9.24.0",
+        "fast-check": "4.1.1",
         "globals": "16.0.0",
-        "jest": "29.7.0",
-        "prettier": "3.5.2",
-        "prettier-plugin-multiline-arrays": "4.0.2",
-        "ts-jest": "29.2.6",
+        "prettier": "3.5.3",
+        "prettier-plugin-multiline-arrays": "4.0.3",
         "typescript": "5.7.3",
-        "typescript-eslint": "8.25.0"
+        "typescript-eslint": "8.29.1",
+        "vitest": "3.1.1"
     },
     "keywords": [
         "actions",
@@ -40,7 +42,7 @@
     "license": "MIT",
     "main": "lib/main.js",
     "name": "random-wait-action",
-    "packageManager": "pnpm@10.5.2",
+    "packageManager": "pnpm@10.8.0",
     "private": true,
     "repository": {
         "type": "git",
@@ -53,8 +55,8 @@
         "format-check": "prettier --check '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
         "lint": "eslint",
         "package": "ncc build --source-map --license licenses.txt",
-        "test": "jest",
-        "test:coverage": "jest --coverage"
+        "test": "vitest --run",
+        "test:coverage": "vitest --coverage"
     },
-    "version": "2.9.0"
+    "version": "2.10.0-next.1"
 }

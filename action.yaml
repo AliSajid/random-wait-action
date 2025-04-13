@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+name: "Random Wait Action"
+description: "A Github Action to introduce a random delay in a Job"
+author: "Ali Sajid Imami"
+inputs:
+  minimum:
+    required: false
+    description: "Minimum wait time in seconds"
+    default: "1"
+  maximum:
+    required: false
+    description: "Maximum wait time in seconds"
+    default: "10"
+outputs:
+  wait_time:
+    description: "The time waited in seconds"
+runs:
+  using: "node20"
+  main: "dist/index.js"
+branding:
+  icon: "clock"
+  color: "blue"
