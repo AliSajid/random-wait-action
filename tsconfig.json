@@ -2,12 +2,15 @@
     "compilerOptions": {
         "baseUrl": "./docs",
         "esModuleInterop": true,
-        "module": "NodeNext",
+        "module": "ESNext",
+        "moduleDetection": "force",
+        "moduleResolution": "bundler",
         "noImplicitAny": true,
-        "outDir": "./lib",
-        "rootDir": "./src",
+        "outDir": "lib",
+        "rootDir": "src",
+        "skipLibCheck": true,
         "strict": true,
-        "target": "es6"
+        "target": "ESNext"
     },
     "exclude": [
         "node_modules",
