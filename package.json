@@ -58,5 +58,6 @@
         "test": "vitest --run",
         "test:coverage": "vitest --coverage"
     },
-    "version": "2.10.1"
+    "type": "module",
+    "version": "2.10.1-next.1"
 }
