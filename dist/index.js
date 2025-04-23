@@ -1,271 +1,9 @@
-require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ 1148:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.RandomWaitAction = void 0;
-const true_myth_1 = __nccwpck_require__(6457);
-const wait_1 = __nccwpck_require__(6245);
-const validateInputs_1 = __nccwpck_require__(3229);
-class RandomWaitAction {
-    constructor(minimum, maximum) {
-        this.minimum = minimum;
-        this.maximum = maximum;
-    }
-    /**
-     * Validates inputs and waits for a random duration.
-     * @returns Promise resolving to a Result wrapping the number of seconds waited, or an error.
-     */
-    execute() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const validationResult = (0, validateInputs_1.validateInputs)(this.minimum, this.maximum);
-            if (validationResult.isErr) {
-                return true_myth_1.Result.err(validationResult.error);
-            }
-            return (0, wait_1.wait)(this.minimum, this.maximum);
-        });
-    }
-}
-exports.RandomWaitAction = RandomWaitAction;
-
-
-/***/ }),
-
-/***/ 6971:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MAXIMUM_ALLOWED = exports.MINIMUM_ALLOWED = void 0;
-// Set the minimum time limit to 0 seconds
-exports.MINIMUM_ALLOWED = 0;
-// Set the maximum time limit to 2 minutes (120 seconds)
-exports.MAXIMUM_ALLOWED = 120;
-
-
-/***/ }),
-
-/***/ 1293:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core = __importStar(__nccwpck_require__(9999));
-const true_myth_1 = __nccwpck_require__(6457);
-const RandomWaitAction_1 = __nccwpck_require__(1148);
-const constants_1 = __nccwpck_require__(6971);
-function run() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            // Retrieve input values from GitHub Action inputs
-            const minInput = core.getInput('minimum');
-            const maxInput = core.getInput('maximum');
-            // Use Maybe to safely parse inputs into numbers
-            const minimum = true_myth_1.Maybe.of(minInput).mapOr(constants_1.MINIMUM_ALLOWED, parseInt);
-            const maximum = true_myth_1.Maybe.of(maxInput).mapOr(constants_1.MAXIMUM_ALLOWED, parseInt);
-            // Create instance of pure business logic class
-            const action = new RandomWaitAction_1.RandomWaitAction(minimum, maximum);
-            core.debug(`Executing random wait between ${minimum} and ${maximum} seconds...`);
-            core.debug(`Start Time: ${new Date().toTimeString()}`);
-            // Execute the wait logic
-            const result = yield action.execute();
-            if (result.isErr) {
-                core.setFailed(result.error.message);
-                return;
-            }
-            const waitTime = result.value;
-            core.debug(`End Time: ${new Date().toTimeString()}`);
-            core.setOutput('wait_time', waitTime.toString());
-        }
-        catch (error) {
-            if (error instanceof Error)
-                core.setFailed(error.message);
-        }
-    });
-}
-void run();
-
-
-/***/ }),
-
-/***/ 7669:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.InputValidationError = void 0;
-// src/utils/errors.ts
-class InputValidationError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'InputValidationError';
-    }
-}
-exports.InputValidationError = InputValidationError;
-
-
-/***/ }),
-
-/***/ 3229:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.validateInputs = validateInputs;
-// src/utils/validateInputs.ts
-const true_myth_1 = __nccwpck_require__(6457);
-const errors_1 = __nccwpck_require__(7669);
-/**
- * Validates the input values.
- * @param minimum The minimum seconds.
- * @param maximum The maximum seconds.
- * @returns A Result; Ok if valid, or an InputValidationError if invalid.
- */
-function validateInputs(minimum, maximum) {
-    if (isNaN(minimum) || isNaN(maximum)) {
-        return true_myth_1.Result.err(new errors_1.InputValidationError('Both minimum and maximum must be numbers.'));
-    }
-    if (!Number.isInteger(minimum) || !Number.isInteger(maximum)) {
-        return true_myth_1.Result.err(new errors_1.InputValidationError('Both minimum and maximum must be integers.'));
-    }
-    if (minimum == 0 && maximum == 0) {
-        return true_myth_1.Result.err(new errors_1.InputValidationError('Both minimum and maximum cannot be zero.'));
-    }
-    if (minimum < 0 || maximum < 0) {
-        return true_myth_1.Result.err(new errors_1.InputValidationError('Both minimum and maximum must be positive integers.'));
-    }
-    if (minimum > maximum) {
-        return true_myth_1.Result.err(new errors_1.InputValidationError('Minimum cannot be greater than maximum.'));
-    }
-    return true_myth_1.Result.ok(true_myth_1.Unit);
-}
-
-
-/***/ }),
-
-/***/ 6245:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-//
-// SPDX-License-Identifier: MIT
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.wait = wait;
-const true_myth_1 = __nccwpck_require__(6457);
-const validateInputs_1 = __nccwpck_require__(3229);
-/**
- * Waits for a random number of seconds between minimum and maximum.
- * @param minimum The minimum number of seconds to wait.
- * @param maximum The maximum number of seconds to wait.
- * @returns A Promise that resolves to a Result containing the wait time (in seconds) or an error.
- */
-function wait(minimum, maximum) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const validation = (0, validateInputs_1.validateInputs)(minimum, maximum);
-        if (validation.isErr) {
-            return true_myth_1.Result.err(validation.error);
-        }
-        const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve(true_myth_1.Result.ok(secs));
-            }, secs * 1000);
-        });
-    });
-}
-
-
-/***/ }),
+import './sourcemap-register.cjs';import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
+/******/ var __webpack_modules__ = ({
 
 /***/ 3191:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -368,7 +106,6 @@ function escapeProperty(s) {
 /***/ 9999:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -719,7 +456,6 @@ exports.platform = __importStar(__nccwpck_require__(2563));
 /***/ 9058:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 // For internal use, subject to change.
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -788,7 +524,6 @@ exports.prepareKeyValueMessage = prepareKeyValueMessage;
 /***/ 3549:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -872,7 +607,6 @@ exports.OidcClient = OidcClient;
 /***/ 539:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -941,7 +675,6 @@ exports.toPlatformPath = toPlatformPath;
 /***/ 2563:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1042,7 +775,6 @@ exports.getDetails = getDetails;
 /***/ 1638:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -1332,7 +1064,6 @@ exports.summary = _summary;
 /***/ 6283:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -1379,7 +1110,6 @@ exports.toCommandProperties = toCommandProperties;
 /***/ 8872:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1489,7 +1219,6 @@ exports.getExecOutput = getExecOutput;
 /***/ 3725:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2114,7 +1843,6 @@ class ExecState extends events.EventEmitter {
 /***/ 3673:
 /***/ (function(__unused_webpack_module, exports) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -2202,7 +1930,6 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 /***/ 787:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -2861,7 +2588,6 @@ const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCa
 /***/ 7407:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.checkBypass = exports.getProxyUrl = void 0;
@@ -2963,7 +2689,6 @@ class DecodedURL extends URL {
 /***/ 2746:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -3153,7 +2878,6 @@ exports.getCmdPath = getCmdPath;
 /***/ 3357:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -3467,7 +3191,6 @@ module.exports = __nccwpck_require__(3660);
 /***/ 3660:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 var net = __nccwpck_require__(9278);
@@ -3739,7 +3462,6 @@ exports.debug = debug; // for test
 /***/ 298:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Client = __nccwpck_require__(439)
@@ -3914,7 +3636,6 @@ module.exports.mockErrors = mockErrors
 /***/ 8603:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { InvalidArgumentError } = __nccwpck_require__(1581)
@@ -4131,7 +3852,6 @@ module.exports = {
 /***/ 3290:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { AsyncResource } = __nccwpck_require__(290)
@@ -4243,7 +3963,6 @@ module.exports = connect
 /***/ 9840:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -4500,7 +4219,6 @@ module.exports = pipeline
 /***/ 3333:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Readable = __nccwpck_require__(1709)
@@ -4688,7 +4406,6 @@ module.exports.RequestHandler = RequestHandler
 /***/ 2310:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { finished, PassThrough } = __nccwpck_require__(2203)
@@ -4916,7 +4633,6 @@ module.exports = stream
 /***/ 7236:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { InvalidArgumentError, RequestAbortedError, SocketError } = __nccwpck_require__(1581)
@@ -5029,7 +4745,6 @@ module.exports = upgrade
 /***/ 8725:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 module.exports.request = __nccwpck_require__(3333)
@@ -5044,7 +4759,6 @@ module.exports.connect = __nccwpck_require__(3290)
 /***/ 1709:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // Ported from https://github.com/nodejs/undici/pull/907
 
 
@@ -5427,7 +5141,6 @@ module.exports = { getResolveErrorBodyCallback }
 /***/ 3375:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -5625,7 +5338,6 @@ module.exports = BalancedPool
 /***/ 3761:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kConstruct } = __nccwpck_require__(5914)
@@ -6471,7 +6183,6 @@ module.exports = {
 /***/ 8400:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kConstruct } = __nccwpck_require__(5914)
@@ -6623,7 +6334,6 @@ module.exports = {
 /***/ 5914:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 module.exports = {
@@ -6636,7 +6346,6 @@ module.exports = {
 /***/ 3175:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const assert = __nccwpck_require__(2613)
@@ -6693,7 +6402,6 @@ module.exports = {
 /***/ 439:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // @ts-check
 
 
@@ -8984,7 +8692,6 @@ module.exports = Client
 /***/ 1408:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore file: only for Node 12 */
@@ -9040,7 +8747,6 @@ module.exports = function () {
 /***/ 8803:
 /***/ ((module) => {
 
-"use strict";
 
 
 // https://wicg.github.io/cookie-store/#cookie-maximum-attribute-value-size
@@ -9060,7 +8766,6 @@ module.exports = {
 /***/ 7426:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { parseSetCookie } = __nccwpck_require__(7889)
@@ -9251,7 +8956,6 @@ module.exports = {
 /***/ 7889:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { maxNameValuePairSize, maxAttributeValueSize } = __nccwpck_require__(8803)
@@ -9576,7 +9280,6 @@ module.exports = {
 /***/ 3692:
 /***/ ((module) => {
 
-"use strict";
 
 
 /**
@@ -9858,7 +9561,6 @@ module.exports = {
 /***/ 110:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const net = __nccwpck_require__(9278)
@@ -10055,7 +9757,6 @@ module.exports = buildConnector
 /***/ 7281:
 /***/ ((module) => {
 
-"use strict";
 
 
 /** @type {Record<string, string | undefined>} */
@@ -10181,7 +9882,6 @@ module.exports = {
 /***/ 1581:
 /***/ ((module) => {
 
-"use strict";
 
 
 class UndiciError extends Error {
@@ -10419,7 +10119,6 @@ module.exports = {
 /***/ 3505:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -10996,7 +10695,6 @@ module.exports = {
 /***/ 4606:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const assert = __nccwpck_require__(2613)
@@ -11526,7 +11224,6 @@ module.exports = {
 /***/ 9787:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Dispatcher = __nccwpck_require__(3553)
@@ -11726,7 +11423,6 @@ module.exports = DispatcherBase
 /***/ 3553:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const EventEmitter = __nccwpck_require__(4434)
@@ -11753,7 +11449,6 @@ module.exports = Dispatcher
 /***/ 8009:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Busboy = __nccwpck_require__(9766)
@@ -12374,7 +12069,6 @@ module.exports = {
 /***/ 7536:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { MessageChannel, receiveMessageOnPort } = __nccwpck_require__(8167)
@@ -13167,7 +12861,6 @@ module.exports = {
 /***/ 4091:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Blob, File: NativeFile } = __nccwpck_require__(181)
@@ -13519,7 +13212,6 @@ module.exports = { File, FileLike, isFileLike }
 /***/ 1187:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { isBlobLike, toUSVString, makeIterator } = __nccwpck_require__(8961)
@@ -13792,7 +13484,6 @@ module.exports = { FormData }
 /***/ 742:
 /***/ ((module) => {
 
-"use strict";
 
 
 // In case of breaking changes, increase the version
@@ -13840,7 +13531,6 @@ module.exports = {
 /***/ 2223:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // https://github.com/Ethan-Arrowood/undici-fetch
 
 
@@ -14441,7 +14131,6 @@ module.exports = {
 /***/ 9401:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // https://github.com/Ethan-Arrowood/undici-fetch
 
 
@@ -16597,7 +16286,6 @@ module.exports = {
 /***/ 2204:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /* globals AbortController */
 
 
@@ -17551,7 +17239,6 @@ module.exports = { Request, makeRequest }
 /***/ 6062:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Headers, HeadersList, fill } = __nccwpck_require__(2223)
@@ -18130,7 +17817,6 @@ module.exports = {
 /***/ 1088:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -18148,7 +17834,6 @@ module.exports = {
 /***/ 8961:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { redirectStatusSet, referrerPolicySet: referrerPolicyTokens, badPortsSet } = __nccwpck_require__(7536)
@@ -19300,7 +18985,6 @@ module.exports = {
 /***/ 3476:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { types } = __nccwpck_require__(9023)
@@ -19954,7 +19638,6 @@ module.exports = {
 /***/ 202:
 /***/ ((module) => {
 
-"use strict";
 
 
 /**
@@ -20252,7 +19935,6 @@ module.exports = {
 /***/ 9086:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -20604,7 +20286,6 @@ module.exports = {
 /***/ 5702:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { webidl } = __nccwpck_require__(3476)
@@ -20690,7 +20371,6 @@ module.exports = {
 /***/ 7570:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -20708,7 +20388,6 @@ module.exports = {
 /***/ 367:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -21108,7 +20787,6 @@ module.exports = {
 /***/ 9456:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 // We include a version number for the Dispatcher API. In case of breaking changes,
@@ -21148,7 +20826,6 @@ module.exports = {
 /***/ 1858:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = class DecoratorHandler {
@@ -21191,7 +20868,6 @@ module.exports = class DecoratorHandler {
 /***/ 3897:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const util = __nccwpck_require__(4606)
@@ -21763,7 +21439,6 @@ module.exports = RetryHandler
 /***/ 9509:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const RedirectHandler = __nccwpck_require__(3897)
@@ -21792,7 +21467,6 @@ module.exports = createRedirectInterceptor
 /***/ 862:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SPECIAL_HEADERS = exports.HEADER_STATE = exports.MINOR = exports.MAJOR = exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS = exports.TOKEN = exports.STRICT_TOKEN = exports.HEX = exports.URL_CHAR = exports.STRICT_URL_CHAR = exports.USERINFO_CHARS = exports.MARK = exports.ALPHANUM = exports.NUM = exports.HEX_MAP = exports.NUM_MAP = exports.ALPHA = exports.FINISH = exports.H_METHOD_MAP = exports.METHOD_MAP = exports.METHODS_RTSP = exports.METHODS_ICE = exports.METHODS_HTTP = exports.METHODS = exports.LENIENT_FLAGS = exports.FLAGS = exports.TYPE = exports.ERROR = void 0;
@@ -22093,7 +21767,6 @@ module.exports = 'AGFzbQEAAAABMAhgAX8Bf2ADf39/AX9gBH9/f38Bf2AAAGADf39/AGABfwBgAn
 /***/ 1910:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.enumToMap = void 0;
@@ -22115,7 +21788,6 @@ exports.enumToMap = enumToMap;
 /***/ 5343:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kClients } = __nccwpck_require__(5773)
@@ -22294,7 +21966,6 @@ module.exports = MockAgent
 /***/ 4163:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { promisify } = __nccwpck_require__(9023)
@@ -22361,7 +22032,6 @@ module.exports = MockClient
 /***/ 2255:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { UndiciError } = __nccwpck_require__(1581)
@@ -22386,7 +22056,6 @@ module.exports = {
 /***/ 3445:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { getResponseData, buildKey, addMockDispatch } = __nccwpck_require__(939)
@@ -22600,7 +22269,6 @@ module.exports.MockScope = MockScope
 /***/ 3722:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { promisify } = __nccwpck_require__(9023)
@@ -22667,7 +22335,6 @@ module.exports = MockPool
 /***/ 5367:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -22698,7 +22365,6 @@ module.exports = {
 /***/ 939:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { MockNotMatchedError } = __nccwpck_require__(2255)
@@ -23057,7 +22723,6 @@ module.exports = {
 /***/ 6584:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Transform } = __nccwpck_require__(2203)
@@ -23105,7 +22770,6 @@ module.exports = class PendingInterceptorsFormatter {
 /***/ 1315:
 /***/ ((module) => {
 
-"use strict";
 
 
 const singulars = {
@@ -23142,7 +22806,6 @@ module.exports = class Pluralizer {
 /***/ 119:
 /***/ ((module) => {
 
-"use strict";
 /* eslint-disable */
 
 
@@ -23267,7 +22930,6 @@ module.exports = class FixedQueue {
 /***/ 9974:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const DispatcherBase = __nccwpck_require__(9787)
@@ -23510,7 +23172,6 @@ module.exports = PoolStats
 /***/ 6086:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -23626,7 +23287,6 @@ module.exports = Pool
 /***/ 6278:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kProxy, kClose, kDestroy, kInterceptors } = __nccwpck_require__(5773)
@@ -23823,7 +23483,6 @@ module.exports = ProxyAgent
 /***/ 2374:
 /***/ ((module) => {
 
-"use strict";
 
 
 let fastNow = Date.now()
@@ -23928,7 +23587,6 @@ module.exports = {
 /***/ 3760:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const diagnosticsChannel = __nccwpck_require__(1637)
@@ -24227,7 +23885,6 @@ module.exports = {
 /***/ 7875:
 /***/ ((module) => {
 
-"use strict";
 
 
 // This is a Globally Unique Identifier unique used
@@ -24286,7 +23943,6 @@ module.exports = {
 /***/ 8659:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { webidl } = __nccwpck_require__(3476)
@@ -24597,7 +24253,6 @@ module.exports = {
 /***/ 4391:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { maxUnsigned16Bit } = __nccwpck_require__(7875)
@@ -24678,7 +24333,6 @@ module.exports = {
 /***/ 833:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Writable } = __nccwpck_require__(2203)
@@ -25030,7 +24684,6 @@ module.exports = {
 /***/ 6063:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -25050,7 +24703,6 @@ module.exports = {
 /***/ 588:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kReadyState, kController, kResponse, kBinaryType, kWebSocketURL } = __nccwpck_require__(6063)
@@ -25258,7 +24910,6 @@ module.exports = {
 /***/ 3853:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { webidl } = __nccwpck_require__(3476)
@@ -25904,258 +25555,242 @@ module.exports = {
 
 /***/ }),
 
+/***/ 7686:
+/***/ ((module) => {
+
+module.exports = eval("require")("./RandomWaitAction");
+
+
+/***/ }),
+
+/***/ 3849:
+/***/ ((module) => {
+
+module.exports = eval("require")("./constants");
+
+
+/***/ }),
+
 /***/ 2613:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("assert");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("assert");
 
 /***/ }),
 
 /***/ 290:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("async_hooks");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("async_hooks");
 
 /***/ }),
 
 /***/ 181:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("buffer");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("buffer");
 
 /***/ }),
 
 /***/ 5317:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("child_process");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("child_process");
 
 /***/ }),
 
 /***/ 4236:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("console");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("console");
 
 /***/ }),
 
 /***/ 6982:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("crypto");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
 
 /***/ }),
 
 /***/ 1637:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("diagnostics_channel");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("diagnostics_channel");
 
 /***/ }),
 
 /***/ 4434:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("events");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
 
 /***/ }),
 
 /***/ 9896:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("fs");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 
 /***/ }),
 
 /***/ 8611:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("http");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("http");
 
 /***/ }),
 
 /***/ 5675:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("http2");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("http2");
 
 /***/ }),
 
 /***/ 5692:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("https");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("https");
 
 /***/ }),
 
 /***/ 9278:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("net");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("net");
 
 /***/ }),
 
 /***/ 7598:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:crypto");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:crypto");
 
 /***/ }),
 
 /***/ 8474:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:events");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:events");
 
 /***/ }),
 
 /***/ 7075:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:stream");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:stream");
 
 /***/ }),
 
 /***/ 7975:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:util");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:util");
 
 /***/ }),
 
 /***/ 857:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("os");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 
 /***/ }),
 
 /***/ 6928:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("path");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
 
 /***/ }),
 
 /***/ 2987:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("perf_hooks");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("perf_hooks");
 
 /***/ }),
 
 /***/ 3480:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("querystring");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("querystring");
 
 /***/ }),
 
 /***/ 2203:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("stream");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("stream");
 
 /***/ }),
 
 /***/ 3774:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("stream/web");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("stream/web");
 
 /***/ }),
 
 /***/ 3193:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("string_decoder");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("string_decoder");
 
 /***/ }),
 
 /***/ 3557:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("timers");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("timers");
 
 /***/ }),
 
 /***/ 4756:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("tls");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("tls");
 
 /***/ }),
 
 /***/ 7016:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("url");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("url");
 
 /***/ }),
 
 /***/ 9023:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("util");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ }),
 
 /***/ 8253:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("util/types");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util/types");
 
 /***/ }),
 
 /***/ 8167:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("worker_threads");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("worker_threads");
 
 /***/ }),
 
 /***/ 3106:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("zlib");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("zlib");
 
 /***/ }),
 
 /***/ 6917:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const WritableStream = (__nccwpck_require__(7075).Writable)
@@ -26376,7 +26011,6 @@ module.exports = Dicer
 /***/ 6890:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const EventEmitter = (__nccwpck_require__(8474).EventEmitter)
@@ -26484,7 +26118,6 @@ module.exports = HeaderParser
 /***/ 5341:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const inherits = (__nccwpck_require__(7975).inherits)
@@ -26505,7 +26138,6 @@ module.exports = PartStream
 /***/ 2820:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 /**
@@ -26741,7 +26373,6 @@ module.exports = SBMH
 /***/ 9766:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const WritableStream = (__nccwpck_require__(7075).Writable)
@@ -26834,7 +26465,6 @@ module.exports.Dicer = Dicer
 /***/ 4945:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 // TODO:
@@ -27148,7 +26778,6 @@ module.exports = Multipart
 /***/ 1724:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Decoder = __nccwpck_require__(393)
@@ -27346,7 +26975,6 @@ module.exports = UrlEncoded
 /***/ 393:
 /***/ ((module) => {
 
-"use strict";
 
 
 const RE_PLUS = /\+/g
@@ -27408,7 +27036,6 @@ module.exports = Decoder
 /***/ 4935:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function basename (path) {
@@ -27430,7 +27057,6 @@ module.exports = function basename (path) {
 /***/ 3772:
 /***/ (function(module) {
 
-"use strict";
 
 
 // Node has always utf-8
@@ -27552,7 +27178,6 @@ module.exports = decodeText
 /***/ 1954:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function getLimit (limits, name, defaultLimit) {
@@ -27576,7 +27201,6 @@ module.exports = function getLimit (limits, name, defaultLimit) {
 /***/ 6812:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /* eslint-disable object-property-newline */
 
 
@@ -27775,19 +27399,55 @@ function parseParams (str) {
 module.exports = parseParams
 
 
-/***/ }),
+/***/ })
 
-/***/ 6499:
-/***/ ((__unused_webpack_module, exports) => {
+/******/ });
+/************************************************************************/
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/ 
+/******/ // The require function
+/******/ function __nccwpck_require__(moduleId) {
+/******/ 	// Check if module is in cache
+/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	if (cachedModule !== undefined) {
+/******/ 		return cachedModule.exports;
+/******/ 	}
+/******/ 	// Create a new module (and put it into the cache)
+/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 		// no module.id needed
+/******/ 		// no module.loaded needed
+/******/ 		exports: {}
+/******/ 	};
+/******/ 
+/******/ 	// Execute the module function
+/******/ 	var threw = true;
+/******/ 	try {
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 		threw = false;
+/******/ 	} finally {
+/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 	}
+/******/ 
+/******/ 	// Return the exports of the module
+/******/ 	return module.exports;
+/******/ }
+/******/ 
+/************************************************************************/
+/******/ /* webpack/runtime/compat */
+/******/ 
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
+/************************************************************************/
+var __webpack_exports__ = {};
 
-"use strict";
-
+// EXTERNAL MODULE: ./node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/core.js
+var core = __nccwpck_require__(9999);
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/-private/utils.js
 /**
   @module
   @internal
 */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.safeToString = exports.curry1 = exports.isVoid = void 0;
 /**
  * Check if the value here is an all-consuming monstrosity which will consume
  * everything in its transdimensional rage. A.k.a. `null` or `undefined`.
@@ -27795,12 +27455,10 @@ exports.safeToString = exports.curry1 = exports.isVoid = void 0;
  * @internal
  */
 const isVoid = (value) => typeof value === 'undefined' || value === null;
-exports.isVoid = isVoid;
 /** @internal */
-function curry1(op, item) {
+function utils_curry1(op, item) {
     return item !== undefined ? op(item) : op;
 }
-exports.curry1 = curry1;
 /**
  * Check whether a given key is in an object
  * @internal
@@ -27817,61 +27475,25 @@ function safeToString(value) {
         return JSON.stringify(value);
     }
 }
-exports.safeToString = safeToString;
-//# sourceMappingURL=utils.cjs.map
-
-/***/ }),
-
-/***/ 6457:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
+//# sourceMappingURL=utils.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/maybe.js
 /**
-  This is just here to re-export {@link Maybe}, {@link Result}, {@link Unit},
-  and {@link Toolbelt}  – that is, to provide a root-level entry amenable to use
-  with Node with TypeScript versions before 4.7 and its ESM support, or for
-  convenience.
+  A value of type `T` which may, or may not, be present. If the value is
+  present, it is {@linkcode Just Just(value)}. If it's absent, it is {@linkcode
+  Nothing} instead.
 
-  @packageDocumentation
- */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Toolbelt = exports.Task = exports.Unit = exports.ResultNS = exports.Result = exports.MaybeNS = exports.Maybe = void 0;
-var maybe_js_1 = __nccwpck_require__(1113);
-Object.defineProperty(exports, "Maybe", ({ enumerable: true, get: function () { return maybe_js_1.default; } }));
-exports.MaybeNS = __nccwpck_require__(1113);
-var result_js_1 = __nccwpck_require__(3132);
-Object.defineProperty(exports, "Result", ({ enumerable: true, get: function () { return result_js_1.default; } }));
-exports.ResultNS = __nccwpck_require__(3132);
-var unit_js_1 = __nccwpck_require__(3365);
-Object.defineProperty(exports, "Unit", ({ enumerable: true, get: function () { return unit_js_1.default; } }));
-var task_js_1 = __nccwpck_require__(6372);
-Object.defineProperty(exports, "Task", ({ enumerable: true, get: function () { return task_js_1.default; } }));
-exports.Toolbelt = __nccwpck_require__(1178);
-//# sourceMappingURL=index.cjs.map
-
-/***/ }),
-
-/***/ 1113:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-/**
-  {@include doc/maybe.md}
+For a deep dive on the type, see [the guide](/guide/understanding/maybe.md).
 
   @module
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Maybe = exports.wrapReturn = exports.safe = exports.get = exports.property = exports.transposeArray = exports.last = exports.first = exports.find = exports.isInstance = exports.ap = exports.equals = exports.match = exports.toJSON = exports.toString = exports.unwrapOrElse = exports.unwrapOr = exports.orElse = exports.or = exports.andThen = exports.and = exports.mapOrElse = exports.mapOr = exports.map = exports.of = exports.nothing = exports.isNothing = exports.isJust = exports.just = exports.Variant = void 0;
-const utils_js_1 = __nccwpck_require__(6499);
+
 /**
   Discriminant for the {@linkcode Just} and {@linkcode Nothing} type instances.
 
   You can use the discriminant via the `variant` property of {@linkcode Maybe}
   instances if you need to match explicitly on it.
  */
-exports.Variant = {
+const Variant = {
     Just: 'Just',
     Nothing: 'Nothing',
 };
@@ -27890,35 +27512,35 @@ class MaybeImpl {
     // when `NOTHING` does not already exist.
     repr;
     constructor(value) {
-        if ((0, utils_js_1.isVoid)(value)) {
+        if (isVoid(value)) {
             // SAFETY: there is only a single `Nothing` in the system, because the
             // only difference between `Nothing<string>` and `Nothing<number>` is at
             // the type-checking level.
             if (!NOTHING) {
-                this.repr = [exports.Variant.Nothing];
+                this.repr = [Variant.Nothing];
                 NOTHING = this;
             }
             return NOTHING;
         }
         else {
-            this.repr = [exports.Variant.Just, value];
+            this.repr = [Variant.Just, value];
         }
     }
-    // Then the implementation signature is simply the same as the final overload,
-    // because we do not *and cannot* prevent the undesired function types from
-    // appearing here at runtime: doing so would require having a value on which
-    // to (maybe) apply the function!
+    // Then the implementation signature is simply the same as the last two,
+    // overloads because we do not *and cannot* prevent the undesired function
+    // types from appearing here at runtime: doing so would require having a value
+    // on which to (maybe) apply the function!
     static of(value) {
-        return new exports.Maybe(value);
+        return new maybe_Maybe(value);
     }
     // The runtime signature *does* allow null and undefined values so that the
     // body can correctly throw at runtime in the case where a caller passes data
     // whose type lies about the contained value.
     static just(value) {
-        if ((0, utils_js_1.isVoid)(value)) {
+        if (isVoid(value)) {
             throw new Error(`attempted to call "just" with ${value}`);
         }
-        return new exports.Maybe(value);
+        return new maybe_Maybe(value);
     }
     /**
       Create an instance of `Maybe.Nothing`.
@@ -27947,22 +27569,22 @@ class MaybeImpl {
       @warning throws if you access this from a {@linkcode Just}
      */
     get value() {
-        if (this.repr[0] === exports.Variant.Nothing) {
+        if (this.repr[0] === Variant.Nothing) {
             throw new Error('Cannot get the value of `Nothing`');
         }
         return this.repr[1];
     }
     /** Is the {@linkcode Maybe} a {@linkcode Just}? */
     get isJust() {
-        return this.repr[0] === exports.Variant.Just;
+        return this.repr[0] === Variant.Just;
     }
     /** Is the {@linkcode Maybe} a {@linkcode Nothing}? */
     get isNothing() {
-        return this.repr[0] === exports.Variant.Nothing;
+        return this.repr[0] === Variant.Nothing;
     }
     /** Method variant for {@linkcode map} */
     map(mapFn) {
-        return (this.repr[0] === 'Just' ? exports.Maybe.just(mapFn(this.repr[1])) : this);
+        return this.repr[0] === 'Just' ? maybe_Maybe.just(mapFn(this.repr[1])) : nothing();
     }
     /** Method variant for {@link mapOr|`mapOr`} */
     mapOr(orU, mapFn) {
@@ -27980,15 +27602,13 @@ class MaybeImpl {
     or(mOr) {
         return this.repr[0] === 'Just' ? this : mOr;
     }
-    /** Method variant for {@linkcode orElse} */
     orElse(orElseFn) {
-        return this.repr[0] === 'Just' ? this : orElseFn();
+        return (this.repr[0] === 'Just' ? this : orElseFn());
     }
     /** Method variant for {@linkcode and} */
     and(mAnd) {
         return (this.repr[0] === 'Just' ? mAnd : this);
     }
-    /** Method variant for {@linkcode andThen} */
     andThen(andThenFn) {
         return (this.repr[0] === 'Just' ? andThenFn(this.repr[1]) : this);
     }
@@ -28002,7 +27622,7 @@ class MaybeImpl {
     }
     /** Method variant for {@linkcode toString} */
     toString() {
-        return this.repr[0] === 'Just' ? `Just(${(0, utils_js_1.safeToString)(this.repr[1])})` : 'Nothing';
+        return this.repr[0] === 'Just' ? `Just(${safeToString(this.repr[1])})` : 'Nothing';
     }
     /** Method variant for {@linkcode toJSON} */
     toJSON() {
@@ -28081,7 +27701,7 @@ class MaybeImpl {
   @returns     An instance of `Maybe.Just<T>`.
   @throws      If you pass `null` or `undefined`.
  */
-exports.just = MaybeImpl.just;
+const just = MaybeImpl.just;
 /**
   Is the {@linkcode Maybe} a {@linkcode Just}?
 
@@ -28092,7 +27712,6 @@ exports.just = MaybeImpl.just;
 function isJust(maybe) {
     return maybe.isJust;
 }
-exports.isJust = isJust;
 /**
   Is the {@linkcode Maybe} a {@linkcode Nothing}?
 
@@ -28103,7 +27722,6 @@ exports.isJust = isJust;
 function isNothing(maybe) {
     return maybe.isNothing;
 }
-exports.isNothing = isNothing;
 /**
   Create a {@linkcode Maybe} instance which is a {@linkcode Nothing}.
 
@@ -28118,7 +27736,7 @@ exports.isNothing = isNothing;
   @template T The type of the item contained in the `Maybe`.
   @returns     An instance of `Maybe.Nothing<T>`.
  */
-exports.nothing = MaybeImpl.nothing;
+const nothing = MaybeImpl.nothing;
 /**
   Create a {@linkcode Maybe} from any value.
 
@@ -28126,8 +27744,8 @@ exports.nothing = MaybeImpl.nothing;
   invoke `Maybe.of` with an explicit type parameter:
 
   ```ts
-  import * as Maybe from 'true-myth/maybe';
-  const foo = Maybe.of<string>(null);
+  import * as maybe from 'true-myth/maybe';
+  const foo = maybe.of<string>(null);
   ```
 
   This is usually only important in two cases:
@@ -28142,12 +27760,11 @@ exports.nothing = MaybeImpl.nothing;
                the result will be `Nothing`; otherwise it will be the type of
                the value passed.
  */
-exports.of = MaybeImpl.of;
+const of = MaybeImpl.of;
 function map(mapFn, maybe) {
     const op = (m) => m.map(mapFn);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.map = map;
 function mapOr(orU, mapFn, maybe) {
     function fullOp(fn, m) {
         return m.mapOr(orU, fn);
@@ -28163,7 +27780,6 @@ function mapOr(orU, mapFn, maybe) {
             ? partialOp(mapFn)
             : partialOp(mapFn, maybe);
 }
-exports.mapOr = mapOr;
 function mapOrElse(orElseFn, mapFn, maybe) {
     function fullOp(fn, m) {
         return m.mapOrElse(orElseFn, fn);
@@ -28183,37 +27799,30 @@ function mapOrElse(orElseFn, mapFn, maybe) {
         return partialOp(mapFn, maybe);
     }
 }
-exports.mapOrElse = mapOrElse;
 function and(andMaybe, maybe) {
     const op = (m) => m.and(andMaybe);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.and = and;
 function andThen(thenFn, maybe) {
     const op = (m) => m.andThen(thenFn);
     return maybe !== undefined ? op(maybe) : op;
 }
-exports.andThen = andThen;
 function or(defaultMaybe, maybe) {
     const op = (m) => m.or(defaultMaybe);
     return maybe !== undefined ? op(maybe) : op;
 }
-exports.or = or;
 function orElse(elseFn, maybe) {
     const op = (m) => m.orElse(elseFn);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.orElse = orElse;
 function unwrapOr(defaultValue, maybe) {
     const op = (m) => m.unwrapOr(defaultValue);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.unwrapOr = unwrapOr;
 function unwrapOrElse(orElseFn, maybe) {
     const op = (m) => m.unwrapOrElse(orElseFn);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.unwrapOrElse = unwrapOrElse;
 /**
   Create a `String` representation of a {@linkcode Maybe} instance.
 
@@ -28233,10 +27842,9 @@ exports.unwrapOrElse = unwrapOrElse;
   @param maybe The value to convert to a string.
   @returns     The string representation of the `Maybe`.
  */
-function toString(maybe) {
+function maybe_toString(maybe) {
     return maybe.toString();
 }
-exports.toString = toString;
 /**
  * Create an `Object` representation of a {@linkcode Maybe} instance.
  *
@@ -28248,78 +27856,36 @@ exports.toString = toString;
 function toJSON(maybe) {
     return maybe.toJSON();
 }
-exports.toJSON = toJSON;
 function match(matcher, maybe) {
     const op = (curriedMaybe) => curriedMaybe.match(matcher);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.match = match;
 function equals(mb, ma) {
     const op = (maybeA) => maybeA.equals(mb);
-    return (0, utils_js_1.curry1)(op, ma);
+    return curry1(op, ma);
 }
-exports.equals = equals;
 function ap(maybeFn, maybe) {
     const op = (m) => maybeFn.ap(m);
-    return (0, utils_js_1.curry1)(op, maybe);
+    return curry1(op, maybe);
 }
-exports.ap = ap;
 /**
   Determine whether an item is an instance of {@linkcode Maybe}.
 
   @param item The item to check.
  */
 function isInstance(item) {
-    return item instanceof exports.Maybe;
+    return item instanceof maybe_Maybe;
 }
-exports.isInstance = isInstance;
 function find(predicate, array) {
-    const op = (a) => exports.Maybe.of(a.find(predicate));
-    return (0, utils_js_1.curry1)(op, array);
+    const op = (a) => maybe_Maybe.of(a.find(predicate));
+    return curry1(op, array);
 }
-exports.find = find;
-/**
-  Safely get the first item from a list, returning {@linkcode Just} the first
-  item if the array has at least one item in it, or {@linkcode Nothing} if it is
-  empty.
-
-  ## Examples
-
-  ```ts
-  let empty = [];
-  Maybe.head(empty); // => Nothing
-
-  let full = [1, 2, 3];
-  Maybe.head(full); // => Just(1)
-  ```
-
-  @param array The array to get the first item from.
- */
 function first(array) {
-    return exports.Maybe.of(array[0]);
+    return array.length !== 0 ? maybe_Maybe.just(maybe_Maybe.of(array[0])) : maybe_Maybe.nothing();
 }
-exports.first = first;
-/**
-  Safely get the last item from a list, returning {@linkcode Just} the last item
-  if the array has at least one item in it, or {@linkcode Nothing} if it is
-  empty.
-
-  ## Examples
-
-  ```ts
-  let empty = [];
-  Maybe.last(empty); // => Nothing
-
-  let full = [1, 2, 3];
-  Maybe.last(full); // => Just(3)
-  ```
-
-  @param array The array to get the first item from.
- */
 function last(array) {
-    return exports.Maybe.of(array[array.length - 1]);
+    return array.length !== 0 ? maybe_Maybe.just(maybe_Maybe.of(array[array.length - 1])) : maybe_Maybe.nothing();
 }
-exports.last = last;
 /**
   Given an array or tuple of {@linkcode Maybe}s, return a `Maybe` of the array
   or tuple values.
@@ -28383,18 +27949,15 @@ function transposeArray(maybes) {
     // `[Maybe<string>, [Maybe<number>, Maybe<boolean>]]` not to be flattened into
     // `Maybe<[string, number, boolean]>` (as `concat` would do) but instead to
     // produce `Maybe<[string, [number, boolean]]>`.
-    return maybes.reduce((acc, m) => acc.andThen((ms) => m.map((m) => [...ms, m])), (0, exports.just)([]));
+    return maybes.reduce((acc, m) => acc.andThen((ms) => m.map((m) => [...ms, m])), just([]));
 }
-exports.transposeArray = transposeArray;
 function property(key, obj) {
-    const op = (t) => exports.Maybe.of(t[key]);
-    return (0, utils_js_1.curry1)(op, obj);
+    const op = (t) => maybe_Maybe.of(t[key]);
+    return utils_curry1(op, obj);
 }
-exports.property = property;
 function get(key, maybeObj) {
-    return (0, utils_js_1.curry1)(andThen(property(key)), maybeObj);
+    return curry1(andThen(property(key)), maybeObj);
 }
-exports.get = get;
 /**
   Transform a function from a normal JS function which may return `null` or
   `undefined` to a function which returns a {@linkcode Maybe} instead.
@@ -28444,15 +28007,15 @@ exports.get = get;
     .unwrapOr('black');
   ```
 
-  With `wrapReturn`, though, you can create a transformed version of a function
+  With `safe`, though, you can create a transformed version of a function
   *once* and then be able to use it freely throughout your codebase, *always*
   getting back a `Maybe`:
 
   ```ts
-  import { wrapReturn } from 'true-myth/maybe';
+  import { safe } from 'true-myth/maybe';
 
-  const querySelector = wrapReturn(document.querySelector.bind(document));
-  const safelyGetStyle = wrapReturn(getStyle);
+  const querySelector = safe(document.querySelector.bind(document));
+  const safelyGetStyle = safe(getStyle);
 
   const aWidth = querySelector('#foo')
     .map(el => el.getBoundingClientRect().width)
@@ -28467,41 +28030,56 @@ exports.get = get;
             exact same signature except for its return type.
  */
 function safe(fn) {
-    return (...params) => exports.Maybe.of(fn(...params));
+    return (...params) => maybe_Maybe.of(fn(...params));
 }
-exports.safe = safe;
-/**
-  @alias for {@linkcode safe}.
-  @deprecated Switch to using {@linkcode safe} instead. This will be removed at
-    9.0.
- */
-exports.wrapReturn = safe;
+// Duplicate documentation because it will show up more nicely when rendered in
+// TypeDoc than if it applies to only one or the other; using `@inheritdoc` will
+// also work but works less well in terms of how editors render it (they do not
+// process that “directive” in general).
 /**
  * `Maybe` represents a value which may ({@linkcode Just `Just<T>`}) or may not
  * ({@linkcode Nothing}) be present.
  *
  * @class
  */
-exports.Maybe = MaybeImpl;
-exports["default"] = exports.Maybe;
-//# sourceMappingURL=maybe.cjs.map
-
-/***/ }),
-
-/***/ 3132:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
+const maybe_Maybe = MaybeImpl;
+/* harmony default export */ const maybe = (maybe_Maybe);
+//# sourceMappingURL=maybe.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/unit.js
 /**
-  {@include doc/result.md}
+  Provide a type which is effectively a type-safe, non-interchangeable empty
+  object to use instead of `null` or `undefined`.
 
   @module
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Result = exports.isInstance = exports.safe = exports.ap = exports.equals = exports.match = exports.toJSON = exports.toString = exports.unwrapOrElse = exports.unwrapOr = exports.orElse = exports.or = exports.andThen = exports.and = exports.mapErr = exports.mapOrElse = exports.mapOr = exports.map = exports.tryOrElse = exports.err = exports.isErr = exports.isOk = exports.ok = exports.tryOr = exports.Variant = void 0;
-const unit_js_1 = __nccwpck_require__(3365);
-const utils_js_1 = __nccwpck_require__(6499);
+/**
+  The `Unit` type exists for the cases where you want a type-safe equivalent of
+  `undefined` or `null`. It's a concrete instance, which won't blow up on you,
+  and you can safely use it with e.g. `Result` without being concerned that
+  you'll accidentally introduce `null` or `undefined` back into your
+  application.
+
+  Equivalent to `()` or "unit" in many functional or functional-influenced
+  languages.
+ */
+const Unit = Object.create(null);
+/* harmony default export */ const unit = (Unit);
+//# sourceMappingURL=unit.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/result.js
+/**
+  A {@linkcode Result Result<T, E>} is a type representing the value result of a
+  synchronous operation which may fail, with a successful value of type `T` or
+  an error of type `E`.
+
+  If the result is a success, it is {@linkcode Ok Ok(value)}. If the result is a
+  failure, it is {@linkcode Err Err(reason)}.
+
+  For a deep dive on the type, see [the guide](/guide/understanding/result.md).
+
+  @module
+ */
+
+
 /**
   Discriminant for {@linkcode Ok} and {@linkcode Err} variants of the
   {@linkcode Result} type.
@@ -28509,7 +28087,7 @@ const utils_js_1 = __nccwpck_require__(6499);
   You can use the discriminant via the `variant` property of `Result` instances
   if you need to match explicitly on it.
  */
-exports.Variant = {
+const result_Variant = {
     Ok: 'Ok',
     Err: 'Err',
 };
@@ -28524,7 +28102,7 @@ class ResultImpl {
         // that we can allow `undefined` in the cases where someone explicitly opts
         // into something like `Result<undefined, Blah>`.
         return arguments.length === 0
-            ? new ResultImpl(['Ok', unit_js_1.default])
+            ? new ResultImpl(['Ok', unit])
             : // SAFETY: TS does not understand that the arity check above accounts for
                 // the case where the value is not passed.
                 new ResultImpl(['Ok', value]);
@@ -28534,7 +28112,7 @@ class ResultImpl {
         // that we can allow `undefined` in the cases where someone explicitly opts
         // into something like `Result<undefined, Blah>`.
         return arguments.length === 0
-            ? new ResultImpl(['Err', unit_js_1.default])
+            ? new ResultImpl(['Err', unit])
             : // SAFETY: TS does not understand that the arity check above accounts for
                 // the case where the value is not passed.
                 new ResultImpl(['Err', error]);
@@ -28549,7 +28127,7 @@ class ResultImpl {
       @throws if you access when the {@linkcode Result} is not {@linkcode Ok}
      */
     get value() {
-        if (this.repr[0] === exports.Variant.Err) {
+        if (this.repr[0] === result_Variant.Err) {
             throw new Error('Cannot get the value of Err');
         }
         return this.repr[1];
@@ -28560,22 +28138,22 @@ class ResultImpl {
       @throws if you access when the {@linkcode Result} is not {@linkcode Err}
      */
     get error() {
-        if (this.repr[0] === exports.Variant.Ok) {
+        if (this.repr[0] === result_Variant.Ok) {
             throw new Error('Cannot get the error of Ok');
         }
         return this.repr[1];
     }
     /** Is the {@linkcode Result} an {@linkcode Ok}? */
     get isOk() {
-        return this.repr[0] === exports.Variant.Ok;
+        return this.repr[0] === result_Variant.Ok;
     }
     /** Is the `Result` an `Err`? */
     get isErr() {
-        return this.repr[0] === exports.Variant.Err;
+        return this.repr[0] === result_Variant.Err;
     }
     /** Method variant for {@linkcode map} */
     map(mapFn) {
-        return (this.repr[0] === 'Ok' ? exports.Result.ok(mapFn(this.repr[1])) : this);
+        return (this.repr[0] === 'Ok' ? result_Result.ok(mapFn(this.repr[1])) : this);
     }
     /** Method variant for {@linkcode mapOr} */
     mapOr(orU, mapFn) {
@@ -28591,24 +28169,22 @@ class ResultImpl {
     }
     /** Method variant for {@linkcode mapErr} */
     mapErr(mapErrFn) {
-        return (this.repr[0] === 'Ok' ? this : exports.Result.err(mapErrFn(this.repr[1])));
+        return (this.repr[0] === 'Ok' ? this : result_Result.err(mapErrFn(this.repr[1])));
     }
     /** Method variant for {@linkcode or} */
     or(orResult) {
         return (this.repr[0] === 'Ok' ? this : orResult);
     }
-    /** Method variant for {@linkcode orElse} */
     orElse(orElseFn) {
-        return (this.repr[0] === 'Ok' ? this : orElseFn(this.repr[1]));
+        return this.repr[0] === 'Ok' ? this.cast() : orElseFn(this.repr[1]);
     }
     /** Method variant for {@linkcode and} */
     and(mAnd) {
         // (r.isOk ? andResult : err<U, E>(r.error))
         return (this.repr[0] === 'Ok' ? mAnd : this);
     }
-    /** Method variant for {@linkcode andThen} */
     andThen(andThenFn) {
-        return (this.repr[0] === 'Ok' ? andThenFn(this.repr[1]) : this);
+        return this.repr[0] === 'Ok' ? andThenFn(this.repr[1]) : this.cast();
     }
     /** Method variant for {@linkcode unwrapOr} */
     unwrapOr(defaultValue) {
@@ -28620,7 +28196,7 @@ class ResultImpl {
     }
     /** Method variant for {@linkcode toString} */
     toString() {
-        return `${this.repr[0]}(${(0, utils_js_1.safeToString)(this.repr[1])})`;
+        return `${this.repr[0]}(${safeToString(this.repr[1])})`;
     }
     /** Method variant for {@linkcode toJSON} */
     toJSON() {
@@ -28646,15 +28222,14 @@ class ResultImpl {
 function tryOr(error, callback) {
     const op = (cb) => {
         try {
-            return (0, exports.ok)(cb());
+            return ok(cb());
         }
         catch {
-            return (0, exports.err)(error);
+            return err(error);
         }
     };
-    return (0, utils_js_1.curry1)(op, callback);
+    return curry1(op, callback);
 }
-exports.tryOr = tryOr;
 /**
   Create an instance of {@linkcode Ok}.
 
@@ -28701,7 +28276,7 @@ exports.tryOr = tryOr;
   @template T The type of the item contained in the `Result`.
   @param value The value to wrap in a `Result.Ok`.
  */
-exports.ok = ResultImpl.ok;
+const ok = ResultImpl.ok;
 /**
   Is the {@linkcode Result} an {@linkcode Ok}?
 
@@ -28712,7 +28287,6 @@ exports.ok = ResultImpl.ok;
 function isOk(result) {
     return result.isOk;
 }
-exports.isOk = isOk;
 /**
   Is the {@linkcode Result} an {@linkcode Err}?
 
@@ -28723,7 +28297,6 @@ exports.isOk = isOk;
 function isErr(result) {
     return result.isErr;
 }
-exports.isErr = isErr;
 /**
   Create an instance of {@linkcode Err}.
 
@@ -28770,25 +28343,23 @@ exports.isErr = isErr;
   @template T The type of the item contained in the `Result`.
   @param E The error value to wrap in a `Result.Err`.
  */
-exports.err = ResultImpl.err;
+const err = ResultImpl.err;
 function tryOrElse(onError, callback) {
     const op = (cb) => {
         try {
-            return (0, exports.ok)(cb());
+            return ok(cb());
         }
         catch (e) {
-            return (0, exports.err)(onError(e));
+            return err(onError(e));
         }
     };
-    return (0, utils_js_1.curry1)(op, callback);
+    return curry1(op, callback);
 }
-exports.tryOrElse = tryOrElse;
-function map(mapFn, result) {
+function result_map(mapFn, result) {
     const op = (r) => r.map(mapFn);
-    return (0, utils_js_1.curry1)(op, result);
+    return utils_curry1(op, result);
 }
-exports.map = map;
-function mapOr(orU, mapFn, result) {
+function result_mapOr(orU, mapFn, result) {
     function fullOp(fn, r) {
         return r.mapOr(orU, fn);
     }
@@ -28803,8 +28374,7 @@ function mapOr(orU, mapFn, result) {
             ? partialOp(mapFn)
             : partialOp(mapFn, result);
 }
-exports.mapOr = mapOr;
-function mapOrElse(orElseFn, mapFn, result) {
+function result_mapOrElse(orElseFn, mapFn, result) {
     function fullOp(fn, r) {
         return r.mapOrElse(orElseFn, fn);
     }
@@ -28819,42 +28389,34 @@ function mapOrElse(orElseFn, mapFn, result) {
             ? partialOp(mapFn)
             : partialOp(mapFn, result);
 }
-exports.mapOrElse = mapOrElse;
 function mapErr(mapErrFn, result) {
     const op = (r) => r.mapErr(mapErrFn);
-    return (0, utils_js_1.curry1)(op, result);
+    return utils_curry1(op, result);
 }
-exports.mapErr = mapErr;
-function and(andResult, result) {
+function result_and(andResult, result) {
     const op = (r) => r.and(andResult);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.and = and;
-function andThen(thenFn, result) {
+function result_andThen(thenFn, result) {
     const op = (r) => r.andThen(thenFn);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.andThen = andThen;
-function or(defaultResult, result) {
+function result_or(defaultResult, result) {
     const op = (r) => r.or(defaultResult);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.or = or;
-function orElse(elseFn, result) {
+function result_orElse(elseFn, result) {
     const op = (r) => r.orElse(elseFn);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.orElse = orElse;
-function unwrapOr(defaultValue, result) {
+function result_unwrapOr(defaultValue, result) {
     const op = (r) => r.unwrapOr(defaultValue);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.unwrapOr = unwrapOr;
-function unwrapOrElse(orElseFn, result) {
+function result_unwrapOrElse(orElseFn, result) {
     const op = (r) => r.unwrapOrElse(orElseFn);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.unwrapOrElse = unwrapOrElse;
 /**
   Create a `String` representation of a {@linkcode Result} instance.
 
@@ -28877,10 +28439,9 @@ exports.unwrapOrElse = unwrapOrElse;
   @param result The value to convert to a string.
   @returns      The string representation of the `Maybe`.
  */
-const toString = (result) => {
+const result_toString = (result) => {
     return result.toString();
 };
-exports.toString = toString;
 /**
  * Create an `Object` representation of a {@linkcode Result} instance.
  *
@@ -28889,39 +28450,37 @@ exports.toString = toString;
  * @param result  The value to convert to JSON
  * @returns       The JSON representation of the `Result`
  */
-const toJSON = (result) => {
+const result_toJSON = (result) => {
     return result.toJSON();
 };
-exports.toJSON = toJSON;
-function match(matcher, result) {
+function result_match(matcher, result) {
     const op = (r) => r.mapOrElse(matcher.Err, matcher.Ok);
-    return (0, utils_js_1.curry1)(op, result);
+    return utils_curry1(op, result);
 }
-exports.match = match;
-function equals(resultB, resultA) {
+function result_equals(resultB, resultA) {
     const op = (rA) => rA.equals(resultB);
-    return (0, utils_js_1.curry1)(op, resultA);
+    return curry1(op, resultA);
 }
-exports.equals = equals;
-function ap(resultFn, result) {
+function result_ap(resultFn, result) {
     const op = (r) => resultFn.ap(r);
-    return (0, utils_js_1.curry1)(op, result);
+    return curry1(op, result);
 }
-exports.ap = ap;
-function safe(fn, handleErr) {
+function result_safe(fn, handleErr) {
     let errorHandler = handleErr ?? ((e) => e);
     return (...params) => tryOrElse(errorHandler, () => fn(...params));
 }
-exports.safe = safe;
 /**
   Determine whether an item is an instance of {@linkcode Result}.
 
   @param item The item to check.
  */
-function isInstance(item) {
+function result_isInstance(item) {
     return item instanceof ResultImpl;
 }
-exports.isInstance = isInstance;
+// Duplicate documentation because it will show up more nicely when rendered in
+// TypeDoc than if it applies to only one or the other; using `@inheritdoc` will
+// also work but works less well in terms of how editors render it (they do not
+// process that “directive” in general).
 /**
   A `Result` represents success ({@linkcode Ok}) or failure ({@linkcode Err}).
 
@@ -28930,44 +28489,73 @@ exports.isInstance = isInstance;
 
   @class
  */
-exports.Result = ResultImpl;
-exports["default"] = exports.Result;
-//# sourceMappingURL=result.cjs.map
-
-/***/ }),
-
-/***/ 6372:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
+const result_Result = ResultImpl;
+/* harmony default export */ const result = (result_Result);
+//# sourceMappingURL=result.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/task.js
 /**
-  {@include doc/task.md}
+  A {@linkcode Task Task<T, E>} is a type representing an asynchronous operation
+  that may fail, with a successful (“resolved”) value of type `T` and an error
+  (“rejected”) value of type `E`.
+
+  If the `Task` is pending, it is {@linkcode Pending}. If it has resolved, it is
+  {@linkcode Resolved Resolved(value)}. If it has rejected, it is {@linkcode
+  Rejected Rejected(reason)}.
+
+  For more, see [the guide](/guide/understanding/task/).
 
   @module
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isRetryFailed = exports.RETRY_FAILED_NAME = exports.stopRetrying = exports.withRetries = exports.toPromise = exports.timeout = exports.match = exports.orElse = exports.or = exports.andThen = exports.and = exports.mapRejected = exports.map = exports.safeNullable = exports.safe = exports.safelyTryOrElse = exports.safelyTryOr = exports.safelyTry = exports.fromUnsafePromise = exports.fromResult = exports.fromPromise = exports.withResolvers = exports.reject = exports.resolve = exports.Task = exports.tryOrElse = exports.tryOr = exports.InvalidAccess = exports.UnsafePromise = exports.TaskExecutorException = exports.State = exports.AggregateRejection = exports.race = exports.any = exports.allSettled = exports.all = exports.timer = exports.Delay = void 0;
-const utils_js_1 = __nccwpck_require__(6499);
-const maybe_js_1 = __nccwpck_require__(1113);
-const result_js_1 = __nccwpck_require__(3132);
-const unit_js_1 = __nccwpck_require__(3365);
-const Delay = __nccwpck_require__(2004);
-exports.Delay = Delay;
+
+
+
+
+
+// Make the `delay` namespace available as `task.delay` for convenience, and as
+// `task.Delay` for backward compatibility. This lets people do something like
+// `task.withRetries(aTask, task.delay.exponential(1_000).take(10))`.
+
 /**
   Internal implementation details for {@linkcode Task}.
  */
 class TaskImpl {
     #promise;
-    #state = [exports.State.Pending];
+    #state = [State.Pending];
+    /**
+      Construct a new `Task`, using callbacks to wrap APIs which do not natively
+      provide a `Promise`.
+  
+      This is identical to the [Promise][promise] constructor, with one very
+      important difference: rather than producing a value upon resolution and
+      throwing an exception when a rejection occurs like `Promise`, a `Task`
+      always “succeeds” in producing a usable value, just like {@linkcode Result}
+      for synchronous code.
+  
+      [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise
+  
+      For constructing a `Task` from an existing `Promise`, see:
+  
+      - {@linkcode fromPromise}
+      - {@linkcode safelyTry}
+      - {@linkcode tryOr}
+      - {@linkcode tryOrElse}
+  
+      For constructing a `Task` immediately resolved or rejected with given
+      values, see {@linkcode Task.resolve} and {@linkcode Task.reject}
+      respectively.
+  
+      @param executor A function which the constructor will execute to manage
+        the lifecycle of the `Task`. The executor in turn has two functions as
+        parameters: one to call on resolution, the other on rejection.
+     */
     constructor(executor) {
         this.#promise = new Promise((resolve) => {
             executor((value) => {
-                this.#state = [exports.State.Resolved, value];
-                resolve(result_js_1.default.ok(value));
+                this.#state = [State.Resolved, value];
+                resolve(result.ok(value));
             }, (reason) => {
-                this.#state = [exports.State.Rejected, reason];
-                resolve(result_js_1.default.err(reason));
+                this.#state = [State.Rejected, reason];
+                resolve(result.err(reason));
             });
         }).catch((e) => {
             throw new TaskExecutorException(e);
@@ -28983,115 +28571,16 @@ class TaskImpl {
     }
     toString() {
         switch (this.#state[0]) {
-            case exports.State.Pending:
+            case State.Pending:
                 return 'Task.Pending';
-            case exports.State.Resolved:
-                return `Task.Resolved(${(0, utils_js_1.safeToString)(this.#state[1])})`;
-            case exports.State.Rejected:
-                return `Task.Rejected(${(0, utils_js_1.safeToString)(this.#state[1])})`;
+            case State.Resolved:
+                return `Task.Resolved(${safeToString(this.#state[1])})`;
+            case State.Rejected:
+                return `Task.Rejected(${safeToString(this.#state[1])})`;
             /* v8 ignore next 2 */
             default:
                 unreachable(this.#state);
         }
-    }
-    /**
-      Produce a `Task<T, E>` from a promise of a {@linkcode Result Result<T, E>}.
-  
-      > [!WARNING]
-      > This constructor assumes you have already correctly handled the promise
-      > rejection state, presumably by mapping it into the wrapped `Result`. It is
-      > *unsafe* for this promise ever to reject! You should only ever use this
-      > with `Promise<Result<T, E>>` you have created yourself (including via a
-      > `Task`, of course).
-      >
-      > For any other `Promise<Result<T, E>>`, you should first attach a `catch`
-      > handler which will also produce a `Result<T, E>`.
-      >
-      > If you call this with an unmanaged `Promise<Result<T, E>>`, that is, one
-      > that has *not* correctly set up a `catch` handler, the rejection will
-      > throw an {@linkcode UnsafePromise} error that will ***not*** be catchable
-      > by awaiting the `Task` or its original `Promise`. This can cause test
-      > instability and unpredictable behavior in your application.
-  
-      @param promise The promise from which to create the `Task`.
-  
-      @group Constructors
-  
-      @deprecated Use the module-scoped {@linkcode fromUnsafePromise} instead.
-     */
-    static fromUnsafePromise(promise) {
-        return new exports.Task((resolve, reject) => {
-            promise.then((0, result_js_1.match)({
-                Ok: resolve,
-                Err: reject,
-            }), (rejectionReason) => {
-                throw new UnsafePromise(rejectionReason);
-            });
-        });
-    }
-    /**
-      Produce a `Task<T, unknown>` from a promise.
-  
-      To handle the error case and produce a concrete `Task<T, E>` instead, use
-      the overload which accepts an `onRejection` handler instead.
-  
-      @param promise The promise from which to create the `Task`.
-  
-      @group Constructors
-  
-      @deprecated This will be removed at 9.0. Switch to the module-scoped
-        function {@linkcode fromPromise}.
-     */
-    static try(promise) {
-        return new exports.Task((resolve, reject) => {
-            promise.then(resolve, reject);
-        });
-    }
-    /**
-      Produce a {@linkcode Task Task<T, E>} from a `Promise<T>` and use a fallback
-      value if the task rejects, ignoring the rejection reason.
-  
-      Notes:
-  
-      - To leave any error as `unknown`, use the overload which accepts only the
-        promise.
-      - To handle the rejection reason rather than ignoring it, use the overload
-        which accepts a function.
-  
-      @param promise The promise from which to create the `Task`.
-      @param rejectionValue A function to transform an unknown rejection reason
-        into a known `E`.
-  
-      @group Constructors
-  
-      @deprecated This will be removed at 9.0. Switch to the module-level function
-        {@linkcode safelyTryOr}, which accepts a callback instead.
-     */
-    static tryOr(promise, rejectionValue) {
-        return new exports.Task((resolve, reject) => {
-            promise.then(resolve, (_reason) => reject(rejectionValue));
-        });
-    }
-    /**
-      Produce a `Task<T, E>` from a `Promise<T>` and a function to transform an
-      unknown error to `E`.
-  
-      To leave any error as `unknown`, use the overload which accepts only the
-      promise.
-  
-      @param promise The promise from which to create the `Task`.
-      @param onRejection A function to transform an unknown rejection reason into
-        a known `E`.
-  
-      @group Constructors
-  
-      @deprecated This will be removed at 9.0. Switch to the module-level function
-        {@linkcode safelyTryOrElse}, which accepts a callback instead.
-     */
-    static tryOrElse(promise, onRejection) {
-        return new exports.Task((resolve, reject) => {
-            promise.then(resolve, (reason) => reject(onRejection(reason)));
-        });
     }
     // The implementation is intentionally vague about the types: we do not know
     // and do not care what the actual types in play are at runtime; we just need
@@ -29101,8 +28590,8 @@ class TaskImpl {
         // We produce `Unit` *only* in the case where no arguments are passed, so
         // that we can allow `undefined` in the cases where someone explicitly opts
         // into something like `Result<undefined, Blah>`.
-        let result = arguments.length === 0 ? unit_js_1.default : value;
-        return new exports.Task((resolve) => resolve(result));
+        let result = arguments.length === 0 ? unit : value;
+        return new Task((resolve) => resolve(result));
     }
     // The implementation is intentionally vague about the types: we do not know
     // and do not care what the actual types in play are at runtime; we just need
@@ -29112,19 +28601,8 @@ class TaskImpl {
         // We produce `Unit` *only* in the case where no arguments are passed, so
         // that we can allow `undefined` in the cases where someone explicitly opts
         // into something like `Result<Blah, undefined>`.
-        let result = arguments.length === 0 ? unit_js_1.default : reason;
-        return new exports.Task((_, reject) => reject(result));
-    }
-    /**
-      Build a {@linkcode Task Task<T, E>} from a {@linkcode Result Result<T, E>}.
-  
-      @deprecated Use the module-scoped {@linkcode fromResult} instead.
-     */
-    static fromResult(result) {
-        return new exports.Task((resolve, reject) => result.match({
-            Ok: resolve,
-            Err: reject,
-        }));
+        let result = arguments.length === 0 ? unit : reason;
+        return new Task((_, reject) => reject(result));
     }
     /**
       Create a pending `Task` and supply `resolveWith` and `rejectWith` helpers,
@@ -29163,7 +28641,7 @@ class TaskImpl {
         // SAFETY: immediately initialized via the `Task` constructor’s executor.
         let resolve;
         let reject;
-        let task = new exports.Task((resolveTask, rejectTask) => {
+        let task = new Task((resolveTask, rejectTask) => {
             resolve = resolveTask;
             reject = rejectTask;
         });
@@ -29173,13 +28651,13 @@ class TaskImpl {
         return this.#state[0];
     }
     get isPending() {
-        return this.#state[0] === exports.State.Pending;
+        return this.#state[0] === State.Pending;
     }
     get isResolved() {
-        return this.#state[0] === exports.State.Resolved;
+        return this.#state[0] === State.Resolved;
     }
     get isRejected() {
-        return this.#state[0] === exports.State.Rejected;
+        return this.#state[0] === State.Rejected;
     }
     /**
       The value of a resolved `Task`.
@@ -29189,7 +28667,7 @@ class TaskImpl {
       > `Rejected`.
      */
     get value() {
-        if (this.#state[0] === exports.State.Resolved) {
+        if (this.#state[0] === State.Resolved) {
             return this.#state[1];
         }
         throw new InvalidAccess('value', this.#state[0]);
@@ -29202,7 +28680,7 @@ class TaskImpl {
       > `Resolved`.
      */
     get reason() {
-        if (this.#state[0] === exports.State.Rejected) {
+        if (this.#state[0] === State.Rejected) {
             return this.#state[1];
         }
         throw new InvalidAccess('reason', this.#state[0]);
@@ -29261,7 +28739,7 @@ class TaskImpl {
         it is `Resolved`.
      */
     map(mapFn) {
-        return exports.Task.fromUnsafePromise(this.#promise.then((0, result_js_1.map)(mapFn)));
+        return fromUnsafePromise(this.#promise.then(result_map(mapFn)));
     }
     /**
       Map over a {@linkcode Task}, exactly as in {@linkcode map}, but operating on
@@ -29296,7 +28774,7 @@ class TaskImpl {
         rejected.
      */
     mapRejected(mapFn) {
-        return TaskImpl.fromUnsafePromise(this.#promise.then((0, result_js_1.mapErr)(mapFn)));
+        return fromUnsafePromise(this.#promise.then(mapErr(mapFn)));
     }
     /**
       You can think of this like a short-circuiting logical "and" operation on a
@@ -29347,10 +28825,10 @@ class TaskImpl {
       @param other The `Task` instance to return if `this` is `Rejected`.
      */
     and(other) {
-        return new exports.Task((resolve, reject) => {
-            this.#promise.then((0, result_js_1.match)({
+        return new Task((resolve, reject) => {
+            this.#promise.then(result_match({
                 Ok: (_) => {
-                    other.#promise.then((0, result_js_1.match)({
+                    other.#promise.then(result_match({
                         Ok: resolve,
                         Err: reject,
                     }));
@@ -29359,54 +28837,9 @@ class TaskImpl {
             }));
         });
     }
-    /**
-      Apply a function to the resulting value if a {@linkcode Task} is {@linkcode
-      Resolved}, producing a new `Task`; or if it is {@linkcode Rejected} return
-      the rejection reason unmodified.
-  
-      This differs from `map` in that `thenFn` returns another `Task`. You can use
-      `andThen` to combine two functions which *both* create a `Task` from an
-      unwrapped type.
-  
-      The [`Promise.prototype.then`][then] method is a helpful comparison: if you
-      have a `Promise`, you can pass its `then` method a callback which returns
-      another `Promise`, and the result will not be a *nested* promise, but a
-      single `Promise`. The difference is that `Promise.prototype.then` unwraps
-      *all* layers to only ever return a single `Promise` value, whereas this
-      method will not unwrap nested `Task`s.
-  
-      `Promise.prototype.then` also acts the same way {@linkcode map
-      Task.prototype.map} does, while `Task` distinguishes `map` from `andThen`.
-  
-      > [!NOTE] `andThen` is sometimes also known as `bind`, but *not* aliased as
-      > such because [`bind` already means something in JavaScript][bind].
-  
-      [then]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
-      [bind]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
-  
-      ## Examples
-  
-      ```ts
-      import Task from 'true-myth/task';
-  
-      const toLengthAsResult = (s: string) => ok(s.length);
-  
-      const aResolvedTask = Task.resolve('just a string');
-      const lengthAsResult = await aResolvedTask.andThen(toLengthAsResult);
-      console.log(lengthAsResult.toString());  // Ok(13)
-  
-      const aRejectedTask = Task.reject(['srsly', 'whatever']);
-      const notLengthAsResult = await aRejectedTask.andThen(toLengthAsResult);
-      console.log(notLengthAsResult.toString());  // Err(srsly,whatever)
-      ```
-  
-      @template U The type of the value produced by the new `Task` of the `Result`
-        returned by the `thenFn`.
-      @param thenFn  The function to apply to the wrapped `T` if `maybe` is `Just`.
-     */
     andThen(thenFn) {
-        return new exports.Task((resolve, reject) => {
-            this.#promise.then((0, result_js_1.match)({
+        return new Task((resolve, reject) => {
+            this.#promise.then(result_match({
                 Ok: (value) => 
                 // This is a little annoying: there is no direct way to return the
                 // resulting `Task` value here because of the intermediate `Promise`
@@ -29416,7 +28849,7 @@ class TaskImpl {
                 // but to do that, we have to wait for the intermediate `Promise` to
                 // resolve so that the inner `Result` is available so it can in turn
                 // be used with the top-most `Task`’s resolution/rejection helpers!
-                thenFn(value).#promise.then((0, result_js_1.match)({
+                thenFn(value).#promise.then(result_match({
                     Ok: resolve,
                     Err: reject,
                 })),
@@ -29452,11 +28885,11 @@ class TaskImpl {
       @returns      `this` if it is `Resolved`, otherwise `other`.
      */
     or(other) {
-        return new exports.Task((resolve, reject) => {
-            this.#promise.then((0, result_js_1.match)({
+        return new Task((resolve, reject) => {
+            this.#promise.then(result_match({
                 Ok: resolve,
                 Err: (_) => {
-                    other.#promise.then((0, result_js_1.match)({
+                    other.#promise.then(result_match({
                         Ok: resolve,
                         Err: reject,
                     }));
@@ -29464,31 +28897,14 @@ class TaskImpl {
             }));
         });
     }
-    /**
-      Like {@linkcode or}, but using a function to construct the alternative
-      {@linkcode Task}.
-  
-      Sometimes you need to perform an operation using the rejection reason (and
-      possibly also other data in the environment) to construct a new `Task`,
-      which may itself resolve or reject. In these situations, you can pass a
-      function (which may be a closure) as the `elseFn` to generate the fallback
-      `Task<T, E>`. It can then transform the data in the {@linkcode Rejected} to
-      something usable as an {@linkcode Resolved}, or generate a new `Rejected`
-      instance as appropriate.
-  
-      Useful for transforming failures to usable data, for trigger retries, etc.
-  
-      @param elseFn The function to apply to the `Rejection` reason if the `Task`
-        rejects, to create a new `Task`.
-     */
     orElse(elseFn) {
-        return new exports.Task((resolve, reject) => {
-            this.#promise.then((0, result_js_1.match)({
+        return new Task((resolve, reject) => {
+            this.#promise.then(result_match({
                 Ok: resolve,
                 Err: (reason) => {
                     // See the discussion in `andThen` above; this is exactly the same
                     // issue, and with inverted implementation logic.
-                    elseFn(reason).#promise.then((0, result_js_1.match)({
+                    elseFn(reason).#promise.then(result_match({
                         Ok: resolve,
                         Err: reject,
                     }));
@@ -29567,7 +28983,7 @@ class TaskImpl {
                      variant.
      */
     match(matcher) {
-        return this.#promise.then((0, result_js_1.match)({
+        return this.#promise.then(result_match({
             Ok: matcher.Resolved,
             Err: matcher.Rejected,
         }));
@@ -29587,7 +29003,7 @@ class TaskImpl {
      */
     timeout(timerOrMs) {
         let timerTask = typeof timerOrMs === 'number' ? timer(timerOrMs) : timerOrMs;
-        let timeout = timerTask.andThen((ms) => exports.Task.reject(new Timeout(ms)));
+        let timeout = timerTask.andThen((ms) => Task.reject(new Timeout(ms)));
         return race([this, timeout]);
     }
     /**
@@ -29610,29 +29026,36 @@ class TaskImpl {
     }
 }
 /**
-  Create a {@linkcode Task} which will resolve to {@linkcode Unit} after a set
-  interval. (Safely wraps [`setTimeout`][setTimeout].)
+  Create a {@linkcode Task} which will resolve to the number of milliseconds the
+  timer waited for that time elapses. (In other words, it safely wraps the
+  [`setTimeout`][setTimeout] function.)
 
   [setTimeout]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
 
-  This can be combined with the {@linkcode Task.timeout} instance method.
+  This can be used as a “timeout” by calling it in conjunction any of the
+  {@linkcode Task} helpers like {@linkcode all}, {@linkcode race}, and so on. As
+  a convenience to use it as a timeout for another task, you can also combine it
+  with the {@linkcode Task.timeout} instance method or the standalone
+  {@linkcode timeout} function.
+
+  Provides the requested duration of the timer in case it is useful for working
+  with multiple timers.
 
   @param ms The number of milliseconds to wait before resolving the `Task`.
   @returns a Task which resolves to the passed-in number of milliseconds.
  */
 function timer(ms) {
-    return new exports.Task((resolve) => setTimeout(() => resolve(ms), ms));
+    return new Task((resolve) => setTimeout(() => resolve(ms), ms));
 }
-exports.timer = timer;
-function all(tasks) {
+function task_all(tasks) {
     if (tasks.length === 0) {
-        return exports.Task.resolve([]);
+        return Task.resolve([]);
     }
     let total = tasks.length;
     let oks = Array.from({ length: tasks.length });
     let resolved = 0;
     let hasRejected = false;
-    return new exports.Task((resolve, reject) => {
+    return new Task((resolve, reject) => {
         // Because all tasks will *always* resolve, we need to manage this manually,
         // rather than using `Promise.all`, so that we produce a rejected `Task` as
         // soon as *any* `Task` rejects.
@@ -29670,27 +29093,24 @@ function all(tasks) {
         }
     });
 }
-exports.all = all;
 function allSettled(tasks) {
     // All task promises should resolve; none should ever reject, by definition.
     // The “settled” state here is represented by the `Task` itself, *not* by the
     // `Promise` rejection. This means the logic of `allSettled` is actually just
     // `Promise.all`!
-    return new exports.Task((resolve) => {
+    return new Task((resolve) => {
         Promise.all(tasks).then(resolve);
     });
 }
-exports.allSettled = allSettled;
-// export function all<A extends readonly AnyTask[]>(tasks: readonly [...A]): All<[...A]>;
 function any(tasks) {
     if (tasks.length === 0) {
-        return exports.Task.reject(new AggregateRejection([]));
+        return Task.reject(new AggregateRejection([]));
     }
     let total = tasks.length;
     let hasResolved = false;
     let rejections = Array.from({ length: tasks.length });
     let rejected = 0;
-    return new exports.Task((resolve, reject) => {
+    return new Task((resolve, reject) => {
         // We cannot use `Promise.any`, because it will only return the first `Task`
         // that resolves, and the `Promise` for a `Task` *always* either resolves if
         // it settles.
@@ -29728,21 +29148,19 @@ function any(tasks) {
         }
     });
 }
-exports.any = any;
 function race(tasks) {
     if (tasks.length === 0) {
-        return new exports.Task(() => {
+        return new Task(() => {
             /* pending forever, just like `Promise.race` */
         });
     }
-    return new exports.Task((resolve, reject) => {
+    return new Task((resolve, reject) => {
         Promise.race(tasks).then((result) => result.match({
             Ok: resolve,
             Err: reject,
         }));
     });
 }
-exports.race = race;
 /**
   An error type produced when {@linkcode any} produces any rejections. All
   rejections are aggregated into this type.
@@ -29756,16 +29174,15 @@ class AggregateRejection extends Error {
     errors;
     name = 'AggregateRejection';
     constructor(errors) {
-        super('`Task.race`');
+        super('`Task.any`');
         this.errors = errors;
     }
     toString() {
-        let internalMessage = this.errors.length > 0 ? `[${(0, utils_js_1.safeToString)(this.errors)}]` : 'No tasks';
+        let internalMessage = this.errors.length > 0 ? `[${safeToString(this.errors)}]` : 'No tasks';
         return super.toString() + `: ${internalMessage}`;
     }
 }
-exports.AggregateRejection = AggregateRejection;
-exports.State = {
+const State = {
     Pending: 'Pending',
     Resolved: 'Resolved',
     Rejected: 'Rejected',
@@ -29787,7 +29204,6 @@ class TaskExecutorException extends Error {
         { cause: originalError });
     }
 }
-exports.TaskExecutorException = TaskExecutorException;
 /**
   An error thrown when the `Promise<Result<T, E>>` passed to
   {@link fromUnsafePromise} rejects.
@@ -29805,18 +29221,12 @@ class UnsafePromise extends Error {
         { cause: unhandledError });
     }
 }
-exports.UnsafePromise = UnsafePromise;
 class InvalidAccess extends Error {
     name = 'TrueMyth.Task.InvalidAccess';
     constructor(field, state) {
         super(`Tried to access 'Task.${field}' when its state was '${state}'`);
     }
 }
-exports.InvalidAccess = InvalidAccess;
-/** @inheritdoc Task.tryOr */
-exports.tryOr = TaskImpl.tryOr;
-/** @inheritdoc Task.tryOrElse */
-exports.tryOrElse = TaskImpl.tryOrElse;
 /* v8 ignore next 3 */
 function unreachable(value) {
     throw new Error(`Unexpected value: ${value}`);
@@ -29845,8 +29255,8 @@ function unreachable(value) {
 
   @class
  */
-exports.Task = TaskImpl;
-exports["default"] = exports.Task;
+const Task = TaskImpl;
+/* harmony default export */ const task = ((/* unused pure expression or super */ null && (Task)));
 /**
   An `Error` type representing a timeout, as when a {@linkcode Timer} elapses.
  */
@@ -29863,18 +29273,17 @@ class Timeout extends Error {
     }
 }
 /** Standalone function version of {@linkcode Task.resolve} */
-exports.resolve = exports.Task.resolve;
+const resolve = Task.resolve;
 /** Standalone function version of {@linkcode Task.reject} */
-exports.reject = exports.Task.reject;
+const reject = Task.reject;
 /** Standalone function version of {@linkcode Task.withResolvers} */
-exports.withResolvers = exports.Task.withResolvers;
+const withResolvers = Task.withResolvers;
 function fromPromise(promise, onRejection) {
     let handleError = onRejection ?? identity;
-    return new exports.Task((resolve, reject) => {
+    return new Task((resolve, reject) => {
         promise.then(resolve, (reason) => reject(handleError(reason)));
     });
 }
-exports.fromPromise = fromPromise;
 /**
   Build a {@linkcode Task Task<T, E>} from a {@linkcode Result Result<T, E>}.
 
@@ -29911,10 +29320,10 @@ exports.fromPromise = fromPromise;
 
   ```ts
 
-  import * as Task from 'true-myth/task';
+  import * as task from 'true-myth/task';
   import { ok } from 'true-myth/result';
 
-  let theTask = Task.fromResult(ok(123));
+  let theTask = task.fromResult(ok(123));
   ```
 
   As an alternative, it can be useful to rename the import:
@@ -29927,12 +29336,11 @@ exports.fromPromise = fromPromise;
   ```
  */
 function fromResult(result) {
-    return new exports.Task((resolve, reject) => result.match({
+    return new Task((resolve, reject) => result.match({
         Ok: resolve,
         Err: reject,
     }));
 }
-exports.fromResult = fromResult;
 /**
   Produce a `Task<T, E>` from a promise of a {@linkcode Result Result<T, E>}.
 
@@ -29957,8 +29365,8 @@ exports.fromResult = fromResult;
   @group Constructors
  */
 function fromUnsafePromise(promise) {
-    return new exports.Task((resolve, reject) => {
-        promise.then((0, result_js_1.match)({
+    return new Task((resolve, reject) => {
+        promise.then(result_match({
             Ok: resolve,
             Err: reject,
         }), (rejectionReason) => {
@@ -29966,13 +29374,12 @@ function fromUnsafePromise(promise) {
         });
     });
 }
-exports.fromUnsafePromise = fromUnsafePromise;
 /**
   Given a function which takes no arguments and returns a `Promise`, return a
   {@linkcode Task Task<T, unknown>} for the result of invoking that function.
   This safely handles functions which fail synchronously or asynchronously, so
-  unlike {@linkcode Task.try} is safe to use with values which may throw errors
-  _before_ producing a `Promise`.
+  unlike {@linkcode fromPromise} is safe to use with values which may throw
+  errors _before_ producing a `Promise`.
 
   ## Examples
 
@@ -29995,7 +29402,7 @@ exports.fromUnsafePromise = fromUnsafePromise;
     invoking `fn`.
  */
 function safelyTry(fn) {
-    return new exports.Task((resolve, reject) => {
+    return new Task((resolve, reject) => {
         try {
             fn().then(resolve, reject);
         }
@@ -30004,9 +29411,8 @@ function safelyTry(fn) {
         }
     });
 }
-exports.safelyTry = safelyTry;
-function safelyTryOr(rejection, fn) {
-    const op = (curriedFn) => new exports.Task((resolve, reject) => {
+function task_tryOr(rejection, fn) {
+    const op = (curriedFn) => new Task((resolve, reject) => {
         try {
             curriedFn().then(resolve, (_reason) => reject(rejection));
         }
@@ -30014,11 +29420,26 @@ function safelyTryOr(rejection, fn) {
             reject(rejection);
         }
     });
-    return (0, utils_js_1.curry1)(op, fn);
+    return curry1(op, fn);
 }
-exports.safelyTryOr = safelyTryOr;
-function safelyTryOrElse(onError, fn) {
-    const op = (fn) => new exports.Task((resolve, reject) => {
+/**
+  An alias for {@linkcode tryOr} for ease of migrating from v8.x to v9.x.
+
+  > [!TIP]
+  > You should switch to {@linkcode tryOr}. We expect to deprecate and remove
+  > this alias at some point!
+*/
+const safelyTryOr = (/* unused pure expression or super */ null && (task_tryOr));
+/**
+  An alias for {@linkcode tryOrElse} for ease of migrating from v8.x to v9.x.
+
+  > [!TIP]
+  > You should switch to {@linkcode tryOrElse}. We expect to deprecate and
+  > remove this alias at some point!
+*/
+const safelyTryOrElse = (/* unused pure expression or super */ null && (task_tryOrElse));
+function task_tryOrElse(onError, fn) {
+    const op = (fn) => new Task((resolve, reject) => {
         try {
             fn().then(resolve, (reason) => reject(onError(reason)));
         }
@@ -30026,54 +29447,43 @@ function safelyTryOrElse(onError, fn) {
             reject(onError(error));
         }
     });
-    return (0, utils_js_1.curry1)(op, fn);
+    return curry1(op, fn);
 }
-exports.safelyTryOrElse = safelyTryOrElse;
-function safe(fn, onError) {
+function task_safe(fn, onError) {
     let handleError = onError ?? identity;
-    return (...params) => safelyTryOrElse(handleError, () => fn(...params));
+    return (...params) => task_tryOrElse(handleError, () => fn(...params));
 }
-exports.safe = safe;
 function safeNullable(fn, onError) {
     let handleError = onError ?? identity;
-    return (...params) => safelyTryOrElse(handleError, async () => {
+    return (...params) => task_tryOrElse(handleError, async () => {
         let theValue = (await fn(...params));
-        return maybe_js_1.default.of(theValue);
+        return Maybe.of(theValue);
     });
 }
-exports.safeNullable = safeNullable;
-function map(mapFn, task) {
-    return (0, utils_js_1.curry1)((task) => task.map(mapFn), task);
+function task_map(mapFn, task) {
+    return curry1((task) => task.map(mapFn), task);
 }
-exports.map = map;
 function mapRejected(mapFn, task) {
-    return (0, utils_js_1.curry1)((task) => task.mapRejected(mapFn), task);
+    return curry1((task) => task.mapRejected(mapFn), task);
 }
-exports.mapRejected = mapRejected;
-function and(andTask, task) {
-    return (0, utils_js_1.curry1)((task) => task.and(andTask), task);
+function task_and(andTask, task) {
+    return curry1((task) => task.and(andTask), task);
 }
-exports.and = and;
-function andThen(thenFn, task) {
-    return (0, utils_js_1.curry1)((task) => task.andThen(thenFn), task);
+function task_andThen(thenFn, task) {
+    return curry1((task) => task.andThen(thenFn), task);
 }
-exports.andThen = andThen;
-function or(other, task) {
-    return (0, utils_js_1.curry1)((task) => task.or(other), task);
+function task_or(other, task) {
+    return curry1((task) => task.or(other), task);
 }
-exports.or = or;
-function orElse(elseFn, task) {
-    return (0, utils_js_1.curry1)((task) => task.orElse(elseFn), task);
+function task_orElse(elseFn, task) {
+    return curry1((task) => task.orElse(elseFn), task);
 }
-exports.orElse = orElse;
-function match(matcher, task) {
-    return (0, utils_js_1.curry1)((task) => task.match(matcher), task);
+function task_match(matcher, task) {
+    return curry1((task) => task.match(matcher), task);
 }
-exports.match = match;
 function timeout(timerOrMs, task) {
-    return (0, utils_js_1.curry1)((task) => task.timeout(timerOrMs), task);
+    return curry1((task) => task.timeout(timerOrMs), task);
 }
-exports.timeout = timeout;
 /**
   Standalone version of {@linkcode Task.toPromise Task.prototype.toPromise}.
 
@@ -30083,7 +29493,6 @@ exports.timeout = timeout;
 function toPromise(task) {
     return task.toPromise();
 }
-exports.toPromise = toPromise;
 function identity(value) {
     return value;
 }
@@ -30125,20 +29534,20 @@ function identity(value) {
   will simply reject immediately.
 
   ```ts
-  import * as Task from 'true-myth/task';
-  import * as Delay from 'true-myth/task/delay';
+  import * as task from 'true-myth/task';
+  import * as delay from 'true-myth/task/delay';
 
   let theTask = withRetries(
-    () => Task.fromPromise(fetch('https://example.com')).andThen((res) => {
+    () => task.fromPromise(fetch('https://example.com')).andThen((res) => {
         if (res.status === 200) {
-          return Task.fromPromise(res.cjson());
+          return task.fromPromise(res.json());
         } else if (res.status === 408) {
-          return Task.reject(res.statusText);
+          return task.reject(res.statusText);
         } else {
-          return Task.stopRetrying(res.statusText);
+          return task.stopRetrying(res.statusText);
         }
       }),
-    Delay.fibonacci().map(Delay.jitter).take(10)
+    delay.fibonacci().map(delay.jitter).take(10)
   );
   ```
 
@@ -30173,18 +29582,18 @@ function identity(value) {
   it is set:
 
   ```ts
-  import * as Task from 'true-myth/task';
+  import * as task from 'true-myth/task';
   import { fibonacci, jitter } from 'true-myth/task/delay';
   import { doSomethingThatMayFailWithAppError } from 'someplace/in/my-app';
 
-  let theTask = Task.withRetries(
+  let theTask = task.withRetries(
     () => {
       doSomethingThatMayFailWithAppError().orElse((rejection) => {
         if (rejection.isFatal) {
-          return Task.stopRetrying("It was fatal!", { cause: rejection });
+          return task.stopRetrying("It was fatal!", { cause: rejection });
         }
 
-        return Task.reject(rejection);
+        return task.reject(rejection);
       });
     },
     fibonacci().map(jitter).take(20)
@@ -30204,24 +29613,24 @@ function identity(value) {
   times or if the total elapsed time exceeds 10 seconds.
 
   ```ts
-  import * as Task from 'true-myth/task';
+  import * as task from 'true-myth/task';
   import { exponential, jitter } from 'true-myth/task/delay';
 
-  let theResult = await Task.withRetries(
+  let theResult = await task.withRetries(
     ({ count, elapsed }) => {
       if (count > 10) {
-        return Task.stopRetrying(`Tried too many times: ${count}`);
+        return task.stopRetrying(`Tried too many times: ${count}`);
       }
 
       if (elapsed > 10_000) {
-        return Task.stopRetrying(`Took too long: ${elapsed}ms`);
+        return task.stopRetrying(`Took too long: ${elapsed}ms`);
       }
 
-      return Task.fromPromise(fetch('https://www.example.com/'))
-        .andThen((res) => Task.fromPromise(res.cjson()))
+      return task.fromPromise(fetch('https://www.example.com/'))
+        .andThen((res) => task.fromPromise(res.json()))
         .orElse((cause) => {
           let message = `Attempt #${count} failed`;
-          return Task.reject(new Error(message, { cause }));
+          return task.reject(new Error(message, { cause }));
         });
     },
     exponential().map(jitter),
@@ -30240,7 +29649,7 @@ function identity(value) {
   value:
 
   ```ts
-  import * as Task from 'true-myth/task';
+  import * as task from 'true-myth/task';
 
   function* randomIncrease(options?: { from: number }) {
     // always use integral values, and default to one second.
@@ -30251,10 +29660,10 @@ function identity(value) {
     }
   }
 
-  await Task.withRetries(({ count }) => {
+  await task.withRetries(({ count }) => {
     let delay = Math.round(Math.random() * 100);
-    return Task.timer(delay).andThen((time) =>
-      Task.reject(`Rejection #${count} after ${time}ms`),
+    return task.timer(delay).andThen((time) =>
+      task.reject(`Rejection #${count} after ${time}ms`),
     );
   }, randomIncrease(10).take(10));
   ```
@@ -30289,7 +29698,12 @@ function withRetries(retryable, strategy = (function* () {
         // Try it!
         let taskOrErr = retryable({ count, elapsed: totalDuration });
         if (taskOrErr instanceof Error) {
-            return exports.Task.reject(new RetryFailed({ tries: count, totalDuration, rejections, cause: taskOrErr }));
+            return Task.reject(new RetryFailed({
+                tries: count,
+                totalDuration,
+                rejections,
+                cause: taskOrErr,
+            }));
         }
         // On `Task` rejection, capture the rejection, then check whether the task
         // can be retried:
@@ -30301,12 +29715,17 @@ function withRetries(retryable, strategy = (function* () {
         //   cumulative delay of those retries.
         return taskOrErr.orElse((reason) => {
             if (reason instanceof StopRetrying) {
-                return exports.Task.reject(new RetryFailed({ tries: count, totalDuration, rejections, cause: reason }));
+                return Task.reject(new RetryFailed({
+                    tries: count,
+                    totalDuration,
+                    rejections,
+                    cause: reason,
+                }));
             }
             rejections.push(reason);
             let next = strategy.next();
             if (next.done) {
-                return exports.Task.reject(new RetryFailed({ tries: count, totalDuration, rejections }));
+                return Task.reject(new RetryFailed({ tries: count, totalDuration, rejections }));
             }
             let delay = next.value;
             totalDuration += Date.now() - startTime;
@@ -30316,7 +29735,6 @@ function withRetries(retryable, strategy = (function* () {
     }
     return helper();
 }
-exports.withRetries = withRetries;
 /**
   A custom [`Error`][mdn-error] subclass which acts as a “sentinel”: when you
   return it either as the top-level return value from the callback for
@@ -30330,7 +29748,7 @@ exports.withRetries = withRetries;
 
   @group Errors
  */
-class StopRetrying extends Error {
+class StopRetrying extends (/* unused pure expression or super */ null && (Error)) {
     get name() {
         return 'TrueMyth.Task.StopRetrying';
     }
@@ -30344,15 +29762,9 @@ class StopRetrying extends Error {
     stopping retries.
  */
 function stopRetrying(message, cause) {
-    return new StopRetrying(message, {
-        // @ts-ignore: work around a bug in older TypeScript versions where the lib
-        // definitions incorrectly required `cause` to be an `Error`. That is the
-        // best practice, but it is not required.
-        cause,
-    });
+    return new StopRetrying(message, { cause });
 }
-exports.stopRetrying = stopRetrying;
-exports.RETRY_FAILED_NAME = 'TrueMyth.Task.RetryFailed';
+const RETRY_FAILED_NAME = 'TrueMyth.Task.RetryFailed';
 /**
   An [`Error`][mdn-error] subclass for when a `Task` rejected after a specified
   number of retries. It includes all rejection reasons, including the final one,
@@ -30369,12 +29781,12 @@ exports.RETRY_FAILED_NAME = 'TrueMyth.Task.RetryFailed';
   the {@linkcode isRetryFailed} helper function:
 
   ```ts
-  import * as Task from 'true-myth/task';
+  import * as task from 'true-myth/task';
 
   // snip
   let result = await someFnThatReturnsATask();
   if (result.isErr) {
-    if (isRetryFailed(result.error)) {
+    if (task.isRetryFailed(result.error)) {
       if (result.error.cause) {
         console.error('You quit on purpose: ', cause);
       }
@@ -30394,164 +29806,29 @@ exports.RETRY_FAILED_NAME = 'TrueMyth.Task.RetryFailed';
 */
 class RetryFailed extends Error {
     get name() {
-        return exports.RETRY_FAILED_NAME;
+        return RETRY_FAILED_NAME;
     }
+    /** Number of retries before the task failed. */
     tries;
+    /** Elapsed time in milliseconds. */
     totalDuration;
+    /** Set of all rejections collected during retries. */
     rejections;
     /** @internal */
     constructor({ tries, totalDuration, rejections, cause, }) {
-        super(`Stopped retrying after ${tries} tries (${totalDuration}ms)`, 
-        // @ts-ignore: work around a bug in older TypeScript versions where the
-        // lib definitions incorrectly required `cause` to be an `Error`. That is
-        // the best practice, but it is not required.
-        { cause });
+        super(`Stopped retrying after ${tries} tries (${totalDuration}ms)`, {
+            cause,
+        });
         this.rejections = rejections;
         this.tries = tries;
         this.totalDuration = totalDuration;
     }
 }
 function isRetryFailed(error) {
-    return error instanceof Error && error.name === exports.RETRY_FAILED_NAME;
+    return error instanceof Error && error.name === RETRY_FAILED_NAME;
 }
-exports.isRetryFailed = isRetryFailed;
-//# sourceMappingURL=task.cjs.map
-
-/***/ }),
-
-/***/ 2004:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-/**
-  {@include ../doc/delay.md}
-
-  @module
- */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.jitter = exports.none = exports.linear = exports.immediate = exports.fixed = exports.fibonacci = exports.exponential = void 0;
-/**
-  Generate an infinite iterable of integers beginning with `base` and increasing
-  exponentially until reaching `Number.MAX_SAFE_INTEGER`, after which the
-  generator will continue yielding `Number.MAX_SAFE_INTEGER` forever.
-
-  By default, this increases exponentially by a factor of 2; you may optionally
-  pass `{ factor: someOtherValue }` to change the exponentiation factor.
-
-  If you pass a non-integral value as `base`, it will be rounded to the nearest
-  integral value using `Math.round`.
- */
-function* exponential(options) {
-    const factor = options?.withFactor ?? 2;
-    let curr = options?.from ? Math.round(options.from) : 1;
-    while (true) {
-        yield curr;
-        let next = curr * factor;
-        curr = Math.min(next, Number.MAX_SAFE_INTEGER);
-    }
-}
-exports.exponential = exponential;
-/**
-  Generate an infinite iterable of integers beginning with `base` and
-  increasing as a Fibonacci sequence (1, 1, 2, 3, 5, 8, 13, ...) until reaching
-  `Number.MAX_SAFE_INTEGER`, after which the generator will continue yielding
-  `Number.MAX_SAFE_INTEGER` forever.
-
-  If you pass a non-integral value as the `from` property on the configuration
-  argument, it will be rounded to the nearest integral value using `Math.round`.
- */
-function* fibonacci(options) {
-    let integralBase = options?.from ? Math.round(options.from) : 1;
-    let curr = integralBase;
-    let next = integralBase;
-    while (true) {
-        yield curr;
-        let next_next = curr + next;
-        curr = next;
-        next = Math.min(next_next, Number.MAX_SAFE_INTEGER);
-    }
-}
-exports.fibonacci = fibonacci;
-/**
-  Generate an infinite iterable of the same integer value in milliseconds.
-
-  If you pass a non-integral value, like `{ at: 2.5 }`, it will be rounded to
-  the nearest integral value using `Math.round`, i.e. `3` in that case.
- */
-function* fixed(options) {
-    let integralValue = options?.at ? Math.round(options.at) : 1;
-    while (true) {
-        yield integralValue;
-    }
-}
-exports.fixed = fixed;
-/** Generate an infinite iterable of the value `0`. */
-function* immediate() {
-    while (true) {
-        yield 0;
-    }
-}
-exports.immediate = immediate;
-/**
-  Generate an infinite iterable of integers beginning with `base` and increasing
-  linearly (1, 2, 3, 4, 5, 5, 7, ...) until reaching `Number.MAX_SAFE_INTEGER`,
-  after which the generator will continue yielding `Number.MAX_SAFE_INTEGER`
-  forever.
-
-  By default, this increases by a step size of 1; you may optionally pass
-  `{ step: someOtherValue }` to change the step size.
-
-  If you pass a non-integral value as `base`, it will be rounded to the nearest
-  integral value using `Math.round`.
- */
-function* linear(options) {
-    const step = options?.withStepSize ?? 1;
-    let curr = options?.from ? Math.round(options.from) : 0;
-    while (true) {
-        yield curr;
-        curr += step;
-    }
-}
-exports.linear = linear;
-/**
-  A “no-op” strategy, for if you need to call supply a {@linkcode Strategy} to
-  a function but do not actually want to retry at all.
-
-  You should never use this directly with `Task.withRetries`; in the case where
-  you would, invoke the `Task` that would be retried directly (i.e. without
-  using `withRetries` at all) instead.
- */
-function* none() {
-    return;
-}
-exports.none = none;
-/**
-  Apply fully random jitter proportional to the number passed in. The resulting
-  value will never be larger than 2×n, and never less than 0.
-
-  This is useful for making sure your retries generally follow a given
-  {@linkcode Strategy}, but if multiple tasks start at the same time, they do
-  not all retry at exactly the same time.
-
-  @param n The value to apply random jitter to.
-*/
-function jitter(n) {
-    let direction = Math.random() > 0.5 ? 1 : -1;
-    let amount = Math.ceil(Math.random() * n);
-    let total = n + direction * amount;
-    return Math.max(total, 0);
-}
-exports.jitter = jitter;
-//# sourceMappingURL=delay.cjs.map
-
-/***/ }),
-
-/***/ 1178:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
+//# sourceMappingURL=task.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/toolbelt.js
 /**
   Tools for working easily with `Maybe` and `Result` *together*... but which do
   not *require* you to use both. If they were in the `true-myth/maybe` or
@@ -30565,11 +29842,9 @@ exports.jitter = jitter;
 
   @module
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.fromResult = exports.toOkOrElseErr = exports.toOkOrErr = exports.transposeMaybe = exports.fromMaybe = exports.toMaybe = exports.transposeResult = void 0;
-const result_js_1 = __nccwpck_require__(3132);
-const maybe_js_1 = __nccwpck_require__(1113);
-const utils_js_1 = __nccwpck_require__(6499);
+
+
+
 /**
   Transposes a {@linkcode Result} of a {@linkcode Maybe} into a `Maybe` of a
   `Result`.
@@ -30585,32 +29860,30 @@ const utils_js_1 = __nccwpck_require__(6499);
 function transposeResult(result) {
     return result.match({
         Ok: (maybe) => maybe.match({
-            Just: (v) => maybe_js_1.default.just(result_js_1.default.ok(v)),
-            Nothing: () => maybe_js_1.default.nothing(),
+            Just: (v) => Maybe.just(Result.ok(v)),
+            Nothing: () => Maybe.nothing(),
         }),
-        Err: (e) => maybe_js_1.default.just(result_js_1.default.err(e)),
+        Err: (e) => Maybe.just(Result.err(e)),
     });
 }
-exports.transposeResult = transposeResult;
 /**
   Convert a {@linkcode Result} to a {@linkcode Maybe}.
 
-  The converted type will be {@linkcode Maybe~Just Just} if the `Result` is
-  {@linkcode Result~Ok Ok} or {@linkcode Maybe~Nothing Nothing} if the `Result`
-  is {@linkcode Result~Err Err}; the wrapped error value will be discarded.
+  The converted type will be {@linkcode "maybe".Just Just} if the `Result` is
+  {@linkcode "result".Ok Ok} or {@linkcode "maybe".Nothing Nothing} if the
+  `Result` is {@linkcode "result".Err Err}; the wrapped error value will be
+  discarded.
 
   @param result The `Result` to convert to a `Maybe`
   @returns      `Just` the value in `result` if it is `Ok`; otherwise `Nothing`
  */
 function toMaybe(result) {
-    return result.isOk ? maybe_js_1.default.just(result.value) : maybe_js_1.default.nothing();
+    return result.isOk ? Maybe.just(result.value) : Maybe.nothing();
 }
-exports.toMaybe = toMaybe;
 function fromMaybe(errValue, maybe) {
-    const op = (m) => (m.isJust ? result_js_1.default.ok(m.value) : result_js_1.default.err(errValue));
-    return (0, utils_js_1.curry1)(op, maybe);
+    const op = (m) => (m.isJust ? Result.ok(m.value) : Result.err(errValue));
+    return curry1(op, maybe);
 }
-exports.fromMaybe = fromMaybe;
 /**
   Transposes a {@linkcode Maybe} of a {@linkcode Result} into a `Result` of a
   `Maybe`.
@@ -30626,118 +29899,94 @@ exports.fromMaybe = fromMaybe;
 function transposeMaybe(maybe) {
     return maybe.match({
         Just: (result) => result.match({
-            Ok: (v) => result_js_1.default.ok(maybe_js_1.default.just(v)),
-            Err: (e) => result_js_1.default.err(e),
+            Ok: (v) => Result.ok(Maybe.just(v)),
+            Err: (e) => Result.err(e),
         }),
-        Nothing: () => result_js_1.default.ok(maybe_js_1.default.nothing()),
+        Nothing: () => Result.ok(Maybe.nothing()),
     });
 }
-exports.transposeMaybe = transposeMaybe;
 function toOkOrErr(error, maybe) {
-    const op = (m) => (m.isJust ? result_js_1.default.ok(m.value) : result_js_1.default.err(error));
+    const op = (m) => (m.isJust ? Result.ok(m.value) : Result.err(error));
     return maybe !== undefined ? op(maybe) : op;
 }
-exports.toOkOrErr = toOkOrErr;
 function toOkOrElseErr(elseFn, maybe) {
-    const op = (m) => (m.isJust ? result_js_1.default.ok(m.value) : result_js_1.default.err(elseFn()));
-    return (0, utils_js_1.curry1)(op, maybe);
+    const op = (m) => (m.isJust ? Result.ok(m.value) : Result.err(elseFn()));
+    return curry1(op, maybe);
 }
-exports.toOkOrElseErr = toOkOrElseErr;
 /**
-  Construct a {@linkcode Maybe~Maybe Maybe<T>} from a
-  {@linkcode Result~Result Result<T, E>}.
+  Construct a {@linkcode "maybe".Maybe Maybe<T>} from a
+  {@linkcode "result".Result Result<T, E>}.
 
-  If the `Result` is an `Ok`, wrap its value in `Just`. If the `Result` is an
-  `Err`, throw away the wrapped `E` and transform to a
-  {@linkcode Maybe~Nothing Nothing}.
+  If the `Result` is a {@linkcode "result".Ok Ok}, wrap its value in {@linkcode
+  "maybe".Just Just}. If the `Result` is an {@linkcode "result".Err Err}, throw
+  away the wrapped `E` and transform to a {@linkcode "maybe".Nothing Nothing}.
 
-  @template T  The type of the value wrapped in a `Result.Ok` and in the `Just`
-                of the resulting `Maybe`.
+  @template T  The type of the value wrapped in a {@linkcode "result".Ok Ok} and
+    therefore in the {@linkcode "maybe".Just Just} of the resulting `Maybe`.
   @param result The `Result` to construct a `Maybe` from.
   @returns      `Just` if `result` was `Ok` or `Nothing` if it was `Err`.
  */
-function fromResult(result) {
-    return result.isOk ? maybe_js_1.default.just(result.value) : maybe_js_1.default.nothing();
+function toolbelt_fromResult(result) {
+    return result.isOk ? Maybe.just(result.value) : Maybe.nothing();
 }
-exports.fromResult = fromResult;
-//# sourceMappingURL=toolbelt.cjs.map
-
-/***/ }),
-
-/***/ 3365:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
+//# sourceMappingURL=toolbelt.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/true-myth@9.0.0/node_modules/true-myth/dist/index.js
 /**
-  Provide a type which is effectively a type-safe, non-interchangeable empty
-  object to use instead of `null` or `undefined`.
+  This is just here to re-export {@link Maybe}, {@link Result}, {@link Task},
+  {@link Unit}, and {@link Toolbelt}, to provide a root-level entry friendly to
+  using as a namespace.
 
-  @module
+  @packageDocumentation
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Unit = void 0;
-/**
-  The `Unit` type exists for the cases where you want a type-safe equivalent of
-  `undefined` or `null`. It's a concrete instance, which won't blow up on you,
-  and you can safely use it with e.g. `Result` without being concerned that
-  you'll accidentally introduce `null` or `undefined` back into your
-  application.
 
-  Equivalent to `()` or "unit" in many functional or functional-influenced
-  languages.
- */
-exports.Unit = Object.create(null);
-exports["default"] = exports.Unit;
-//# sourceMappingURL=unit.cjs.map
 
-/***/ })
 
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat */
-/******/ 	
-/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
-/******/ 	
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(1293);
-/******/ 	module.exports = __webpack_exports__;
-/******/ 	
-/******/ })()
-;
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+// EXTERNAL MODULE: ./node_modules/.pnpm/@vercel+ncc@0.38.3/node_modules/@vercel/ncc/dist/ncc/@@notfound.js?./RandomWaitAction
+var _notfoundRandomWaitAction = __nccwpck_require__(7686);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@vercel+ncc@0.38.3/node_modules/@vercel/ncc/dist/ncc/@@notfound.js?./constants
+var _notfoundconstants = __nccwpck_require__(3849);
+;// CONCATENATED MODULE: ./lib/main.js
+// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+
+
+
+
+async function run() {
+    try {
+        // Retrieve input values from GitHub Action inputs
+        const minInput = core.getInput('minimum');
+        const maxInput = core.getInput('maximum');
+        // Use Maybe to safely parse inputs into numbers
+        const minimum = maybe.of(minInput).mapOr(_notfoundconstants.MINIMUM_ALLOWED, parseInt);
+        const maximum = maybe.of(maxInput).mapOr(_notfoundconstants.MAXIMUM_ALLOWED, parseInt);
+        // Create instance of pure business logic class
+        const action = new _notfoundRandomWaitAction.RandomWaitAction(minimum, maximum);
+        core.debug(`Executing random wait between ${minimum} and ${maximum} seconds...`);
+        core.debug(`Start Time: ${new Date().toTimeString()}`);
+        // Execute the wait logic
+        const result = await action.execute();
+        if (result.isErr) {
+            core.setFailed(result.error.message);
+            return;
+        }
+        const waitTime = result.value;
+        core.debug(`End Time: ${new Date().toTimeString()}`);
+        core.setOutput('wait_time', waitTime.toString());
+    }
+    catch (error) {
+        if (error instanceof Error)
+            core.setFailed(error.message);
+    }
+}
+void run();
+
+
 //# sourceMappingURL=index.js.map
