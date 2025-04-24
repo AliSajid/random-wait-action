@@ -19,5 +19,9 @@
         "vitest.config.ts",
         "docs"
     ],
-    "extends": "@docusaurus/tsconfig"
+    "extends": "./tsconfig.base.json",
+    "include": [
+        "src",
+        "rollup.config.ts"
+    ]
 }
