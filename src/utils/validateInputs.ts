@@ -4,7 +4,7 @@
 
 // src/utils/validateInputs.ts
 import { Result, Unit } from 'true-myth'
-import { InputValidationError } from './errors'
+import { InputValidationError } from './errors.js'
 
 /**
  * Validates the input values.
