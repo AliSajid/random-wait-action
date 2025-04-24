@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
     test: {
@@ -21,9 +21,10 @@ export default defineConfig({
                 '**/__tests__/**',
                 'src/main.ts',
                 'dist/',
-                'eslint.config.mjs'
+                'eslint.config.mjs',
+                'rollup.config.ts'
             ]
         },
         testTimeout: 30000
     }
-})
+});
