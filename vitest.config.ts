@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
     test: {
@@ -10,8 +10,20 @@ export default defineConfig({
         environment: 'node',
         coverage: {
             provider: 'v8', // Or 'c8'
-            reporter: ['text', 'html', 'json']
+            reporter: ['text', 'html', 'json', 'json-summary', 'lcov'],
+            exclude: [
+                'lib',
+                'node_modules',
+                'node_modules/**',
+                'vitest.config.ts',
+                '**/*.test.ts',
+                '**/__tests__/**',
+                'src/main.ts',
+                'dist/',
+                'eslint.config.mjs',
+                'rollup.config.ts'
+            ]
         },
         testTimeout: 30000
     }
-})
+});
