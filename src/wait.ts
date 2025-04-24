@@ -3,8 +3,8 @@
 // SPDX-License-Identifier: MIT
 
 import { Result } from 'true-myth'
-import { validateInputs } from './utils/validateInputs'
-import { InputValidationError } from './utils/errors'
+import { validateInputs } from './utils/validateInputs.js'
+import { InputValidationError } from './utils/errors.js'
 
 /**
  * Waits for a random number of seconds between minimum and maximum.

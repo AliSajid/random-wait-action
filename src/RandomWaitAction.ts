@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: MIT
 
 import { Result } from 'true-myth'
-import { wait } from './wait'
-import { validateInputs } from './utils/validateInputs'
-import { InputValidationError } from './utils/errors'
+import { wait } from './wait.js'
+import { validateInputs } from './utils/validateInputs.js'
+import { InputValidationError } from './utils/errors.js'
 
 export class RandomWaitAction {
     private readonly minimum: number

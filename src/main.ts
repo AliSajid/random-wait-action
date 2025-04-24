@@ -4,8 +4,8 @@
 
 import * as core from '@actions/core'
 import { Maybe } from 'true-myth'
-import { RandomWaitAction } from './RandomWaitAction'
-import { MAXIMUM_ALLOWED, MINIMUM_ALLOWED } from './constants'
+import { RandomWaitAction } from './RandomWaitAction.js'
+import { MAXIMUM_ALLOWED, MINIMUM_ALLOWED } from './constants.js'
 
 async function run(): Promise<void> {
     try {
