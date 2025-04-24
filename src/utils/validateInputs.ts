@@ -3,8 +3,8 @@
 // SPDX-License-Identifier: MIT
 
 // src/utils/validateInputs.ts
-import { Result, Unit } from 'true-myth'
-import { InputValidationError } from './errors.js'
+import { Result, Unit } from 'true-myth';
+import { InputValidationError } from './errors.js';
 
 /**
  * Validates the input values.
@@ -21,7 +21,7 @@ export function validateInputs(
             new InputValidationError(
                 'Both minimum and maximum must be numbers.'
             )
-        )
+        );
     }
 
     if (!Number.isInteger(minimum) || !Number.isInteger(maximum)) {
@@ -29,13 +29,13 @@ export function validateInputs(
             new InputValidationError(
                 'Both minimum and maximum must be integers.'
             )
-        )
+        );
     }
 
     if (minimum == 0 && maximum == 0) {
         return Result.err(
             new InputValidationError('Both minimum and maximum cannot be zero.')
-        )
+        );
     }
 
     if (minimum < 0 || maximum < 0) {
@@ -43,12 +43,12 @@ export function validateInputs(
             new InputValidationError(
                 'Both minimum and maximum must be positive integers.'
             )
-        )
+        );
     }
     if (minimum > maximum) {
         return Result.err(
             new InputValidationError('Minimum cannot be greater than maximum.')
-        )
+        );
     }
-    return Result.ok(Unit)
+    return Result.ok(Unit);
 }
