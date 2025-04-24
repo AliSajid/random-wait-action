@@ -75,7 +75,6 @@ describe('validateInputs (property-based)', () => {
                     if (a <= b) return // skip valid cases
                     const result = validateInputs(a, b)
                     if (result.isErr) {
-                        // eslint-disable-next-line vitest/no-conditional-expect
                         expect(result.error.message).toMatch(/greater than/)
                     }
                 }
