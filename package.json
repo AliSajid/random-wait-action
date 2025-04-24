@@ -49,12 +49,12 @@
         "url": "git+https://github.com/AliSajid/random-wait-action"
     },
     "scripts": {
-        "all": "pnpm run build && pnpm run format && pnpm run lint && pnpm run package && pnpm test",
-        "build": "tsc",
-        "format": "prettier --write '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
-        "format-check": "prettier --check '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
-        "lint": "eslint",
-        "package": "ncc build --source-map --license licenses.txt",
+        "all": "pnpm run format:check && pnpm run lint:check && pnpm run test && pnpm run package",
+        "format:check": "prettier --check '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
+        "format:write": "prettier --write '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
+        "lint:check": "pnpx eslint .",
+        "lint:fix": "pnpx eslint . --fix",
+        "package": "pnpx rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
         "test": "vitest --run",
         "test:coverage": "vitest --coverage"
     },
