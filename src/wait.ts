@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { Result } from 'true-myth'
-import { validateInputs } from './utils/validateInputs.js'
-import { InputValidationError } from './utils/errors.js'
+import { Result } from 'true-myth';
+import { validateInputs } from './utils/validateInputs.js';
+import { InputValidationError } from './utils/errors.js';
 
 /**
  * Waits for a random number of seconds between minimum and maximum.
@@ -16,15 +16,15 @@ export async function wait(
     minimum: number,
     maximum: number
 ): Promise<Result<number, InputValidationError>> {
-    const validation = validateInputs(minimum, maximum)
+    const validation = validateInputs(minimum, maximum);
     if (validation.isErr) {
-        return Result.err(validation.error)
+        return Result.err(validation.error);
     }
 
-    const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+    const secs = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve(Result.ok(secs))
-        }, secs * 1000)
-    })
+            resolve(Result.ok(secs));
+        }, secs * 1000);
+    });
 }
