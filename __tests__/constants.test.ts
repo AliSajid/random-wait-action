@@ -2,19 +2,19 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { describe, it, expect } from 'vitest'
-import { MAXIMUM_ALLOWED, MINIMUM_ALLOWED } from '../src/constants'
+import { describe, it, expect } from 'vitest';
+import { MAXIMUM_ALLOWED, MINIMUM_ALLOWED } from '../src/constants';
 
 describe('ensure constants are correctly set', () => {
     it('has correct maximum value', () => {
-        expect.hasAssertions()
+        expect.hasAssertions();
 
-        expect(MAXIMUM_ALLOWED).toBe(120)
-    })
+        expect(MAXIMUM_ALLOWED).toBe(120);
+    });
 
     it('has correct minimum value', () => {
-        expect.hasAssertions()
+        expect.hasAssertions();
 
-        expect(MINIMUM_ALLOWED).toBe(0)
-    })
-})
+        expect(MINIMUM_ALLOWED).toBe(0);
+    });
+});
