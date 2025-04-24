@@ -4,7 +4,6 @@
 
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import stylistic from '@stylistic/eslint-plugin';
 import vitest from '@vitest/eslint-plugin';
 
 export default tseslint.config(
@@ -28,19 +27,6 @@ export default tseslint.config(
     },
 
     tseslint.configs.stylistic,
-
-    {
-        plugins: {
-            '@stylistic': stylistic
-        },
-        rules: {
-            // stylistic recommendations (edit as needed)
-            '@stylistic/indent': ['error', 4],
-            '@stylistic/semi': ['error', 'always'],
-            '@stylistic/quotes': ['error', 'single'],
-            '@stylistic/comma-dangle': ['error', 'always-multiline']
-        }
-    },
 
     {
         files: ['__tests__/**', 'src/**/*.spec.ts'], // or any other pattern
