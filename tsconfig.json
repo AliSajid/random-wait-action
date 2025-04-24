@@ -1,22 +1,21 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
-        "baseUrl": "./docs",
-        "esModuleInterop": true,
-        "module": "ESNext",
-        "moduleDetection": "force",
-        "moduleResolution": "bundler",
-        "noImplicitAny": true,
-        "outDir": "lib",
-        "rootDir": "src",
-        "skipLibCheck": true,
-        "strict": true,
-        "target": "ESNext"
+        "baseUrl": "./",
+        "outDir": "./dist",
+        "rootDir": "src"
     },
     "exclude": [
         "node_modules",
-        "**/*.test.ts",
+        "__fixtures__",
+        "coverage",
+        "dist",
         "megalinter-reports/**/*.js",
         "vitest.config.ts",
         "docs"
+    ],
+    "extends": "./tsconfig.base.json",
+    "include": [
+        "src"
     ]
 }
