@@ -12,8 +12,8 @@ importers:
         specifier: 1.11.1
         version: 1.11.1
       true-myth:
-        specifier: 9.0.0
-        version: 9.0.0
+        specifier: 9.0.1
+        version: 9.0.1
     devDependencies:
       '@eslint/js':
         specifier: 9.27.0
@@ -1317,8 +1317,8 @@ packages:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
 
-  true-myth@9.0.0:
-    resolution: {integrity: sha512-BxSf496poTeHyzNXqogoAjf2mjgw3VqZeIi3wzqu/c0hkKUKLOd4AeS+9Zn1XbzBCOb2OH2en/AtkD6l9/wZlQ==}
+  true-myth@9.0.1:
+    resolution: {integrity: sha512-8ePgamjgV3CKDI43o6eUtid+9iadfEKUiu2WTucbeCnPTyDOQpZ4svCuozLwm9S4hzUolOclsUCJf3yjQg3g/Q==}
     engines: {node: 18.* || >= 20.*}
 
   ts-api-utils@2.1.0:
@@ -2657,7 +2657,7 @@ snapshots:
 
   totalist@3.0.1: {}
 
-  true-myth@9.0.0: {}
+  true-myth@9.0.1: {}
 
   ts-api-utils@2.1.0(typescript@5.7.3):
     dependencies:
