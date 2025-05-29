@@ -16,7 +16,6 @@ jobs:
     permissions:
       id-token: write
       attestations: write
-      contents: write
       issues: write
       pull-requests: write
     steps:
