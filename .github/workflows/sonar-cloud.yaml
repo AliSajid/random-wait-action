@@ -6,6 +6,7 @@ on:
       - next
   pull_request:
     types: [opened, synchronize, reopened]
+
 permissions:
   contents: read
 
@@ -13,7 +14,6 @@ jobs:
   sonarcloud:
     permissions:
       contents: read # for actions/checkout to fetch code
-      pull-requests: read # for SonarSource/sonarcloud-github-action to determine which PR to decorate
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
