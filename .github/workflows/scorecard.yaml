@@ -6,7 +6,8 @@ on:
   push:
     branches: ["next"]
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
     analysis:
