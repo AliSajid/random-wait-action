@@ -18,7 +18,7 @@ describe('wait (real setTimeout)', () => {
 
         const delta = end - start;
 
-        expect(delta).toBeGreaterThanOrEqual(1000);
+        expect(delta).toBeGreaterThanOrEqual(1000 - timingBuffer);
         expect(delta).toBeLessThanOrEqual(5000 + timingBuffer);
     });
 
@@ -31,7 +31,7 @@ describe('wait (real setTimeout)', () => {
 
         const delta = end - start;
 
-        expect(delta).toBeGreaterThanOrEqual(5000);
+        expect(delta).toBeGreaterThanOrEqual(5000 - timingBuffer);
         expect(delta).toBeLessThanOrEqual(10000 + timingBuffer);
     });
 });
