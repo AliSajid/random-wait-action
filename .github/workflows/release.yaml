@@ -75,4 +75,4 @@ jobs:
             @semantic-release/exec@6
             @semantic-release/git@10
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB }}
