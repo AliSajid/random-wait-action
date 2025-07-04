@@ -61,7 +61,7 @@ jobs:
         id: attest
         uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
         with:
-          subject-path: dist/index.js
+          subject-path: dist/index.cjs
 
       - name: Move attestation file to dist/
         run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.intoto.jsonl
