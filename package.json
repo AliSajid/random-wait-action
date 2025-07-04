@@ -45,7 +45,7 @@
         "setup"
     ],
     "license": "MIT",
-    "main": "lib/main.js",
+    "main": "dist/index.cjs",
     "name": "random-wait-action",
     "packageManager": "pnpm@10.12.4",
     "private": true,
