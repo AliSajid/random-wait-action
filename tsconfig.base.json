@@ -9,9 +9,9 @@
         "lib": [
             "ES2022"
         ],
-        "module": "NodeNext",
+        "module": "ES2022",
         "moduleDetection": "force",
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "bundler",
         "newLine": "lf",
         "noImplicitAny": true,
         "noUnusedLocals": true,

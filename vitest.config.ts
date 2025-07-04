@@ -23,7 +23,11 @@ export default defineConfig({
                 'node_modules/**',
                 'rollup.config.ts',
                 'src/main.ts',
-                'vitest.config.ts'
+                'dist/',
+                'eslint.config.mjs',
+                'rollup.config.ts',
+                'vitest.config.ts',
+                'guide'
             ]
         },
         testTimeout: 30000
