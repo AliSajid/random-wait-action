@@ -27,7 +27,7 @@ export default defineConfig({
                 'eslint.config.mjs',
                 'rollup.config.ts',
                 'vitest.config.ts',
-                'guide'
+                'guide/**'
             ]
         },
         testTimeout: 30000
