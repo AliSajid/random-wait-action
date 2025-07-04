@@ -13,16 +13,12 @@ export default defineConfig({
     output: {
         file: 'dist/index.cjs',
         format: 'cjs',
-        sourcemap: false
+        sourcemap: true
     },
     plugins: [
         typescript(),
         nodeResolve({ preferBuiltins: true }),
         commonjs()
-    ],
-    external: [
-        '@actions/core',
-        'true-myth'
     ],
     onwarn: (warning, warn) => {
         // Skip circular dependency warnings from @actions/core
