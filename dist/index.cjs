@@ -27279,6 +27279,9 @@ function safeToString(value) {
         return JSON.stringify(value);
     }
 }
+function identity(value) {
+    return value;
+}
 
 /**
   A value of type `T` which may, or may not, be present. If the value is
@@ -27429,9 +27432,9 @@ class MaybeImpl {
     /** Method variant for {@linkcode toJSON} */
     toJSON() {
         const variant = this.repr[0];
+        // Handle nested Maybes
         if (variant === 'Just') {
-            // Handle nested Maybes
-            let value = isInstance(this.repr[1]) ? this.repr[1].toJSON() : this.repr[1];
+            const value = isInstance$1(this.repr[1]) ? this.repr[1].toJSON() : this.repr[1];
             return { variant, value };
         }
         else {
@@ -27488,7 +27491,44 @@ class MaybeImpl {
       ```
      */
     get(key) {
-        return this.andThen(property(key));
+        return this.andThen((obj) => property(key, obj));
+    }
+    /**
+      Given a nested `Maybe`, remove one layer of nesting.
+  
+      For example, given a `Maybe<Maybe<string>>`, the resulting type after using
+      this method will be `Maybe<string>`.
+  
+      ## Note
+  
+      This method only works when the value wrapped in `Maybe` is another `Maybe`.
+      If you have a `Maybe<string>` or `Maybe<number>`, this method won't work. If
+      you have a `Maybe<Maybe<string>>`, then you can call `.flatten()` to get
+      back a `Maybe<string>`.
+  
+      ## Examples
+  
+      ```ts
+      import * as maybe from 'true-myth/maybe';
+  
+      const nested = maybe.just(maybe.just('hello'));
+      const flattened = nested.flatten(); // Maybe<string>
+      console.log(flattened); // Just('hello')
+  
+      const nestedNothing = maybe.just(maybe.nothing<string>());
+      const flattenedNothing = nestedNothing.flatten(); // Maybe<string>
+      console.log(flattenedNothing); // Nothing
+  
+      const nothingNested = maybe.nothing<Maybe<string>>();
+      const flattenedOuter = nothingNested.flatten(); // Maybe<string>
+      console.log(flattenedOuter); // Nothing
+      ```
+     */
+    // NOTE: it is necessary to express the type constraint on the `this` value
+    // like this, rather than like `this: Maybe<Maybe<T>>`, to avoid producing a
+    // `Maybe<Maybe<Maybe<T>>>` at call sites with the wrapped value.
+    flatten() {
+        return this.andThen(identity);
     }
 }
 /**
@@ -27506,12 +27546,7 @@ class MaybeImpl {
   @returns     An instance of `Maybe.Nothing<T>`.
  */
 const nothing = MaybeImpl.nothing;
-/**
-  Determine whether an item is an instance of {@linkcode Maybe}.
-
-  @param item The item to check.
- */
-function isInstance(item) {
+function isInstance$1(item) {
     return item instanceof Maybe;
 }
 function property(key, obj) {
@@ -27681,7 +27716,14 @@ class ResultImpl {
     /** Method variant for {@linkcode toJSON} */
     toJSON() {
         const variant = this.repr[0];
-        return variant === 'Ok' ? { variant, value: this.repr[1] } : { variant, error: this.repr[1] };
+        if (variant === Variant.Ok) {
+            const value = isInstance(this.repr[1]) ? this.repr[1].toJSON() : this.repr[1];
+            return { variant, value };
+        }
+        else {
+            const error = isInstance(this.repr[1]) ? this.repr[1].toJSON() : this.repr[1];
+            return { variant, error };
+        }
     }
     /** Method variant for {@linkcode equals} */
     equals(comparison) {
@@ -27695,9 +27737,50 @@ class ResultImpl {
     ap(r) {
         return r.andThen((val) => this.map((fn) => fn(val)));
     }
+    /**
+      Given a nested `Result`, remove one layer of nesting.
+  
+      For example, given a `Result<Result<string, E2>, E1>`, the resulting type
+      after using this method will be `Result<string, E1 | E2>`.
+  
+      ## Note
+  
+      This method only works when the value wrapped in `Result` is another
+      `Result`. If you have a `Result<string, E>` or `Result<number, E>`, this
+      method won't work. If you have a `Result<Result<string, E2>, E1>`, then you
+      can call `.flatten()` to get back a `Result<string, E1 | E2>`.
+  
+      ## Examples
+  
+      ```ts
+      import * as result from 'true-myth/result';
+  
+      const nested = result.ok(result.ok('hello'));
+      const flattened = nested.flatten(); // Result<string, never>
+      console.log(flattened); // Ok('hello')
+  
+      const nestedError = result.ok(result.err('inner error'));
+      const flattenedError = nestedError.flatten(); // Result<never, string>
+      console.log(flattenedError); // Err('inner error')
+  
+      const errorNested = result.err<Result<string, string>, string>('outer error');
+      const flattenedOuter = errorNested.flatten(); // Result<string, string>
+      console.log(flattenedOuter); // Err('outer error')
+      ```
+     */
+    // NOTE: it is necessary to express the type constraint on the `this` value
+    // like this, rather than like `this: Result<Result<T, E2>, E1>`, to avoid
+    // producing a `Result<Result<Result<T, E2>, E1>, E2>` at call sites with the
+    // wrapped value.
+    flatten() {
+        return this.andThen(identity);
+    }
     cast() {
         return this;
     }
+}
+function isInstance(item) {
+    return item instanceof ResultImpl;
 }
 // Duplicate documentation because it will show up more nicely when rendered in
 // TypeDoc than if it applies to only one or the other; using `@inheritdoc` will
