@@ -16,18 +16,17 @@ export default defineConfig({
                 '**/*.test.ts',
                 '**/__tests__/**',
                 'dist/',
+                'dist/',
+                'eslint.config.mjs',
                 'eslint.config.mjs',
                 'guide/',
+                'guide/**',
                 'lib',
                 'node_modules',
                 'node_modules/**',
                 'rollup.config.ts',
                 'src/main.ts',
-                'dist/',
-                'eslint.config.mjs',
-                'rollup.config.ts',
-                'vitest.config.ts',
-                'guide/**'
+                'vitest.config.ts'
             ]
         },
         testTimeout: 30000
