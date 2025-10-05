@@ -18,7 +18,6 @@ export default defineConfig({
                 'dist/',
                 'eslint.config.mjs',
                 'guide/',
-                'guide/**',
                 'lib',
                 'node_modules',
                 'node_modules/**',
