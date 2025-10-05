@@ -159,6 +159,9 @@ describe('test RandomWaitAction class', () => {
         vi.runAllTimers();
         await promise;
 
-        expect(setTimeoutSpy).toHaveBeenCalledWith(expect.any(Function), 2000);
+        expect(setTimeoutSpy).toHaveBeenCalledExactlyOnceWith(
+            expect.any(Function),
+            2000
+        );
     });
 });
