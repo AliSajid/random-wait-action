@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 #
 # SPDX-License-Identifier: MIT
 
@@ -7,9 +7,7 @@
 name = "cz_conventional_commits"
 version = "1.0.0"
 tag_format = "v$major.$minor.$patch"
-version_files = [
-    "package.json"
-]
+version_files = ["package.json"]
 gpg_sign = true
 update_changelog_on_bump = false
 changelog_incremental = false

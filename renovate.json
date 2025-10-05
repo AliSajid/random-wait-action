@@ -1,11 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "assignees": [
-        "AliSajid"
-    ],
-    "baseBranches": [
-        "next"
-    ],
+    "assignees": ["AliSajid"],
+    "baseBranchPatterns": ["next"],
     "extends": [
         "config:best-practices",
         "group:definitelyTyped",
@@ -22,21 +18,12 @@
             "automerge": true,
             "groupName": "Pre-Commit and GitHub Actions",
             "groupSlug": "pre-commit-and-github-actions",
-            "matchManagers": [
-                "pre-commit",
-                "github-actions"
-            ],
-            "schedule": [
-                "before 5am every weekday"
-            ]
+            "matchManagers": ["pre-commit", "github-actions"],
+            "schedule": ["before 5am every weekday"]
         },
         {
             "automerge": true,
-            "matchDepTypes": [
-                "devDependencies",
-                "minor",
-                "patch"
-            ],
+            "matchDepTypes": ["devDependencies", "minor", "patch"],
             "matchPackageNames": [
                 "eslint{/,}**",
                 "stylistic{/,}**",
@@ -49,9 +36,6 @@
     "pre-commit": {
         "enabled": true
     },
-    "schedule": [
-        "after 10pm every weekday",
-        "every weekend"
-    ],
+    "schedule": ["after 10pm every weekday", "every weekend"],
     "semanticCommits": "enabled"
 }

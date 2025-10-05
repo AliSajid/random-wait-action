@@ -1,15 +1,15 @@
-# SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 #
 # SPDX-License-Identifier: MIT
 
 exclude: "^dist/.*$"
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.8.2
+    rev: v4.9.1
     hooks:
       - id: commitizen
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-json
       - id: no-commit-to-branch
@@ -86,13 +86,13 @@ repos:
           - ".secrets.baseline"
         exclude: "pnpm-lock.yaml"
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.6.8
+    rev: 0.7.1
     hooks:
       - id: fix-smartquotes
       - id: fix-ligatures
       - id: forbid-bidi-controls
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.27.0
+    rev: v8.28.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/pre-commit/mirrors-prettier
@@ -105,7 +105,7 @@ repos:
         exclude: "^dist/.*$"
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: "v9.28.0" # Use the sha / tag you want to point at
+    rev: "v9.37.0" # Use the sha / tag you want to point at
     hooks:
       - id: eslint
         files: \.[jt]sx?$
@@ -113,11 +113,11 @@ repos:
           - eslint@9.5.0
           - eslint-plugin-jest@28.6.0
   - repo: https://github.com/fsfe/reuse-tool
-    rev: "v5.0.2"
+    rev: "v5.1.1"
     hooks:
       - id: reuse
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 40.36.8
+    rev: 41.135.5
     hooks:
       - id: renovate-config-validator
         language_version: 20.18.0

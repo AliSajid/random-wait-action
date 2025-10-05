@@ -13,16 +13,17 @@ export default defineConfig({
             provider: 'v8', // Or 'c8'
             reporter: ['text', 'html', 'json', 'json-summary', 'lcov'],
             exclude: [
+                '**/*.test.ts',
+                '**/__tests__/**',
+                'dist/',
+                'eslint.config.mjs',
+                'guide/',
                 'lib',
                 'node_modules',
                 'node_modules/**',
-                'vitest.config.ts',
-                '**/*.test.ts',
-                '**/__tests__/**',
+                'rollup.config.ts',
                 'src/main.ts',
-                'dist/',
-                'eslint.config.mjs',
-                'rollup.config.ts'
+                'vitest.config.ts'
             ]
         },
         testTimeout: 30000
