@@ -16,8 +16,6 @@ export default defineConfig({
                 '**/*.test.ts',
                 '**/__tests__/**',
                 'dist/',
-                'dist/',
-                'eslint.config.mjs',
                 'eslint.config.mjs',
                 'guide/',
                 'guide/**',
