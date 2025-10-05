@@ -13,7 +13,8 @@ export default tseslint.config(
         ignores: [
             'dist/',
             'lib/',
-            '*.config.[tj]s'
+            '*.config.[tj]s',
+            'guide/'
         ]
     },
     {

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 
 import { describe, expect, vi, it } from 'vitest';
 import { RandomWaitAction } from '../src/RandomWaitAction';
@@ -159,6 +160,9 @@ describe('test RandomWaitAction class', () => {
         vi.runAllTimers();
         await promise;
 
-        expect(setTimeoutSpy).toHaveBeenCalledWith(expect.any(Function), 2000);
+        expect(setTimeoutSpy).toHaveBeenCalledExactlyOnceWith(
+            expect.any(Function),
+            2000
+        );
     });
 });
