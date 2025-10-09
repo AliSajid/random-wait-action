@@ -11,7 +11,7 @@
         ":pinDevDependencies",
         ":pinSkipCi",
         ":reviewer(AliSajid)",
-        "npm:unpublishSafe"
+        "security:minimumReleaseAgeNpm"
     ],
     "labels": [
         "dependencies",
