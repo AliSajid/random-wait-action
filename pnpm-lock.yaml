@@ -22,14 +22,14 @@ importers:
         specifier: 28.0.6
         version: 28.0.6(rollup@4.52.4)
       '@rollup/plugin-node-resolve':
-        specifier: 16.0.1
-        version: 16.0.1(rollup@4.52.4)
+        specifier: 16.0.3
+        version: 16.0.3(rollup@4.52.4)
       '@rollup/plugin-typescript':
-        specifier: 12.1.2
-        version: 12.1.2(rollup@4.52.4)(tslib@2.8.1)(typescript@5.8.3)
+        specifier: 12.1.4
+        version: 12.1.4(rollup@4.52.4)(tslib@2.8.1)(typescript@5.8.3)
       '@stylistic/eslint-plugin':
-        specifier: 4.4.0
-        version: 4.4.0(eslint@9.37.0)(typescript@5.8.3)
+        specifier: 5.4.0
+        version: 5.4.0(eslint@9.37.0)
       '@types/eslint':
         specifier: 9.6.1
         version: 9.6.1
@@ -394,8 +394,8 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/plugin-node-resolve@16.0.1':
-    resolution: {integrity: sha512-tk5YCxJWIG81umIvNkSod2qK5KyQW19qcBF/B78n1bjtOON6gzKoVeSzAE8yHCZEDmqkHKkxplExA8KzdJLJpA==}
+  '@rollup/plugin-node-resolve@16.0.3':
+    resolution: {integrity: sha512-lUYM3UBGuM93CnMPG1YocWu7X802BrNF3jW2zny5gQyLQgRFJhV1Sq0Zi74+dh/6NBx1DxFC4b4GXg9wUCG5Qg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.78.0||^3.0.0||^4.0.0
@@ -403,8 +403,8 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/plugin-typescript@12.1.2':
-    resolution: {integrity: sha512-cdtSp154H5sv637uMr1a8OTWB0L1SWDSm1rDGiyfcGcvQ6cuTs4MDk2BVEBGysUWago4OJN4EQZqOTl/QY3Jgg==}
+  '@rollup/plugin-typescript@12.1.4':
+    resolution: {integrity: sha512-s5Hx+EtN60LMlDBvl5f04bEiFZmAepk27Q+mr85L/00zPDn1jtzlTV6FWn81MaIwqfWzKxmOJrBWHU6vtQyedQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.14.0||^3.0.0||^4.0.0
@@ -535,8 +535,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@stylistic/eslint-plugin@4.4.0':
-    resolution: {integrity: sha512-bIh/d9X+OQLCAMdhHtps+frvyjvAM4B1YlSJzcEEhl7wXLIqPar3ngn9DrHhkBOrTA/z9J0bUMtctAspe0dxdQ==}
+  '@stylistic/eslint-plugin@5.4.0':
+    resolution: {integrity: sha512-UG8hdElzuBDzIbjG1QDwnYH0MQ73YLXDFHgZzB4Zh/YJfnw8XNsloVtytqzx0I2Qky9THSdpTmi8Vjn/pf/Lew==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=9.0.0'
@@ -1779,7 +1779,7 @@ snapshots:
     optionalDependencies:
       rollup: 4.52.4
 
-  '@rollup/plugin-node-resolve@16.0.1(rollup@4.52.4)':
+  '@rollup/plugin-node-resolve@16.0.3(rollup@4.52.4)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.52.4)
       '@types/resolve': 1.20.2
@@ -1789,7 +1789,7 @@ snapshots:
     optionalDependencies:
       rollup: 4.52.4
 
-  '@rollup/plugin-typescript@12.1.2(rollup@4.52.4)(tslib@2.8.1)(typescript@5.8.3)':
+  '@rollup/plugin-typescript@12.1.4(rollup@4.52.4)(tslib@2.8.1)(typescript@5.8.3)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.52.4)
       resolve: 1.22.11
@@ -1872,17 +1872,15 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.4':
     optional: true
 
-  '@stylistic/eslint-plugin@4.4.0(eslint@9.37.0)(typescript@5.8.3)':
+  '@stylistic/eslint-plugin@5.4.0(eslint@9.37.0)':
     dependencies:
-      '@typescript-eslint/utils': 8.46.2(eslint@9.37.0)(typescript@5.8.3)
+      '@eslint-community/eslint-utils': 4.9.0(eslint@9.37.0)
+      '@typescript-eslint/types': 8.46.2
       eslint: 9.37.0
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
       estraverse: 5.3.0
       picomatch: 4.0.3
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   '@types/eslint@9.6.1':
     dependencies:
