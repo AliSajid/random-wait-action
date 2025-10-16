@@ -47,7 +47,7 @@
     "license": "MIT",
     "main": "dist/index.cjs",
     "name": "random-wait-action",
-    "packageManager": "pnpm@10.11.0",
+    "packageManager": "pnpm@10.18.2",
     "private": true,
     "repository": {
         "type": "git",
