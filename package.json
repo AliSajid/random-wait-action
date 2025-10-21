@@ -19,7 +19,7 @@
     "description": "A Github Action to introduce a random delay in a Job",
     "devDependencies": {
         "@eslint/js": "9.38.0",
-        "@rollup/plugin-commonjs": "28.0.6",
+        "@rollup/plugin-commonjs": "28.0.8",
         "@rollup/plugin-node-resolve": "16.0.3",
         "@rollup/plugin-typescript": "12.1.4",
         "@stylistic/eslint-plugin": "5.4.0",
