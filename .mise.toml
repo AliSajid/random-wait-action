@@ -13,7 +13,7 @@
 
 [tools]
 # Runtime (Node.js 22 for GitHub Actions compatibility)
-node = "22.20.0"
+node = "20.17.0"
 
 # Package manager (locked version for consistency)
 pnpm = "10.18.3"
@@ -26,8 +26,6 @@ pre-commit = "4.3.0"
 # Documentation tooling
 "cargo:mdbook" = "0.4.44"
 
-# Development tools
-"npm:corepack" = "latest"
 # =============================================================================
 # Environment Variables
 # =============================================================================
@@ -57,7 +55,7 @@ depends = ["_install", "check:types"]
 [tasks.package]
 description = "Package the action using Rollup"
 alias = "build"
-run = "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
+run = "pnpm exec rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
 depends = ["_install"]
 
 [tasks.check]
@@ -66,7 +64,7 @@ depends = ["format:check", "lint:check", "check:types"]
 
 [tasks."check:types"]
 description = "Type-check TypeScript code"
-run = "tsc --noEmit"
+run = "pnpm exec tsc --noEmit"
 depends = ["_install"]
 
 # -----------------------------------------------------------------------------
@@ -75,27 +73,27 @@ depends = ["_install"]
 
 [tasks.test]
 description = "Run all unit tests"
-run = "vitest --run"
+run = "pnpm exec vitest --run"
 depends = ["_install"]
 
 [tasks."test:watch"]
 description = "Run tests in watch mode"
-run = "vitest"
+run = "pnpm exec vitest"
 depends = ["_install"]
 
 [tasks."test:ui"]
 description = "Run tests with Vitest UI"
-run = "vitest --ui"
+run = "pnpm exec vitest --ui"
 depends = ["_install"]
 
 [tasks."test:coverage"]
 description = "Run tests with coverage report"
-run = "vitest --coverage"
+run = "pnpm exec vitest --coverage"
 depends = ["_install"]
 
 [tasks."test:ci"]
 description = "Run tests in CI mode (no watch)"
-run = "vitest --run --reporter=verbose"
+run = "pnpm exec vitest --run --reporter=verbose"
 depends = ["_install"]
 
 # -----------------------------------------------------------------------------
@@ -105,7 +103,7 @@ depends = ["_install"]
 [tasks.lint]
 description = "Run ESLint checks"
 alias = "lint:check"
-run = "eslint ."
+run = "pnpm exec eslint ."
 depends = ["_install"]
 
 [tasks."lint:check"]
@@ -131,7 +129,7 @@ depends = ["_install"]
 
 [tasks."format:write"]
 description = "Format all source files with Prettier"
-run = "prettier --write '{src,__tests__}/**/*.{ts,js,json,md,yaml,yml}'"
+run = "pnpm exec prettier --write '{src,__tests__}/**/*.{ts,js,json,md,yaml,yml}'"
 depends = ["_install"]
 
 # -----------------------------------------------------------------------------
@@ -255,7 +253,7 @@ echo "✅ Dependencies updated! Review changes and test thoroughly."
 
 [tasks.dev]
 description = "Start development mode (tests in watch mode)"
-run = "vitest"
+run = "pnpm exec vitest"
 depends = ["_install"]
 
 [tasks.pre-commit]
