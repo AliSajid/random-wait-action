@@ -1,16 +1,7 @@
 {
     "compilerOptions": {
-        "baseUrl": "./docs",
-        "esModuleInterop": true,
-        "module": "ESNext",
-        "moduleDetection": "force",
-        "moduleResolution": "bundler",
-        "noImplicitAny": true,
-        "outDir": "lib",
-        "rootDir": "src",
-        "skipLibCheck": true,
-        "strict": true,
-        "target": "ESNext"
+        "outDir": "./dist",
+        "rootDir": "src"
     },
     "exclude": [
         "node_modules",
