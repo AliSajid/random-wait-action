@@ -24,6 +24,7 @@ jobs:
             github.com:443
             ingest.codecov.io:443
             keybase.io:443
+            mise.jdx.dev:443
             o26192.ingest.us.sentry.io:443
             registry.npmjs.org:443
             storage.googleapis.com:443
@@ -31,21 +32,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+      - name: Install mise
+        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
         with:
-          run_install: false
+          version: 2024.1.0
+          install_args: --yes
 
-      - name: Set Node.js 22.x
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: 22.x
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run the build process
-        run: pnpm run all
+      - name: Run CI pipeline
+        run: mise run ci
 
   test-with-params: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
@@ -83,24 +77,18 @@ jobs:
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           egress-policy: audit
+
       - name: Checkout repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+      - name: Install mise
+        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
         with:
-          run_install: false
-
-      - name: Set Node.js 22.x
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: 22.x
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
+          version: 2024.1.0
+          install_args: --yes
 
       - name: Generate Coverage Report
-        run: pnpm run test:coverage
+        run: mise run test
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5
