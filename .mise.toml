@@ -2,9 +2,159 @@
 #
 # SPDX-License-Identifier: MIT
 
+# mise configuration for Random Wait Action
+# See: https://mise.jdx.dev/configuration.html
+
+# =============================================================================
+# Tool Version Management
+# =============================================================================
+# All development tools and their exact versions
+# Run `mise install` to install all tools
+
 [tools]
+# Runtime (Node.js 22 for GitHub Actions compatibility)
+node = "22.20.0"
+
+# Package manager (locked version for consistency)
+pnpm = "10.18.3"
+
+# Python tools (for pre-commit hooks)
+python = "3.12"
+pre-commit = "4.3.0"
+
+# Documentation tooling (non-npm)
 "cargo:mdbook" = "0.4.44"
-node = "22"
+
+# Git tooling (non-npm)
+"ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
+
+# Note: All npm-based tools (TypeScript, ESLint, Prettier, Vitest, Rollup, etc.)
+# are installed via package.json and managed by pnpm. Use 'pnpm exec <tool>' to run them.
+# =============================================================================
+# Environment Variables
+# =============================================================================
 
 [env]
+# Node.js VM modules for ESM compatibility
 NODE_OPTIONS = "--experimental-vm-modules"
+
+# Development environment
+NODE_ENV = "development"
+
+# =============================================================================
+# Task Definitions
+# =============================================================================
+# Core tasks for GitHub Action development
+
+# -----------------------------------------------------------------------------
+# Primary Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.build]
+description = "Build and verify the action distribution"
+run = "pnpm run package"
+depends = ["_install"]
+
+[tasks.test]
+description = "Run tests with coverage"
+run = "pnpm run test:coverage"
+depends = ["_install"]
+
+[tasks.dev]
+description = "Development mode with tests in watch"
+run = "pnpm exec vitest"
+depends = ["_install"]
+
+[tasks.lint]
+description = "Check code quality (format + lint + types)"
+depends = ["_install"]
+run = """
+#!/usr/bin/env bash
+set -e
+pnpm run format:check
+pnpm run lint:check
+pnpm exec tsc --noEmit
+"""
+
+[tasks.fix]
+description = "Auto-fix formatting and linting issues"
+depends = ["_install"]
+run = """
+#!/usr/bin/env bash
+pnpm run format:write
+pnpm run lint:fix
+"""
+
+[tasks.ci]
+description = "Full CI pipeline (lint, test, build, verify dist)"
+depends = ["lint", "test", "build", "check-dist"]
+
+# -----------------------------------------------------------------------------
+# Action-Specific Tasks
+# -----------------------------------------------------------------------------
+
+[tasks."action:test"]
+description = "Test the built action locally (default: 1-10s)"
+run = "INPUT_MINIMUM=1 INPUT_MAXIMUM=10 node dist/index.cjs"
+depends = ["build"]
+
+[tasks."action:test:custom"]
+description = "Test action with custom params: mise run action:test:custom -- MIN MAX"
+run = "INPUT_MINIMUM=${1:-1} INPUT_MAXIMUM=${2:-10} node dist/index.cjs"
+depends = ["build"]
+
+[tasks."check-dist"]
+description = "Verify dist/ is up-to-date (critical for GitHub Actions)"
+depends = ["_install"]
+run = """
+#!/usr/bin/env bash
+set -e
+echo "🔨 Building fresh distribution..."
+pnpm run package
+if [[ -n "$(git status --porcelain dist/)" ]]; then
+  echo "❌ dist/ is out of date! Run 'mise run build' and commit changes."
+  git diff dist/
+  exit 1
+fi
+echo "✅ dist/ is up-to-date"
+"""
+
+# -----------------------------------------------------------------------------
+# Documentation Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.docs]
+description = "Serve documentation locally"
+run = "mdbook serve guide --open"
+
+[tasks."docs:build"]
+description = "Build documentation"
+run = "mdbook build guide"
+
+# -----------------------------------------------------------------------------
+# Maintenance Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.clean]
+description = "Clean build artifacts"
+run = "rm -rf dist/ coverage/ node_modules/.vite .rollup.cache guide/book"
+
+[tasks.setup]
+description = "Initial project setup"
+run = "pnpm install"
+
+[tasks.update]
+description = "Update dependencies"
+run = "pnpm update --latest"
+
+[tasks.audit]
+description = "Security audit"
+run = "pnpm audit"
+
+# -----------------------------------------------------------------------------
+# Internal Tasks
+# -----------------------------------------------------------------------------
+
+[tasks._install]
+description = "Install dependencies (internal)"
+run = "pnpm install"
