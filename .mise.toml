@@ -17,19 +17,17 @@ node = "22.20.0"
 
 # Package manager (locked version for consistency)
 pnpm = "10.18.3"
+"ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
 
-# Python tools (for pre-commit hooks)
+# Python tools
 python = "3.12"
 pre-commit = "4.3.0"
 
-# Documentation tooling (non-npm)
+# Documentation tooling
 "cargo:mdbook" = "0.4.44"
 
-# Git tooling (non-npm)
-"ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
-
-# Note: All npm-based tools (TypeScript, ESLint, Prettier, Vitest, Rollup, etc.)
-# are installed via package.json and managed by pnpm. Use 'pnpm exec <tool>' to run them.
+# Development tools
+"npm:corepack" = "latest"
 # =============================================================================
 # Environment Variables
 # =============================================================================
@@ -44,117 +42,313 @@ NODE_ENV = "development"
 # =============================================================================
 # Task Definitions
 # =============================================================================
-# Core tasks for GitHub Action development
+# Run tasks with: mise run <task>
+# List all tasks: mise tasks
 
 # -----------------------------------------------------------------------------
-# Primary Tasks
+# Development Tasks
 # -----------------------------------------------------------------------------
 
 [tasks.build]
-description = "Build and verify the action distribution"
+description = "Build the GitHub Action distribution bundle"
 run = "pnpm run package"
+depends = ["_install", "check:types"]
+
+[tasks.package]
+description = "Package the action using Rollup"
+alias = "build"
+run = "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
 depends = ["_install"]
+
+[tasks.check]
+description = "Run all checks (format, lint, types)"
+depends = ["format:check", "lint:check", "check:types"]
+
+[tasks."check:types"]
+description = "Type-check TypeScript code"
+run = "tsc --noEmit"
+depends = ["_install"]
+
+# -----------------------------------------------------------------------------
+# Testing Tasks
+# -----------------------------------------------------------------------------
 
 [tasks.test]
-description = "Run tests with coverage"
-run = "pnpm run test:coverage"
+description = "Run all unit tests"
+run = "vitest --run"
 depends = ["_install"]
 
-[tasks.dev]
-description = "Development mode with tests in watch"
-run = "pnpm exec vitest"
+[tasks."test:watch"]
+description = "Run tests in watch mode"
+run = "vitest"
 depends = ["_install"]
+
+[tasks."test:ui"]
+description = "Run tests with Vitest UI"
+run = "vitest --ui"
+depends = ["_install"]
+
+[tasks."test:coverage"]
+description = "Run tests with coverage report"
+run = "vitest --coverage"
+depends = ["_install"]
+
+[tasks."test:ci"]
+description = "Run tests in CI mode (no watch)"
+run = "vitest --run --reporter=verbose"
+depends = ["_install"]
+
+# -----------------------------------------------------------------------------
+# Linting & Formatting Tasks
+# -----------------------------------------------------------------------------
 
 [tasks.lint]
-description = "Check code quality (format + lint + types)"
+description = "Run ESLint checks"
+alias = "lint:check"
+run = "eslint ."
 depends = ["_install"]
-run = """
-#!/usr/bin/env bash
-set -e
-pnpm run format:check
-pnpm run lint:check
-pnpm exec tsc --noEmit
-"""
 
-[tasks.fix]
-description = "Auto-fix formatting and linting issues"
+[tasks."lint:check"]
+description = "Check code with ESLint"
+run = "pnpm run lint:check"
 depends = ["_install"]
-run = """
-#!/usr/bin/env bash
-pnpm run format:write
-pnpm run lint:fix
-"""
 
-[tasks.ci]
-description = "Full CI pipeline (lint, test, build, verify dist)"
-depends = ["lint", "test", "build", "check-dist"]
-
-# -----------------------------------------------------------------------------
-# Action-Specific Tasks
-# -----------------------------------------------------------------------------
-
-[tasks."action:test"]
-description = "Test the built action locally (default: 1-10s)"
-run = "INPUT_MINIMUM=1 INPUT_MAXIMUM=10 node dist/index.cjs"
-depends = ["build"]
-
-[tasks."action:test:custom"]
-description = "Test action with custom params: mise run action:test:custom -- MIN MAX"
-run = "INPUT_MINIMUM=${1:-1} INPUT_MAXIMUM=${2:-10} node dist/index.cjs"
-depends = ["build"]
-
-[tasks."check-dist"]
-description = "Verify dist/ is up-to-date (critical for GitHub Actions)"
+[tasks."lint:fix"]
+description = "Auto-fix ESLint issues"
+run = "pnpm run lint:fix"
 depends = ["_install"]
-run = """
-#!/usr/bin/env bash
-set -e
-echo "🔨 Building fresh distribution..."
-pnpm run package
-if [[ -n "$(git status --porcelain dist/)" ]]; then
-  echo "❌ dist/ is out of date! Run 'mise run build' and commit changes."
-  git diff dist/
-  exit 1
-fi
-echo "✅ dist/ is up-to-date"
-"""
+
+[tasks.format]
+description = "Format code with Prettier"
+alias = "format:write"
+run = "pnpm run format:write"
+depends = ["_install"]
+
+[tasks."format:check"]
+description = "Check code formatting without modifying files"
+run = "pnpm run format:check"
+depends = ["_install"]
+
+[tasks."format:write"]
+description = "Format all source files with Prettier"
+run = "prettier --write '{src,__tests__}/**/*.{ts,js,json,md,yaml,yml}'"
+depends = ["_install"]
 
 # -----------------------------------------------------------------------------
 # Documentation Tasks
 # -----------------------------------------------------------------------------
 
-[tasks.docs]
-description = "Serve documentation locally"
+[tasks."docs:build"]
+description = "Build mdBook documentation"
+run = "mdbook build guide"
+
+[tasks."docs:serve"]
+description = "Serve mdBook documentation locally"
 run = "mdbook serve guide --open"
 
-[tasks."docs:build"]
-description = "Build documentation"
-run = "mdbook build guide"
+[tasks."docs:watch"]
+description = "Watch and rebuild documentation"
+run = "mdbook watch guide"
+
+[tasks."docs:clean"]
+description = "Clean documentation build artifacts"
+run = "mdbook clean guide"
+
+[tasks."docs:test"]
+description = "Test code samples in documentation"
+run = "mdbook test guide"
+
+# -----------------------------------------------------------------------------
+# CI/CD Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.ci]
+description = "Run full CI pipeline locally (format, lint, test, build)"
+depends = ["format:check", "lint:check", "check:types", "test", "build"]
+
+[tasks.all]
+description = "Run complete validation (same as CI + package)"
+run = "pnpm run all"
+depends = ["_install"]
+
+[tasks."check-dist"]
+description = "Verify that dist/ is up-to-date with latest build"
+run = """
+#!/usr/bin/env bash
+set -e
+
+echo "🔨 Building fresh distribution..."
+pnpm run package
+
+echo "🔍 Checking for changes..."
+if [[ -n "$(git status --porcelain dist/)" ]]; then
+  echo "❌ Distribution is out of date! Run 'mise run build' and commit the changes."
+  git diff dist/
+  exit 1
+else
+  echo "✅ Distribution is up-to-date!"
+fi
+"""
+depends = ["_install"]
+
+# -----------------------------------------------------------------------------
+# Utility Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.clean]
+description = "Clean all build artifacts and caches"
+run = """
+#!/usr/bin/env bash
+echo "🧹 Cleaning build artifacts..."
+rm -rf dist/
+rm -rf coverage/
+rm -rf node_modules/.vite
+rm -rf .rollup.cache
+rm -rf guide/book
+echo "✨ Clean complete!"
+"""
+
+[tasks."clean:all"]
+description = "Clean everything including node_modules"
+run = """
+#!/usr/bin/env bash
+echo "🧹 Deep cleaning..."
+rm -rf dist/
+rm -rf coverage/
+rm -rf node_modules/
+rm -rf guide/book
+rm -rf .rollup.cache
+echo "✨ Deep clean complete! Run 'mise run setup' to reinstall."
+"""
+
+[tasks.setup]
+description = "Complete project setup (install dependencies)"
+depends = ["_install"]
+run = """
+#!/usr/bin/env bash
+echo "✅ Project setup complete!"
+echo "Available commands:"
+echo "  mise run dev        - Start development"
+echo "  mise run test       - Run tests"
+echo "  mise run build      - Build the action"
+echo "  mise run ci         - Run full CI pipeline"
+echo ""
+echo "Run 'mise tasks' to see all available tasks."
+"""
+
+[tasks._install]
+description = "Install Node.js dependencies with pnpm"
+run = "pnpm install"
+
+[tasks.update]
+description = "Update all dependencies to latest versions"
+run = """
+#!/usr/bin/env bash
+echo "📦 Updating dependencies..."
+pnpm update --latest
+echo "✅ Dependencies updated! Review changes and test thoroughly."
+"""
+
+# -----------------------------------------------------------------------------
+# Development Workflow Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.dev]
+description = "Start development mode (tests in watch mode)"
+run = "vitest"
+depends = ["_install"]
+
+[tasks.pre-commit]
+description = "Run pre-commit checks (format, lint, test)"
+depends = ["format:check", "lint:check", "test"]
+
+[tasks.pre-push]
+description = "Run pre-push checks (full CI pipeline)"
+depends = ["ci"]
+
+# -----------------------------------------------------------------------------
+# Action Testing Tasks
+# -----------------------------------------------------------------------------
+
+[tasks."action:test"]
+description = "Test the action locally with default parameters"
+run = """
+#!/usr/bin/env bash
+set -e
+
+echo "🧪 Testing action with default parameters..."
+INPUT_MINIMUM=1 INPUT_MAXIMUM=10 node dist/index.cjs
+"""
+depends = ["build"]
+
+[tasks."action:test:custom"]
+description = "Test the action with custom parameters (usage: mise run action:test:custom -- MIN MAX)"
+run = """
+#!/usr/bin/env bash
+set -e
+
+MIN=${1:-1}
+MAX=${2:-10}
+
+echo "🧪 Testing action with minimum=$MIN, maximum=$MAX..."
+INPUT_MINIMUM=$MIN INPUT_MAXIMUM=$MAX node dist/index.cjs
+"""
+depends = ["build"]
+
+# -----------------------------------------------------------------------------
+# Information Tasks
+# -----------------------------------------------------------------------------
+
+[tasks.info]
+description = "Display project and environment information"
+run = """
+#!/usr/bin/env bash
+
+echo "=== Random Wait Action - Environment Info ==="
+echo ""
+echo "📦 Project Information:"
+echo "  Name: random-wait-action"
+echo "  Version: $(node -p "require('./package.json').version")"
+echo "  License: MIT"
+echo ""
+echo "🛠️  Tool Versions:"
+echo "  Node.js: $(node --version)"
+echo "  pnpm: $(pnpm --version)"
+echo "  TypeScript: $(pnpm exec tsc --version)"
+echo "  mise: $(mise --version)"
+echo ""
+echo "📂 Git Information:"
+echo "  Branch: $(git rev-parse --abbrev-ref HEAD)"
+echo "  Commit: $(git rev-parse --short HEAD)"
+echo "  Status: $(git status --short | wc -l | tr -d ' ') file(s) modified"
+echo ""
+echo "🔧 Environment:"
+echo "  NODE_ENV: ${NODE_ENV:-not set}"
+echo "  NODE_OPTIONS: ${NODE_OPTIONS:-not set}"
+echo ""
+echo "📊 Project Stats:"
+echo "  Source files: $(find src -name '*.ts' | wc -l | tr -d ' ')"
+echo "  Test files: $(find __tests__ -name '*.test.ts' | wc -l | tr -d ' ')"
+echo "  Dependencies: $(node -p "Object.keys(require('./package.json').dependencies).length")"
+echo "  Dev Dependencies: $(node -p "Object.keys(require('./package.json').devDependencies).length")"
+"""
+
+[tasks.version]
+description = "Display current project version"
+run = "node -p \"require('./package.json').version\""
 
 # -----------------------------------------------------------------------------
 # Maintenance Tasks
 # -----------------------------------------------------------------------------
 
-[tasks.clean]
-description = "Clean build artifacts"
-run = "rm -rf dist/ coverage/ node_modules/.vite .rollup.cache guide/book"
-
-[tasks.setup]
-description = "Initial project setup"
-run = "pnpm install"
-
-[tasks.update]
-description = "Update dependencies"
-run = "pnpm update --latest"
-
-[tasks.audit]
-description = "Security audit"
+[tasks."audit"]
+description = "Run security audit on dependencies"
 run = "pnpm audit"
 
-# -----------------------------------------------------------------------------
-# Internal Tasks
-# -----------------------------------------------------------------------------
+[tasks."audit:fix"]
+description = "Fix security vulnerabilities automatically"
+run = "pnpm audit --fix"
 
-[tasks._install]
-description = "Install dependencies (internal)"
-run = "pnpm install"
+[tasks.outdated]
+description = "Check for outdated dependencies"
+run = "pnpm outdated"
