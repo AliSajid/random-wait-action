@@ -49,7 +49,7 @@ NODE_ENV = "development"
 
 [tasks.build]
 description = "Build the GitHub Action distribution bundle"
-run = "pnpm run package"
+run = "pnpm exec rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
 depends = ["_install", "check:types"]
 
 [tasks.package]
@@ -108,23 +108,23 @@ depends = ["_install"]
 
 [tasks."lint:check"]
 description = "Check code with ESLint"
-run = "pnpm run lint:check"
+run = "pnpm exec eslint ."
 depends = ["_install"]
 
 [tasks."lint:fix"]
 description = "Auto-fix ESLint issues"
-run = "pnpm run lint:fix"
+run = "pnpm exec eslint . --fix"
 depends = ["_install"]
 
 [tasks.format]
 description = "Format code with Prettier"
 alias = "format:write"
-run = "pnpm run format:write"
+run = "pnpm exec prettier --write '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'"
 depends = ["_install"]
 
 [tasks."format:check"]
 description = "Check code formatting without modifying files"
-run = "pnpm run format:check"
+run = "pnpm exec prettier --check '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'"
 depends = ["_install"]
 
 [tasks."format:write"]
@@ -166,8 +166,7 @@ depends = ["format:check", "lint:check", "check:types", "test", "build"]
 
 [tasks.all]
 description = "Run complete validation (same as CI + package)"
-run = "pnpm run all"
-depends = ["_install"]
+depends = ["format:check", "lint:check", "check:types", "test", "build"]
 
 [tasks."check-dist"]
 description = "Verify that dist/ is up-to-date with latest build"
@@ -176,7 +175,7 @@ run = """
 set -e
 
 echo "🔨 Building fresh distribution..."
-pnpm run package
+pnpm exec rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript
 
 echo "🔍 Checking for changes..."
 if [[ -n "$(git status --porcelain dist/)" ]]; then
