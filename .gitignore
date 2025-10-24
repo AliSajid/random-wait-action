@@ -101,7 +101,7 @@ Thumbs.db
 __tests__/runner/*
 lib/**/*
 
-# Ignore ltex-specific neovim filesa
+# Ignore ltex-specific neovim files
 ltex.*
 
 # Ignore megalinter files
@@ -119,3 +119,7 @@ styles/*
 !scripts/
 
 !tsconfig.base.json
+
+# mise local configuration
+.mise.local.toml
+.mise.*.local.toml
