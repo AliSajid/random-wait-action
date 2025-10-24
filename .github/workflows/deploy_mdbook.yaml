@@ -31,21 +31,27 @@ jobs:
           allowed-endpoints: >
             api.github.com:443
             github.com:443
+            mise.jdx.dev:443
             objects.githubusercontent.com:443
 
       - name: Checkout the Repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: Install mdbook
-        uses: taiki-e/install-action@ebb229c6baa68383264f2822689b07b4916d9177 # v2.62.36
+
+      - name: Install mise
+        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
         with:
-          tool: mdbook
+          version: 2024.1.0
+          install_args: --yes
+
       - name: Build the Book
-        run: mdbook build guide
+        run: mise run docs:build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: guide/book
           retention-days: 1
+
       - name: Deploy to GitHub Pages
         if: ${{ success() }}
         id: deployment
