@@ -23,21 +23,32 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+            mise.jdx.dev:443
+            objects.githubusercontent.com:443
 
       - name: Checkout the Repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: Install mdbook
-        uses: taiki-e/install-action@e43a5023a747770bfcb71ae048541a681714b951 # v2.62.33
+
+      - name: Install mise
+        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
         with:
-          tool: mdbook
+          version: 2024.1.0
+          install_args: --yes
+
       - name: Build the Book
-        run: mdbook build guide
+        run: mise run docs:build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: guide/book
           retention-days: 1
+
       - name: Deploy to GitHub Pages
         if: ${{ success() }}
         id: deployment
