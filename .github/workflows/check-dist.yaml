@@ -32,41 +32,24 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             github.com:443
+            mise.jdx.dev:443
             registry.npmjs.org:443
 
       - name: Checkout repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+      - name: Install mise
+        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
         with:
-          run_install: false
-          version: ${{vars.PNPM_VERSION}}
+          version: 2024.1.0
+          install_args: --yes
 
-      - name: Set Node.js 22.x
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: 22.x
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run the build process
-        run: pnpm run all
-
-      - name: Compare the expected and actual dist/ directories
-        run: |
-          if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
-            echo "Detected uncommitted changes after build.  See status below:"
-            git diff
-            exit 1
-          fi
-        id: diff
+      - name: Check dist is up-to-date
+        run: mise run check-dist
 
       # If index.js was different than expected, upload the expected version as an artifact
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        if: ${{ failure() && steps.diff.conclusion == 'failure' }}
+        if: failure()
         with:
           name: dist
           path: dist/
