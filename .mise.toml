@@ -16,7 +16,7 @@
 node = "20.17.0"
 
 # Package manager (locked version for consistency)
-pnpm = "10.18.3"
+pnpm = "10.19.0"
 "ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
 
 # Python tools
