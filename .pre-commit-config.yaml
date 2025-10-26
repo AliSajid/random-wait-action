@@ -120,4 +120,3 @@ repos:
     rev: 41.159.4
     hooks:
       - id: renovate-config-validator
-        language_version: 20.18.0
