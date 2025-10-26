@@ -5,7 +5,10 @@ on:
       - main
       - next
   pull_request:
-    types: [opened, synchronize, reopened]
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 permissions:
   contents: read
