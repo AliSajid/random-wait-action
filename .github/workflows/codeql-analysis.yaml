@@ -11,7 +11,7 @@ on:
       - "main"
       - "next"
   schedule:
-    - cron: "31 7 * * 3"
+    - cron: "31 19 * * 5"
 
 permissions:
   contents: read
