@@ -61,9 +61,10 @@ jobs:
         run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.intoto.jsonl
 
       - name: Check conventional commit compliance
-        uses: cocogitto/cocogitto-action@v3
+        uses: cocogitto/cocogitto-action@390bda87a19bf627e03ad075c67a11e9ddbb7547 # v4.0.0
         with:
-          check-latest-tag-only: true
+          command: check
+          args: --from-latest-tag
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@9cc899c47e6841430bbaedb43de1560a568dfd16 # v5.0.0
