@@ -60,12 +60,10 @@ jobs:
       - name: Move attestation file to dist/
         run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.intoto.jsonl
 
-      - name: Check coventional commit compliance
+      - name: Check conventional commit compliance
         uses: cocogitto/cocogitto-action@v3
         with:
           check-latest-tag-only: true
-
-      - name:
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@9cc899c47e6841430bbaedb43de1560a568dfd16 # v5.0.0
