@@ -146,3 +146,9 @@ path = "styles/**/*.txt"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "CHANGELOG.md"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-License-Identifier = "CC0-1.0"
