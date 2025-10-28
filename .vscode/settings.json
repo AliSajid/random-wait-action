@@ -3,5 +3,16 @@
         "autofix",
         "Imamiland",
         "schneegans"
-    ]
+    ],
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "/Users/aimami/.local/share/mise/shims/node"
+    },
+    "go.alternateTools": {
+        "dlv": "/Users/aimami/.local/share/mise/shims/dlv",
+        "go": "/Users/aimami/.local/share/mise/shims/go"
+    },
+    "go.goroot": "/Users/aimami/.local/share/mise/installs/go/1.24.3",
+    "java.import.gradle.java.home": "/Users/aimami/.local/share/mise/installs/java/temurin-21.0.4+7.0.LTS",
+    "java.jdt.ls.java.home": "/Users/aimami/.local/share/mise/installs/java/temurin-21.0.4+7.0.LTS",
+    "python.defaultInterpreterPath": "/Users/aimami/.local/share/mise/installs/python/3.13.3/bin/python"
 }
