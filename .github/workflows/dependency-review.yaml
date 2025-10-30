@@ -8,21 +8,28 @@
 # Source repository: https://github.com/actions/dependency-review-action
 name: Dependency Review
 on:
-  - pull_request
+    - pull_request
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  dependency-review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
-        with:
-          egress-policy: audit
+    dependency-review:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+              with:
+                  disable-sudo: true
+                  egress-policy: block
+                  allowed-endpoints: >
+                      api.github.com:443
+                      api.securityscorecards.dev:443
+                      github.com:443
+                      mise.jdx.dev:443
 
-      - name: Checkout Repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Dependency Review
-        uses: actions/dependency-review-action@40c09b7dc99638e5ddb0bfd91c1673effc064d8a # v4.8.1
+            - name: Checkout Repository
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+            - name: Dependency Review
+              uses: actions/dependency-review-action@40c09b7dc99638e5ddb0bfd91c1673effc064d8a # v4.8.1

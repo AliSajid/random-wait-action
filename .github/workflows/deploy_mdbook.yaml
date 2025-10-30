@@ -1,55 +1,56 @@
 ---
 name: Book Deployment
 on:
-  push:
-    branches: ["main"]
+    push:
+        branches: ['main']
 
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT_GITHUB }}
-  BRANCH: ${{ github.ref_name }}
+    VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+    VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT_GITHUB }}
+    BRANCH: ${{ github.ref_name }}
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  build_book:
-    runs-on: ubuntu-latest
-    outputs:
-      deployment_url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          disable-sudo: true
-          egress-policy: block
-          allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            mise.jdx.dev:443
-            objects.githubusercontent.com:443
+    build_book:
+        runs-on: ubuntu-latest
+        outputs:
+            deployment_url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  disable-sudo: true
+                  egress-policy: block
+                  allowed-endpoints: >
+                      api.github.com:443
+                      github.com:443
+                      mise.jdx.dev:443
+                      objects.githubusercontent.com:443
+                      mise.jdx.dev:443
 
-      - name: Checkout the Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+            - name: Checkout the Repository
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - name: Install mise
-        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
-        with:
-          version: 2024.1.0
-          install_args: --yes
+            - name: Install mise
+              uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
+              with:
+                  version: 2025.10.20
+                  install_args: --yes
 
-      - name: Build the Book
-        run: mise run docs:build
+            - name: Build the Book
+              run: mise run docs:build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
-        with:
-          path: guide/book
-          retention-days: 1
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+              with:
+                  path: guide/book
+                  retention-days: 1
 
-      - name: Deploy to GitHub Pages
-        if: ${{ success() }}
-        id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+            - name: Deploy to GitHub Pages
+              if: ${{ success() }}
+              id: deployment
+              uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

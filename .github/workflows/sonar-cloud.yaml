@@ -1,58 +1,55 @@
 name: Run SonarCloud scan
 on:
-  push:
-    branches:
-      - main
-      - next
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    push:
+        branches:
+            - main
+            - next
+    pull_request:
+        types:
+            - opened
+            - synchronize
+            - reopened
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  sonarcloud:
-    permissions:
-      contents: read # for actions/checkout to fetch code
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          disable-sudo: true
-          egress-policy: block
-          allowed-endpoints: >
-            analysis-sensorcache-eu-central-1-prod.s3.amazonaws.com:443
-            analysis-sensorcache-eu-central-1-prod.s3.eu-central-1.amazonaws.com:443
-            api.nuget.org:443
-            api.sonarcloud.io:443
-            binaries.sonarsource.com:443
-            github.com:443
-            mise.jdx.dev:443
-            registry.npmjs.org:443
-            scanner.sonarcloud.io:443
-            sonarcloud.io:443
+    sonarcloud:
+        permissions:
+            contents: read # for actions/checkout to fetch code
+        name: SonarCloud
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  disable-sudo: true
+                  egress-policy: block
+                  allowed-endpoints: >
+                      api.sonarcloud.io:443
+                      binaries.sonarsource.com:443
+                      github.com:443
+                      registry.npmjs.org:443
+                      scanner.sonarcloud.io:443
+                      sonarcloud.io:443
+                      mise.jdx.dev:443
 
-      - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          fetch-depth: 0
+            - name: Checkout repository
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+              with:
+                  fetch-depth: 0
 
-      - name: Install mise
-        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
-        with:
-          version: 2024.1.0
-          install_args: --yes
+            - name: Install mise
+              uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
+              with:
+                  version: 2025.10.20
+                  install_args: --yes
 
-      - name: Generate Coverage Report
-        run: mise run test
+            - name: Generate Coverage Report
+              run: mise run test
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@1a6d90ebcb0e6a6b1d87e37ba693fe453195ae25 # v5.3.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            - name: SonarCloud Scan
+              uses: SonarSource/sonarqube-scan-action@1a6d90ebcb0e6a6b1d87e37ba693fe453195ae25 # v5.3.1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
