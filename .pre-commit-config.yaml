@@ -5,9 +5,10 @@
 exclude: "^dist/.*$"
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.9.1
+    rev: v4.8.2
     hooks:
       - id: commitizen
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -70,6 +71,7 @@ repos:
           - --config=$(pwd)/.yamllint.yml
         stages:
           - commit-msg
+
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.45.0
     hooks:
@@ -77,6 +79,7 @@ repos:
         args:
           - --ignore
           - CHANGELOG.md
+
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0
     hooks:
@@ -85,14 +88,16 @@ repos:
           - "--baseline"
           - ".secrets.baseline"
         exclude: "pnpm-lock.yaml"
+
   - repo: https://github.com/sirosen/texthooks
     rev: 0.7.1
     hooks:
       - id: fix-smartquotes
       - id: fix-ligatures
       - id: forbid-bidi-controls
+
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.28.0
+    rev: v8.27.0
     hooks:
       - id: gitleaks
   - repo: local
@@ -108,10 +113,11 @@ repos:
         language: system
         files: \.[jt]sx?$
   - repo: https://github.com/fsfe/reuse-tool
-    rev: "v6.1.2"
+    rev: "v5.1.1"
     hooks:
       - id: reuse
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 41.159.4
     hooks:
       - id: renovate-config-validator
+        language_version: 20.18.0

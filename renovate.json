@@ -13,17 +13,40 @@
         ":reviewer(AliSajid)",
         "security:minimumReleaseAgeNpm"
     ],
+    "labels": [
+        "dependencies",
+        "renovate"
+    ],
+    "lockFileMaintenance": {
+        "automerge": true,
+        "automergeType": "pr",
+        "branchTopic": "lock-file-maintenance",
+        "commitMessageAction": "Lock file maintenance",
+        "enabled": true,
+        "prBodyDefinitions": {
+            "Change": "All locks refreshed"
+        },
+        "rebaseStalePrs": true,
+        "recreateWhen": "always"
+    },
     "packageRules": [
         {
             "automerge": true,
-            "groupName": "Pre-Commit and GitHub Actions",
-            "groupSlug": "pre-commit-and-github-actions",
-            "matchManagers": ["pre-commit", "github-actions"],
-            "schedule": ["before 5am every weekday"]
+            "matchManagers": [
+                "pre-commit",
+                "github-actions"
+            ],
+            "schedule": [
+                "before 5am every weekday"
+            ]
         },
         {
             "automerge": true,
-            "matchDepTypes": ["devDependencies", "minor", "patch"],
+            "matchDepTypes": [
+                "devDependencies",
+                "minor",
+                "patch"
+            ],
             "matchPackageNames": [
                 "eslint{/,}**",
                 "stylistic{/,}**",
@@ -31,6 +54,14 @@
                 "vitest{/,}**"
             ]
         }
+    ],
+    "platformCommit": "enabled",
+    "pre-commit": {
+        "enabled": true
+    },
+    "schedule": [
+        "after 10pm every weekday",
+        "every weekend"
     ],
     "platformCommit": "enabled",
     "pre-commit": {

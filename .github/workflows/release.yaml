@@ -1,8 +1,9 @@
 on:
-  push:
-    branches:
-      - main
-      - next
+    push:
+        branches:
+            - main
+            - alpha
+            - beta
 
 name: Release
 
@@ -24,7 +25,7 @@ jobs:
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
-          egress-policy: audit
+          egress-policy: block
           allowed-endpoints: >
             api.github.com:443
             files.pythonhosted.org:443
@@ -45,7 +46,7 @@ jobs:
       - name: Install mise
         uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
         with:
-          version: 2025.10.16
+          version: 2024.1.0
           install_args: --yes
 
       - name: Build and verify
@@ -55,16 +56,10 @@ jobs:
         id: attest
         uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
         with:
-          subject-path: dist/index.cjs
+          subject-path: dist/index.js
 
       - name: Move attestation file to dist/
-        run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.intoto.jsonl
-
-      - name: Check conventional commit compliance
-        uses: cocogitto/cocogitto-action@390bda87a19bf627e03ad075c67a11e9ddbb7547 # v4.0.0
-        with:
-          command: check
-          args: --from-latest-tag
+        run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.jsonl
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@9cc899c47e6841430bbaedb43de1560a568dfd16 # v5.0.0
@@ -75,4 +70,4 @@ jobs:
             @semantic-release/exec@6
             @semantic-release/git@10
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -15,13 +15,15 @@ SPDX-License-Identifier: MIT
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9500/badge)](https://www.bestpractices.dev/projects/9500)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/AliSajid/random-wait-action/badge)](https://scorecard.dev/viewer/?uri=github.com/AliSajid/random-wait-action)
 
-This is a very simple GitHub action that lets you wait for a random amount of
+
+
+This is a very simple github action that lets you wait for a random amount of
 time in seconds. This is useful for workflows that have a lot of parallel jobs
 and you want to avoid them all hitting the same API at the same time.
 
 I ran into this when I was trying to use the excellent
 [schneegans/dynamic-badges-action](https://github.com/schneegans/dynamic-badges-action)
-to generate a badge for my GitHub action. I wanted to use the action to generate a badge that showed the status of
+to generate a badge for my github action. I wanted to use the action to generate a badge that showed the status of
 the across a matrix of twelve jobs. However, I kept running into 500 errors from the API. I realized that the API was
 probably rate limiting me because I was hitting it with twelve requests at the same time. I decided to use this action
 to add a random delay to each job so that they would hit the API at different times.
