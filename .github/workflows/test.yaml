@@ -1,102 +1,108 @@
-name: "Build Tests"
+name: 'Build Tests'
 on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
-    branches:
-      - "main"
-      - "next"
+    pull_request:
+    push:
+        branches:
+            - 'main'
+            - 'next'
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  build: # make sure build/ci work properly
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          disable-sudo: true
-          egress-policy: block
-          allowed-endpoints: >
-            api.codecov.io:443
-            cli.codecov.io:443
-            github.com:443
-            ingest.codecov.io:443
-            keybase.io:443
-            mise.jdx.dev:443
-            o26192.ingest.us.sentry.io:443
-            registry.npmjs.org:443
-            storage.googleapis.com:443
+    build: # make sure build/ci work properly
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  egress-policy: block
+                  allowed-endpoints: >
+                      api.codacy.com:443
+                      artifacts.codacy.com:443
+                      cli.codecov.io:443
+                      github.com:443
+                      ingest.codecov.io:443
+                      keybase.io:443
+                      o26192.ingest.us.sentry.io:443
+                      raw.githubusercontent.com:443
+                      registry.npmjs.org:443
+                      release-assets.githubusercontent.com:443
+                      storage.googleapis.com:443
 
-      - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+            - name: Checkout repository
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - name: Install mise
-        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
-        with:
-          version: 2024.1.0
-          install_args: --yes
+            - name: Install mise
+              uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
+              with:
+                  version: 2025.10.20
+                  install_args: --yes
 
-      - name: Run CI pipeline
-        run: mise run ci
+            - name: Run CI pipeline
+              run: mise run ci
 
-  test-with-params: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          egress-policy: audit
+    test-with-params: # make sure the action works on a clean machine without building
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  egress-policy: block
 
-      - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+            - name: Checkout repository
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - uses: ./
-        with:
-          minimum: 1
-          maximum: 5
+            - uses: ./
+              with:
+                  minimum: 1
+                  maximum: 5
 
-  test-without-params: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          egress-policy: audit
+    test-without-params: # make sure the action works on a clean machine without building
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  egress-policy: block
 
-      - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+            - name: Checkout repository
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - uses: ./
+            - uses: ./
 
-  update_test_coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          egress-policy: audit
+    update_test_coverage:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  disable-sudo: true
+                  egress-policy: block
+                  allowed-endpoints: >
+                      github.com:443
+                      mise.jdx.dev:443
+                      registry.npmjs.org:443
 
-      - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+            - name: Checkout repository
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - name: Install mise
-        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
-        with:
-          version: 2024.1.0
-          install_args: --yes
+            - name: Install mise
+              uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
+              with:
+                  version: 2025.10.20
+                  install_args: --yes
 
-      - name: Generate Coverage Report
-        run: mise run test
+            - name: Generate Coverage Report
+              run: mise run test
 
-      - name: Upload results to Codecov
-        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+            - name: Upload results to Codecov
+              uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699 # v1.3.0
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: coverage/lcov.info
+            - name: Run codacy-coverage-reporter
+              uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699 # v1.3.0
+              with:
+                  project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                  coverage-reports: coverage/lcov.info
