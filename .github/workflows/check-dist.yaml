@@ -31,10 +31,15 @@ jobs:
                   disable-sudo: true
                   egress-policy: block
                   allowed-endpoints: >
-                      github.com:443
-                      mise.jdx.dev:443
-                      registry.npmjs.org:443
                       api.github.com:443
+                      github.com:443
+                      index.crates.io:443
+                      mise-versions.jdx.dev:443
+                      mise.jdx.dev:443
+                      nodejs.org:443
+                      raw.githubusercontent.com:443
+                      registry.npmjs.org:443
+                      static.crates.io:443
 
             - name: Checkout repository
               uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
