@@ -6,6 +6,7 @@ import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import stylistic from '@stylistic/eslint-plugin'
 import vitest from '@vitest/eslint-plugin'
+import globals from 'globals'
 
 export default tseslint.config(
     {
@@ -17,7 +18,6 @@ export default tseslint.config(
     eslint.configs.recommended,
     {
         plugins: {
-            jest: jestPlugin,
             '@typescript-eslint': tseslint.plugin
         },
 
