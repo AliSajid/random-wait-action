@@ -9,21 +9,19 @@ export default defineConfig({
         globals: true, // So you don't need to import `describe`, `it`, etc.
         environment: 'node',
         coverage: {
-            enabled: true,
             provider: 'v8', // Or 'c8'
             reporter: ['text', 'html', 'json', 'json-summary', 'lcov'],
             exclude: [
-                '**/*.test.ts',
-                '**/__tests__/**',
-                'dist/',
-                'eslint.config.mjs',
-                'guide/',
                 'lib',
                 'node_modules',
                 'node_modules/**',
-                'rollup.config.ts',
+                'vitest.config.ts',
+                '**/*.test.ts',
+                '**/__tests__/**',
                 'src/main.ts',
-                'vitest.config.ts'
+                'dist/',
+                'eslint.config.mjs',
+                'rollup.config.ts'
             ]
         },
         testTimeout: 30000

@@ -1,13 +1,11 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "rootDir": "src"
     },
     "exclude": [
         "node_modules",
-        "__fixtures__",
-        "coverage",
-        "dist",
+        "**/*.test.ts",
         "megalinter-reports/**/*.js",
         "vitest.config.ts",
         "docs"

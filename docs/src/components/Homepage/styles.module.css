@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+/*
+ * SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+||||||| parent of 67a7c2b (docs: add docs)
+=======
+>>>>>>> 67a7c2b (docs: add docs)
+.features {
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.featureSvg {
+    height: 200px;
+    width: 200px;
+}

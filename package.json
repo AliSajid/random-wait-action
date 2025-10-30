@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@actions/core": "1.11.1",
-        "true-myth": "9.2.0"
+        "true-myth": "9.0.1"
     },
     "description": "A Github Action to introduce a random delay in a Job",
     "devDependencies": {
@@ -45,9 +45,9 @@
         "setup"
     ],
     "license": "MIT",
-    "main": "dist/index.cjs",
+    "main": "lib/main.js",
     "name": "random-wait-action",
-    "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d",
+    "packageManager": "pnpm@10.18.2",
     "private": true,
     "repository": {
         "type": "git",
@@ -64,5 +64,5 @@
         "test:coverage": "vitest --coverage"
     },
     "type": "module",
-    "version": "2.11.1"
+    "version": "2.11.1-next.3"
 }
