@@ -37,6 +37,7 @@ jobs:
                   allowed-endpoints: >
                       github.com:443
                       mise.jdx.dev:443
+                      api.github.com:443
                       registry.npmjs.org:443
 
             - name: Checkout repository
