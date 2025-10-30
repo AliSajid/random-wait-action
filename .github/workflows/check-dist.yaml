@@ -6,50 +6,50 @@
 name: Check `dist/`
 
 on:
-  push:
-    branches-ignore:
-      - next
-      - main
-    paths-ignore:
-      - "**.md"
-  pull_request:
-    paths-ignore:
-      - "**.md"
-  workflow_dispatch:
+    push:
+        branches-ignore:
+            - next
+            - main
+        paths-ignore:
+            - '**.md'
+    pull_request:
+        paths-ignore:
+            - '**.md'
+    workflow_dispatch:
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  check-dist:
-    runs-on: ubuntu-latest
+    check-dist:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          disable-sudo: true
-          egress-policy: block
-          allowed-endpoints: >
-            github.com:443
-            mise.jdx.dev:443
-            registry.npmjs.org:443
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              with:
+                  disable-sudo: true
+                  egress-policy: block
+                  allowed-endpoints: >
+                      github.com:443
+                      mise.jdx.dev:443
+                      registry.npmjs.org:443
 
-      - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+            - name: Checkout repository
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      - name: Install mise
-        uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
-        with:
-          version: 2024.1.0
-          install_args: --yes
+            - name: Install mise
+              uses: jdx/mise-action@f8dfbcc150159126838e44b882bf34bd98fd90f3 # v2.1.0
+              with:
+                  version: 2025.10.20
+                  install_args: --yes
 
-      - name: Check dist is up-to-date
-        run: mise run check-dist
+            - name: Check dist is up-to-date
+              run: mise run check-dist
 
-      # If index.js was different than expected, upload the expected version as an artifact
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        if: failure()
-        with:
-          name: dist
-          path: dist/
+            # If index.js was different than expected, upload the expected version as an artifact
+            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              if: failure()
+              with:
+                  name: dist
+                  path: dist/
