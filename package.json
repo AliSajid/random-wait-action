@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@actions/core": "1.11.1",
-        "true-myth": "9.0.1"
+        "true-myth": "9.3.1"
     },
     "description": "A Github Action to introduce a random delay in a Job",
     "devDependencies": {
