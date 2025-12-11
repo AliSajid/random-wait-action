@@ -17,15 +17,10 @@ export default tseslint.config(
     eslint.configs.recommended,
     {
         plugins: {
-            jest: jestPlugin,
             '@typescript-eslint': tseslint.plugin
         },
 
         languageOptions: {
-            globals: {
-                ...globals.node
-            },
-
             parser: tseslint.parser,
             ecmaVersion: 9,
             sourceType: 'module',

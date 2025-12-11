@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+
+SPDX-License-Identifier: MIT
+-->
+
 # CHANGELOG
 
 ## Unreleased (c2c6294..c7ec18a)
