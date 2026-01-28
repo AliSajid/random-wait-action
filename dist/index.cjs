@@ -31774,10 +31774,31 @@ class InputValidationError extends Error {
 // SPDX-License-Identifier: MIT
 // src/utils/validateInputs.ts
 /**
- * Validates the input values.
- * @param minimum The minimum seconds.
- * @param maximum The maximum seconds.
- * @returns A Result; Ok if valid, or an InputValidationError if invalid.
+ * Validates minimum and maximum wait time inputs.
+ *
+ * This function performs comprehensive validation to ensure the wait parameters
+ * are valid before attempting to use them. It checks for:
+ * - Both values are numbers (not NaN)
+ * - Both values are integers (not decimals)
+ * - Both values are positive (> 0)
+ * - Both values are not zero simultaneously
+ * - Minimum is not greater than maximum
+ *
+ * @param minimum - The minimum number of seconds to wait.
+ * @param maximum - The maximum number of seconds to wait.
+ * @returns A Result containing:
+ *   - Ok(Unit): If all validation checks pass
+ *   - Err(InputValidationError): If any validation check fails, with a descriptive error message
+ *
+ * @example
+ * ```typescript
+ * const result = validateInputs(5, 10);
+ * if (result.isOk) {
+ *   // Inputs are valid, proceed with wait
+ * } else {
+ *   console.error(result.error.message);
+ * }
+ * ```
  */
 function validateInputs(minimum, maximum) {
     if (isNaN(minimum) || isNaN(maximum)) {
@@ -31802,21 +31823,26 @@ function validateInputs(minimum, maximum) {
 //
 // SPDX-License-Identifier: MIT
 /**
- * Waits for a random amount of time between the specified minimum and maximum values.
+ * Waits for a random number of seconds between the specified minimum and maximum values.
  *
- * @param {number} minimum - The minimum number of seconds to wait.
- * @param {number} maximum - The maximum number of seconds to wait.
- * @returns {Promise<string>} A promise that resolves to the number of seconds waited as a string.
- * @throws {Error} If the minimum or maximum values are not numbers.
- * @throws {Error} If the minimum or maximum values are not positive integers.
- * @throws {Error} If the minimum or maximum values are outside the allowed range.
- * @throws {Error} If the minimum value is greater than the maximum value.
- */
-/**
- * Waits for a random number of seconds between minimum and maximum.
- * @param minimum The minimum number of seconds to wait.
- * @param maximum The maximum number of seconds to wait.
- * @returns A Promise that resolves to a Result containing the wait time (in seconds) or an error.
+ * This function validates the input parameters and, if valid, waits for a random
+ * duration within the specified range. It uses the Result type to handle errors
+ * gracefully without throwing exceptions.
+ *
+ * @param minimum - The minimum number of seconds to wait (must be a positive integer).
+ * @param maximum - The maximum number of seconds to wait (must be a positive integer).
+ * @returns A Promise that resolves to a Result containing either:
+ *   - Ok: The actual number of seconds waited as an integer
+ *   - Err: An InputValidationError if the inputs are invalid
+ *
+ * @example
+ * ```typescript
+ * const result = await wait(1, 5);
+ * result.match({
+ *   Ok: (seconds) => console.log(`Waited ${seconds} seconds`),
+ *   Err: (error) => console.error(`Validation failed: ${error.message}`)
+ * });
+ * ```
  */
 async function wait(minimum, maximum) {
     const validation = validateInputs(minimum, maximum);
@@ -31832,6 +31858,13 @@ async function wait(minimum, maximum) {
 // SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
+/**
+ * A class that encapsulates the logic for waiting a random amount of time.
+ *
+ * This class validates input parameters and delegates to the wait function to
+ * perform the actual delay. It uses the Result type pattern to handle errors
+ * without throwing exceptions, making error handling explicit and type-safe.
+ */
 class RandomWaitAction {
     minimum;
     maximum;
@@ -31840,8 +31873,27 @@ class RandomWaitAction {
         this.maximum = maximum;
     }
     /**
-     * Validates inputs and waits for a random duration.
-     * @returns Promise resolving to a Result wrapping the number of seconds waited, or an error.
+     * Validates inputs and waits for a random duration between minimum and maximum seconds.
+     *
+     * Validation rules:
+     * - Both minimum and maximum must be integers
+     * - Both must be positive (> 0)
+     * - Minimum cannot be greater than maximum
+     * - Both cannot be zero simultaneously
+     *
+     * @returns A Promise resolving to a Result containing either:
+     *   - Ok: The number of seconds actually waited (integer)
+     *   - Err: An InputValidationError describing why validation failed
+     *
+     * @example
+     * ```typescript
+     * const action = new RandomWaitAction(5, 10);
+     * const result = await action.execute();
+     * result.match({
+     *   Ok: (seconds) => console.log(`Waited ${seconds}s`),
+     *   Err: (error) => console.error(error.message)
+     * });
+     * ```
      */
     async execute() {
         const validationResult = validateInputs(this.minimum, this.maximum);

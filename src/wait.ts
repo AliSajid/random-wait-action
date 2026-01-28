@@ -2,26 +2,31 @@
 //
 // SPDX-License-Identifier: MIT
 
-/**
- * Waits for a random amount of time between the specified minimum and maximum values.
- *
- * @param {number} minimum - The minimum number of seconds to wait.
- * @param {number} maximum - The maximum number of seconds to wait.
- * @returns {Promise<string>} A promise that resolves to the number of seconds waited as a string.
- * @throws {Error} If the minimum or maximum values are not numbers.
- * @throws {Error} If the minimum or maximum values are not positive integers.
- * @throws {Error} If the minimum or maximum values are outside the allowed range.
- * @throws {Error} If the minimum value is greater than the maximum value.
- */
 import { Result } from 'true-myth'
 import { validateInputs } from './utils/validateInputs'
 import { InputValidationError } from './utils/errors'
 
 /**
- * Waits for a random number of seconds between minimum and maximum.
- * @param minimum The minimum number of seconds to wait.
- * @param maximum The maximum number of seconds to wait.
- * @returns A Promise that resolves to a Result containing the wait time (in seconds) or an error.
+ * Waits for a random number of seconds between the specified minimum and maximum values.
+ *
+ * This function validates the input parameters and, if valid, waits for a random
+ * duration within the specified range. It uses the Result type to handle errors
+ * gracefully without throwing exceptions.
+ *
+ * @param minimum - The minimum number of seconds to wait (must be a positive integer).
+ * @param maximum - The maximum number of seconds to wait (must be a positive integer).
+ * @returns A Promise that resolves to a Result containing either:
+ *   - Ok: The actual number of seconds waited as an integer
+ *   - Err: An InputValidationError if the inputs are invalid
+ *
+ * @example
+ * ```typescript
+ * const result = await wait(1, 5);
+ * result.match({
+ *   Ok: (seconds) => console.log(`Waited ${seconds} seconds`),
+ *   Err: (error) => console.error(`Validation failed: ${error.message}`)
+ * });
+ * ```
  */
 export async function wait(
     minimum: number,
