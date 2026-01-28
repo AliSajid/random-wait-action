@@ -66,9 +66,16 @@ describe('validateInputs (property-based)', () => {
                 (a, b) => {
                     if (a <= b) return // skip valid cases
                     const result = validateInputs(a, b)
-                    if (result.isErr) {
-                        expect(result.error.message).toMatch(/greater than/)
-                    }
+                    expect(result.isErr).toBe(true)
+                    // Type guard ensures we can access error safely
+                    result.match({
+                        Err: error => {
+                            expect(error.message).toMatch(/greater than/)
+                        },
+                        Ok: () => {
+                            throw new Error('Expected Err but got Ok')
+                        }
+                    })
                 }
             )
         )
