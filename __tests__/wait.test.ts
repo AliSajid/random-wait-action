@@ -15,7 +15,7 @@ import { wait } from '../src/wait'
 
 const timingBuffer = 1000 // milliseconds to account for timer inaccuracy and async delays
 
-describe(wait, () => {
+describe('wait', () => {
     it('resolves between 1 and 5 seconds', async () => {
         const start = Date.now()
         await wait(1, 5)
