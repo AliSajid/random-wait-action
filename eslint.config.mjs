@@ -52,7 +52,12 @@ export default tseslint.config(
         plugins: { vitest },
         rules: {
             ...vitest.configs.recommended.rules,
-            'vitest/max-nested-describe': ['error', { max: 3 }]
+            'vitest/max-nested-describe': ['error', { max: 3 }],
+            // Disable overly strict type-checking rules for test files
+            '@typescript-eslint/no-unsafe-call': 'off',
+            '@typescript-eslint/no-unsafe-member-access': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
+            '@typescript-eslint/no-unsafe-argument': 'off'
         }
     },
     {
