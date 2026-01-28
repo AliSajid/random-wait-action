@@ -105,7 +105,7 @@ jobs:
                       nodejs.org:443
                       raw.githubusercontent.com:443
                       registry.npmjs.org:443
-                      release-assets.githubusercontent.com
+                      release-assets.githubusercontent.com:443
                       static.crates.io:443
 
             - name: Checkout repository
