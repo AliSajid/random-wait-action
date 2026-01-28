@@ -2,18 +2,27 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { describe, it, expect, vi } from 'vitest'
+import {
+    describe,
+    it,
+    expect,
+    vi,
+    beforeEach,
+    afterEach,
+    expectTypeOf
+} from 'vitest'
 import { wait } from '../src/wait'
 
 const timingBuffer = 1000 // milliseconds to account for timer inaccuracy and async delays
 
-describe('wait', () => {
+describe(wait, () => {
     it('resolves between 1 and 5 seconds', async () => {
         const start = Date.now()
         await wait(1, 5)
         const end = Date.now()
 
         const delta = end - start
+
         expect(delta).toBeGreaterThanOrEqual(1000)
         expect(delta).toBeLessThanOrEqual(5000 + timingBuffer)
     })
@@ -24,6 +33,7 @@ describe('wait', () => {
         const end = Date.now()
 
         const delta = end - start
+
         expect(delta).toBeGreaterThanOrEqual(5000)
         expect(delta).toBeLessThanOrEqual(10000 + timingBuffer)
     })
@@ -47,7 +57,8 @@ describe('wait (mocked setTimeout)', () => {
 
         result.match({
             Ok: num => {
-                expect(typeof num).toBe('number')
+                expectTypeOf(num).toBeNumber()
+
                 expect(num).toBeGreaterThanOrEqual(2)
                 expect(num).toBeLessThanOrEqual(4)
             },
