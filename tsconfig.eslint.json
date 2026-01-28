@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "allowJs": true,
         "noEmit": true
@@ -15,8 +14,6 @@
         "__fixtures__",
         "__tests__",
         "src",
-        "eslint.config.mjs",
-        "rollup.config.ts",
-        "vitest.config.ts"
+        "*.config.*"
     ]
 }

@@ -7,12 +7,12 @@
         "node_modules",
         "**/*.test.ts",
         "megalinter-reports/**/*.js",
-        "vitest.config.ts",
         "docs"
     ],
     "extends": "./tsconfig.base.json",
     "include": [
         "src",
-        "rollup.config.ts"
+        "rollup.config.ts",
+        "vitest.config.ts"
     ]
 }
