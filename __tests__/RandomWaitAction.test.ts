@@ -2,13 +2,13 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { describe, test, expect, vi, beforeEach, it } from 'vitest'
+import { describe, expect, vi, beforeEach, it } from 'vitest'
 import { RandomWaitAction } from '../src/RandomWaitAction'
 import { InputValidationError } from '../src/utils/errors'
 
 vi.useFakeTimers()
 
-describe(RandomWaitAction, () => {
+describe('RandomWaitAction', () => {
     beforeEach(() => {
         vi.restoreAllMocks()
         vi.clearAllTimers()
