@@ -16,6 +16,7 @@
         "__tests__",
         "src",
         "eslint.config.mjs",
-        "rollup.config.ts"
+        "rollup.config.ts",
+        "vitest.config.ts"
     ]
 }
