@@ -4,7 +4,6 @@
 
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
-import stylistic from '@stylistic/eslint-plugin'
 import vitest from '@vitest/eslint-plugin'
 
 export default tseslint.config(
@@ -52,8 +51,22 @@ export default tseslint.config(
         files: ['__tests__/*.test.ts'],
         plugins: { vitest },
         rules: {
-            ...vitest.configs.all.rules,
-            'vitest/max-nested-describe': ['error', { max: 3 }]
+            ...vitest.configs.recommended.rules,
+            'vitest/max-nested-describe': ['error', { max: 3 }],
+            // Disable overly strict type-checking rules for test files
+            '@typescript-eslint/no-unsafe-call': 'off',
+            '@typescript-eslint/no-unsafe-member-access': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
+            '@typescript-eslint/no-unsafe-argument': 'off'
+        }
+    },
+    {
+        files: ['**/*.config.js', '**/*.config.cjs'],
+        languageOptions: {
+            globals: {
+                module: 'readonly',
+                require: 'readonly'
+            }
         }
     }
 )

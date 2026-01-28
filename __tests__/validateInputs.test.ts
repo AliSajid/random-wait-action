@@ -36,6 +36,7 @@ describe('validateInputs (unit cases)', () => {
 
     it('returns ok when inputs are valid', () => {
         const result = validateInputs(5, 10)
+
         expect(result.isOk).toBe(true)
     })
 })
@@ -50,6 +51,7 @@ describe('validateInputs (property-based)', () => {
                     const min = Math.min(a, b)
                     const max = Math.max(a, b)
                     const result = validateInputs(min, max)
+
                     expect(result.isOk).toBe(true)
                 }
             )
@@ -64,9 +66,16 @@ describe('validateInputs (property-based)', () => {
                 (a, b) => {
                     if (a <= b) return // skip valid cases
                     const result = validateInputs(a, b)
-                    if (result.isErr) {
-                        expect(result.error.message).toMatch(/greater than/)
-                    }
+                    expect(result.isErr).toBe(true)
+                    // Type guard ensures we can access error safely
+                    result.match({
+                        Err: error => {
+                            expect(error.message).toMatch(/greater than/)
+                        },
+                        Ok: () => {
+                            throw new Error('Expected Err but got Ok')
+                        }
+                    })
                 }
             )
         )
@@ -79,7 +88,9 @@ describe('validateInputs (property-based)', () => {
                 fc.integer({ max: 0 }),
                 (min, max) => {
                     const result = validateInputs(min, max)
+
                     expect(result.isErr).toBe(true)
+
                     result.match({
                         Ok: () => {
                             throw new Error('Expected Err but got Ok')

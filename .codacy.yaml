@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+---
+engines:
+    eslint:
+        enabled: true
+
+exclude_paths:
+    - 'dist/**'
+    - 'lib/**'
+    - 'coverage/**'
+    - 'node_modules/**'
+    - '*.config.*'
+
+# Ignore overly strict TypeScript rules in test files
+exclude_patterns:
+    - pattern: '@typescript-eslint/no-unsafe-*'
+      paths:
+          - '__tests__/**'

@@ -112,6 +112,12 @@ SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
+path = "CHANGELOG.md"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
 path = "CONTRIBUTING.md"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"

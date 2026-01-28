@@ -7,10 +7,31 @@ import { Result, Unit } from 'true-myth'
 import { InputValidationError } from './errors'
 
 /**
- * Validates the input values.
- * @param minimum The minimum seconds.
- * @param maximum The maximum seconds.
- * @returns A Result; Ok if valid, or an InputValidationError if invalid.
+ * Validates minimum and maximum wait time inputs.
+ *
+ * This function performs comprehensive validation to ensure the wait parameters
+ * are valid before attempting to use them. It checks for:
+ * - Both values are numbers (not NaN)
+ * - Both values are integers (not decimals)
+ * - Both values are positive (> 0)
+ * - Both values are not zero simultaneously
+ * - Minimum is not greater than maximum
+ *
+ * @param minimum - The minimum number of seconds to wait.
+ * @param maximum - The maximum number of seconds to wait.
+ * @returns A Result containing:
+ *   - Ok(Unit): If all validation checks pass
+ *   - Err(InputValidationError): If any validation check fails, with a descriptive error message
+ *
+ * @example
+ * ```typescript
+ * const result = validateInputs(5, 10);
+ * if (result.isOk) {
+ *   // Inputs are valid, proceed with wait
+ * } else {
+ *   console.error(result.error.message);
+ * }
+ * ```
  */
 export function validateInputs(
     minimum: number,
