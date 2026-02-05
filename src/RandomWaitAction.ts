@@ -15,8 +15,8 @@ import { InputValidationError } from './utils/errors'
  * without throwing exceptions, making error handling explicit and type-safe.
  */
 export class RandomWaitAction {
-    private minimum: number
-    private maximum: number
+    private readonly minimum: number
+    private readonly maximum: number
 
     constructor(minimum: number, maximum: number) {
         this.minimum = minimum
