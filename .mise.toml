@@ -16,7 +16,7 @@
 node = "22.20.0"
 
 # Package manager (locked version for consistency)
-pnpm = "10.18.3"
+pnpm = "10.28.2"
 
 # Python tools (for pre-commit hooks)
 python = "3.14.3"
