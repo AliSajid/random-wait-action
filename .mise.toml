@@ -19,7 +19,7 @@ node = "22.20.0"
 pnpm = "10.18.3"
 
 # Python tools (for pre-commit hooks)
-python = "3.12"
+python = "3.14.3"
 pre-commit = "4.3.0"
 
 # Documentation tooling (non-npm)
