@@ -23,7 +23,7 @@ python = "3.12"
 pre-commit = "4.3.0"
 
 # Documentation tooling (non-npm)
-"cargo:mdbook" = "0.4.44"
+"cargo:mdbook" = "0.5.0"
 
 # Git tooling (non-npm)
 "ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
