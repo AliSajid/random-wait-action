@@ -26,7 +26,13 @@ pre-commit = "4.5.1"
 "cargo:mdbook" = "0.5.0"
 
 # Git tooling (non-npm)
-"ubi:cocogitto/cocogitto" = { version = "v6.4.0", exe = "cog" }
+hk = "1.36.0"
+pkl = "0.30.2"
+"pipx:texthooks" = "0.7.1"
+cocogitto = "6.5.0"
+"pipx:reuse" = "6.2.0"
+taplo = "0.10.0"
+yamllint = "1.37.1"
 
 # Note: All npm-based tools (TypeScript, ESLint, Prettier, Vitest, Rollup, etc.)
 # are installed via package.json and managed by pnpm. Use 'pnpm exec <tool>' to run them.
