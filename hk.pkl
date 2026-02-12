@@ -26,7 +26,9 @@ local format_linters = new Mapping<String, Step> {
 // STRUCTURED DATA LINTERS (JSON, YAML, TOML)
 // ============================================================================
 local structured_data_linters = new Mapping<String, Step> {
-    ["check-json"] = (Builtins.jq) {}
+    ["check-json"] = (Builtins.jq) {
+        glob = List("**/*.json")
+    }
     ["check-toml"] = (Builtins.taplo) {}
     ["check-yaml"] = (Builtins.yamllint) {}
     ["yamllint"] = (Builtins.yamllint) {}
