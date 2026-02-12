@@ -33,6 +33,7 @@ cocogitto = "6.5.0"
 "pipx:reuse" = "6.2.0"
 taplo = "0.10.0"
 yamllint = "1.37.1"
+gitleaks = "8.30.0"
 
 # Note: All npm-based tools (TypeScript, ESLint, Prettier, Vitest, Rollup, etc.)
 # are installed via package.json and managed by pnpm. Use 'pnpm exec <tool>' to run them.
