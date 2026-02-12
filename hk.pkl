@@ -66,7 +66,7 @@ local security_linters = new Mapping<String, Step> {
     }
     ["gitleaks"] {
         glob = List("**/*")
-        check = "gitleaks git --no-banner --baseline-path .gitleaks_baseline.json --log-level warn"
+        check = "gitleaks git --no-banner --log-level warn --baseline-path .gitleaks_baseline.json --platform github --pre-commit"
     }
     ["detect-secrets"] {
         glob = List("**/*")
