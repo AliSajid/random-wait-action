@@ -72,7 +72,7 @@ local security_linters = new Mapping<String, Step> {
     }
     ["detect-secrets"] {
         glob = List("**/*")
-        check = "detect-secrets scan --baseline .secrets.baseline"
+        check = "detect-secrets-hook --baseline .secrets.baseline"
     }
 }
 
