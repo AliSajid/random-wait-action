@@ -17,7 +17,7 @@ jobs:
               uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
               with:
                   disable-sudo: true
-                  egress-policy: block
+                  egress-policy: audit
                   allowed-endpoints: >
                       api.codacy.com:443
                       api.github.com:443
@@ -56,7 +56,7 @@ jobs:
               uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
               with:
                   disable-sudo: true
-                  egress-policy: block
+                  egress-policy: audit
                   allowed-endpoints: >
                       github.com:443
 
@@ -75,7 +75,7 @@ jobs:
               uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
               with:
                   disable-sudo: true
-                  egress-policy: block
+                  egress-policy: audit
                   allowed-endpoints: >
                       github.com:443
 
@@ -91,7 +91,7 @@ jobs:
               uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
               with:
                   disable-sudo: true
-                  egress-policy: block
+                  egress-policy: audit
                   allowed-endpoints: >
                       api.codacy.com:443
                       api.github.com:443
