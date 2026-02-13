@@ -16,7 +16,7 @@
     "@actions/core": "2.0.3",
     "true-myth": "9.3.1"
   },
-  "description": "A Github Action to introduce a random delay in a Job",
+  "description": "A GitHub Action to introduce a random delay in a Job",
   "devDependencies": {
     "@eslint/js": "9.39.2",
     "@rollup/plugin-commonjs": "29.0.0",
