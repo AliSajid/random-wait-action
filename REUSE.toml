@@ -3,164 +3,63 @@ SPDX-PackageName = "random-wait-action"
 SPDX-PackageSupplier = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-PackageDownloadLocation = "https://github.com/AliSajid/random-wait-action"
 
+# ---------------------------------------------------------------------------
+# MIT — Core project code, configs, and metadata
+# ---------------------------------------------------------------------------
 [[annotations]]
-path = "renovate.json"
+path = [
+    "renovate.json",
+    "tsconfig.json",
+    "package.json",
+    "docs/package.json",
+    "pnpm-lock.yaml",
+    "docs/pnpm-lock.yaml",
+    ".github/workflows/**.yaml",
+    "CODE_OF_CONDUCT.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "**.json",
+]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = "tsconfig.json"
+path = ["dist/**", "lib/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
 
-[[annotations]]
-path = ["package.json", "docs/package.json"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "dist/**"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "lib/**"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = ".github/workflows/**.yaml"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = ".eslintignore"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = [".gitignore", "guide/.gitignore"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".markdownlintignore"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".prettierignore"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".secrets.baseline"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".gitleaksignore"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".gitattributes"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = "CODEOWNERS"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = "**.json"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = ["pnpm-lock.yaml", "docs/pnpm-lock.yaml"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "REUSE.toml"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = "CODE_OF_CONDUCT.md"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "CHANGELOG.md"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "CONTRIBUTING.md"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "sonar-project.properties"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".codacy.yaml"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
+# ---------------------------------------------------------------------------
+# CC-BY-NC-SA-4.0 — Guide content
+# ---------------------------------------------------------------------------
 [[annotations]]
 path = "guide/src/**/*.md"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
 
+# ---------------------------------------------------------------------------
+# CC0-1.0 — Tooling, meta, and repo hygiene
+# ---------------------------------------------------------------------------
 [[annotations]]
-path = "guide/book.toml"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".vale.ini"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = "styles/**/*.txt"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
-path = ".yamllint.yaml"
+path = [
+    ".eslintignore",
+    ".gitignore",
+    "guide/.gitignore",
+    ".markdownlintignore",
+    ".prettierignore",
+    ".secrets.baseline",
+    ".gitattributes",
+    "CODEOWNERS",
+    "REUSE.toml",
+    "sonar-project.properties",
+    ".codacy.yaml",
+    "guide/book.toml",
+    ".vale.ini",
+    "styles/**/*.txt",
+    ".yamllint.yaml",
+]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
