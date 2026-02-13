@@ -31,7 +31,7 @@ def main(argv=None):
     parser.add_argument(
         "--whitespaces-count",
         type=int,
-        required=True,
+        required=False,
         default=4,
         help="number of whitespaces to substitute tabs with",
     )
