@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Check code quality (format + lint + types)"
+#MISE depends=["_install"]
+set -e
+pnpm run format:check
+pnpm run lint:check
+pnpm exec tsc --noEmit

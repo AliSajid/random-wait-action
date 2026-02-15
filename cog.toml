@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-from_latest_tag = false
+from_latest_tag = true
 ignore_merge_commits = true
 ignore_fixup_commits = true
 disable_changelog = false
