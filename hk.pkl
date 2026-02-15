@@ -103,7 +103,7 @@ local line_ending_linters = new Mapping<String, Step> {
     ["remove-crlf"] {
         glob = List("**/*")
         check = "mise run precommit:forbid_crlf {{files}}"
-        fix = "mise run replace-crlf {{files}}"
+        fix = "mise run precommit:remove_crlf {{files}}"
     }
     ["forbid-tabs"] {
         glob = List("**/*")
@@ -112,7 +112,7 @@ local line_ending_linters = new Mapping<String, Step> {
     ["remove-tabs"] {
         glob = List("**/*")
         check = "mise run precommit:forbid_tabs {{files}}"
-        fix = "mise run replace-tabs {{files}}"
+        fix = "mise run precommit:remove_tabs {{files}}"
     }
 }
 
