@@ -30,7 +30,6 @@ local structured_data_linters = new Mapping<String, Step> {
         glob = List("**/*.json")
     }
     ["check-toml"] = (Builtins.taplo) {}
-    ["check-yaml"] = (Builtins.yamllint) {}
     ["yamllint"] = (Builtins.yamllint) {}
     ["yamlfmt"] {
         glob = List("**/*.yml", "**/*.yaml")
@@ -99,21 +98,21 @@ local encoding_linters = new Mapping<String, Step> {
 local line_ending_linters = new Mapping<String, Step> {
     ["forbid-crlf"] {
         glob = List("**/*")
-        check = "! grep -IlrU $'\r' {{files}}"
+        check = "mise run precommit:forbid_crlf {{files}}"
     }
     ["remove-crlf"] {
         glob = List("**/*")
-        check = "! grep -IlrU $'\r' {{files}}"
-        fix = "sed -i '' 's/\r$//' {{files}}"
+        check = "mise run precommit:forbid_crlf {{files}}"
+        fix = "mise run replace-crlf {{files}}"
     }
     ["forbid-tabs"] {
         glob = List("**/*")
-        check = "! grep -Irl $'\t' {{files}}"
+        check = "mise run precommit:forbid_tabs {{files}}"
     }
     ["remove-tabs"] {
         glob = List("**/*")
-        check = "! grep -Irl $'\t' {{files}}"
-        fix = "sed -i '' 's/\t/    /g' {{files}}"
+        check = "mise run precommit:forbid_tabs {{files}}"
+        fix = "mise run replace-tabs {{files}}"
     }
 }
 
@@ -143,11 +142,24 @@ local config_validation_linters = new Mapping<String, Step> {
 local javascript_linters = new Mapping<String, Step> {
     ["prettier"] {
         exclude = List("dist/**")
-        check = "node_modules/.bin/prettier --write --ignore-unknown {{files}}"
+        check = "mise run prettier:check -- {{files}}"
+        fix = "mise run prettier:fix -- {{files}}"
     }
     ["eslint"] {
         glob = List("**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx")
-        check = "node_modules/.bin/eslint --fix {{files}}"
+        check = "mise run eslint:check -- {{files}}"
+        fix = "mise run eslint:fix -- {{files}}"
+    }
+}
+
+// ============================================================================
+// COMMIT MESSAGE CHECKS
+// ============================================================================
+local commit_msg_checks = new Mapping<String, Step> {
+    ["conventional-commits"] {
+        // Validate commit messages against Conventional Commits.
+        // Requires the `cog` (cocogitto) CLI to be available in PATH.
+        fix = "cog check"
     }
 }
 
@@ -170,7 +182,7 @@ local all_linters = new Mapping<String, Step> {
 hooks {
     ["commit-msg"] {
         steps {
-            ...all_linters
+            ...commit_msg_checks
         }
     }
     ["pre-commit"] {

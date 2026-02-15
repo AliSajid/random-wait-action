@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Development mode with tests in watch"
+#MISE depends=["_install"]
+pnpm exec vitest

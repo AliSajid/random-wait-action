@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Test action with custom params: mise run action:test:custom -- MIN MAX"
+#MISE depends=["build"]
+INPUT_MINIMUM=${1:-1} INPUT_MAXIMUM=${2:-10} node dist/index.cjs

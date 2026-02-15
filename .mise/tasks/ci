@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Full CI pipeline (lint, test, build, verify dist)"
+#MISE depends=["lint", "test", "build", "check-dist"]

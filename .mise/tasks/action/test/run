@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Test the built action locally (default: 1-10s)"
+#MISE depends=["build"]
+INPUT_MINIMUM=1 INPUT_MAXIMUM=10 node dist/index.cjs
