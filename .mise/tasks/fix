@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Auto-fix formatting and linting issues"
+#MISE depends=["_install"]
+set -e
+pnpm run format:write
+pnpm run lint:fix
