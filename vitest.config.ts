@@ -1,8 +1,8 @@
-// SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+// SPDX-FileCopyrightText: 2022 - 2026 Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     test: {
@@ -26,4 +26,4 @@ export default defineConfig({
         },
         testTimeout: 30000
     }
-});
+})

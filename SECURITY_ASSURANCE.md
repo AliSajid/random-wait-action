@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+SPDX-FileCopyrightText: 2022 - 2026 Ali Sajid Imami
 
 SPDX-License-Identifier: MIT
 -->
@@ -29,50 +29,50 @@ meets security best practices and mitigates potential risks.
 
 - **Threat:** Malicious input values causing unintended execution behavior.
 - **Mitigation:**
-  - The code validates that `minimum` and `maximum` inputs are numbers.
-  - Ensures `minimum` is less than `maximum`.
-  - Enforces an upper limit of 100 seconds to prevent excessive wait times.
+    - The code validates that `minimum` and `maximum` inputs are numbers.
+    - Ensures `minimum` is less than `maximum`.
+    - Enforces an upper limit of 100 seconds to prevent excessive wait times.
 
 ### 3.2. Code Integrity and Authenticity
 
 - **Threat:** Unauthorized modifications to the GitHub Action code.
 - **Mitigation:**
-  - Ensures code integrity by using GPG signed commits.
-  - Ensures release integrity by signing tags.
-  - Recommends users pin the action version in workflows.
+    - Ensures code integrity by using GPG signed commits.
+    - Ensures release integrity by signing tags.
+    - Recommends users pin the action version in workflows.
 
 ### 3.3. Dependency Management
 
 - **Threat:** Compromised dependencies introducing security vulnerabilities.
 - **Mitigation:**
-  - Uses `@actions/core`, a trusted GitHub package.
-  - Developer dependencies are vetted independently.
-  - Uses renovate bot to ensure timely updates for any security vulnerability.
-  - Regular lockfile updates to mitigate known vulnerabilities.
+    - Uses `@actions/core`, a trusted GitHub package.
+    - Developer dependencies are vetted independently.
+    - Uses renovate bot to ensure timely updates for any security vulnerability.
+    - Regular lockfile updates to mitigate known vulnerabilities.
 
 ### 3.4. Execution Control and Resource Exhaustion
 
 - **Threat:** Excessive wait times or resource exhaustion due to large input values.
 - **Mitigation:**
-  - Limits maximum wait time to 100 seconds.
-  - Uses `setTimeout` to schedule execution without blocking the event loop.
-  - Ensures the action runs in an isolated GitHub Actions environment.
+    - Limits maximum wait time to 100 seconds.
+    - Uses `setTimeout` to schedule execution without blocking the event loop.
+    - Ensures the action runs in an isolated GitHub Actions environment.
 
 ### 3.5. Error Handling and Reporting
 
 - **Threat:** Unhandled exceptions leading to undefined behavior.
 - **Mitigation:**
-  - Uses `try-catch` block to handle errors gracefully.
-  - Reports failures via `core.setFailed(error.message)`.
-  - Avoids leaking internal stack traces to prevent information disclosure.
+    - Uses `try-catch` block to handle errors gracefully.
+    - Reports failures via `core.setFailed(error.message)`.
+    - Avoids leaking internal stack traces to prevent information disclosure.
 
 ### 3.6. Secure Deployment and Usage
 
 - **Threat:** Unauthorized usage or unexpected behavior when used in GitHub workflows.
 - **Mitigation:**
-  - Encourages using the major version (such as `@v2` version) tag to avoid breaking changes.
-  - Implements least privilege by not requiring any permissions.
-  - Recommends limiting the workflow permissions to minimize exposure.
+    - Encourages using the major version (such as `@v2` version) tag to avoid breaking changes.
+    - Implements least privilege by not requiring any permissions.
+    - Recommends limiting the workflow permissions to minimize exposure.
 
 ## 4. Security Recommendations
 
