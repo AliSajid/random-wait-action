@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+// SPDX-FileCopyrightText: Ali Sajid Imami
 //
 // SPDX-License-Identifier: MIT
 
