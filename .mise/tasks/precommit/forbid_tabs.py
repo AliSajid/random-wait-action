@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# SPDX-FileCopyrightText: 2023 - 2026 Ali Sajid Imami
+# SPDX-FileCopyrightText: Ali Sajid Imami
 #
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
