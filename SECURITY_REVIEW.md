@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2022 - 2026 Ali Sajid Imami
+SPDX-FileCopyrightText: Ali Sajid Imami
 
 SPDX-License-Identifier: MIT
 -->
@@ -21,10 +21,10 @@ the number of seconds waited.
 
 1. **Dependency Review**: The first step is to review any 3rd Party Code that is
 included in the scripts.
- <!-- vale alex.ProfanityMaybe = NO -->
+  <!-- vale alex.ProfanityMaybe = NO -->
 1. **Input Validation**: We checked the inputs for possible ways the inputs
 can be utilized as attack vectors.
- <!-- vale alex.ProfanityMaybe = YES -->
+  <!-- vale alex.ProfanityMaybe = YES -->
 1. **Random Number Generation**: The script includes generation of random
    integers. This necessitated the
    review of methods used to generate these random numbers.
