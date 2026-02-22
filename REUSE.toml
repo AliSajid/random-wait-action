@@ -21,13 +21,13 @@ path = [
     "**.json",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2026 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
 path = ["dist/**", "lib/**"]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2026 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
 
 # ---------------------------------------------------------------------------
@@ -36,7 +36,7 @@ SPDX-License-Identifier = "MIT"
 [[annotations]]
 path = "guide/src/**/*.md"
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2026 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
 
 # ---------------------------------------------------------------------------
@@ -61,5 +61,5 @@ path = [
     ".yamllint.yaml",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2022 - 2026 Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
+SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
