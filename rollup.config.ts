@@ -18,6 +18,7 @@ const config = {
         compact: true,
         validate: true,
         plugins: [
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
             terser({
                 compress: {
                     passes: 2
@@ -34,8 +35,11 @@ const config = {
         ]
     },
     plugins: [
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         typescript(),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         nodeResolve({ preferBuiltins: true }),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         commonjs()
     ]
 }
