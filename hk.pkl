@@ -11,11 +11,13 @@ import "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Builtin
 // ============================================================================
 local format_linters = new Mapping<String, Step> {
     ["end-of-file-fixer"] = (Builtins.newlines) {
-        exclude = List("**/licenses/**/*.md", "**/licenses/**/*.hbs")
+        exclude = List("**/licenses/**/*.md", "**/licenses/**/*.hbs", "dist/**")
     }
-    ["mixed-line-ending"] = (Builtins.mixed_line_ending) {}
+    ["mixed-line-ending"] = (Builtins.mixed_line_ending) {
+        exclude = List("dist/**")
+    }
     ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
-        exclude = List("licenses_report.md")
+        exclude = List("licenses_report.md", "dist/**")
     }
     ["check-added-large-files"] = (Builtins.check_added_large_files) {
         check = "hk util check-added-large-files --maxkb 5120 {{files}}"
@@ -79,15 +81,21 @@ local security_linters = new Mapping<String, Step> {
 // TEXT ENCODING & CHARACTER LINTERS
 // ============================================================================
 local encoding_linters = new Mapping<String, Step> {
-    ["fix-smartquotes"] = (Builtins.fix_smart_quotes) {}
-    ["check-byte-order-marker"] = (Builtins.check_byte_order_marker) {}
+    ["fix-smartquotes"] = (Builtins.fix_smart_quotes) {
+        exclude = List("dist/**")
+    }
+    ["check-byte-order-marker"] = (Builtins.check_byte_order_marker) {
+        exclude = List("dist/**")
+    }
     ["fix-ligatures"] {
         glob = List("**/*")
+        exclude = List("dist/**")
         check = "fix-ligatures {{files}}"
         fix = "fix-ligatures {{files}}"
     }
     ["forbid-bidi-controls"] {
         glob = List("**/*")
+        exclude = List("dist/**")
         check = "forbid-bidi-controls {{files}}"
     }
 }
@@ -98,19 +106,23 @@ local encoding_linters = new Mapping<String, Step> {
 local line_ending_linters = new Mapping<String, Step> {
     ["forbid-crlf"] {
         glob = List("**/*")
+        exclude = List("dist/**")
         check = "mise run precommit:forbid_crlf {{files}}"
     }
     ["remove-crlf"] {
         glob = List("**/*")
+        exclude = List("dist/**")
         check = "mise run precommit:forbid_crlf {{files}}"
         fix = "mise run precommit:remove_crlf {{files}}"
     }
     ["forbid-tabs"] {
         glob = List("**/*")
+        exclude = List("dist/**")
         check = "mise run precommit:forbid_tabs {{files}}"
     }
     ["remove-tabs"] {
         glob = List("**/*")
+        exclude = List("dist/**")
         check = "mise run precommit:forbid_tabs {{files}}"
         fix = "mise run precommit:remove_tabs {{files}}"
     }
