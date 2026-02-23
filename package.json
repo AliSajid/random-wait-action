@@ -59,7 +59,6 @@
         "format:check": "mise run prettier:check -- '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
         "format:write": "mise run prettier:fix -- '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
         "package": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-        "test": "vitest --run",
         "test:coverage": "vitest --coverage"
     },
     "type": "module",
