@@ -45,7 +45,13 @@ export default tseslint.config(
         }
     },
     {
-        files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
+        files: [
+            '**/*.js',
+            '**/*.cjs',
+            '**/*.mjs',
+            '**/*.config.ts',
+            'rollup.config.ts'
+        ],
         ...tseslint.configs.disableTypeChecked
     },
     {
