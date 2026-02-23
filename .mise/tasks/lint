@@ -6,6 +6,6 @@
 #MISE description="Check code quality (format + lint + types)"
 #MISE depends=["_install"]
 set -e
-pnpm run format:check
-pnpm run lint:check
+mise run prettier:check
+mise run eslint:check
 pnpm exec tsc --noEmit
