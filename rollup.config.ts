@@ -23,7 +23,6 @@ const config = {
                     passes: 2
                 },
                 mangle: {
-                    keep_fnames: false,
                     toplevel: true
                 },
                 format: {
