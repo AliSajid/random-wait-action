@@ -5,4 +5,4 @@
 
 #MISE description="Run tests with coverage"
 #MISE depends=["_install"]
-pnpm run test:coverage
+pnpm exec vitest run
