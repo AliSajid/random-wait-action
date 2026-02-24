@@ -6,5 +6,5 @@
 #MISE description="Auto-fix formatting and linting issues"
 #MISE depends=["_install"]
 set -e
-pnpm run format:write
-pnpm run lint:fix
+mise run prettier:fix
+mise run eslint:fix

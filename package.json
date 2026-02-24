@@ -55,9 +55,6 @@
         "url": "git+https://github.com/AliSajid/random-wait-action"
     },
     "scripts": {
-        "all": "pnpm run format:check && pnpm run lint:check && pnpm run test && pnpm run package",
-        "format:check": "mise run prettier:check -- '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
-        "format:write": "mise run prettier:fix -- '{src,docs}/**/*.{ts,js,json,md,yaml,yml}'",
         "package": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
         "test:coverage": "vitest --coverage"
     },
