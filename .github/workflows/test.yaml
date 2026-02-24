@@ -118,8 +118,6 @@ jobs:
                   install_args: --yes
 
             - name: Generate Coverage Report
-              env:
-                  MISE_VERBOSE: 1
               run: mise run coverage
 
             - name: Upload results to Codecov
