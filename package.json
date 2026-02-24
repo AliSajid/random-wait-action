@@ -27,7 +27,7 @@
         "@types/node": "22.19.11",
         "@vercel/ncc": "0.38.4",
         "@vitest/coverage-v8": "4.0.18",
-        "@vitest/eslint-plugin": "1.6.6",
+        "@vitest/eslint-plugin": "1.6.9",
         "@vitest/ui": "4.0.18",
         "eslint": "9.39.3",
         "fast-check": "4.5.3",
