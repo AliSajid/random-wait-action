@@ -13,7 +13,7 @@
         ]
     },
     "dependencies": {
-        "@actions/core": "2.0.3",
+        "@actions/core": "3.0.0",
         "true-myth": "9.3.1"
     },
     "description": "A GitHub Action to introduce a random delay in a Job",
