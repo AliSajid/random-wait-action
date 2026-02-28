@@ -27,7 +27,7 @@ pre-commit = "4.5.1"
 
 # Git tooling (non-npm)
 hk = "1.36.0"
-pkl = "0.30.2"
+pkl = "0.31.0"
 "pipx:texthooks" = "0.7.1"
 cocogitto = "6.5.0"
 "pipx:reuse" = "6.2.0"
