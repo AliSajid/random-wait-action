@@ -13,7 +13,7 @@
 
 [tools]
 # Runtime (Node.js 22 for GitHub Actions compatibility)
-node = "22.22.0"
+node = "22.23.1"
 
 # Package manager (locked version for consistency)
 pnpm = "11.9.0"
