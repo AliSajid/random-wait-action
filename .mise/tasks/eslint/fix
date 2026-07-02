@@ -6,4 +6,4 @@
 #MISE description="Lint with ESLint (auto-fix)"
 #MISE depends=["_install"]
 set -e
-pnpm exec eslint --fix "$@"
+pnpm exec eslint --no-warn-ignored --fix "$@"

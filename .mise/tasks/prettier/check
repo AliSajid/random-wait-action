@@ -6,4 +6,4 @@
 #MISE description="Check formatting with Prettier"
 #MISE depends=["_install"]
 set -e
-pnpm exec prettier --check --ignore-unknown "$@"
+pnpm exec prettier --check --ignore-unknown --no-error-on-unmatched-pattern "$@"
