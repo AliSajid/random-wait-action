@@ -7,6 +7,8 @@
 #MISE depends=["_install"]
 mapfile -t CHANGED_FILES < <(git --no-pager diff --name-only --diff-filter=d --staged)
 set -e
-mise run prettier:check "${CHANGED_FILES[@]}"
-mise run eslint:check "${CHANGED_FILES[@]}"
-pnpm exec tsc --noEmit
+if ((${#CHANGED_FILES[@]} > 0)); then
+    mise run prettier:check "${CHANGED_FILES[@]}"
+    mise run eslint:check "${CHANGED_FILES[@]}"
+    pnpm exec tsc --noEmit
+fi
