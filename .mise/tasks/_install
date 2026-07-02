@@ -4,4 +4,4 @@
 # SPDX-License-Identifier: MIT
 
 #MISE description="Install dependencies (internal)"
-pnpm install
+pnpm install --config.confirmModulesPurge=false
