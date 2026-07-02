@@ -12,7 +12,7 @@
 # Run `mise install` to install all tools
 
 [tools]
-# Runtime (Node.js 22 for GitHub Actions compatibility)
+# Runtime (Node.js 24 for GitHub Actions compatibility)
 node = "24.16.0"
 
 # Package manager (locked version for consistency)
