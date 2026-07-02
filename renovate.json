@@ -1,7 +1,11 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "assignees": ["AliSajid"],
-    "baseBranchPatterns": ["next"],
+    "assignees": [
+        "AliSajid"
+    ],
+    "baseBranchPatterns": [
+        "next"
+    ],
     "extends": [
         "config:best-practices",
         "group:definitelyTyped",
@@ -13,28 +17,28 @@
         ":reviewer(AliSajid)",
         "security:minimumReleaseAgeNpm"
     ],
-    "labels": ["dependencies", "renovate"],
-    "lockFileMaintenance": {
-        "automerge": true,
-        "automergeType": "pr",
-        "branchTopic": "lock-file-maintenance",
-        "commitMessageAction": "Lock file maintenance",
-        "enabled": true,
-        "prBodyDefinitions": {
-            "Change": "All locks refreshed"
-        },
-        "rebaseWhen": "behind-base-branch",
-        "recreateWhen": "always"
-    },
+    "labels": [
+        "dependencies",
+        "renovate"
+    ],
     "packageRules": [
         {
             "automerge": true,
-            "matchManagers": ["pre-commit", "github-actions"],
-            "schedule": ["before 5am every weekday"]
+            "matchManagers": [
+                "pre-commit",
+                "github-actions"
+            ],
+            "schedule": [
+                "before 5am every weekday"
+            ]
         },
         {
             "automerge": true,
-            "matchDepTypes": ["devDependencies", "minor", "patch"],
+            "matchDepTypes": [
+                "devDependencies",
+                "minor",
+                "patch"
+            ],
             "matchPackageNames": [
                 "eslint{/,}**",
                 "stylistic{/,}**",
@@ -47,6 +51,9 @@
     "pre-commit": {
         "enabled": true
     },
-    "schedule": ["after 10pm every weekday", "every weekend"],
+    "schedule": [
+        "after 10pm every weekday",
+        "every weekend"
+    ],
     "semanticCommits": "enabled"
 }
