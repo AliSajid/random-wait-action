@@ -10,209 +10,206 @@ import "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Builtin
 // FILE FORMAT & WHITESPACE LINTERS
 // ============================================================================
 local format_linters = new Mapping<String, Step> {
-    ["end-of-file-fixer"] = (Builtins.newlines) {
-        exclude = List("**/licenses/**/*.md", "**/licenses/**/*.hbs", "dist/**")
-    }
-    ["mixed-line-ending"] = (Builtins.mixed_line_ending) {
-        exclude = List("dist/**")
-    }
-    ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
-        exclude = List("licenses_report.md", "dist/**")
-    }
-    ["check-added-large-files"] = (Builtins.check_added_large_files) {
-        check = "hk util check-added-large-files --maxkb 5120 {{files}}"
-    }
+  ["end-of-file-fixer"] = (Builtins.newlines) {
+    exclude = List("**/licenses/**/*.md", "**/licenses/**/*.hbs", "dist/**")
+  }
+  ["mixed-line-ending"] = (Builtins.mixed_line_ending) {
+    exclude = List("dist/**")
+  }
+  ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
+    exclude = List("licenses_report.md", "dist/**")
+  }
+  ["check-added-large-files"] = (Builtins.check_added_large_files) {
+    check = "hk util check-added-large-files --maxkb 5120 {{files}}"
+  }
 }
 
 // ============================================================================
 // STRUCTURED DATA LINTERS (JSON, YAML, TOML)
 // ============================================================================
 local structured_data_linters = new Mapping<String, Step> {
-    ["check-json"] = (Builtins.jq) {
-        glob = List("**/*.json")
-    }
-    ["check-toml"] = (Builtins.taplo) {}
-    ["yamllint"] = (Builtins.yamllint) {}
-    ["yamlfmt"] {
-        glob = List("**/*.yml", "**/*.yaml")
-        exclude = List(".github/workflows/*.yml", ".github/workflows/*.yaml")
-        check = "yamlfmt -lint {{files}}"
-        fix = "yamlfmt {{files}}"
-    }
+  ["check-json"] = (Builtins.jq) {
+    glob = List("**/*.json")
+  }
+  ["check-toml"] = (Builtins.taplo) {}
+  ["yamllint"] = (Builtins.yamllint) {}
+  ["yamlfmt"] {
+    glob = List("**/*.yml", "**/*.yaml")
+    exclude = List(".github/workflows/*.yml", ".github/workflows/*.yaml")
+    check = "yamlfmt -lint {{files}}"
+    fix = "yamlfmt {{files}}"
+  }
 }
 
 // ============================================================================
 // MARKDOWN LINTERS
 // ============================================================================
 local markdown_linters = new Mapping<String, Step> {
-    ["markdownlint"] = (Builtins.markdown_lint) {
-        exclude = List("CHANGELOG.md")
-    }
+  ["markdownlint"] = (Builtins.markdown_lint) {
+    exclude = List("CHANGELOG.md")
+  }
 }
 
 // ============================================================================
 // GIT & VCS LINTERS
 // ============================================================================
 local git_linters = new Mapping<String, Step> {
-    ["check-merge-conflict"] = (Builtins.check_merge_conflict) {}
-    ["no-commit-to-branch"] = (Builtins.no_commit_to_branch) {
-        check = "hk util no-commit-to-branch --branch main --branch next"
-    }
+  ["check-merge-conflict"] = (Builtins.check_merge_conflict) {}
+  ["no-commit-to-branch"] = (Builtins.no_commit_to_branch) {
+    check = "hk util no-commit-to-branch --branch main --branch next"
+  }
 }
 
 // ============================================================================
 // SECURITY & SECRETS LINTERS
 // ============================================================================
 local security_linters = new Mapping<String, Step> {
-    ["detect-private-key"] = (Builtins.detect_private_key) {
-        exclude = List("meta/licenses/**")
-    }
-    ["gitleaks"] {
-        glob = List("**/*")
-        check = "gitleaks git --no-banner --log-level warn --baseline-path .gitleaks_baseline.json --platform github --pre-commit"
-    }
-    ["detect-secrets"] {
-        glob = List("**/*")
-        check = "detect-secrets-hook --baseline .secrets.baseline"
-    }
+  ["detect-private-key"] = (Builtins.detect_private_key) {
+    exclude = List("meta/licenses/**")
+  }
+  ["gitleaks"] {
+    glob = List("**/*")
+    check =
+      "gitleaks git --no-banner --log-level warn --baseline-path .gitleaks_baseline.json --platform github --pre-commit"
+  }
 }
 
 // ============================================================================
 // TEXT ENCODING & CHARACTER LINTERS
 // ============================================================================
 local encoding_linters = new Mapping<String, Step> {
-    ["fix-smartquotes"] = (Builtins.fix_smart_quotes) {
-        exclude = List("dist/**")
-    }
-    ["check-byte-order-marker"] = (Builtins.check_byte_order_marker) {
-        exclude = List("dist/**")
-    }
-    ["fix-ligatures"] {
-        glob = List("**/*")
-        exclude = List("dist/**")
-        check = "fix-ligatures {{files}}"
-        fix = "fix-ligatures {{files}}"
-    }
-    ["forbid-bidi-controls"] {
-        glob = List("**/*")
-        exclude = List("dist/**")
-        check = "forbid-bidi-controls {{files}}"
-    }
+  ["fix-smartquotes"] = (Builtins.fix_smart_quotes) {
+    exclude = List("dist/**")
+  }
+  ["check-byte-order-marker"] = (Builtins.check_byte_order_marker) {
+    exclude = List("dist/**")
+  }
+  ["fix-ligatures"] {
+    glob = List("**/*")
+    exclude = List("dist/**")
+    check = "fix-ligatures {{files}}"
+    fix = "fix-ligatures {{files}}"
+  }
+  ["forbid-bidi-controls"] {
+    glob = List("**/*")
+    exclude = List("dist/**")
+    check = "forbid-bidi-controls {{files}}"
+  }
 }
 
 // ============================================================================
 // LINE ENDING & TAB LINTERS
 // ============================================================================
 local line_ending_linters = new Mapping<String, Step> {
-    ["forbid-crlf"] {
-        glob = List("**/*")
-        exclude = List("dist/**")
-        check = "mise run precommit:forbid_crlf {{files}}"
-    }
-    ["remove-crlf"] {
-        glob = List("**/*")
-        exclude = List("dist/**")
-        check = "mise run precommit:forbid_crlf {{files}}"
-        fix = "mise run precommit:remove_crlf {{files}}"
-    }
-    ["forbid-tabs"] {
-        glob = List("**/*")
-        exclude = List("dist/**")
-        check = "mise run precommit:forbid_tabs {{files}}"
-    }
-    ["remove-tabs"] {
-        glob = List("**/*")
-        exclude = List("dist/**")
-        check = "mise run precommit:forbid_tabs {{files}}"
-        fix = "mise run precommit:remove_tabs {{files}}"
-    }
+  ["forbid-crlf"] {
+    glob = List("**/*")
+    exclude = List("dist/**")
+    check = "mise run precommit:forbid_crlf {{files}}"
+  }
+  ["remove-crlf"] {
+    glob = List("**/*")
+    exclude = List("dist/**")
+    check = "mise run precommit:forbid_crlf {{files}}"
+    fix = "mise run precommit:remove_crlf {{files}}"
+  }
+  ["forbid-tabs"] {
+    glob = List("**/*")
+    exclude = List("dist/**")
+    check = "mise run precommit:forbid_tabs {{files}}"
+  }
+  ["remove-tabs"] {
+    glob = List("**/*")
+    exclude = List("dist/**")
+    check = "mise run precommit:forbid_tabs {{files}}"
+    fix = "mise run precommit:remove_tabs {{files}}"
+  }
 }
 
 // ============================================================================
 // LICENSING & COMPLIANCE LINTERS
 // ============================================================================
 local license_linters = new Mapping<String, Step> {
-    ["reuse"] {
-        glob = List("**/*")
-        check = "reuse lint"
-    }
+  ["reuse"] {
+    glob = List("**/*")
+    check = "reuse lint"
+  }
 }
 
 // ============================================================================
 // CONFIGURATION VALIDATION LINTERS
 // ============================================================================
 local config_validation_linters = new Mapping<String, Step> {
-    ["renovate-config-validator"] {
-        glob = List("renovate.json", ".github/renovate.json")
-        check = "renovate-config-validator --strict"
-    }
+  ["renovate-config-validator"] {
+    glob = List("renovate.json", ".github/renovate.json")
+    check = "renovate-config-validator --strict"
+  }
 }
 
 // ============================================================================
 // JAVASCRIPT/TYPESCRIPT LINTERS & FORMATTERS
 // ============================================================================
 local javascript_linters = new Mapping<String, Step> {
-    ["prettier"] {
-        exclude = List("dist/**")
-        check = "mise run prettier:check -- {{files}}"
-        fix = "mise run prettier:fix -- {{files}}"
-    }
-    ["eslint"] {
-        glob = List("**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx")
-        check = "mise run eslint:check -- {{files}}"
-        fix = "mise run eslint:fix -- {{files}}"
-    }
+  ["prettier"] {
+    exclude = List("dist/**")
+    check = "mise run prettier:check -- {{files}}"
+    fix = "mise run prettier:fix -- {{files}}"
+  }
+  ["eslint"] {
+    glob = List("**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx")
+    check = "mise run eslint:check -- {{files}}"
+    fix = "mise run eslint:fix -- {{files}}"
+  }
 }
 
 // ============================================================================
 // COMMIT MESSAGE CHECKS
 // ============================================================================
 local commit_msg_checks = new Mapping<String, Step> {
-    ["conventional-commits"] {
-        // Validate commit messages against Conventional Commits.
-        // Requires the `cog` (cocogitto) CLI to be available in PATH.
-        fix = "cog check"
-    }
+  ["conventional-commits"] {
+    // Validate commit messages against Conventional Commits.
+    // Requires the `cog` (cocogitto) CLI to be available in PATH.
+    fix = "cog check"
+  }
 }
 
 // ============================================================================
 // COMBINED LINTERS
 // ============================================================================
 local all_linters = new Mapping<String, Step> {
-    ...format_linters
-    ...structured_data_linters
-    ...markdown_linters
-    ...git_linters
-    ...security_linters
-    ...encoding_linters
-    ...line_ending_linters
-    ...license_linters
-    ...config_validation_linters
-    ...javascript_linters
+  ...format_linters
+  ...structured_data_linters
+  ...markdown_linters
+  ...git_linters
+  ...security_linters
+  ...encoding_linters
+  ...line_ending_linters
+  ...license_linters
+  ...config_validation_linters
+  ...javascript_linters
 }
 
 hooks {
-    ["commit-msg"] {
-        steps {
-            ...commit_msg_checks
-        }
+  ["commit-msg"] {
+    steps {
+      ...commit_msg_checks
     }
-    ["pre-commit"] {
-        fix = true
-        stash = "git"
-        steps {
-            ...all_linters
-        }
+  }
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    steps {
+      ...all_linters
     }
-    ["check"] {
-        steps {
-            ...all_linters
-        }
+  }
+  ["check"] {
+    steps {
+      ...all_linters
     }
-    ["fix"] {
-        fix = true
-        steps {
-            ...all_linters
-        }
+  }
+  ["fix"] {
+    fix = true
+    steps {
+      ...all_linters
     }
+  }
 }
