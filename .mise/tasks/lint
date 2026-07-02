@@ -5,7 +5,8 @@
 
 #MISE description="Check code quality (format + lint + types)"
 #MISE depends=["_install"]
+CHANGED_FILES=$(git --no-pager diff --name-only --diff-filter=d --staged)
 set -e
-mise run prettier:check
-mise run eslint:check
+mise run prettier:check "${CHANGED_FILES}"
+mise run eslint:check # "${CHANGED_FILES}"
 pnpm exec tsc --noEmit

@@ -6,7 +6,7 @@
 #MISE description="Verify dist/ is up-to-date (critical for GitHub Actions)"
 #MISE depends=["_install"]
 set -e
-echo "🔨 Building fresh distribution..."
+echo "Building fresh distribution..."
 pnpm run package
 if [[ -n "$(git status --porcelain dist/)" ]]; then
     echo "❌ dist/ is out of date! Run 'mise run build' and commit changes."
