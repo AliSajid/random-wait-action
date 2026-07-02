@@ -19,6 +19,7 @@ path = [
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "**.json",
+    "mise.lock",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
