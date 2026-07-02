@@ -5,6 +5,7 @@
 
 #MISE description="Auto-fix formatting and linting issues"
 #MISE depends=["_install"]
+CHANGED_FILES=$(git --no-pager diff --name-only --diff-filter=d --staged)
 set -e
-mise run prettier:fix
-mise run eslint:fix
+mise run prettier:fix "${CHANGED_FILES}"
+mise run eslint:fix "${CHANGED_FILES}"
