@@ -30,7 +30,7 @@
         "@vitest/eslint-plugin": "1.6.12",
         "@vitest/ui": "4.0.18",
         "eslint": "10.0.3",
-        "fast-check": "4.5.3",
+        "fast-check": "4.8.0",
         "globals": "17.3.0",
         "prettier": "3.8.1",
         "prettier-plugin-multiline-arrays": "4.1.4",
