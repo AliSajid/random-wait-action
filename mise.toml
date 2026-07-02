@@ -26,7 +26,7 @@ pre-commit = "4.6.0"
 "cargo:mdbook" = "0.5.0"
 
 # Git tooling (non-npm)
-hk = "1.48.0"
+hk = "1.49.0"
 pkl = "0.31.1"
 "pipx:texthooks" = "0.7.1"
 cocogitto = "7.0.0"
