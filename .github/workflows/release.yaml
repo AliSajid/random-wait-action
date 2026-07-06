@@ -16,11 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         permissions:
-            id-token: write
-            attestations: write
             contents: write
-            issues: write
-            pull-requests: write
         outputs:
             version: ${{ steps.version.outputs.version }}
             has_changes: ${{ steps.has_changes.outputs.has_changes }}
@@ -86,26 +82,36 @@ jobs:
                   NEW_VERSION=$(node -p "require('./package.json').version")
                   echo "version=${NEW_VERSION}" >> $GITHUB_OUTPUT
 
-            - name: Commit and push changes
+            - name: Commit changes
               if: steps.has_changes.outputs.has_changes == 'true'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   git config user.name "imamiland-bot[bot]"
                   git config user.email "152510784+imamiland-bot@users.noreply.github.com"
-                  REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
                   git add CHANGELOG.md package.json
                   git commit -m "chore(release): ${{ steps.version.outputs.version }} [skip ci]"
-                  git push "$REMOTE" HEAD:${{ github.ref_name }}
 
-            - name: Create Git tag
+            - name: Create local tag
+              if: steps.has_changes.outputs.has_changes == 'true'
+              run: |
+                  TAG="v${{ steps.version.outputs.version }}"
+                  git tag -a "$TAG" -m "Release $TAG"
+
+            - name: Generate incremental release notes
+              if: steps.has_changes.outputs.has_changes == 'true'
+              run: |
+                  TAG="v${{ steps.version.outputs.version }}"
+                  cog changelog --at "$TAG" > /tmp/release_notes.md
+
+            - name: Push commit and tag
               if: steps.has_changes.outputs.has_changes == 'true'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
                   TAG="v${{ steps.version.outputs.version }}"
-                  git tag -a "$TAG" -m "Release $TAG"
+                  git push "$REMOTE" HEAD:${{ github.ref_name }}
                   git push "$REMOTE" "$TAG"
 
             - name: Create GitHub Release
@@ -114,6 +120,6 @@ jobs:
               with:
                   tag_name: 'v${{ steps.version.outputs.version }}'
                   name: 'Release v${{ steps.version.outputs.version }}'
-                  body_path: CHANGELOG.md
+                  body_path: /tmp/release_notes.md
                   draft: false
                   prerelease: ${{ steps.release_type.outputs.pre_release == 'true' }}
