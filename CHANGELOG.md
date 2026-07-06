@@ -1,7 +1,5 @@
-## Unreleased (9fe2575..245ce08)
-
+## Unreleased (9fe2575..b8d18d9)
 #### Features
-
 - ensure reproducible builds for the bundle - (1099a64) - Ali Sajid Imami
 - update the build system - (708dddc) - Ali Sajid Imami
 - modify it to be an ECMAScript module - (07cca7c) - Ali Sajid Imami
@@ -12,9 +10,7 @@
 - add an additional check to test for behavior - (1ff9f61) - Ali Sajid Imami
 - updated the dependencies - (9e18e74) - Ali Sajid Imami
 - remove eslint warnings - (d30d7f8) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - (**deps**) update dependency @actions/core to v3 - (a687364) - renovate[bot]
 - (**deps**) update dependency true-myth to v9.0.1 - (987ed5a) - renovate[bot]
 - (**deps**) pin dependencies - (b4da2c2) - renovate[bot]
@@ -30,10 +26,9 @@
 - update the bundles of generated files - (f3a44c4) - Ali Sajid Imami
 - update the bundles of generated files - (0e2a336) - Ali Sajid Imami
 - fix the type annotation x2 - (bc4e6c4) - Ali Sajid Imami
-
 #### Documentation
-
 - (**reuse**) added license information to the repository for REUSE compliance - (fde93ff) - Ali Sajid Imami
+- regenerate the changelog x2 - (b8d18d9) - Ali Sajid Imami
 - regenerate the changelog - (ab5f188) - Ali Sajid Imami
 - fix comment mentioning node 22 version - (d4ccb1e) - Ali Sajid Imami
 - update the license years - (df6973c) - Ali Sajid Imami
@@ -58,16 +53,12 @@
 - updated the readme file - (58a9b8e) - Ali Sajid Imami
 - update the changelog - (e6dce44) - Ali Sajid Imami
 - add the updated changelog - (96e5ad4) - Ali Sajid Imami
-
 #### Tests
-
 - update test structure with typeguards - (b844449) - Ali Sajid Imami
 - update test infrastructure - (e799575) - Ali Sajid Imami
 - allow coverage json to be generated - (a72ebd7) - Ali Sajid Imami
 - update jest config to typescript - (806c0cf) - Ali Sajid Imami
-
 #### Build system
-
 - (**bundle**) update the distribution bundle - (7bf1575) - Ali Sajid Imami
 - (**mise**) update the version of mise installed for management - (9e98e0a) - Ali Sajid Imami
 - (**mise**) restructure tasks and pnpm run items to mise tasks - (28ac639) - Ali Sajid Imami
@@ -143,9 +134,7 @@
 - remove duplicate files from the vitest file x3 - (bbc6226) - Ali Sajid Imami
 - remove duplicate files from the vitest file x2 - (5a3a260) - Ali Sajid Imami
 - remove duplicate files from the vitest file - (9fe2575) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - (**mise**) convert github actions to use mise instead - (a1d794c) - Ali Sajid Imami
 - (**mise**) update the list of mise tasks - (0e38e75) - Ali Sajid Imami
 - (**mise**) ensure mise tasks call pnpm exec for pnpm binaries - (d902777) - Ali Sajid Imami
@@ -196,9 +185,7 @@
 - include cog check in the ci release workflow x2 - (be047e2) - Ali Sajid Imami
 - include cog check in the ci release workflow - (5bdbed2) - Ali Sajid Imami
 - set harden-runner to audit mode - (357f642) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**config**) migrate config renovate.json - (0f59c69) - renovate[bot]
 - (**config**) migrate config renovate.json - (ff0bd8f) - renovate[bot]
 - (**config**) migrate config renovate.json - (63663d8) - renovate[bot]
@@ -544,32 +531,24 @@
 - merge pull request #844 from AliSajid/next - (69b9091) - Ali Sajid Imami
 - update .gitignore file - (5101273) - Ali Sajid Imami
 - fix conflict - (2f8ee30) - Ali Sajid Imami
-
 #### Style
-
 - align with prettier conventions - (6bc6056) - Ali Sajid Imami
 - removed unnecessary quotes from workflow yaml files - (0b74d26) - Ali Sajid Imami
 - resolve the markdownlint errors for CHANGELOG.md - (6de14e7) - Ali Sajid Imami
 - conform this file to the prettier standard - (a7a5261) - Ali Sajid Imami
 - removed unnecessary quotes from workflow yaml files - (c84b36a) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.11.1-next.3 - 2025-10-05
-
 #### Tests
-
 - add eslint ignore comments - (4b9460a) - Ali Sajid Imami
 - update the test to fix a vitest lint - (e713edb) - Ali Sajid Imami
-
 #### Build system
-
 - merge branch 'main' into next - (43f6014) - Ali Sajid Imami
 - update the copyright years - (268f959) - Ali Sajid Imami
 - update dependencies - (968644f) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update dependency @vitest/eslint-plugin to v1.3.15 - (6ade473) - renovate[bot]
 - (**deps**) update dependency typescript to v5.9.3 - (4535f1c) - renovate[bot]
 - (**deps**) update pnpm to v10.18.0 - (53b011b) - renovate[bot]
@@ -588,16 +567,12 @@
 - (**deps**) update dependency globals to v16.4.0 - (7c669f9) - renovate[bot]
 - (**release**) 2.11.1-next.3 [skip ci]\n\n## [2.11.1-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.2...v2.11.1-next.3) (2025-10-05) - (feb60ec) - semantic-release-bot
 
----
+- - -
 
 ## v2.11.1-next.2 - 2025-09-07
-
 #### Bug Fixes
-
 - (**deps**) update dependency true-myth to v9.1.0 - (3eed4ae) - renovate[bot]
-
 #### Build system
-
 - update build file - (aa8e276) - Ali Sajid Imami
 - update build file - (da73320) - Ali Sajid Imami
 - update the provence action - (55808e5) - Ali Sajid Imami
@@ -606,13 +581,9 @@
 - fix test config - (2182106) - Ali Sajid Imami
 - clean up build-level warning - (2a21f1c) - Ali Sajid Imami
 - add updated dist files - (58c9ef4) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - add an additional item to the allowed items list - (7f3ef19) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**config**) migrate config renovate.json - (aa9e97f) - renovate[bot]
 - (**deps**) update dependency @vitest/eslint-plugin to v1.3.8 - (893727e) - renovate[bot]
 - (**deps**) update dependency fast-check to v4.3.0 - (3ab883b) - renovate[bot]
@@ -677,28 +648,22 @@
 - (**deps**) update vitest monorepo to v3.2.1 - (172c82b) - renovate[bot]
 - (**release**) 2.11.1-next.2 [skip ci]\n\n## [2.11.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.1...v2.11.1-next.2) (2025-09-07) - (99cd77f) - semantic-release-bot
 
----
+- - -
 
 ## v2.11.1-next.1 - 2025-06-07
-
 #### Bug Fixes
-
 - (**deps**) update dependency true-myth to v9.0.1 - (6c5f3a4) - renovate[bot]
 - (**deps**) update dependency true-myth to v9.0.1 - (a366d07) - renovate[bot]
 - fix the range on the test - (100a01e) - Ali Sajid Imami
 - fix the range on the test - (82d8e27) - Ali Sajid Imami
-
 #### Build system
-
 - change the name of the attestation file to .intoto.jsonl - (f1c6dc9) - Ali Sajid Imami
 - update dependencies to latest patches - (5ad8f80) - Ali Sajid Imami
 - update the dist file - (6e22c30) - Ali Sajid Imami
 - change the name of the attestation file to .intoto.jsonl - (fe90b66) - Ali Sajid Imami
 - update dependencies to latest patches - (caf2897) - Ali Sajid Imami
 - update the dist file - (455c024) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - (**codeql-analysis**) remove unnecessary permissions from `codeql-analysis` workflow - (007224d) - Ali Sajid Imami
 - (**codeql-analysis**) remove unnecessary permissions from `codeql-analysis` workflow - (1fd520b) - Ali Sajid Imami
 - (**release**) allow the release workflow to avoid rule violations - (f908155) - Ali Sajid Imami
@@ -717,9 +682,7 @@
 - (**test**) add top-level read permission to tests - (9036c8e) - Ali Sajid Imami
 - add the dependency review github action - (5d72b18) - Ali Sajid Imami
 - add the dependency review github action - (389e907) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update pre-commit and github actions - (eb26a61) - renovate[bot]
 - (**deps**) update pre-commit and github actions - (34e734f) - renovate[bot]
 - (**deps**) update pre-commit and github actions - (e5ef519) - renovate[bot]
@@ -792,30 +755,22 @@
 - (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (f2bc0b8) - semantic-release-bot
 - (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (5a579d3) - semantic-release-bot
 
----
+- - -
 
 ## v2.11.0 - 2025-04-29
-
 #### Features
-
 - update the build system - (82aada1) - Ali Sajid Imami
 - modify it to be an ECMAScript module - (66366d1) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - (**deps**) update dependency true-myth to v9 - (2e82111) - renovate[bot]
 - add necessary rollup cli as a devDep - (ce9db49) - Ali Sajid Imami
 - add necessary deps for rollup - (048abb5) - Ali Sajid Imami
-
 #### Build system
-
 - update the pnpm run scripts - (9fbf864) - Ali Sajid Imami
 - update the eslint and tsconfig configs - (6313642) - Ali Sajid Imami
 - add a rollup config - (307b10f) - Ali Sajid Imami
 - update deps - (b01f599) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update pre-commit and github actions - (8f0f65c) - renovate[bot]
 - (**deps**) update pnpm to v10.9.0 - (66771bd) - renovate[bot]
 - (**deps**) update vitest monorepo to v3.1.2 - (5705628) - renovate[bot]
@@ -835,187 +790,127 @@
 - (**deps**) update pre-commit and github actions - (ecedfb2) - renovate[bot]
 - (**release**) 2.11.0 [skip ci]\n\n# [2.11.0](https://github.com/AliSajid/random-wait-action/compare/v2.10.1...v2.11.0) (2025-04-29) - (d6a310d) - semantic-release-bot
 - (**release**) 2.11.0-next.1 [skip ci]\n\n# [2.11.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.1...v2.11.0-next.1) (2025-04-23) - (bd7b722) - semantic-release-bot
-
 #### Style
-
 - ensure prettier and eslint have the same config - (578cf97) - Ali Sajid Imami
 - add semicolon at the end of lines - (c051ede) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.10.1 - 2025-04-13
-
 #### Miscellaneous Chores
-
 - (**release**) 2.10.1 [skip ci]\n\n## [2.10.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1) (2025-04-13) - (ce4b719) - semantic-release-bot
 
----
+- - -
 
 ## v2.10.1-next.1 - 2025-04-13
-
 #### Miscellaneous Chores
-
 - (**release**) 2.10.1-next.1 [skip ci]\n\n## [2.10.1-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1-next.1) (2025-04-13) - (bc0e2e0) - semantic-release-bot
 
----
+- - -
 
 ## v2.10.0-next.3 - 2025-04-13
-
 #### Bug Fixes
-
 - fix the merge strategy - (7de83b4) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.10.0-next.3 [skip ci]\n\n# [2.10.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.10.0-next.2...v2.10.0-next.3) (2025-04-13) - (701a7f6) - semantic-release-bot
 
----
+- - -
 
 ## v2.10.0-next.2 - 2025-04-13
-
 #### Bug Fixes
-
 - fix two minor issues reported by codacy (#641) - (2f8f458) - Ali Sajid Imami
 - fix two minor issues reported by codacy - (b73fab3) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - add code coverage upload to codacy (#640) - (45e0d6b) - Ali Sajid Imami
 - add code coverage upload to codacy - (5f57885) - Ali Sajid Imami
 - fix minor issues with CI (#639) - (6243a76) - Ali Sajid Imami
 - fix minor issues with CI - (d9ace33) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.10.0-next.2 [skip ci]\n\n# [2.10.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.10.0-next.1...v2.10.0-next.2) (2025-04-13) - (83d3329) - semantic-release-bot
 
----
+- - -
 
 ## v2.10.0 - 2025-04-13
-
 #### Miscellaneous Chores
-
 - (**release**) 2.10.0 [skip ci]\n\n# [2.10.0](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0) (2025-04-13) - (63e65f0) - semantic-release-bot
 
----
+- - -
 
 ## v2.10.0-next.1 - 2025-04-13
-
 #### Bug Fixes
-
 - (**deps**) pin dependencies - (0ff9d12) - renovate[bot]
-
 #### Continuous Integration
-
 - remove the extra unicode character from renovate.json - (83433b3) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.10.0-next.1 [skip ci]\n\n# [2.10.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0-next.1) (2025-04-13) - (4de7952) - semantic-release-bot
-
 #### Style
-
 - run prettier against all files - (e98978c) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.9.0-next.6 - 2025-04-12
-
 #### Bug Fixes
-
 - update the dist files - (7136671) - Ali Sajid Imami
-
 #### Build system
-
 - update deps - (2ecd4ec) - Ali Sajid Imami
 - update the dist files - (dc3034f) - Ali Sajid Imami
 - standardize yaml file extensions to .yaml - (652e626) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - fix the http accesses - (598e282) - Ali Sajid Imami
 - harden the runners with explicit outgoing connections - (e74c60f) - Ali Sajid Imami
 - update the names of Node.js installation actions - (613c110) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.9.0-next.6 [skip ci]\n\n# [2.9.0-next.6](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.5...v2.9.0-next.6) (2025-04-12) - (390ba2d) - semantic-release-bot
 
----
+- - -
 
 ## v2.9.0-next.5 - 2025-04-12
-
 #### Bug Fixes
-
 - mark private vars as readonly - (8b1888d) - Ali Sajid Imami
-
 #### Tests
-
 - (**ci**) update the github action to ensure coverage is uploaded - (94f954f) - Ali Sajid Imami
 - add tests for invalid inputs for `wait` - (07c6eee) - Ali Sajid Imami
 - add tests for the constants - (dea0509) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.9.0-next.5 [skip ci]\n\n# [2.9.0-next.5](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.4...v2.9.0-next.5) (2025-04-12) - (d629a9d) - semantic-release-bot
 
----
+- - -
 
 ## v2.9.0-next.4 - 2025-04-12
-
 #### Bug Fixes
-
 - (**deps**) update dependency true-myth to v8.5.3 - (39a290e) - renovate[bot]
 - remove inferrable types from the constants - (053e577) - Ali Sajid Imami
-
 #### Tests
-
 - ensure the property based test for negatives does not generate zero - (ac42660) - Ali Sajid Imami
 - isolate vitest and eslint's typescript config - (1ad02c8) - Ali Sajid Imami
 - update test infrastructure - (ed04c67) - Ali Sajid Imami
-
 #### Build system
-
 - remove the vitest types from main tsconfig - (efeab1c) - Ali Sajid Imami
 - ensure vitest types are available to tsconfig - (a60d4d0) - Ali Sajid Imami
 - fixed the vitest watch behavior - (2ce9bfc) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) pin dependencies - (c490ac3) - renovate[bot]
 - (**release**) 2.9.0-next.4 [skip ci]\n\n# [2.9.0-next.4](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.3...v2.9.0-next.4) (2025-04-12) - (130c3fe) - semantic-release-bot
 
----
+- - -
 
 ## v2.9.0-next.3 - 2025-04-12
-
 #### Features
-
 - update the structure to use true-myth - (d4cf4a6) - Ali Sajid Imami
 - add types for errors and success - (785f8b5) - Ali Sajid Imami
 - add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (86c1e01) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - refactor input validation to its own function - (496a5f5) - Ali Sajid Imami
-
 #### Tests
-
 - allow coverage json to be generated - (8244337) - Ali Sajid Imami
-
 #### Build system
-
 - remove references to jest - (623b888) - Ali Sajid Imami
 - downgrade to the compatible typescript verison - (9ae9bba) - Ali Sajid Imami
 - remove unused packages - (2334c83) - Ali Sajid Imami
 - rename action.yml to action.yaml - (f0e954d) - Ali Sajid Imami
-
 #### Refactoring
-
 - validateInputs now uses the types - (aa87088) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update dependency ts-jest to v29.3.1 - (af8ccbb) - renovate[bot]
 - (**deps**) update dependency typescript to v5.8.3 - (d47c24f) - renovate[bot]
 - (**deps**) update linters - (c48efa1) - renovate[bot]
@@ -1062,60 +957,40 @@
 - (**deps**) update pre-commit and github actions - (bfff81b) - renovate[bot]
 - (**release**) 2.9.0-next.3 [skip ci]\n\n# [2.9.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.2...v2.9.0-next.3) (2025-04-12) - (700f30c) - semantic-release-bot
 
----
+- - -
 
 ## v2.9.0-next.2 - 2025-02-28
-
 #### Features
-
 - add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (e467c15) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - refactor input validation to its own function - (6cb6ee1) - Ali Sajid Imami
-
 #### Build system
-
 - remove unused packages - (5aa8002) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.9.0-next.2 [skip ci]\n\n# [2.9.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.1...v2.9.0-next.2) (2025-02-28) - (5cb0dfb) - semantic-release-bot
 
----
+- - -
 
 ## v2.9.0 - 2025-02-27
-
 #### Miscellaneous Chores
-
 - (**release**) 2.9.0 [skip ci]\n\n# [2.9.0](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0) (2025-02-27) - (9a3d5f0) - semantic-release-bot
 
----
+- - -
 
 ## v2.9.0-next.1 - 2025-02-27
-
 #### Features
-
 - add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (19bde05) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - update the distribution - (a62d6cb) - Ali Sajid Imami
 - refactor input validation to its own function - (af2fc3b) - Ali Sajid Imami
 - update the max limit to 2 minutes - (e992c0b) - Ali Sajid Imami
-
 #### Documentation
-
 - add a security review for the project - (ce44e70) - Ali Sajid Imami
-
 #### Build system
-
 - remove unused packages - (7a9e638) - Ali Sajid Imami
 - remove unnecessary package @types/eslint__js - (e55c97a) - Ali Sajid Imami
 - remove unnecessary package @types/eslint__js - (a7b8531) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - remove unnecessary workflow - (5f10c26) - Ali Sajid Imami
 - remove unnecessary workflow - (bb6be3d) - Ali Sajid Imami
 - simplify mdbook workflow - (c8bb58f) - Ali Sajid Imami
@@ -1123,9 +998,7 @@
 - simplify mdbook workflow - (6b01a8d) - Ali Sajid Imami
 - simplify mdbook workflow - (6f5357b) - Ali Sajid Imami
 - fix a reference in mdbook workflow - (64c64d2) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update dependency @types/node to v22.13.5 - (bdb31e6) - renovate[bot]
 - (**deps**) update pnpm to v10.5.2 - (15108c2) - renovate[bot]
 - (**deps**) pin dependency @types/eslint to 9.6.1 - (fbe4462) - renovate[bot]
@@ -1179,25 +1052,19 @@
 - (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (4f9ca88) - semantic-release-bot
 - (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (6408a02) - semantic-release-bot
 
----
+- - -
 
 ## v2.8.0 - 2025-02-07
-
 #### Documentation
-
 - add a security assurance case - (1a9ced4) - Ali Sajid Imami
 - remove docusaurus - (8560f2d) - Ali Sajid Imami
 - add documentation in a github pages page - (f203da1) - Ali Sajid Imami
 - create a guide directory with mdbook - (f039502) - Ali Sajid Imami
-
 #### Build system
-
 - remove unnecessary fiels - (d4f94f1) - Ali Sajid Imami
 - update logfile - (9b6c3af) - Ali Sajid Imami
 - remove docusaurus docs - (0ccf1de) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update pre-commit and github actions - (efe6e29) - renovate[bot]
 - (**deps**) renovate updates (#519) - (977fdfe) - Ali Sajid Imami
 - (**deps**) update dependency prettier-plugin-multiline-arrays to v4 - (3d6a7e6) - renovate[bot]
@@ -1211,48 +1078,32 @@
 - (**release**) 2.8.0 [skip ci]\n\n# [2.8.0](https://github.com/AliSajid/random-wait-action/compare/v2.7.1...v2.8.0) (2025-02-07) - (edfaf42) - semantic-release-bot
 - (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (3b07226) - semantic-release-bot
 
----
+- - -
 
 ## v2.8.0-next.3 - 2025-02-05
-
 #### Features
-
 - move files to git LFS - (fb5ddfd) - Ali Sajid Imami
-
 #### Documentation
-
 - update the documentation - (4736a53) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.8.0-next.3 [skip ci]\n\n# [2.8.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.8.0-next.2...v2.8.0-next.3) (2025-02-05) - (09ccbf8) - semantic-release-bot
 
----
+- - -
 
 ## v2.8.0-next.2 - 2025-02-05
-
 #### Features
-
 - move files to git LFS - (a46d730) - Ali Sajid Imami
-
 #### Documentation
-
 - create a passing build for docusaurus - (91e655c) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**release**) 2.8.0-next.2 [skip ci]\n\n# [2.8.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.8.0-next.1...v2.8.0-next.2) (2025-02-05) - (acd2717) - semantic-release-bot
 
----
+- - -
 
 ## v2.8.0-next.1 - 2025-02-05
-
 #### Features
-
 - update the build with tests - (1fde041) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - (**deps**) update docusaurus monorepo to v3.7.0 - (e28d948) - renovate[bot]
 - (**deps**) update docusaurus monorepo to v3.6.3 - (dd59a6c) - renovate[bot]
 - (**deps**) update react monorepo to v19 - (00d6038) - renovate[bot]
@@ -1260,9 +1111,7 @@
 - (**deps**) update dependency typescript to v5.7.2 - (b2d0e30) - renovate[bot]
 - update the bundles of generated files - (a8acd11) - Ali Sajid Imami
 - update the bundles of generated files - (56ab8c3) - Ali Sajid Imami
-
 #### Documentation
-
 - (**build**) remove the unnecessary default docusaurus images - (d293107) - Ali Sajid Imami
 - (**build**) removed the unnecessary js files - (2d667d2) - Ali Sajid Imami
 - (**reuse**) added license information to the repository for REUSE compliance - (c75939a) - Ali Sajid Imami
@@ -1271,20 +1120,14 @@
 - add documentation - (d25c0d6) - Ali Sajid Imami
 - add docs - (4861468) - Ali Sajid Imami
 - add a `SECURITY.md` file - (1e22d27) - Ali Sajid Imami
-
 #### Build system
-
 - update dev dependencies - (3bc06fd) - Ali Sajid Imami
 - update versions to fix conflict - (121e138) - renovate[bot]
 - update the docs building - (63f2466) - Ali Sajid Imami
 - fix the formatting check scripts - (b87f938) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - update the docs deployment workflow - (e9c2464) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update linters - (51ae7c5) - renovate[bot]
 - (**deps**) update dependency globals to v15.13.0 - (fec3b87) - renovate[bot]
 - (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.2 - (4088912) - renovate[bot]
@@ -1307,12 +1150,10 @@
 - (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (af313db) - semantic-release-bot
 - (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (8d404d6) - semantic-release-bot
 
----
+- - -
 
 ## v2.7.1-next.2 - 2024-12-03
-
 #### Miscellaneous Chores
-
 - (**deps**) update pnpm to v9.14.4 - (4d10169) - renovate[bot]
 - (**deps**) update linters - (633b2af) - renovate[bot]
 - (**deps**) update dependency globals to v15.13.0 - (08c5427) - renovate[bot]
@@ -1320,12 +1161,10 @@
 - (**deps**) update dependency @types/node to v22.10.1 - (897424d) - renovate[bot]
 - (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (bf49682) - semantic-release-bot
 
----
+- - -
 
 ## v2.7.1 - 2024-12-03
-
 #### Bug Fixes
-
 - (**deps**) update docusaurus monorepo to v3.6.3 - (7a88e42) - renovate[bot]
 - (**deps**) update docusaurus monorepo to v3.6.2 - (67229cf) - renovate[bot]
 - (**deps**) update docusaurus monorepo to v3.6.1 - (e0be34f) - renovate[bot]
@@ -1333,9 +1172,7 @@
 - (**deps**) update dependency @mdx-js/react to v3.1.0 - (4e5a9a4) - renovate[bot]
 - update the bundles of generated files - (b7f2dcc) - Ali Sajid Imami
 - update the bundles of generated files - (ff29e38) - Ali Sajid Imami
-
 #### Documentation
-
 - (**build**) remove the unnecessary default docusaurus images - (dcc81b8) - Ali Sajid Imami
 - (**build**) removed the unnecessary js files - (e2d08f1) - Ali Sajid Imami
 - (**build**) remove the unnecessary default docusaurus images - (14d7097) - Ali Sajid Imami
@@ -1357,16 +1194,12 @@
 - add a `SECURITY.md` file - (d470af6) - Ali Sajid Imami
 - add JSDoc documentation to the functions - (2bd93bb) - Ali Sajid Imami
 - update documentation subdir readme - (b8af0ba) - Ali Sajid Imami
-
 #### Build system
-
 - fix the formatting check scripts - (c432b15) - Ali Sajid Imami
 - fix the formatting check scripts - (97d5b58) - Ali Sajid Imami
 - update the blast radius for prettier - (60ac825) - Ali Sajid Imami
 - update the blast radius for prettier - (22b0604) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - harden security for the sonar-cloud and scorecard workflows - (2151d91) - Ali Sajid Imami
 - harden security for the sonar-cloud and scorecard workflows - (cf71885) - Ali Sajid Imami
 - harden security for the sonar-cloud and scorecard workflows - (445d818) - Ali Sajid Imami
@@ -1377,9 +1210,7 @@
 - add the npm action so the version bumps are synced - (e5e8858) - Ali Sajid Imami
 - add pages deployment - (0129581) - Ali Sajid Imami
 - harden security for the sonar-cloud and scorecard workflows - (3e77ed1) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (fbee491) - renovate[bot]
 - (**deps**) update dependency typescript to v5.7.2 - (0c056d8) - renovate[bot]
 - (**deps**) update linters - (b3ba06d) - renovate[bot]
@@ -1460,21 +1291,17 @@
 - (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (5fd1b67) - semantic-release-bot
 - update .gitignore file - (8e48157) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.7.1-next.1 - 2024-11-20
-
 #### Bug Fixes
-
 - (**deps**) update docusaurus monorepo to v3.6.2 - (0bc80b0) - renovate[bot]
 - (**deps**) update docusaurus monorepo to v3.6.1 - (a8343af) - renovate[bot]
 - (**deps**) update docusaurus monorepo to v3.6.0 - (eeb2805) - renovate[bot]
 - (**deps**) update dependency @mdx-js/react to v3.1.0 - (3037d01) - renovate[bot]
 - update the bundles of generated files - (18c8291) - Ali Sajid Imami
 - update the bundles of generated files - (5090cef) - Ali Sajid Imami
-
 #### Documentation
-
 - add documentation - (bc534dc) - Ali Sajid Imami
 - add docs - (2d59089) - Ali Sajid Imami
 - add a `SECURITY.md` file - (99b5b97) - Ali Sajid Imami
@@ -1482,14 +1309,10 @@
 - add a `SECURITY.md` file - (6a0c318) - Ali Sajid Imami
 - add a `SECURITY.md` file - (75f9851) - Ali Sajid Imami
 - add JSDoc documentation to the functions - (5bb8e5f) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - add pages deployment - (02680f4) - Ali Sajid Imami
 - harden security for the sonar-cloud and scorecard workflows - (0f1eb18) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update pnpm to v9.14.2 - (b3ffd33) - renovate[bot]
 - (**deps**) update dependency @types/node to v22.9.1 - (bd995fc) - renovate[bot]
 - (**deps**) update the github actions and pre-commit - (0e20f9c) - Ali Sajid Imami
@@ -1561,66 +1384,50 @@
 - (**deps**) pin dependency ts-node to 10.9.2 - (52c2243) - renovate[bot]
 - update .gitignore file - (f318798) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.7.0 - 2024-10-13
-
 #### Continuous Integration
-
 - merge pull request #401 from AliSajid/next - (bd1e4ac) - Ali Sajid Imami
 - remove further PNPM versions - (ae928b7) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.7.0-next.1 - 2024-10-12
-
 #### Miscellaneous Chores
-
 - merge branch 'main' into next - (a191f38) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.6.0 - 2024-10-12
-
 #### Features
-
 - update the files with conflicts removed - (eb1b2aa) - Ali Sajid Imami
 - update tests with fuzzing - (313844f) - Ali Sajid Imami
 - add an additional check to test for behavior - (92fd20a) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - (**deps**) update dependency @actions/core to v1.11.1 - (bbb7b7d) - renovate[bot]
 - (**deps**) update dependency @actions/core to v1.11.0 - (ab9f734) - renovate[bot]
 - (**deps**) update dependency @actions/core to v1.11.1 - (b165f49) - renovate[bot]
 - (**deps**) update dependency @actions/core to v1.11.0 - (ea98c1c) - renovate[bot]
 - fix an eslint diagnostic - (bea759c) - Ali Sajid Imami
 - fix the type annotation x2 - (f21125d) - Ali Sajid Imami
-
 #### Documentation
-
 - update `CONTRIBUTING.md` - (189b74a) - Ali Sajid Imami
 - add a `GOVERNANCE.md` file - (cad644c) - Ali Sajid Imami
-
 #### Tests
-
 - update jest config to typescript - (8726431) - Ali Sajid Imami
 - update jest config to select proper paths - (aeaeb09) - Ali Sajid Imami
 - add another test - (e1be736) - Ali Sajid Imami
 - update jest config to typescript - (0c7db8e) - Ali Sajid Imami
 - update jest config to select proper paths - (19f900e) - Ali Sajid Imami
-
 #### Build system
-
 - correct the version number - (7e9b109) - Ali Sajid Imami
 - add dependency on fast-check - (e1fe683) - Ali Sajid Imami
 - add dependency on fast-check - (fb593c6) - Ali Sajid Imami
 - update dependencies - (50d8284) - Ali Sajid Imami
 - add an env var in mise - (f8b87b6) - Ali Sajid Imami
 - add dependency on fast-check - (ffdc1cc) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - update caching mechanisms for the github actions - (812eab9) - Ali Sajid Imami
 - consistent quotation marks in codeql-analysis action - (ac8fad5) - Ali Sajid Imami
 - add coverage reporting to sonarcloud - (1e3888f) - Ali Sajid Imami
@@ -1634,9 +1441,7 @@
 - update base directory for sonar - (c6f44a6) - Ali Sajid Imami
 - add codecov upload action - (6e904e8) - Ali Sajid Imami
 - add sonarcloud GitHub Action integration - (5b31986) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update pre-commit and github actions - (2346b76) - renovate[bot]
 - (**deps**) update linters - (4aa630d) - renovate[bot]
 - (**deps**) update pnpm to v9.12.0 - (260b722) - renovate[bot]
@@ -1655,45 +1460,33 @@
 - (**deps**) update linters - (5b7b03c) - renovate[bot]
 - (**deps**) update pre-commit and github actions - (286c11d) - renovate[bot]
 
----
+- - -
 
 ## v2.6.0-next.1 - 2024-10-11
-
 #### Features
-
 - update the files with conflicts removed - (5ed3620) - Ali Sajid Imami
 - update tests with fuzzing - (b0f7790) - Ali Sajid Imami
 - add an additional check to test for behavior - (dd1be29) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - (**deps**) update dependency @actions/core to v1.11.1 - (0057749) - renovate[bot]
 - (**deps**) update dependency @actions/core to v1.11.0 - (6ac2499) - renovate[bot]
 - (**deps**) update dependency @actions/core to v1.11.1 - (fa5383e) - renovate[bot]
 - (**deps**) update dependency @actions/core to v1.11.0 - (f604f23) - renovate[bot]
 - fix an eslint diagnostic - (367fb4b) - Ali Sajid Imami
 - fix the type annotation x2 - (c21c351) - Ali Sajid Imami
-
 #### Documentation
-
 - update `CONTRIBUTING.md` - (5be2d4a) - Ali Sajid Imami
 - add a `GOVERNANCE.md` file - (86c6725) - Ali Sajid Imami
-
 #### Tests
-
 - add another test - (c762d55) - Ali Sajid Imami
-
 #### Build system
-
 - correct the version number - (a886180) - Ali Sajid Imami
 - add dependency on fast-check - (18101d8) - Ali Sajid Imami
 - add dependency on fast-check - (356e2ee) - Ali Sajid Imami
 - update dependencies - (454590a) - Ali Sajid Imami
 - add an env var in mise - (d14bac5) - Ali Sajid Imami
 - add dependency on fast-check - (79e9174) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update linters - (28bc86d) - renovate[bot]
 - (**deps**) update pnpm to v9.12.0 - (6d55883) - renovate[bot]
 - (**deps**) update linters - (00e7fbc) - renovate[bot]
@@ -1706,44 +1499,34 @@
 - (**deps**) pin step-security/harden-runner action to 91182cc - (bcd7215) - renovate[bot]
 - (**deps**) pin step-security/harden-runner action to 91182cc - (c5395dc) - renovate[bot]
 
----
+- - -
 
 ## v2.5.0 - 2024-10-02
 
----
+- - -
 
 ## v2.5.0-next.1 - 2024-10-02
-
 #### Features
-
 - update distribution files - (714c62b) - Ali Sajid Imami
-
 #### Documentation
-
 - add badges to the repo - (59575a5) - Ali Sajid Imami
 - add CONTRIBUTING.md - (47e2b3c) - Ali Sajid Imami
 - add code_of_conduct.md - (63b29dc) - Ali Sajid Imami
 - fix the SHA for the version - (928d55a) - Ali Sajid Imami
 - update the README.md with current versions - (2f14d4b) - Ali Sajid Imami
-
 #### Build system
-
 - ensure the `package.json` uses `pnpm` instead of `npm` - (9714be9) - Ali Sajid Imami
 - add stylistic to automerge group - (338e376) - Ali Sajid Imami
 - add additional dependency on stylistic rules - (7e7bbe6) - Ali Sajid Imami
 - update the reuse configuration - (436777f) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - restrict CI permissions - (c20e24e) - StepSecurity Bot
 - harden GitHub Actions - (281f10d) - StepSecurity Bot
 - update releaserc to generate CHANGELOG - (139f998) - Ali Sajid Imami
 - create scorecard workflow - (5819404) - Ali Sajid Imami
 - simplify multiline YAML - (81997b4) - Ali Sajid Imami
 - pin the cycjimmy/semantic-release-action to v4.1.0 by SHA - (b6ee76b) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**config**) migrate config renovate.json - (35967c3) - renovate[bot]
 - (**config**) migrate config renovate.json - (0069f9e) - renovate[bot]
 - (**deps**) update pre-commit and github actions - (af6bf29) - renovate[bot]
@@ -1940,35 +1723,25 @@
 - (**deps**) update pre-commit and github actions - (f629e08) - renovate[bot]
 - (**deps**) update pre-commit and github actions - (34d1457) - renovate[bot]
 
----
+- - -
 
 ## v2.4.1 - 2024-06-27
-
 #### Bug Fixes
-
 - update package - (1d72761) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - increase the permissions for the token - (5851061) - Ali Sajid Imami
 - pin dependencies to digests - (b94083d) - Ali Sajid Imami
 - build provenance action - (7d6d414) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) pin dependency typescript-eslint to 7.14.1 - (35a95cd) - renovate[bot]
 - (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.420.0 - (555438d) - renovate[bot]
 
----
+- - -
 
 ## v2.4.0 - 2024-06-27
-
 #### Features
-
 - updated the dependencies - (ceb9f04) - Ali Sajid Imami
-
 #### Build system
-
 - (**deps**) update to eslint v9 - (d30572e) - Ali Sajid Imami
 - update the eslint config - (fff9b1c) - Ali Sajid Imami
 - remove lockfile mainetenace from the renovate config - (a6dd095) - Ali Sajid Imami
@@ -1980,13 +1753,9 @@
 - update the renovate config to automerge updates - (34ea2ad) - Ali Sajid Imami
 - update the vscode config - (8900654) - Ali Sajid Imami
 - add the renovate.json config validation to the repo - (5361b7b) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - configure grouping of the package updates - (8ba65de) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**config**) migrate config renovate.json - (968d662) - renovate[bot]
 - (**deps**) pin dependency @types/eslint__js to 8.42.3 - (8cf728e) - renovate[bot]
 - (**deps**) update dependency typescript to v5.5.2 - (4101a55) - renovate[bot]
@@ -2058,25 +1827,17 @@
 - (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.27.0 - (4a33e6d) - renovate[bot]
 - (**deps**) update dependency ts-jest to v29.1.3 - (7a833fc) - renovate[bot]
 
----
+- - -
 
 ## v2.3.2 - 2024-04-25
-
 #### Bug Fixes
-
 - add license for the funding.yaml file - (94625c3) - Ali Sajid Imami
-
 #### Documentation
-
 - update the badges - (51c16c9) - Ali Sajid Imami
-
 #### Build system
-
 - pin the eslint version to ^8 - (b56b8a0) - Ali Sajid Imami
 - update pre-commit settings - (03ca644) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update dependency typescript to v5.4.5 - (a5fe105) - renovate[bot]
 - (**deps**) update pnpm to v9.0.6 - (b5bedca) - renovate[bot]
 - (**deps**) update dependency @typescript-eslint/parser to v7.7.1 - (a897775) - renovate[bot]
@@ -2103,41 +1864,29 @@
 - (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9 - (3ac29ee) - renovate[bot]
 - create FUNDING.yml - (525cef0) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.3.1 - 2024-03-21
-
 #### Bug Fixes
-
 - ensure the dist files are up to date - (7241f22) - Ali Sajid Imami
-
 #### Documentation
-
 - add the reuse compliance badge - (1f67081) - Ali Sajid Imami
-
 #### Build system
-
 - add reuse compliance - (fc544c9) - Ali Sajid Imami
 - rename the ci workflow files - (c22f08f) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - cleanup the test workflow - (9c9b232) - Ali Sajid Imami
 - cleanup the codeql-analysis workflow - (7ff1773) - Ali Sajid Imami
 - ensure the release runs on the 'next' branch - (48c5344) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.3.0 - 2024-03-21
-
 #### Features
-
 - do not autoformat the dist files - (760afa7) - Ali Sajid Imami
 - do not autoformat the dist files - (6f24f88) - Ali Sajid Imami
 - update the binaries - (38e9c0c) - Ali Sajid Imami
-
 #### Build system
-
 - (**deps-dev**) bump typescript from 5.3.3 to 5.4.2 - (8e422f5) - dependabot[bot]
 - (**deps-dev**) bump @typescript-eslint/parser from 7.1.0 to 7.3.1 - (06cbcd8) - dependabot[bot]
 - (**deps-dev**) bump @types/node from 20.11.21 to 20.11.30 - (70cca44) - dependabot[bot]
@@ -2149,213 +1898,147 @@
 - update the pre-commit file - (3a55295) - Ali Sajid Imami
 - update .releaserc to use the 'next' branch - (7f73339) - Ali Sajid Imami
 - add .mise.toml file - (36c38e9) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - update the renovate config file - (75e3d74) - Ali Sajid Imami
 - remove the dependabot config file - (7789e8d) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - (**deps**) update pnpm to v8.15.5 - (35f418b) - renovate[bot]
 - (**deps**) update dependency typescript to v5.4.3 - (5506717) - renovate[bot]
 - (**deps**) update dependency typescript to v5.4.3 - (61a568d) - renovate[bot]
 - (**deps**) add renovate configuration - (cacaf62) - renovate[bot]
 - bump version - (3f8cec9) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.2.1 - 2024-02-26
-
 #### Bug Fixes
-
 - move github up - (80cc38c) - Ali Sajid Imami
-
 #### Build system
-
 - bump the version number - (6c4b601) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.2.0 - 2024-02-26
-
 #### Features
-
 - remove eslint warnings - (78c7ce7) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - update the dependencies - (1556ce2) - Ali Sajid Imami
-
 #### Build system
-
 - (**deps**) bump github/codeql-action from 2 to 3 - (ccd233b) - dependabot[bot]
 - (**deps-dev**) bump @vercel/ncc from 0.36.1 to 0.38.1 - (392c1c8) - dependabot[bot]
 - ensure version is bumped in package.json - (1ee6728) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - fix releaserc file - (4a56f4d) - Ali Sajid Imami
-
 #### Style
-
 - remove comments - (7b957ad) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.1.0 - 2024-02-26
-
 #### Features
-
 - update dependencies - (b68988c) - Ali Sajid Imami
 
----
+- - -
 
 ## v2.0.0 - 2024-02-26
-
 #### Features
-
 - update all actions - (97a09cf) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.4.0 - 2024-02-26
-
 #### Features
-
 - bump to node20 x2 - (e1c5fff) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.3.0 - 2024-02-26
-
 #### Features
-
 - bump to node20 - (c3f9750) - Ali Sajid Imami
-
 #### Build system
-
 - (**deps**) upgrade typescript from 4.9.5 to 5.0.3 - (187f56c) - Ali Sajid Imami
 - (**deps**) bump cycjimmy/semantic-release-action from 2 to 3 - (05148dd) - dependabot[bot]
 - (**deps-dev**) bump @types/node from 18.16.15 to 20.2.4 - (43ef0ec) - dependabot[bot]
 - (**deps-dev**) bump typescript from 4.9.5 to 5.0.3 - (6fb380b) - dependabot[bot]
 
----
+- - -
 
 ## v1.2.0 - 2023-03-22
-
 #### Build system
-
 - rebuild dist/ - (5ca4c64) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.2.0-beta.1 - 2023-03-22
-
 #### Build system
-
 - (**deps**) bump actions/setup-node from 3.5.1 to 3.6.0 - (7b6ac6a) - dependabot[bot]
 - update vercel/ncc package - (c052198) - Ali Sajid Imami
-
 #### Style
-
 - update the branding for the marketplace - (b9ec5b5) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.1.0 - 2022-11-05
-
 #### Features
-
 - make the input arguments optional - (0bbcee3) - Ali Sajid Imami
 - return the correct value from the action - (6e81349) - Ali Sajid Imami
-
 #### Documentation
-
 - update the README with the optional arguments - (541212c) - Ali Sajid Imami
 - updated the readme file - (96a633b) - Ali Sajid Imami
-
 #### Tests
-
 - update test to account for delays - (b9ea309) - Ali Sajid Imami
-
 #### Build system
-
 - fix the multiline error in releaserc - (e308d02) - Ali Sajid Imami
 - fix the version configuration - (7896182) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.1.0-beta.1 - 2022-11-05
-
 #### Build system
-
 - fix the multiline error in releaserc - (cc92dbd) - Ali Sajid Imami
 - fix the version configuration - (3b4cbea) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.0.0-beta.3 - 2022-11-05
-
 #### Features
-
 - make the input arguments optional - (b0c6acd) - Ali Sajid Imami
 - return the correct value from the action - (d6c563f) - Ali Sajid Imami
-
 #### Documentation
-
 - update the README with the optional arguments - (87e1ee0) - Ali Sajid Imami
 - updated the readme file - (fe51c9f) - Ali Sajid Imami
-
 #### Tests
-
 - update test to account for delays - (04efddd) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.0.0 - 2022-11-02
-
 #### Features
-
 - update the primary code again - (9e9fd93) - Ali Sajid Imami
-
 #### Tests
-
 - fixed the expectations in test - (3f8200e) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - add the semantic release workflow and config - (9dbba09) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.0.0-beta.2 - 2022-11-02
-
 #### Features
-
 - update the primary code again - (b22c2a2) - Ali Sajid Imami
-
 #### Tests
-
 - fixed the expectations in test - (f904f5d) - Ali Sajid Imami
 
----
+- - -
 
 ## v1.0.0-beta.1 - 2022-11-02
-
 #### Features
-
 - add the main body function - (725ccab) - Ali Sajid Imami
 - add the time waited as output - (2a45b2d) - Ali Sajid Imami
 - updated inputs for this action - (87f8d43) - Ali Sajid Imami
-
 #### Bug Fixes
-
 - update the package manager specification - (bc806fc) - Ali Sajid Imami
 - update the generated js files - (af65eb2) - Ali Sajid Imami
-
 #### Build system
-
 - (**deps**) bump actions/checkout from 2 to 3 - (46a207c) - dependabot[bot]
 - (**deps**) bump actions/upload-artifact from 2 to 3 - (c6e8ec1) - dependabot[bot]
 - (**deps**) bump github/codeql-action from 1 to 2 - (3525e87) - dependabot[bot]
@@ -2365,17 +2048,11 @@
 - inl;cude longer timeouts for jest - (5b0828b) - Ali Sajid Imami
 - update the package.json - (60dc913) - Ali Sajid Imami
 - add the pnpm lockfile - (0a2936d) - Ali Sajid Imami
-
 #### Continuous Integration
-
 - add the semantic release workflow and config - (c342f01) - Ali Sajid Imami
 - update the workflows to use pnpm - (2a9a9eb) - Ali Sajid Imami
 - update CI Variables - (7d9f05a) - Ali Sajid Imami
-
 #### Miscellaneous Chores
-
 - initial commit - (8d2a62c) - Ali Sajid Imami
-
 #### Style
-
 - everything conforms to the prettier style - (dcbe3d4) - Ali Sajid Imami
