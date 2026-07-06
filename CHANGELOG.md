@@ -1,2236 +1,2379 @@
-## Unreleased (c2c6294..e42df56)
+## Unreleased (9fe2575..51b7572)
 
-### Features
+#### Features
 
-- update the build system - (0dc3e28) - Ali Sajid Imami
-- modify it to be an ECMAScript module - (c2586e0) - Ali Sajid Imami
-- update the structure to use true-myth - (3102bd0) - Ali Sajid Imami
-- add types for errors and success - (f0efae3) - Ali Sajid Imami
-- update the build with tests - (ce37850) - Ali Sajid Imami
-- update the files with conflicts removed - (1309f62) - Ali Sajid Imami
-- add an additional check to test for behavior - (ff6125a) - Ali Sajid Imami
-- updated the dependencies - (e20afb1) - Ali Sajid Imami
-- remove eslint warnings - (5e0cbee) - Ali Sajid Imami
+- ensure reproducible builds for the bundle - (1099a64) - Ali Sajid Imami
+- update the build system - (708dddc) - Ali Sajid Imami
+- modify it to be an ECMAScript module - (07cca7c) - Ali Sajid Imami
+- update the structure to use true-myth - (e6aa874) - Ali Sajid Imami
+- add types for errors and success - (6fd69b7) - Ali Sajid Imami
+- update the build with tests - (ba8bdff) - Ali Sajid Imami
+- update the files with conflicts removed - (79b66c5) - Ali Sajid Imami
+- add an additional check to test for behavior - (1ff9f61) - Ali Sajid Imami
+- updated the dependencies - (9e18e74) - Ali Sajid Imami
+- remove eslint warnings - (d30d7f8) - Ali Sajid Imami
 
-### Bug Fixes
+#### Bug Fixes
 
-- (**deps**) update dependency true-myth to v9.0.1 - (bd0c9cc) - renovate[bot]
-- (**deps**) pin dependencies - (726a1df) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.7.0 - (ac79a66) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.3 - (e72c0d1) - renovate[bot]
-- (**deps**) update react monorepo to v19 - (7cfb820) - renovate[bot]
-- (**deps**) update dependency typescript to v5.7.2 - (5849dcf) - renovate[bot]
-- update the CHANGELOG.md - (e42df56) - Ali Sajid Imami
-- fixed the conflicts in the wait.ts file - (0654e86) - Ali Sajid Imami
-- add necessary rollup cli as a devDep - (357c9e3) - Ali Sajid Imami
-- add necessary deps for rollup - (36eec64) - Ali Sajid Imami
-- update the distribution - (b8f3942) - Ali Sajid Imami
-- update the bundles of generated files - (913efde) - Ali Sajid Imami
-- update the bundles of generated files - (19afdbb) - Ali Sajid Imami
-- fix the type annotation x2 - (fed4498) - Ali Sajid Imami
+- (**deps**) update dependency @actions/core to v3 - (a687364) - renovate[bot]
+- (**deps**) update dependency true-myth to v9.0.1 - (987ed5a) - renovate[bot]
+- (**deps**) pin dependencies - (b4da2c2) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.7.0 - (be9bb1d) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.3 - (b48b7f8) - renovate[bot]
+- (**deps**) update react monorepo to v19 - (5cb3e10) - renovate[bot]
+- (**deps**) update dependency typescript to v5.7.2 - (a2e8738) - renovate[bot]
+- update the CHANGELOG.md - (22d6328) - Ali Sajid Imami
+- fixed the conflicts in the wait.ts file - (f675b94) - Ali Sajid Imami
+- add necessary rollup cli as a devDep - (58ff70d) - Ali Sajid Imami
+- add necessary deps for rollup - (2b21b13) - Ali Sajid Imami
+- update the distribution - (8a27ad6) - Ali Sajid Imami
+- update the bundles of generated files - (f3a44c4) - Ali Sajid Imami
+- update the bundles of generated files - (0e2a336) - Ali Sajid Imami
+- fix the type annotation x2 - (bc4e6c4) - Ali Sajid Imami
 
-### Documentation
+#### Documentation
 
-- (**reuse**) added license information to the repository for REUSE compliance - (502dcd1) - Ali Sajid Imami
-- update the JSDoc Documentation throughout the project - (5e9e7d9) - Ali Sajid Imami
-- create a passing build for docusaurus - (9d94067) - Ali Sajid Imami
-- add docs - (8d43898) - Ali Sajid Imami
-- add a `SECURITY.md` file - (e1bc003) - Ali Sajid Imami
-- add docs - (0e3a0dd) - Ali Sajid Imami
-- add a `SECURITY.md` file - (673276c) - Ali Sajid Imami
-- add a `SECURITY.md` file - (1061553) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (0141c18) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (6450aa4) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (c39774f) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (de3b42a) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (11bd1ec) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (92bbd07) - Ali Sajid Imami
-- add a `SECURITY.md` file - (54f18ef) - Ali Sajid Imami
-- add a `SECURITY.md` file - (b45d736) - Ali Sajid Imami
-- update `CONTRIBUTING.md` - (6fb3820) - Ali Sajid Imami
-- add a `GOVERNANCE.md` file - (715ac0a) - Ali Sajid Imami
-- updated the readme file - (4c5e5d3) - Ali Sajid Imami
-- update the changelog - (fdcf7f3) - Ali Sajid Imami
-- add the updated changelog - (e51bed1) - Ali Sajid Imami
+- (**reuse**) added license information to the repository for REUSE compliance - (fde93ff) - Ali Sajid Imami
+- fix comment mentioning node 22 version - (d4ccb1e) - Ali Sajid Imami
+- update the license years - (df6973c) - Ali Sajid Imami
+- fix style probnlems in CHANGELOG.md - (76bedb2) - Ali Sajid Imami
+- update the JSDoc Documentation throughout the project - (c3f4ab0) - Ali Sajid Imami
+- create a passing build for docusaurus - (9c4c007) - Ali Sajid Imami
+- add docs - (34a8866) - Ali Sajid Imami
+- add a `SECURITY.md` file - (cb46aff) - Ali Sajid Imami
+- add docs - (698460a) - Ali Sajid Imami
+- add a `SECURITY.md` file - (6717acb) - Ali Sajid Imami
+- add a `SECURITY.md` file - (9498e0c) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (4cdf49f) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (8968edd) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (b70e684) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (68fb466) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (5e4e590) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (458508e) - Ali Sajid Imami
+- add a `SECURITY.md` file - (22cb7af) - Ali Sajid Imami
+- add a `SECURITY.md` file - (ad67372) - Ali Sajid Imami
+- update `CONTRIBUTING.md` - (ecc1f71) - Ali Sajid Imami
+- add a `GOVERNANCE.md` file - (a869ff4) - Ali Sajid Imami
+- updated the readme file - (58a9b8e) - Ali Sajid Imami
+- update the changelog - (e6dce44) - Ali Sajid Imami
+- add the updated changelog - (96e5ad4) - Ali Sajid Imami
 
-### Tests
+#### Tests
 
-- update test structure with typeguards - (431227d) - Ali Sajid Imami
-- update jest config to typescript - (e872ca9) - Ali Sajid Imami
+- update test structure with typeguards - (b844449) - Ali Sajid Imami
+- update test infrastructure - (e799575) - Ali Sajid Imami
+- allow coverage json to be generated - (a72ebd7) - Ali Sajid Imami
+- update jest config to typescript - (806c0cf) - Ali Sajid Imami
 
-### Build system
+#### Build system
 
-- (**bundle**) update the distribution bundle - (a003487) - Ali Sajid Imami
-- (**mise**) remove indirection in mise tasks - (90ab4a7) - Ali Sajid Imami
-- (**typescript**) fix the typescript error about rootDir - (5467936) - Ali Sajid Imami
-- fix minor suggestions on typos and versioing - (57d7a0c) - Ali Sajid Imami
-- update codacy config to ignore overly strict setting sin test files - (9e71676) - Ali Sajid Imami
-- update sonar config to correctly point to src/ and test coverage - (7ce019e) - Ali Sajid Imami
-- update the bundle and config - (5047e87) - Ali Sajid Imami
-- add default assignee to sonar project config - (03bc8f2) - Ali Sajid Imami
-- update the build bundle - (0943da5) - Ali Sajid Imami
-- update dependencies for the action - (4e25974) - Ali Sajid Imami
-- update typscript config files - (1d61544) - Ali Sajid Imami
-- update to get rid of the eslint errors - (dda4577) - Ali Sajid Imami
-- update the source map - (b833b60) - Ali Sajid Imami
-- update the build bundle - (cc93686) - Ali Sajid Imami
-- intermediate commit to cleanup the repo - (362e71e) - Ali Sajid Imami
-- update dependencies to latest patches - (851e4b8) - Ali Sajid Imami
-- update dependencies - (b9e9292) - Ali Sajid Imami
-- update dependencies to latest patches - (e68dedd) - Ali Sajid Imami
-- update deps - (9c7de3e) - Ali Sajid Imami
-- downgrade to the compatible typescript verison - (193c907) - Ali Sajid Imami
-- remove unused packages - (cfe9cbe) - Ali Sajid Imami
-- remove unnecessary package @types/eslint\_\_js - (4c1909a) - Ali Sajid Imami
-- fix the formatting check scripts - (42f19e5) - Ali Sajid Imami
-- fix the formatting check scripts - (9db23dc) - Ali Sajid Imami
-- add dependency on fast-check - (6f31d36) - Ali Sajid Imami
-- add stylistic to automerge group - (2b77580) - Ali Sajid Imami
-- update automerge file - (3e49b80) - Ali Sajid Imami
-- add automerge bool - (6ed8720) - Ali Sajid Imami
-- ensure all dependencies are up to date - (0e9c147) - Ali Sajid Imami
-- update things for pre-commit compliance - (0005dd7) - Ali Sajid Imami
-- add the cocogitto config file - (ee3d0be) - Ali Sajid Imami
-- remove duplicate files from the vitest file x3 - (7f0acf7) - Ali Sajid Imami
-- remove duplicate files from the vitest file x2 - (77ac14b) - Ali Sajid Imami
-- remove duplicate files from the vitest file - (c2c6294) - Ali Sajid Imami
+- (**bundle**) update the distribution bundle - (7bf1575) - Ali Sajid Imami
+- (**mise**) update the version of mise installed for management - (9e98e0a) - Ali Sajid Imami
+- (**mise**) restructure tasks and pnpm run items to mise tasks - (28ac639) - Ali Sajid Imami
+- (**mise**) update pnpm version in mise.toml - (f1bc61a) - Ali Sajid Imami
+- (**mise**) remove indirection in mise tasks - (1751eb6) - Ali Sajid Imami
+- (**reuse**) reorganize the REUSE.toml file - (d9dd1de) - Ali Sajid Imami
+- (**typescript**) fix the typescript error about rootDir - (ef164e8) - Ali Sajid Imami
+- ask cog to go from the root instead of latest tag - (51b7572) - Ali Sajid Imami
+- remove the NODE_OPTIONS variable since it's no longer needed - (f9191b0) - Ali Sajid Imami
+- restrict cocogitto to time since last tag - (52e9ff8) - Ali Sajid Imami
+- add a file name length guard to only run fix and lit with staged files - (1fd8815) - Ali Sajid Imami
+- migrated to the node24 runtime - (07465bd) - Ali Sajid Imami
+- fixed the logic of input files in the fix and lint tasks - (e756a2e) - Ali Sajid Imami
+- update the lockfile for pnpm - (2be3efd) - Ali Sajid Imami
+- update digests of github actions - (9624d8c) - Ali Sajid Imami
+- update mise dependencies and add mise.lock lockfile - (97da114) - Ali Sajid Imami
+- updated core dependencies to latest minor versions - (d2dcd08) - Ali Sajid Imami
+- remove the noise lockfile maintenance task from the renovate config - (cbf0c9c) - Ali Sajid Imami
+- remove the unused `.secrets.baseline` file - (c2d84eb) - Ali Sajid Imami
+- update the build bundle - (bbaa76c) - Ali Sajid Imami
+- ensure that the coverage script is running correctly - (e5fe3f5) - Ali Sajid Imami
+- ignore the rollup.config.ts checks on codacy - (ef473a3) - Ali Sajid Imami
+- exclude the map file from mixed line endings - (948c503) - Ali Sajid Imami
+- remove mandling of function names in rollup - (85b4e82) - Ali Sajid Imami
+- remove the eslint file from the typechecking - (9ef397d) - Ali Sajid Imami
+- move the test task to mise completely - (f0a0cf6) - Ali Sajid Imami
+- move the actions and scripts mostly to mise - (a525675) - Ali Sajid Imami
+- update the map file - (38dda27) - Ali Sajid Imami
+- remove the years from the copyright text - (f051ef0) - Ali Sajid Imami
+- update the years in copyright sections - (8d6d82a) - Ali Sajid Imami
+- update markdownlint config to match the status of the repo - (5639cd3) - Ali Sajid Imami
+- remove old tool files - (c52ba52) - Ali Sajid Imami
+- fix case of GitHub name - (59d2b8e) - Ali Sajid Imami
+- fix contradictory argparse options in a script - (4b14c12) - Ali Sajid Imami
+- fix the regeneration of the detect secrets basline - (9fae2fd) - Ali Sajid Imami
+- fix the regeneration of the detect secrets basline - (1a441e3) - Ali Sajid Imami
+- more checking to kill warnings - (bb28f30) - Ali Sajid Imami
+- correct the ignoreing of detect-secrets and gitleaks - (c1949b3) - Ali Sajid Imami
+- ignore dist/ files for secret scanning - (8945efc) - Ali Sajid Imami
+- replace hk as the pre-commit runner - (3e73a0b) - Ali Sajid Imami
+- create a workable copy of the pre-commit config in hk - (373e901) - Ali Sajid Imami
+- update the pre-commit hooks again - (b1c807b) - Ali Sajid Imami
+- update pre-commit repository versions - (b0fa8c6) - Ali Sajid Imami
+- silence the linting errors - (58a1e9d) - Ali Sajid Imami
+- fix minor suggestions on typos and versioing - (7dad1d9) - Ali Sajid Imami
+- update codacy config to ignore overly strict setting sin test files - (8dc0bf4) - Ali Sajid Imami
+- update sonar config to correctly point to src/ and test coverage - (5208b94) - Ali Sajid Imami
+- update the bundle and config - (a8cd410) - Ali Sajid Imami
+- add default assignee to sonar project config - (c667ebc) - Ali Sajid Imami
+- update the build bundle - (267cacb) - Ali Sajid Imami
+- update dependencies for the action - (367d6b7) - Ali Sajid Imami
+- update typscript config files - (eed6352) - Ali Sajid Imami
+- update to get rid of the eslint errors - (06b7b37) - Ali Sajid Imami
+- update the source map - (e3dc73f) - Ali Sajid Imami
+- update the build bundle - (f055ac2) - Ali Sajid Imami
+- intermediate commit to cleanup the repo - (bcf123c) - Ali Sajid Imami
+- update dependencies to latest patches - (b9566f2) - Ali Sajid Imami
+- update dependencies - (be1bce4) - Ali Sajid Imami
+- update dependencies to latest patches - (a752db4) - Ali Sajid Imami
+- update deps - (370e5e0) - Ali Sajid Imami
+- downgrade to the compatible typescript verison - (177941c) - Ali Sajid Imami
+- remove unused packages - (7b21d55) - Ali Sajid Imami
+- remove unnecessary package @types/eslint__js - (b99a2cf) - Ali Sajid Imami
+- fix the formatting check scripts - (8d58489) - Ali Sajid Imami
+- fix the formatting check scripts - (4338610) - Ali Sajid Imami
+- add dependency on fast-check - (6ee1cc3) - Ali Sajid Imami
+- add stylistic to automerge group - (2c24a98) - Ali Sajid Imami
+- update automerge file - (5469276) - Ali Sajid Imami
+- add automerge bool - (c33aeb6) - Ali Sajid Imami
+- ensure all dependencies are up to date - (a2b00bd) - Ali Sajid Imami
+- update things for pre-commit compliance - (f747e31) - Ali Sajid Imami
+- add the cocogitto config file - (a8155bd) - Ali Sajid Imami
+- remove duplicate files from the vitest file x3 - (bbc6226) - Ali Sajid Imami
+- remove duplicate files from the vitest file x2 - (5a3a260) - Ali Sajid Imami
+- remove duplicate files from the vitest file - (9fe2575) - Ali Sajid Imami
 
-### Continuous Integration
+#### Continuous Integration
 
-- (**mise**) convert github actions to use mise instead - (3f0acbb) - Ali Sajid Imami
-- (**mise**) update the list of mise tasks - (ddb17b9) - Ali Sajid Imami
-- (**mise**) ensure mise tasks call pnpm exec for pnpm binaries - (7ec12d3) - Ali Sajid Imami
-- (**mise**) add a pnpm correct version in package.json - (e53cf97) - Ali Sajid Imami
-- (**mise**) correct the mise install version - (c14abe3) - Ali Sajid Imami
-- (**mise**) convert github actions to use mise instead - (5b860fe) - Ali Sajid Imami
-- (**mise**) update the list of mise tasks - (39caed6) - Ali Sajid Imami
-- (**sonar-cloud**) remove pull_requests: write permission from the workflow - (f4ff380) - Ali Sajid Imami
-- fix the build for using node types for v22.x - (6de11cb) - Ali Sajid Imami
-- exclude main.ts from the test coverage - (3e70a6f) - Ali Sajid Imami
-- remove duplicated entries in the ci setup for allowed endpoints - (0b3ba45) - Ali Sajid Imami
-- fine tune the mise blcoked calls 2 - (d97d225) - Ali Sajid Imami
-- allow further domains for the tasks - (bc8a20d) - Ali Sajid Imami
-- allow mise.jdx.dev for the build job - (a535de0) - Ali Sajid Imami
-- tweak the allowed endpoint list for experimentation - (c3ad5a6) - Ali Sajid Imami
-- add static.crates.io to allowed endpoints - (3ea25e4) - Ali Sajid Imami
-- fix deficiencies in the test workflow: - (143cbc4) - Ali Sajid Imami
-- remove duplicate mise entry from workflow - (c59de6c) - Ali Sajid Imami
-- update the harden_runner allows access to other targets - (d18b12f) - Ali Sajid Imami
-- update the harden_runner allows access to api.github.com - (fdae8f7) - Ali Sajid Imami
-- update the harden runner network access - (9ab241c) - Ali Sajid Imami
-- add the dependency review github action - (621edd4) - Ali Sajid Imami
-- fix minor issues with CI - (bda5bac) - Ali Sajid Imami
-- remove the extra unicode character from renovate.json - (6347368) - Ali Sajid Imami
-- update the names of Node.js installation actions - (155c609) - Ali Sajid Imami
-- simplify mdbook workflow - (94043d6) - Ali Sajid Imami
-- simplify mdbook workflow - (b02a998) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (148283b) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (8203b75) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (5e66abe) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (30e15a3) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (3cae2a1) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (4f55c8f) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (4b8ad6c) - Ali Sajid Imami
-- update caching mechanisms for the github actions - (dc55657) - Ali Sajid Imami
-- consistent quotation marks in codeql-analysis action - (e037ec7) - Ali Sajid Imami
-- add codecov upload action - (dc19f00) - Ali Sajid Imami
-- add sonarcloud GitHub Action integration - (9415beb) - Ali Sajid Imami
-- pin the cocogitto-action to version 4 and commit SHA - (2d1e07f) - Ali Sajid Imami
-- include cog check in the ci release workflow x2 - (8a28845) - Ali Sajid Imami
-- include cog check in the ci release workflow - (b426c61) - Ali Sajid Imami
-- set harden-runner to audit mode - (083247e) - Ali Sajid Imami
+- (**mise**) convert github actions to use mise instead - (a1d794c) - Ali Sajid Imami
+- (**mise**) update the list of mise tasks - (0e38e75) - Ali Sajid Imami
+- (**mise**) ensure mise tasks call pnpm exec for pnpm binaries - (d902777) - Ali Sajid Imami
+- (**mise**) add a pnpm correct version in package.json - (f43b31e) - Ali Sajid Imami
+- (**mise**) correct the mise install version - (3e0f223) - Ali Sajid Imami
+- (**mise**) convert github actions to use mise instead - (80356a7) - Ali Sajid Imami
+- (**mise**) update the list of mise tasks - (4853cf4) - Ali Sajid Imami
+- (**sonar-cloud**) remove pull_requests: write permission from the workflow - (ace7162) - Ali Sajid Imami
+- fix the calling commands for cocogitto - (cf9d197) - Ali Sajid Imami
+- fix the sha256 hash for softprops/action-gh-release action - (7970a21) - Ali Sajid Imami
+- add the updated cocogitto-based release workflow - (b2014eb) - Ali Sajid Imami
+- ensure only the coverage directory is gitignored - (16dff9c) - Ali Sajid Imami
+- add debug logging to find out why the coverage action is not run - (d948f38) - Ali Sajid Imami
+- upgrade the version of mise task runner - (07ca9e4) - Ali Sajid Imami
+- switch harden-runner to audit network calls - (52395ca) - Ali Sajid Imami
+- fix the build for using node types for v22.x - (1f657bd) - Ali Sajid Imami
+- exclude main.ts from the test coverage - (96ae9e8) - Ali Sajid Imami
+- remove duplicated entries in the ci setup for allowed endpoints - (3a67a76) - Ali Sajid Imami
+- fine tune the mise blcoked calls 2 - (fe7dc46) - Ali Sajid Imami
+- allow further domains for the tasks - (e03f21a) - Ali Sajid Imami
+- allow mise.jdx.dev for the build job - (0414021) - Ali Sajid Imami
+- tweak the allowed endpoint list for experimentation - (dd34f5b) - Ali Sajid Imami
+- add static.crates.io to allowed endpoints - (72b05b4) - Ali Sajid Imami
+- fix deficiencies in the test workflow: - (1b0005d) - Ali Sajid Imami
+- remove duplicate mise entry from workflow - (21d4b82) - Ali Sajid Imami
+- update the harden_runner allows access to other targets - (92707a1) - Ali Sajid Imami
+- update the harden_runner allows access to api.github.com - (a8b3e62) - Ali Sajid Imami
+- update the harden runner network access - (9a2351f) - Ali Sajid Imami
+- add the dependency review github action - (2cd9978) - Ali Sajid Imami
+- fix minor issues with CI - (d3202ef) - Ali Sajid Imami
+- remove the extra unicode character from renovate.json - (f5eed76) - Ali Sajid Imami
+- update the names of Node.js installation actions - (8c6d851) - Ali Sajid Imami
+- simplify mdbook workflow - (0f25b34) - Ali Sajid Imami
+- simplify mdbook workflow - (1a5702e) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (5c5579c) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (437c476) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (76335a1) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (d3e18a2) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (c4c77b1) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (1afc817) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (3092795) - Ali Sajid Imami
+- update caching mechanisms for the github actions - (b9812ea) - Ali Sajid Imami
+- consistent quotation marks in codeql-analysis action - (1c2bd5a) - Ali Sajid Imami
+- add codecov upload action - (33a99ff) - Ali Sajid Imami
+- add sonarcloud GitHub Action integration - (fbe25ef) - Ali Sajid Imami
+- pin the cocogitto-action to version 4 and commit SHA - (8ca40c9) - Ali Sajid Imami
+- include cog check in the ci release workflow x2 - (be047e2) - Ali Sajid Imami
+- include cog check in the ci release workflow - (5bdbed2) - Ali Sajid Imami
+- set harden-runner to audit mode - (357f642) - Ali Sajid Imami
 
-### Miscellaneous Chores
+#### Miscellaneous Chores
 
-- (**config**) migrate config renovate.json - (217ca71) - renovate[bot]
-- (**config**) migrate config renovate.json - (8f683b8) - renovate[bot]
-- (**deps**) update linters - (00b9bed) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.8 - (3698db7) - renovate[bot]
-- (**deps**) update linters to v9.38.0 - (6c5f344) - renovate[bot]
-- (**deps**) update dependency rollup to v4.52.5 - (8b47913) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.23 - (18f9721) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.46.1 - (8d6fc31) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f64b4c4) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.46.0 - (1032566) - renovate[bot]
-- (**deps**) update actions/setup-node action to v6 - (9bca0c7) - renovate[bot]
-- (**deps**) update pnpm to v10.18.2 - (bbfae00) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.17 - (72a852c) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-node-resolve to v16.0.3 - (f0fbfa3) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (d6c6132) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f34197d) - renovate[bot]
-- (**deps**) update linters to v9.37.0 - (e7a2e1b) - renovate[bot]
-- (**deps**) update dependency rollup to v4.52.4 - (39ad955) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5572143) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e338259) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e27da4e) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.1 - (5d1f34e) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (8950cf7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5bebed5) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (f1cee18) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.4 - (7ff2c73) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5b27411) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.0 - (2dc9e30) - renovate[bot]
-- (**deps**) update linters to v9.27.0 - (66f7c3c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1edf63c) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (d98b1a7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f24f63e) - renovate[bot]
-- (**deps**) update pnpm to v10.11.0 - (267dd11) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.1 - (7530d4b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (599a08f) - renovate[bot]
-- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (9cac0d2) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (17b6da1) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.3 - (78e6298) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.0 - (9697480) - renovate[bot]
-- (**deps**) update dependency rollup to v4.40.2 - (80f208e) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ade548b) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (4cc71c5) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (15c24da) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e78eda5) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.15 - (7f9fa91) - renovate[bot]
-- (**deps**) update dependency typescript to v5.9.3 - (51fc041) - renovate[bot]
-- (**deps**) update pnpm to v10.18.0 - (d4c63d8) - renovate[bot]
-- (**deps**) update linters - (2450a17) - renovate[bot]
-- (**deps**) update dependency rollup to v4.52.2 - (3b94205) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4493b65) - renovate[bot]
-- (**deps**) update dependency @vercel/ncc to v0.38.4 - (cc52bc4) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.12 - (ea95370) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.44.0 - (125eca4) - renovate[bot]
-- (**deps**) update dependency rollup to v4.50.2 - (16bbc9d) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.8 - (c60e972) - renovate[bot]
-- (**deps**) update dependency fast-check to v4.3.0 - (076a2a1) - renovate[bot]
-- (**deps**) update linters to v9.35.0 - (6df1f28) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (82e0540) - renovate[bot]
-- (**deps**) update dependency rollup to v4.50.0 - (842a119) - renovate[bot]
-- (**deps**) update linters - (689b23f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e912bda) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (d6cd87d) - renovate[bot]
-- (**deps**) update linters - (e0cd6a4) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.39.0 - (bb8c475) - renovate[bot]
-- (**deps**) update dependency rollup to v4.46.2 - (1cbfe78) - renovate[bot]
-- (**deps**) update dependency typescript to v5.9.2 - (857a34c) - renovate[bot]
-- (**deps**) update dependency rollup to v4.46.1 - (06753ec) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e57d9ef) - renovate[bot]
-- (**deps**) update linters - (bb6fc61) - renovate[bot]
-- (**deps**) update linters - (cea30c4) - renovate[bot]
-- (**deps**) update dependency rollup to v4.45.1 - (f7fdac7) - renovate[bot]
-- (**deps**) update dependency rollup to v4.44.2 - (883e912) - renovate[bot]
-- (**deps**) update dependency fast-check to v4.2.0 - (7af71ef) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.36.0 - (4a8398c) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.4 - (bee0b5f) - renovate[bot]
-- (**deps**) update linters - (1d5bc34) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-typescript to v12.1.4 - (68f6005) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.3 - (628ed43) - renovate[bot]
-- (**deps**) update dependency rollup to v4.44.1 - (1075ae8) - renovate[bot]
-- (**deps**) update linters - (0e01da6) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.7 - (65a7af8) - renovate[bot]
-- (**deps**) update dependency rollup to v4.44.0 - (d1a9511) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.6 - (376ef4f) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-typescript to v12.1.3 - (ff1aaf8) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.2.4 - (11cddc5) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v5 - (a0599a0) - renovate[bot]
-- (**deps**) update linters - (14135aa) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4d9cf0a) - renovate[bot]
-- (**deps**) update linters - (a55ad6b) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.2.2 - (188684c) - renovate[bot]
-- (**deps**) update linters - (bf9f79a) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.2.1 - (fe61673) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (86771ba) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.1 - (61b160a) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (a6c4571) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (7cf3e0a) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.4 - (65eaea0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (416c95f) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.0 - (fc2a88d) - renovate[bot]
-- (**deps**) update linters to v9.27.0 - (94a8765) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5295114) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (53bd857) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9920e1c) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.1 - (8d97cc8) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (66c1b72) - renovate[bot]
-- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (7dc622c) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (58c022b) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.3 - (f37f07e) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.0 - (5618deb) - renovate[bot]
-- (**deps**) update dependency rollup to v4.40.2 - (371c2a0) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (1b5cd3f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4124f9e) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7834dc2) - renovate[bot]
-- (**deps**) update linters to v9.26.0 - (168a741) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.1.44 - (7d8146f) - renovate[bot]
-- (**deps**) update linters - (a964f5e) - renovate[bot]
-- (**deps**) pin dependencies - (66c22d2) - renovate[bot]
-- (**deps**) update pnpm to v10.10.0 - (bdb118d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (8fc1c92) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (df1db49) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.2 - (f3711ea) - renovate[bot]
-- (**deps**) update linters - (371b4e1) - renovate[bot]
-- (**deps**) update linters - (4203a99) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.1.43 - (a7569de) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.30.0 - (ccaaf21) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a62a608) - renovate[bot]
-- (**deps**) pin dependencies - (8327586) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.3.1 - (5a3429a) - renovate[bot]
-- (**deps**) update dependency typescript to v5.8.3 - (c27cb83) - renovate[bot]
-- (**deps**) update linters - (6e180d4) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (501fa7f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1d13429) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.3.0 - (c21eb20) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.28.0 - (3550495) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0d37b0c) - renovate[bot]
-- (**deps**) update linters - (7eb713a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0d50eae) - renovate[bot]
-- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.3 - (5060038) - renovate[bot]
-- (**deps**) update dependency typescript to v5.8.2 - (b9fdbf6) - renovate[bot]
-- (**deps**) update linters - (49c5c1d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f78033c) - renovate[bot]
-- (**deps**) update dependency prettier to v3.5.3 - (f28ab38) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (b0e2176) - renovate[bot]
-- (**deps**) pin dependency @types/eslint to 9.6.1 - (a130f1f) - renovate[bot]
-- (**deps**) update linters - (f391454) - renovate[bot]
-- (**deps**) update dependency @types/eslint\_\_js to v9 - (7e001c2) - renovate[bot]
-- (**deps**) update dependency globals to v16 - (84e160c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0d27f39) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.48.19 - (a2f6859) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4ef05a6) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (df57f70) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (3db7a57) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a550457) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0e99b3c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (82f168f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (01457d3) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f669a18) - renovate[bot]
-- (**deps**) pin dependencies - (577047a) - renovate[bot]
-- (**deps**) update linters - (07344a2) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2ef7d5a) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.10.1 - (7586d4b) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (dc5d3e7) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.9.1 - (94e92df) - renovate[bot]
-- (**deps**) update the github actions and pre-commit - (b9d1447) - Ali Sajid Imami
-- (**deps**) pin dependency ts-node to 10.9.2 - (6187c2e) - renovate[bot]
-- (**deps**) update linters - (452b07c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9830aa8) - renovate[bot]
-- (**deps**) update pre-commit and github actions to v5 - (6a77c22) - renovate[bot]
-- (**deps**) update linters - (ed65842) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.9.0 - (d312f5a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c745403) - renovate[bot]
-- (**deps**) update dependency globals to v15.12.0 - (726de99) - renovate[bot]
-- (**deps**) update linters - (5fbb0d1) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.5 - (99f14c1) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.8.7 - (e58edfb) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.8.4 - (4bbfd83) - renovate[bot]
-- (**deps**) update dependency @types/node to v22 - (fa28c60) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.12.1 - (d085d12) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ca5410d) - renovate[bot]
-- (**deps**) update definitelytyped - (9bbcf20) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.4 - (f5042e3) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.3 - (ec59e42) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.13 - (b85b870) - renovate[bot]
-- (**deps**) update linters to v9.13.0 - (1580c85) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.12 - (5f2ba98) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.10.0 - (8eb8709) - renovate[bot]
-- (**deps**) pin dependencies - (487cdfb) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (d18dc15) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (40f669f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (893ed48) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a6788a7) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (cbe535a) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (60e68c4) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (abac153) - renovate[bot]
-- (**deps**) update pre-commit and github actions to v5 - (e4a6a29) - renovate[bot]
-- (**deps**) update linters - (a491a04) - renovate[bot]
-- (**deps**) update dependency globals to v15.12.0 - (031d365) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1fd69c1) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (ffa5372) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (0eb0372) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5dadd1d) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (84b400b) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (7799a1d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f64ab24) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (26b11f9) - renovate[bot]
-- (**deps**) update pnpm to v9.12.0 - (364b639) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.106.4 - (83073af) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (b1e4ffc) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f44efac) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.9 - (462c6e7) - renovate[bot]
-- (**deps**) update linters - (31e6798) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5101fff) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (92bf90e) - renovate[bot]
-- (**deps**) update dependency @types/jest to v29.5.13 - (1241ac1) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ecc43b3) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.2 - (845295b) - renovate[bot]
-- (**deps**) update pnpm to v9.10.0 - (2120c6a) - renovate[bot]
-- (**deps**) update linters - (dc4c4b0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1e6e13a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ea6c4fd) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.5 - (8467940) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.8.3 - (7f1e6a9) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.4.0 - (2b58b2c) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.3 - (5e259ab) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.8.2 - (e1463f7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (415eabf) - renovate[bot]
-- (**deps**) update linters - (ab6f239) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f895af2) - renovate[bot]
-- (**deps**) update linters to v9.9.1 - (00b62a6) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.2.0 - (a9fdc29) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.4 - (8fdf8f8) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.15.0 - (f29ece2) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (57cce20) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.1.0 - (7991fcb) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (485233f) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.2 - (0e8de08) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.15 - (3480286) - renovate[bot]
-- (**deps**) update pnpm to v9.7.0 - (e4d5f45) - renovate[bot]
-- (**deps**) update linters - (5b18913) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5c32ed5) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.408.2 - (97628b1) - renovate[bot]
-- (**deps**) pin dependency globals to 15.4.0 - (c4820f6) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.374.3 - (4238e3a) - renovate[bot]
-- (**deps**) update pnpm to v8.15.5 - (e007859) - renovate[bot]
-- (**deps**) update dependency typescript to v5.4.3 - (87c3333) - renovate[bot]
-- (**deps**) update linters - (0154783) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.159.1 - (c76f29d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (afdd65c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (cdc2a5b) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.8 - (1247c0b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (73e8784) - renovate[bot]
-- (**deps**) update linters to v9.38.0 - (5a8443d) - renovate[bot]
-- (**deps**) update dependency rollup to v4.52.5 - (6e47ca8) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.23 - (52fdb3a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.155.2 - (f2da336) - renovate[bot]
-- (**deps**) update pnpm to v10.18.3 - (1bd9cad) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.46.1 - (c0b8c20) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (feaad25) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.46.0 - (e751cf6) - renovate[bot]
-- (**deps**) update actions/setup-node action to v6 - (8dcb61a) - renovate[bot]
-- (**deps**) update pnpm to v10.18.2 - (ddc8f85) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.17 - (f2581b0) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-node-resolve to v16.0.3 - (2966fac) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (33fcb32) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (aa77fc7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7973ce1) - renovate[bot]
-- (**deps**) update linters to v9.37.0 - (30df857) - renovate[bot]
-- (**deps**) update dependency rollup to v4.52.4 - (00699c8) - renovate[bot]
-- (**release**) 2.11.1-next.3 [skip ci]\n\n## [2.11.1-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.2...v2.11.1-next.3) (2025-10-05) - (87037d4) - semantic-release-bot
-- (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (7b4170c) - semantic-release-bot
-- (**release**) 2.10.1 [skip ci]\n\n## [2.10.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1) (2025-04-13) - (0d6996b) - semantic-release-bot
-- (**release**) 2.10.0 [skip ci]\n\n# [2.10.0](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0) (2025-04-13) - (61a2edc) - semantic-release-bot
-- (**release**) 2.10.0-next.1 [skip ci]\n\n# [2.10.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0-next.1) (2025-04-13) - (d6bd167) - semantic-release-bot
-- (**release**) 2.9.0 [skip ci]\n\n# [2.9.0](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0) (2025-02-27) - (c01c0cd) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (4b0c348) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (ca474a5) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (c84308a) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (b3c3134) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (9885029) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (512bac4) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (10e9b1e) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (dbdc170) - semantic-release-bot
-- (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (51e0167) - semantic-release-bot
-- (**release**) 2.11.1 [skip ci]\n\n## [2.11.1](https://github.com/AliSajid/random-wait-action/compare/v2.11.0...v2.11.1) (2025-10-29) - (62d2de1) - semantic-release-bot
-- merge pull request #844 from AliSajid/next - (5299588) - Ali Sajid Imami
-- update .gitignore file - (0574fc8) - Ali Sajid Imami
-- fix conflict - (4c6ac0b) - Ali Sajid Imami
+- (**config**) migrate config renovate.json - (0f59c69) - renovate[bot]
+- (**config**) migrate config renovate.json - (ff0bd8f) - renovate[bot]
+- (**config**) migrate config renovate.json - (63663d8) - renovate[bot]
+- (**deps**) lock file maintenance - (81b1770) - renovate[bot]
+- (**deps**) update dependency hk to v1.49.0 - (1549eae) - renovate[bot]
+- (**deps**) update dependency python to v3.14.6 - (e164570) - renovate[bot]
+- (**deps**) update github/codeql-action action to v4.36.3 - (13c1872) - renovate[bot]
+- (**deps**) update actions/dependency-review-action action to v5 - (a52ac38) - renovate[bot]
+- (**deps**) update jdx/mise-action action to v4 - (9091e92) - renovate[bot]
+- (**deps**) update actions/attest-build-provenance action to v4.1.1 - (79b7b42) - renovate[bot]
+- (**deps**) update actions/upload-artifact digest to 043fb46 - (2cb548d) - renovate[bot]
+- (**deps**) update github/codeql-action action to v4.36.2 - (d6efce4) - renovate[bot]
+- (**deps**) update pnpm to v10.34.4 - (4736a37) - renovate[bot]
+- (**deps**) update step-security/harden-runner action to v2.19.4 - (6c3b1af) - renovate[bot]
+- (**deps**) update codecov/codecov-action digest to 0fb7174 - (fde27c4) - renovate[bot]
+- (**deps**) update github/codeql-action digest to 8aad20d - (d5e1082) - renovate[bot]
+- (**deps**) update dependency pkl to v0.31.1 - (5ba69b5) - renovate[bot]
+- (**deps**) update dependency rollup to v4.62.2 - (f6f13cd) - renovate[bot]
+- (**deps**) update jdx/mise-action action to v3.6.3 - (7531bd5) - renovate[bot]
+- (**deps**) update actions/dependency-review-action action to v4.9.0 - (e620290) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.19.15 - (2ba3d58) - renovate[bot]
+- (**deps**) update github artifact actions to v7 - (d61a684) - renovate[bot]
+- (**deps**) update dependency rollup to v4.59.0 - (8efbab5) - renovate[bot]
+- (**deps**) update linters - (103366f) - renovate[bot]
+- (**deps**) update actions/attest-build-provenance action to v4.1.0 - (17b6fec) - renovate[bot]
+- (**deps**) update actions/attest-build-provenance action to v4 - (8a49c73) - renovate[bot]
+- (**deps**) update step-security/harden-runner action to v2.15.0 - (53d779f) - renovate[bot]
+- (**deps**) update linters to v10 - (497fe37) - renovate[bot]
+- (**deps**) update step-security/harden-runner action to v2.14.2 - (c5bbad0) - renovate[bot]
+- (**deps**) update sonarsource/sonarqube-scan-action action to v7 - (29ef51c) - renovate[bot]
+- (**deps**) update actions/checkout action to v6 - (b3a9f97) - renovate[bot]
+- (**deps**) update github artifact actions to v6 - (fa4eb08) - renovate[bot]
+- (**deps**) update cycjimmy/semantic-release-action action to v6 - (29b036e) - renovate[bot]
+- (**deps**) update pnpm to v10.30.1 - (141daf1) - renovate[bot]
+- (**deps**) update dependency rollup to v4.58.0 - (923a1a3) - renovate[bot]
+- (**deps**) update dependency yamllint to v1.38.0 - (d99cd60) - renovate[bot]
+- (**deps**) update actions/dependency-review-action action to v4.8.3 - (2a5dc14) - renovate[bot]
+- (**deps**) update github/codeql-action action to v4.32.4 - (5fd4ae9) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.6.9 - (73cf248) - renovate[bot]
+- (**deps**) update linters - (f15181f) - renovate[bot]
+- (**deps**) update cycjimmy/semantic-release-action action to v5.0.2 - (ac78238) - renovate[bot]
+- (**deps**) update github/codeql-action digest to 89a39a4 - (ecf7736) - renovate[bot]
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.1.4 - (9cb85a8) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.19.11 - (92a33d4) - renovate[bot]
+- (**deps**) update jdx/mise-action action to v3 - (f838053) - renovate[bot]
+- (**deps**) update actions/attest-build-provenance action to v3.2.0 - (0233e2c) - renovate[bot]
+- (**deps**) update dependency node to v22.22.0 - (ee766f5) - renovate[bot]
+- (**deps**) update dependency globals to v17.3.0 - (84416df) - renovate[bot]
+- (**deps**) update dependency pre-commit to v4.5.1 - (b521e8b) - renovate[bot]
+- (**deps**) update pnpm to v10.28.2 - (f4eb166) - renovate[bot]
+- (**deps**) update dependency python to v3.14.3 - (2864666) - renovate[bot]
+- (**deps**) update sonarsource/sonarqube-scan-action action to v5.3.2 - (3e3f35a) - renovate[bot]
+- (**deps**) update dependency cargo:mdbook to 0.5.0 - (6e15c86) - renovate[bot]
+- (**deps**) update actions/checkout action to v4.3.1 - (ec59803) - renovate[bot]
+- (**deps**) update dependency rollup to v4.57.1 - (a310272) - renovate[bot]
+- (**deps**) update codecov/codecov-action digest to 671740a - (82292b9) - renovate[bot]
+- (**deps**) update actions/checkout action to v5.0.1 - (e7fe580) - renovate[bot]
+- (**deps**) update github/codeql-action digest to 45cbd0c - (c826c4f) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.19.9 - (9dd79c5) - renovate[bot]
+- (**deps**) update linters - (9a950d2) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.8 - (65247f0) - renovate[bot]
+- (**deps**) update linters to v9.38.0 - (cccb102) - renovate[bot]
+- (**deps**) update dependency rollup to v4.52.5 - (d7894ad) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.23 - (d906cde) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.46.1 - (046c72b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ca638db) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.46.0 - (8d595ce) - renovate[bot]
+- (**deps**) update actions/setup-node action to v6 - (60be188) - renovate[bot]
+- (**deps**) update pnpm to v10.18.2 - (5db464f) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.17 - (b576038) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-node-resolve to v16.0.3 - (8f3d100) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b27c6fb) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1b614e7) - renovate[bot]
+- (**deps**) update linters to v9.37.0 - (3a05b53) - renovate[bot]
+- (**deps**) update dependency rollup to v4.52.4 - (924ba10) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8aaa272) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (fb82c3c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (80f384d) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.1 - (6f81e3c) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (3d7fd8f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5436bb0) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (3413a01) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.4 - (9de6713) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3a6eff5) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.0 - (17151f0) - renovate[bot]
+- (**deps**) update linters to v9.27.0 - (ffc803b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1765dc8) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (b63948a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d64227f) - renovate[bot]
+- (**deps**) update pnpm to v10.11.0 - (a2e9b61) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.1 - (58bac71) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (df899f2) - renovate[bot]
+- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (7fac4f6) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (d202c22) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.3 - (6dfcb7c) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.0 - (d38d35f) - renovate[bot]
+- (**deps**) update dependency rollup to v4.40.2 - (c56bb8e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c3ddab5) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (a0b2b2f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c783d87) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (cf82a37) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.15 - (517c469) - renovate[bot]
+- (**deps**) update dependency typescript to v5.9.3 - (6433886) - renovate[bot]
+- (**deps**) update pnpm to v10.18.0 - (34ed756) - renovate[bot]
+- (**deps**) update linters - (c59eda3) - renovate[bot]
+- (**deps**) update dependency rollup to v4.52.2 - (4ee3edd) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (cb48902) - renovate[bot]
+- (**deps**) update dependency @vercel/ncc to v0.38.4 - (4622335) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.12 - (4840a11) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.44.0 - (9f4e33c) - renovate[bot]
+- (**deps**) update dependency rollup to v4.50.2 - (98680b5) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.8 - (d8272e0) - renovate[bot]
+- (**deps**) update dependency fast-check to v4.3.0 - (a3a3b82) - renovate[bot]
+- (**deps**) update linters to v9.35.0 - (0ff275f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (60d5c85) - renovate[bot]
+- (**deps**) update dependency rollup to v4.50.0 - (c3bccd0) - renovate[bot]
+- (**deps**) update linters - (cc4718f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7b3bb3d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1458353) - renovate[bot]
+- (**deps**) update linters - (38b984f) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.39.0 - (f20fe2e) - renovate[bot]
+- (**deps**) update dependency rollup to v4.46.2 - (ce10fce) - renovate[bot]
+- (**deps**) update dependency typescript to v5.9.2 - (d91d624) - renovate[bot]
+- (**deps**) update dependency rollup to v4.46.1 - (b98bc3b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4ed2e4c) - renovate[bot]
+- (**deps**) update linters - (952aa6f) - renovate[bot]
+- (**deps**) update linters - (ddb7913) - renovate[bot]
+- (**deps**) update dependency rollup to v4.45.1 - (f13cf9f) - renovate[bot]
+- (**deps**) update dependency rollup to v4.44.2 - (5a18c7d) - renovate[bot]
+- (**deps**) update dependency fast-check to v4.2.0 - (b2a43c3) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.36.0 - (34056da) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.4 - (0b34117) - renovate[bot]
+- (**deps**) update linters - (0307c62) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-typescript to v12.1.4 - (ad06ad5) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.3 - (7fd3116) - renovate[bot]
+- (**deps**) update dependency rollup to v4.44.1 - (1157af4) - renovate[bot]
+- (**deps**) update linters - (3def92a) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.7 - (3385e73) - renovate[bot]
+- (**deps**) update dependency rollup to v4.44.0 - (6f558f6) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.6 - (23bfeee) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-typescript to v12.1.3 - (4b46d40) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.2.4 - (4768636) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v5 - (884a20f) - renovate[bot]
+- (**deps**) update linters - (f5fbfb6) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f2158f3) - renovate[bot]
+- (**deps**) update linters - (5cf4488) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.2.2 - (96b3161) - renovate[bot]
+- (**deps**) update linters - (b3f6306) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.2.1 - (9ce3d53) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (494d72d) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.1 - (a08b2d8) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (e5a00cb) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (aa0b3de) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.4 - (246e6b0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9de6837) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.0 - (f29eca0) - renovate[bot]
+- (**deps**) update linters to v9.27.0 - (7a2769c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (40aeed3) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (cd0e179) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (215e4cd) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.1 - (3d36622) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3e27246) - renovate[bot]
+- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (c7bbcb0) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (3e55f70) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.3 - (7ea8e29) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.0 - (5b98d4e) - renovate[bot]
+- (**deps**) update dependency rollup to v4.40.2 - (5d710f0) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (d490ccf) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7340771) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (614b2ab) - renovate[bot]
+- (**deps**) update linters to v9.26.0 - (49ecf4e) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.1.44 - (aad3f46) - renovate[bot]
+- (**deps**) update linters - (d811a41) - renovate[bot]
+- (**deps**) pin dependencies - (452b958) - renovate[bot]
+- (**deps**) update pnpm to v10.10.0 - (2c89f50) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (6387814) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1428720) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.2 - (1f083c7) - renovate[bot]
+- (**deps**) update linters - (8c28b6c) - renovate[bot]
+- (**deps**) update linters - (e281085) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.1.43 - (96565d3) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.30.0 - (d418702) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (93d4688) - renovate[bot]
+- (**deps**) pin dependencies - (67fa5b4) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.3.1 - (996ac45) - renovate[bot]
+- (**deps**) update dependency typescript to v5.8.3 - (e025a13) - renovate[bot]
+- (**deps**) update linters - (b8f8d16) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (69f09d2) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (84fd7df) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.3.0 - (e46cf7b) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.28.0 - (441cb45) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4238419) - renovate[bot]
+- (**deps**) update linters - (90195cf) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1a5e5b6) - renovate[bot]
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.3 - (cbfddaf) - renovate[bot]
+- (**deps**) update dependency typescript to v5.8.2 - (f773cc7) - renovate[bot]
+- (**deps**) update linters - (5f252f8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c4bbf4f) - renovate[bot]
+- (**deps**) update dependency prettier to v3.5.3 - (d60c0aa) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5d3c2f7) - renovate[bot]
+- (**deps**) pin dependency @types/eslint to 9.6.1 - (7f473b0) - renovate[bot]
+- (**deps**) update linters - (5fc7469) - renovate[bot]
+- (**deps**) update dependency @types/eslint__js to v9 - (38c32ef) - renovate[bot]
+- (**deps**) update dependency globals to v16 - (f957557) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a747b38) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.48.19 - (7605961) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (74637f8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (58bf5d0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ad6fb37) - renovate[bot]
+- (**deps**) renovate updates (#519) - (f865046) - Ali Sajid Imami
+- (**deps**) update pre-commit and github actions - (c8a6170) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5f986ff) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (2198139) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c37d0a1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7902fb5) - renovate[bot]
+- (**deps**) pin dependencies - (71aa015) - renovate[bot]
+- (**deps**) update linters - (e4da6f5) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (bed2862) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.10.1 - (803dbe9) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (3580a98) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.9.1 - (00297f7) - renovate[bot]
+- (**deps**) update the github actions and pre-commit - (7494dd4) - Ali Sajid Imami
+- (**deps**) pin dependency ts-node to 10.9.2 - (2d42d57) - renovate[bot]
+- (**deps**) update linters - (73f3249) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c88aeb6) - renovate[bot]
+- (**deps**) update pre-commit and github actions to v5 - (9aa68ee) - renovate[bot]
+- (**deps**) update linters - (e3808c9) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.9.0 - (bcba1c0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3470285) - renovate[bot]
+- (**deps**) update dependency globals to v15.12.0 - (23525f7) - renovate[bot]
+- (**deps**) update linters - (07b5917) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.5 - (80fbb8a) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.8.7 - (cd5f648) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.8.4 - (eefcac1) - renovate[bot]
+- (**deps**) update dependency @types/node to v22 - (0781ce5) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.12.1 - (73bd260) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3ffdd47) - renovate[bot]
+- (**deps**) update definitelytyped - (c53c113) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.4 - (8c90acc) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.3 - (6d0299d) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.13 - (e7c4a0e) - renovate[bot]
+- (**deps**) update linters to v9.13.0 - (6f3af27) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.12 - (e4340b3) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.10.0 - (53a3fcc) - renovate[bot]
+- (**deps**) pin dependencies - (1d43f7b) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (a1b5d41) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (930d4c7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7a21de2) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (75b1b96) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (dcf802a) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (84b04a2) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (0a0cd9a) - renovate[bot]
+- (**deps**) update pre-commit and github actions to v5 - (95cbaae) - renovate[bot]
+- (**deps**) update linters - (94c8178) - renovate[bot]
+- (**deps**) update dependency globals to v15.12.0 - (de9425e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b66f841) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (f782d74) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (79fef76) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f38827d) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (007e788) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (a74baa0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0c5068f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e24aab7) - renovate[bot]
+- (**deps**) update pnpm to v9.12.0 - (3d72459) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.106.4 - (141d0ac) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5593160) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (658a66b) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.9 - (66e2186) - renovate[bot]
+- (**deps**) update linters - (9c8acdf) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c43f395) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d86507a) - renovate[bot]
+- (**deps**) update dependency @types/jest to v29.5.13 - (1f610de) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (527d218) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.2 - (c8c20d1) - renovate[bot]
+- (**deps**) update pnpm to v9.10.0 - (cad9edc) - renovate[bot]
+- (**deps**) update linters - (158cdf8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (27b1280) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (511c9d4) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.5 - (0a82ccc) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.8.3 - (94a9351) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.4.0 - (4a89997) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.3 - (f8f0ffa) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.8.2 - (1407ab7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (6eaee67) - renovate[bot]
+- (**deps**) update linters - (04c902b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (270e0f7) - renovate[bot]
+- (**deps**) update linters to v9.9.1 - (0d0fc86) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.2.0 - (cbfea81) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.4 - (c211908) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.15.0 - (9b4f5b4) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8c09d1b) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.1.0 - (92fb72f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0fc7256) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.2 - (29ae334) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.15 - (ad4ecc6) - renovate[bot]
+- (**deps**) update pnpm to v9.7.0 - (c83a4b5) - renovate[bot]
+- (**deps**) update linters - (3ba7666) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ef3edd7) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.408.2 - (63518de) - renovate[bot]
+- (**deps**) pin dependency globals to 15.4.0 - (5626b75) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.374.3 - (110bf1c) - renovate[bot]
+- (**deps**) update pnpm to v8.15.5 - (b2ea90c) - renovate[bot]
+- (**deps**) update dependency typescript to v5.4.3 - (9d21541) - renovate[bot]
+- (**deps**) update linters - (427a4c6) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.159.1 - (d9db2f3) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (998c73a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9bbfc46) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.8 - (9176e39) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (96b1205) - renovate[bot]
+- (**deps**) update linters to v9.38.0 - (5bed62a) - renovate[bot]
+- (**deps**) update dependency rollup to v4.52.5 - (a569d11) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.23 - (770bbfd) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.155.2 - (517a2d3) - renovate[bot]
+- (**deps**) update pnpm to v10.18.3 - (6613795) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.46.1 - (a0aa66d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5869c4c) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.46.0 - (f0d1b0a) - renovate[bot]
+- (**deps**) update actions/setup-node action to v6 - (1a709d7) - renovate[bot]
+- (**deps**) update pnpm to v10.18.2 - (0e2f709) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.17 - (57b3aaf) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-node-resolve to v16.0.3 - (bbe480a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e253a18) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (956ee28) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (84733cc) - renovate[bot]
+- (**deps**) update linters to v9.37.0 - (f020f30) - renovate[bot]
+- (**deps**) update dependency rollup to v4.52.4 - (7823257) - renovate[bot]
+- (**release**) 2.11.1-next.3 [skip ci]\n\n## [2.11.1-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.2...v2.11.1-next.3) (2025-10-05) - (78ff864) - semantic-release-bot
+- (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (e3343cb) - semantic-release-bot
+- (**release**) 2.10.1 [skip ci]\n\n## [2.10.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1) (2025-04-13) - (5c44ed8) - semantic-release-bot
+- (**release**) 2.10.0 [skip ci]\n\n# [2.10.0](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0) (2025-04-13) - (1d8a921) - semantic-release-bot
+- (**release**) 2.10.0-next.1 [skip ci]\n\n# [2.10.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0-next.1) (2025-04-13) - (0976732) - semantic-release-bot
+- (**release**) 2.9.0 [skip ci]\n\n# [2.9.0](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0) (2025-02-27) - (00a2912) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (f50181e) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (eceebbb) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (cad64ce) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (1862d47) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (0826d8d) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (6d3646e) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (256f88f) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (45df52b) - semantic-release-bot
+- (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (2cee090) - semantic-release-bot
+- (**release**) 2.11.1 [skip ci]\n\n## [2.11.1](https://github.com/AliSajid/random-wait-action/compare/v2.11.0...v2.11.1) (2025-10-29) - (dc62058) - semantic-release-bot
+- merge pull request #844 from AliSajid/next - (69b9091) - Ali Sajid Imami
+- update .gitignore file - (5101273) - Ali Sajid Imami
+- fix conflict - (2f8ee30) - Ali Sajid Imami
 
-### Style
+#### Style
 
-- align with prettier conventions - (87c942c) - Ali Sajid Imami
-- removed unnecessary quotes from workflow yaml files - (ca338de) - Ali Sajid Imami
-- resolve the markdownlint errors for CHANGELOG.md - (14598f8) - Ali Sajid Imami
-- conform this file to the prettier standard - (10d2444) - Ali Sajid Imami
-- removed unnecessary quotes from workflow yaml files - (52ff91d) - Ali Sajid Imami
-
----
-
-## v2.11.1-next.3 - 2026-02-05
-
-### Tests
-
-- add eslint ignore comments - (7035c83) - Ali Sajid Imami
-- update the test to fix a vitest lint - (2298a5d) - Ali Sajid Imami
-
-### Build system
-
-- merge branch 'main' into next - (da64ab1) - Ali Sajid Imami
-- update the copyright years - (d34b543) - Ali Sajid Imami
-- update dependencies - (7c5190e) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.15 - (9b7ab27) - renovate[bot]
-- (**deps**) update dependency typescript to v5.9.3 - (16e13ba) - renovate[bot]
-- (**deps**) update pnpm to v10.18.0 - (d113d4a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (eaed435) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (91dee0b) - renovate[bot]
-- (**deps**) update linters - (f2e4343) - renovate[bot]
-- (**deps**) update dependency rollup to v4.52.2 - (5b0abb8) - renovate[bot]
-- (**deps**) update pnpm to v10.17.1 - (2fe8e40) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (68903bf) - renovate[bot]
-- (**deps**) update dependency @vercel/ncc to v0.38.4 - (2656795) - renovate[bot]
-- (**deps**) update pnpm to v10.17.0 - (96c4610) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.12 - (96004e5) - renovate[bot]
-- (**deps**) update sonarsource/sonarqube-scan-action action to v6 - (5ce9512) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.44.0 - (ed9a96e) - renovate[bot]
-- (**deps**) update dependency rollup to v4.50.2 - (97ea3bc) - renovate[bot]
-- (**deps**) update dependency globals to v16.4.0 - (6d174d7) - renovate[bot]
-- (**release**) 2.11.1-next.3 [skip ci]\n\n## [2.11.1-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.2...v2.11.1-next.3) (2025-10-05) - (70ef5b6) - semantic-release-bot
-
----
-
-## v2.11.1-next.2 - 2026-02-05
-
-### Bug Fixes
-
-- (**deps**) update dependency true-myth to v9.1.0 - (81fa2d4) - renovate[bot]
-
-### Build system
-
-- update build file - (e2e3989) - Ali Sajid Imami
-- update build file - (c2e5cc1) - Ali Sajid Imami
-- update the provence action - (f4fdc6e) - Ali Sajid Imami
-- bundle dependencies with the package - (ac9db33) - Ali Sajid Imami
-- correct the entrypoint in action.yaml - (51198eb) - Ali Sajid Imami
-- fix test config - (f2280e0) - Ali Sajid Imami
-- clean up build-level warning - (6b44be1) - Ali Sajid Imami
-- add updated dist files - (c17a843) - Ali Sajid Imami
-
-### Continuous Integration
-
-- add an additional item to the allowed items list - (f5d47a9) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**config**) migrate config renovate.json - (2a1609f) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.8 - (3149491) - renovate[bot]
-- (**deps**) update dependency fast-check to v4.3.0 - (9029f18) - renovate[bot]
-- (**deps**) update linters to v9.35.0 - (198949a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (6318c70) - renovate[bot]
-- (**deps**) update dependency rollup to v4.50.0 - (58f0376) - renovate[bot]
-- (**deps**) update linters - (fd9aabd) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (272e27c) - renovate[bot]
-- (**deps**) update pnpm to v10.15.1 - (e948c71) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.66.1 - (66c8042) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.66.0 - (43434a7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ef2cd3f) - renovate[bot]
-- (**deps**) update linters - (cf0e4fa) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0a892f6) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.39.0 - (9d5ffa2) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c4e9ab7) - renovate[bot]
-- (**deps**) update dependency rollup to v4.46.2 - (ad2fc10) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.55.1 - (799461d) - renovate[bot]
-- (**deps**) update dependency typescript to v5.9.2 - (b7c5537) - renovate[bot]
-- (**deps**) update pnpm to v10.14.0 - (8b819e5) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4fd0073) - renovate[bot]
-- (**deps**) update dependency rollup to v4.46.1 - (c878508) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2585007) - renovate[bot]
-- (**deps**) update linters - (8a7661f) - renovate[bot]
-- (**deps**) update linters - (0694b02) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.38.1 - (ff8820d) - renovate[bot]
-- (**deps**) update dependency rollup to v4.45.1 - (0f79229) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4a31c80) - renovate[bot]
-- (**deps**) update dependency rollup to v4.44.2 - (712cb54) - renovate[bot]
-- (**deps**) update dependency fast-check to v4.2.0 - (bce83cc) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.36.0 - (c1dc231) - renovate[bot]
-- (**deps**) update pnpm to v10.13.1 - (d87943a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c2a8a77) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (01ac2ce) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7e2b64f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (d02e168) - renovate[bot]
-- (**deps**) update dependency globals to v16.3.0 - (eace3b2) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.4 - (01ccc1a) - renovate[bot]
-- (**deps**) update linters - (9cd289d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (b91c3cc) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-typescript to v12.1.4 - (2ffa968) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.3.3 - (9bcadb4) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.17.2 - (92e78f8) - renovate[bot]
-- (**deps**) update dependency rollup to v4.44.1 - (05bb394) - renovate[bot]
-- (**deps**) update linters - (d2d53f3) - renovate[bot]
-- (**deps**) update pnpm to v10.12.4 - (c9482a4) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.7 - (9e34e80) - renovate[bot]
-- (**deps**) update dependency rollup to v4.44.0 - (1a2c035) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.6 - (6be1e5c) - renovate[bot]
-- (**deps**) update dependency @rollup/plugin-typescript to v12.1.3 - (3ecb821) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.2.4 - (ca2dc83) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v5 - (c603136) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41 - (6ea912e) - renovate[bot]
-- (**deps**) update pnpm to v10.12.3 - (5c64622) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (28808ad) - renovate[bot]
-- (**deps**) update linters - (8866d10) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e21afa3) - renovate[bot]
-- (**deps**) update linters - (6ab21f6) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.2.2 - (71ca6ae) - renovate[bot]
-- (**deps**) update linters - (1b89b25) - renovate[bot]
-- (**deps**) update pnpm to v10.11.1 - (8c6b854) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.2.1 - (49aff60) - renovate[bot]
-- (**release**) 2.11.1-next.2 [skip ci]\n\n## [2.11.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.1...v2.11.1-next.2) (2025-09-07) - (832ff72) - semantic-release-bot
+- align with prettier conventions - (6bc6056) - Ali Sajid Imami
+- removed unnecessary quotes from workflow yaml files - (0b74d26) - Ali Sajid Imami
+- resolve the markdownlint errors for CHANGELOG.md - (6de14e7) - Ali Sajid Imami
+- conform this file to the prettier standard - (a7a5261) - Ali Sajid Imami
+- removed unnecessary quotes from workflow yaml files - (c84b36a) - Ali Sajid Imami
 
 ---
 
-## v2.11.1-next.1 - 2026-02-05
+## v2.11.1-next.3 - 2025-10-05
 
-### Bug Fixes
+#### Tests
 
-- (**deps**) update dependency true-myth to v9.0.1 - (a66162e) - renovate[bot]
-- (**deps**) update dependency true-myth to v9.0.1 - (4d2380b) - renovate[bot]
-- fix the range on the test - (8f69f66) - Ali Sajid Imami
-- fix the range on the test - (b11c0ad) - Ali Sajid Imami
+- add eslint ignore comments - (4b9460a) - Ali Sajid Imami
+- update the test to fix a vitest lint - (e713edb) - Ali Sajid Imami
 
-### Build system
+#### Build system
 
-- change the name of the attestation file to .intoto.jsonl - (5c62a38) - Ali Sajid Imami
-- update dependencies to latest patches - (699b3c4) - Ali Sajid Imami
-- update the dist file - (76040a3) - Ali Sajid Imami
-- change the name of the attestation file to .intoto.jsonl - (79a5dd3) - Ali Sajid Imami
-- update dependencies to latest patches - (bbfa5c4) - Ali Sajid Imami
-- update the dist file - (83a74d3) - Ali Sajid Imami
+- merge branch 'main' into next - (43f6014) - Ali Sajid Imami
+- update the copyright years - (268f959) - Ali Sajid Imami
+- update dependencies - (968644f) - Ali Sajid Imami
 
-### Continuous Integration
+#### Miscellaneous Chores
 
-- (**codeql-analysis**) remove unnecessary permissions from `codeql-analysis` workflow - (e327e0f) - Ali Sajid Imami
-- (**codeql-analysis**) remove unnecessary permissions from `codeql-analysis` workflow - (131e590) - Ali Sajid Imami
-- (**release**) allow the release workflow to avoid rule violations - (ec1a112) - Ali Sajid Imami
-- (**release**) update release permissions x2 - (a849386) - Ali Sajid Imami
-- (**release**) update release permissions - (3d943ec) - Ali Sajid Imami
-- (**release**) allow the release workflow to avoid rule violations - (370e570) - Ali Sajid Imami
-- (**release**) update release permissions x2 - (1d501b5) - Ali Sajid Imami
-- (**release**) update release permissions - (78708ee) - Ali Sajid Imami
-- (**scorecard**) update the scorecard to use contents-read instead of read-all - (29dde28) - Ali Sajid Imami
-- (**scorecard**) update the scorecard to use contents-read instead of read-all - (f5cac72) - Ali Sajid Imami
-- (**sonar-cloud**) remove pull_requests: write permission from the workflow - (9685845) - Ali Sajid Imami
-- (**sonar-cloud**) remove pull_requests: write permission from the workflow - (888e8df) - Ali Sajid Imami
-- (**sonarcloud**) removed joblevel read permission - (04286f6) - Ali Sajid Imami
-- (**sonarcloud**) removed joblevel read permission - (c44f615) - Ali Sajid Imami
-- (**test**) add top-level read permission to tests - (af963cf) - Ali Sajid Imami
-- (**test**) add top-level read permission to tests - (50d28e9) - Ali Sajid Imami
-- add the dependency review github action - (3341e18) - Ali Sajid Imami
-- add the dependency review github action - (431c5b1) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update pre-commit and github actions - (e080e35) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (884f2ef) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0bf3b96) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.35.0 - (741e03e) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (804df32) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.1 - (1fd9dfe) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (71d7c5c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (8198718) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (c50d1d2) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.4 - (349068a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.26.1 - (2a21299) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (26524e4) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.0 - (c20c150) - renovate[bot]
-- (**deps**) update linters to v9.27.0 - (f2b8b25) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (76b453c) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (39b045a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (45786ba) - renovate[bot]
-- (**deps**) update pnpm to v10.11.0 - (d156afd) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.1 - (bc6e52e) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (639ab92) - renovate[bot]
-- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (7745d93) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (e3ddaac) - renovate[bot]
-- (**deps**) update dependency globals to v16.1.0 - (618422b) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.3 - (a8b67ed) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.0 - (55b4845) - renovate[bot]
-- (**deps**) update dependency rollup to v4.40.2 - (bc1d7ad) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (067bcf6) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (131b743) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e401807) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a69ca64) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2f75bbc) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (463bfe4) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.35.0 - (de56ea7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (3a0ca09) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.1 - (eee34fd) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (0d5dbea) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7b602e8) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (ae253e4) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.4 - (cf2652a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.26.1 - (b026fbd) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (abbc9ad) - renovate[bot]
-- (**deps**) update dependency rollup to v4.41.0 - (4950fd6) - renovate[bot]
-- (**deps**) update linters to v9.27.0 - (e052a83) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (48738e3) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (82700ee) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4e910dd) - renovate[bot]
-- (**deps**) update pnpm to v10.11.0 - (e7ea3d7) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.1 - (4acaae5) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c5d36ad) - renovate[bot]
-- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (aa3d2c9) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (fcd2d99) - renovate[bot]
-- (**deps**) update dependency globals to v16.1.0 - (60f716f) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.3 - (fd705df) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.32.0 - (75249ac) - renovate[bot]
-- (**deps**) update dependency rollup to v4.40.2 - (40cbfd3) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (dc67985) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (63b3834) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (8ef9df3) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (30d7c8b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (92a2210) - renovate[bot]
-- (**deps**) update linters to v9.26.0 - (84e1581) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.1.44 - (36a5157) - renovate[bot]
-- (**deps**) update linters - (af08dd7) - renovate[bot]
-- (**deps**) pin dependencies - (4aa75bd) - renovate[bot]
-- (**deps**) update pnpm to v10.10.0 - (3fbec38) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40 - (1056980) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c059f4f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (56d3c31) - renovate[bot]
-- (**release**) 2.11.1-next.1 [skip ci]\n\n## [2.11.1-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.11.0...v2.11.1-next.1) (2025-06-07) - (a51aa8a) - semantic-release-bot
-- (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (49afa72) - semantic-release-bot
-- (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (b9fe982) - semantic-release-bot
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.15 - (6ade473) - renovate[bot]
+- (**deps**) update dependency typescript to v5.9.3 - (4535f1c) - renovate[bot]
+- (**deps**) update pnpm to v10.18.0 - (53b011b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (857492b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3391d32) - renovate[bot]
+- (**deps**) update linters - (6956efe) - renovate[bot]
+- (**deps**) update dependency rollup to v4.52.2 - (01ce930) - renovate[bot]
+- (**deps**) update pnpm to v10.17.1 - (3daafa1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e9a863e) - renovate[bot]
+- (**deps**) update dependency @vercel/ncc to v0.38.4 - (8f9af0e) - renovate[bot]
+- (**deps**) update pnpm to v10.17.0 - (4507815) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.12 - (e370823) - renovate[bot]
+- (**deps**) update sonarsource/sonarqube-scan-action action to v6 - (f105757) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.44.0 - (8afa633) - renovate[bot]
+- (**deps**) update dependency rollup to v4.50.2 - (6ef8caf) - renovate[bot]
+- (**deps**) update dependency globals to v16.4.0 - (7c669f9) - renovate[bot]
+- (**release**) 2.11.1-next.3 [skip ci]\n\n## [2.11.1-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.2...v2.11.1-next.3) (2025-10-05) - (feb60ec) - semantic-release-bot
 
 ---
 
-## v2.11.0 - 2026-02-05
+## v2.11.1-next.2 - 2025-09-07
 
-### Features
+#### Bug Fixes
 
-- update the build system - (b71b0e4) - Ali Sajid Imami
-- modify it to be an ECMAScript module - (5f31540) - Ali Sajid Imami
+- (**deps**) update dependency true-myth to v9.1.0 - (3eed4ae) - renovate[bot]
 
-### Bug Fixes
+#### Build system
 
-- (**deps**) update dependency true-myth to v9 - (0456a47) - renovate[bot]
-- add necessary rollup cli as a devDep - (a002792) - Ali Sajid Imami
-- add necessary deps for rollup - (c598e34) - Ali Sajid Imami
+- update build file - (aa8e276) - Ali Sajid Imami
+- update build file - (da73320) - Ali Sajid Imami
+- update the provence action - (55808e5) - Ali Sajid Imami
+- bundle dependencies with the package - (001d3e1) - Ali Sajid Imami
+- correct the entrypoint in action.yaml - (241548b) - Ali Sajid Imami
+- fix test config - (2182106) - Ali Sajid Imami
+- clean up build-level warning - (2a21f1c) - Ali Sajid Imami
+- add updated dist files - (58c9ef4) - Ali Sajid Imami
 
-### Build system
+#### Continuous Integration
 
-- update the pnpm run scripts - (2b66b88) - Ali Sajid Imami
-- update the eslint and tsconfig configs - (3b20686) - Ali Sajid Imami
-- add a rollup config - (7dca49a) - Ali Sajid Imami
-- update deps - (13907bd) - Ali Sajid Imami
+- add an additional item to the allowed items list - (7f3ef19) - Ali Sajid Imami
 
-### Miscellaneous Chores
+#### Miscellaneous Chores
 
-- (**deps**) update pre-commit and github actions - (d452717) - renovate[bot]
-- (**deps**) update pnpm to v10.9.0 - (4405586) - renovate[bot]
-- (**deps**) update vitest monorepo to v3.1.2 - (d01f1e7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4a204f7) - renovate[bot]
-- (**deps**) update linters - (5e62cdd) - renovate[bot]
-- (**deps**) update linters - (67296a5) - renovate[bot]
-- (**deps**) update dependency @vitest/eslint-plugin to v1.1.43 - (94c560e) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e0582ac) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c204a7e) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.251.0 - (8404ce3) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.250.1 - (09509c2) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.30.0 - (bffcfd6) - renovate[bot]
-- (**deps**) update pnpm to v10.8.1 - (4f42337) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.248.1 - (1ada04b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c8e81fd) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (fe2de64) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f0388ef) - renovate[bot]
-- (**release**) 2.11.0 [skip ci]\n\n# [2.11.0](https://github.com/AliSajid/random-wait-action/compare/v2.10.1...v2.11.0) (2025-04-29) - (cd64508) - semantic-release-bot
-- (**release**) 2.11.0-next.1 [skip ci]\n\n# [2.11.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.1...v2.11.0-next.1) (2025-04-23) - (3472399) - semantic-release-bot
-
-### Style
-
-- ensure prettier and eslint have the same config - (a97c841) - Ali Sajid Imami
-- add semicolon at the end of lines - (1cd0b7d) - Ali Sajid Imami
-
----
-
-## v2.10.1 - 2026-02-05
-
-### Miscellaneous Chores
-
-- (**release**) 2.10.1 [skip ci]\n\n## [2.10.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1) (2025-04-13) - (88ed34a) - semantic-release-bot
-
----
-
-## v2.10.1-next.1 - 2026-02-05
-
-### Miscellaneous Chores
-
-- (**release**) 2.10.1-next.1 [skip ci]\n\n## [2.10.1-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1-next.1) (2025-04-13) - (88fd74e) - semantic-release-bot
-
----
-
-## v2.10.0-next.3 - 2026-02-05
-
-### Bug Fixes
-
-- fix the merge strategy - (64f52b2) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.10.0-next.3 [skip ci]\n\n# [2.10.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.10.0-next.2...v2.10.0-next.3) (2025-04-13) - (507be42) - semantic-release-bot
-
----
-
-## v2.10.0-next.2 - 2026-02-05
-
-### Bug Fixes
-
-- fix two minor issues reported by codacy (#641) - (478cac5) - Ali Sajid Imami
-- fix two minor issues reported by codacy - (a57e359) - Ali Sajid Imami
-
-### Continuous Integration
-
-- add code coverage upload to codacy (#640) - (2406baf) - Ali Sajid Imami
-- add code coverage upload to codacy - (355b140) - Ali Sajid Imami
-- fix minor issues with CI (#639) - (2cd188a) - Ali Sajid Imami
-- fix minor issues with CI - (6600934) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.10.0-next.2 [skip ci]\n\n# [2.10.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.10.0-next.1...v2.10.0-next.2) (2025-04-13) - (118280e) - semantic-release-bot
+- (**config**) migrate config renovate.json - (aa9e97f) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.8 - (893727e) - renovate[bot]
+- (**deps**) update dependency fast-check to v4.3.0 - (3ab883b) - renovate[bot]
+- (**deps**) update linters to v9.35.0 - (286038a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (34f822c) - renovate[bot]
+- (**deps**) update dependency rollup to v4.50.0 - (d8774e0) - renovate[bot]
+- (**deps**) update linters - (62ea813) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ae7e40f) - renovate[bot]
+- (**deps**) update pnpm to v10.15.1 - (2cefae7) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.66.1 - (429b639) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.66.0 - (20fd0ce) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (99ddf88) - renovate[bot]
+- (**deps**) update linters - (d5d6630) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (841ff9b) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.39.0 - (553ec43) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (72c643e) - renovate[bot]
+- (**deps**) update dependency rollup to v4.46.2 - (0d76e38) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.55.1 - (6ffcbbc) - renovate[bot]
+- (**deps**) update dependency typescript to v5.9.2 - (c5dfbf2) - renovate[bot]
+- (**deps**) update pnpm to v10.14.0 - (7a7aa8b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d5a101d) - renovate[bot]
+- (**deps**) update dependency rollup to v4.46.1 - (86ea3a6) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (639dafe) - renovate[bot]
+- (**deps**) update linters - (fdb3e4a) - renovate[bot]
+- (**deps**) update linters - (5739eb0) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.38.1 - (9a7afb8) - renovate[bot]
+- (**deps**) update dependency rollup to v4.45.1 - (d7de05d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (566289a) - renovate[bot]
+- (**deps**) update dependency rollup to v4.44.2 - (ad337b6) - renovate[bot]
+- (**deps**) update dependency fast-check to v4.2.0 - (ba60c35) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.36.0 - (816445e) - renovate[bot]
+- (**deps**) update pnpm to v10.13.1 - (3556221) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f2c45de) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e2aed26) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a94c70f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (aa46547) - renovate[bot]
+- (**deps**) update dependency globals to v16.3.0 - (80e9fcf) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.4 - (d312607) - renovate[bot]
+- (**deps**) update linters - (aae42ee) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7471c89) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-typescript to v12.1.4 - (a56f6d8) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.3.3 - (cb57e79) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41.17.2 - (671101f) - renovate[bot]
+- (**deps**) update dependency rollup to v4.44.1 - (a1bcc66) - renovate[bot]
+- (**deps**) update linters - (9ecd4e1) - renovate[bot]
+- (**deps**) update pnpm to v10.12.4 - (1878d82) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.7 - (ecf906f) - renovate[bot]
+- (**deps**) update dependency rollup to v4.44.0 - (6a3529b) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-commonjs to v28.0.6 - (79c20e6) - renovate[bot]
+- (**deps**) update dependency @rollup/plugin-typescript to v12.1.3 - (67c8983) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.2.4 - (d710fb7) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v5 - (0852b04) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v41 - (0fa5001) - renovate[bot]
+- (**deps**) update pnpm to v10.12.3 - (3e2d12e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e4cbf15) - renovate[bot]
+- (**deps**) update linters - (aa67420) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (52a1d5e) - renovate[bot]
+- (**deps**) update linters - (b756e70) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.2.2 - (415ded0) - renovate[bot]
+- (**deps**) update linters - (ab4650b) - renovate[bot]
+- (**deps**) update pnpm to v10.11.1 - (1ed03a7) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.2.1 - (172c82b) - renovate[bot]
+- (**release**) 2.11.1-next.2 [skip ci]\n\n## [2.11.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.11.1-next.1...v2.11.1-next.2) (2025-09-07) - (99cd77f) - semantic-release-bot
 
 ---
 
-## v2.10.0 - 2026-02-05
+## v2.11.1-next.1 - 2025-06-07
 
-### Miscellaneous Chores
+#### Bug Fixes
 
-- (**release**) 2.10.0 [skip ci]\n\n# [2.10.0](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0) (2025-04-13) - (c6cef66) - semantic-release-bot
+- (**deps**) update dependency true-myth to v9.0.1 - (6c5f3a4) - renovate[bot]
+- (**deps**) update dependency true-myth to v9.0.1 - (a366d07) - renovate[bot]
+- fix the range on the test - (100a01e) - Ali Sajid Imami
+- fix the range on the test - (82d8e27) - Ali Sajid Imami
 
----
+#### Build system
 
-## v2.10.0-next.1 - 2026-02-05
+- change the name of the attestation file to .intoto.jsonl - (f1c6dc9) - Ali Sajid Imami
+- update dependencies to latest patches - (5ad8f80) - Ali Sajid Imami
+- update the dist file - (6e22c30) - Ali Sajid Imami
+- change the name of the attestation file to .intoto.jsonl - (fe90b66) - Ali Sajid Imami
+- update dependencies to latest patches - (caf2897) - Ali Sajid Imami
+- update the dist file - (455c024) - Ali Sajid Imami
 
-### Bug Fixes
+#### Continuous Integration
 
-- (**deps**) pin dependencies - (f6f8b27) - renovate[bot]
+- (**codeql-analysis**) remove unnecessary permissions from `codeql-analysis` workflow - (007224d) - Ali Sajid Imami
+- (**codeql-analysis**) remove unnecessary permissions from `codeql-analysis` workflow - (1fd520b) - Ali Sajid Imami
+- (**release**) allow the release workflow to avoid rule violations - (f908155) - Ali Sajid Imami
+- (**release**) update release permissions x2 - (48f4d60) - Ali Sajid Imami
+- (**release**) update release permissions - (74113a2) - Ali Sajid Imami
+- (**release**) allow the release workflow to avoid rule violations - (5365c96) - Ali Sajid Imami
+- (**release**) update release permissions x2 - (ced5a99) - Ali Sajid Imami
+- (**release**) update release permissions - (29fb4b2) - Ali Sajid Imami
+- (**scorecard**) update the scorecard to use contents-read instead of read-all - (d4973c2) - Ali Sajid Imami
+- (**scorecard**) update the scorecard to use contents-read instead of read-all - (486e2da) - Ali Sajid Imami
+- (**sonar-cloud**) remove pull_requests: write permission from the workflow - (ae0da12) - Ali Sajid Imami
+- (**sonar-cloud**) remove pull_requests: write permission from the workflow - (ad7321d) - Ali Sajid Imami
+- (**sonarcloud**) removed joblevel read permission - (1e462bf) - Ali Sajid Imami
+- (**sonarcloud**) removed joblevel read permission - (a59c808) - Ali Sajid Imami
+- (**test**) add top-level read permission to tests - (483460f) - Ali Sajid Imami
+- (**test**) add top-level read permission to tests - (9036c8e) - Ali Sajid Imami
+- add the dependency review github action - (5d72b18) - Ali Sajid Imami
+- add the dependency review github action - (389e907) - Ali Sajid Imami
 
-### Continuous Integration
+#### Miscellaneous Chores
 
-- remove the extra unicode character from renovate.json - (a01f2ce) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.10.0-next.1 [skip ci]\n\n# [2.10.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0-next.1) (2025-04-13) - (e5164a8) - semantic-release-bot
-
-### Style
-
-- run prettier against all files - (dc3cdd9) - Ali Sajid Imami
-
----
-
-## v2.9.0-next.6 - 2026-02-05
-
-### Bug Fixes
-
-- update the dist files - (49b0ee7) - Ali Sajid Imami
-
-### Build system
-
-- update deps - (0ad60aa) - Ali Sajid Imami
-- update the dist files - (5b8d298) - Ali Sajid Imami
-- standardize yaml file extensions to .yaml - (f00c0f3) - Ali Sajid Imami
-
-### Continuous Integration
-
-- fix the http accesses - (ba1669d) - Ali Sajid Imami
-- harden the runners with explicit outgoing connections - (ecab952) - Ali Sajid Imami
-- update the names of Node.js installation actions - (b5e0597) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.9.0-next.6 [skip ci]\n\n# [2.9.0-next.6](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.5...v2.9.0-next.6) (2025-04-12) - (e2b99f6) - semantic-release-bot
-
----
-
-## v2.9.0-next.5 - 2026-02-05
-
-### Bug Fixes
-
-- mark private vars as readonly - (8e4f697) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.9.0-next.5 [skip ci]\n\n# [2.9.0-next.5](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.4...v2.9.0-next.5) (2025-04-12) - (26eb4c0) - semantic-release-bot
-
----
-
-## v2.9.0-next.4 - 2026-02-05
-
-### Bug Fixes
-
-- (**deps**) update dependency true-myth to v8.5.3 - (d4d6718) - renovate[bot]
-- remove inferrable types from the constants - (43a1448) - Ali Sajid Imami
-
-### Build system
-
-- remove the vitest types from main tsconfig - (a142773) - Ali Sajid Imami
-- ensure vitest types are available to tsconfig - (b82e819) - Ali Sajid Imami
-- fixed the vitest watch behavior - (a769480) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) pin dependencies - (d38b4c5) - renovate[bot]
-- (**release**) 2.9.0-next.4 [skip ci]\n\n# [2.9.0-next.4](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.3...v2.9.0-next.4) (2025-04-12) - (477acfd) - semantic-release-bot
-
----
-
-## v2.9.0-next.3 - 2026-02-05
-
-### Features
-
-- update the structure to use true-myth - (f7041d7) - Ali Sajid Imami
-- add types for errors and success - (0ba550d) - Ali Sajid Imami
-- add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (086b1a6) - Ali Sajid Imami
-
-### Bug Fixes
-
-- refactor input validation to its own function - (f1bc6ab) - Ali Sajid Imami
-
-### Build system
-
-- remove references to jest - (519e292) - Ali Sajid Imami
-- downgrade to the compatible typescript verison - (72434e9) - Ali Sajid Imami
-- remove unused packages - (0e86a7c) - Ali Sajid Imami
-- rename action.yml to action.yaml - (59ce6c5) - Ali Sajid Imami
-
-### Refactoring
-
-- validateInputs now uses the types - (843558f) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update dependency ts-jest to v29.3.1 - (8201249) - renovate[bot]
-- (**deps**) update dependency typescript to v5.8.3 - (b4b9c77) - renovate[bot]
-- (**deps**) update linters - (de950bf) - renovate[bot]
-- (**deps**) update pnpm to v10.8.0 - (947f566) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.47 - (03867d9) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (175a58d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (08e156b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f6e5a53) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.44 - (8769f60) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2a7e812) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (47e4b4b) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.37 - (dc888a2) - renovate[bot]
-- (**deps**) update pnpm to v10.7.0 - (04027cf) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.36 - (154aac4) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2f0db7b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (94dd16d) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.3.0 - (b7bb3b5) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.28.0 - (6dac186) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7ef9b10) - renovate[bot]
-- (**deps**) update linters - (4bdaa9a) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.32 - (37e960f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (91d0c1e) - renovate[bot]
-- (**deps**) update pnpm to v10.6.5 - (9996493) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.30 - (6b01d2d) - renovate[bot]
-- (**deps**) update pnpm to v10.6.4 - (d959eec) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1a262d2) - renovate[bot]
-- (**deps**) update pnpm to v10.6.3 - (8249ea5) - renovate[bot]
-- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.3 - (f0f80cd) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.200.2 - (ef61ef9) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (804be71) - renovate[bot]
-- (**deps**) update dependency typescript to v5.8.2 - (77e681e) - renovate[bot]
-- (**deps**) update pnpm to v10.6.2 - (059531e) - renovate[bot]
-- (**deps**) update linters - (127cc75) - renovate[bot]
-- (**deps**) update dependency node to v22 - (8d99a81) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (875f741) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7ff3a70) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ac1adf9) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.16 - (740fd88) - renovate[bot]
-- (**deps**) update actions/attest-build-provenance action to v2.2.3 - (d8826fe) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4f2b99b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f9b6332) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (3795502) - renovate[bot]
-- (**deps**) update dependency prettier to v3.5.3 - (8fed142) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7c15fcf) - renovate[bot]
-- (**release**) 2.9.0-next.3 [skip ci]\n\n# [2.9.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.2...v2.9.0-next.3) (2025-04-12) - (b9a6aad) - semantic-release-bot
+- (**deps**) update pre-commit and github actions - (eb26a61) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (34e734f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e5ef519) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.35.0 - (6a28026) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5f85460) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.1 - (1f15dc6) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (4a7fe97) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ef99f02) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (c1a5900) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.4 - (a660257) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.26.1 - (8fb573a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1a01974) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.0 - (428a222) - renovate[bot]
+- (**deps**) update linters to v9.27.0 - (f78f4b1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9465f70) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (723ca61) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (359452c) - renovate[bot]
+- (**deps**) update pnpm to v10.11.0 - (8f1a5d7) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.1 - (d6f7020) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4be6a91) - renovate[bot]
+- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (1866a63) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (938f39d) - renovate[bot]
+- (**deps**) update dependency globals to v16.1.0 - (d5251cf) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.3 - (de595c6) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.0 - (76825ef) - renovate[bot]
+- (**deps**) update dependency rollup to v4.40.2 - (e8474aa) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e96d550) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (7bd0703) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (37f898e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c3db0fe) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (74ef600) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (99c9197) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.35.0 - (3437ba1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4a9b4dc) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.1 - (0fe3d13) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v4.4.0 - (b036065) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (cfa2bed) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.1 - (72b141b) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.4 - (9fc5b17) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40.26.1 - (4b95a83) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9410911) - renovate[bot]
+- (**deps**) update dependency rollup to v4.41.0 - (d0d6746) - renovate[bot]
+- (**deps**) update linters to v9.27.0 - (76ff68b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f33f193) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.2.0 - (98023f5) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (dacf574) - renovate[bot]
+- (**deps**) update pnpm to v10.11.0 - (7b0c2c9) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.1 - (742d9d7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d377ef0) - renovate[bot]
+- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.26.0 - (2ad8cf0) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.7.0 - (041acce) - renovate[bot]
+- (**deps**) update dependency globals to v16.1.0 - (58d9add) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.3 - (1eac73c) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.32.0 - (1cebac6) - renovate[bot]
+- (**deps**) update dependency rollup to v4.40.2 - (5655fb7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f583a3d) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4.6.3 - (40824dc) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (cc63a38) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1fb700c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (fc89d06) - renovate[bot]
+- (**deps**) update linters to v9.26.0 - (9155cfc) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.1.44 - (eb351d0) - renovate[bot]
+- (**deps**) update linters - (eea9713) - renovate[bot]
+- (**deps**) pin dependencies - (cb6c8af) - renovate[bot]
+- (**deps**) update pnpm to v10.10.0 - (8f18913) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v40 - (ce08cf5) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a0018a1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5f53fa0) - renovate[bot]
+- (**release**) 2.11.1-next.1 [skip ci]\n\n## [2.11.1-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.11.0...v2.11.1-next.1) (2025-06-07) - (1ece0df) - semantic-release-bot
+- (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (f2bc0b8) - semantic-release-bot
+- (**release**) 2.11.0-next.3 [skip ci]\n\n# [2.11.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.11.0-next.2...v2.11.0-next.3) (2025-06-02) - (5a579d3) - semantic-release-bot
 
 ---
 
-## v2.9.0-next.2 - 2026-02-05
+## v2.11.0 - 2025-04-29
 
-### Features
+#### Features
 
-- add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (0656a45) - Ali Sajid Imami
+- update the build system - (82aada1) - Ali Sajid Imami
+- modify it to be an ECMAScript module - (66366d1) - Ali Sajid Imami
 
-### Bug Fixes
+#### Bug Fixes
 
-- refactor input validation to its own function - (a6caaee) - Ali Sajid Imami
+- (**deps**) update dependency true-myth to v9 - (2e82111) - renovate[bot]
+- add necessary rollup cli as a devDep - (ce9db49) - Ali Sajid Imami
+- add necessary deps for rollup - (048abb5) - Ali Sajid Imami
 
-### Build system
+#### Build system
 
-- remove unused packages - (de57ae7) - Ali Sajid Imami
+- update the pnpm run scripts - (9fbf864) - Ali Sajid Imami
+- update the eslint and tsconfig configs - (6313642) - Ali Sajid Imami
+- add a rollup config - (307b10f) - Ali Sajid Imami
+- update deps - (b01f599) - Ali Sajid Imami
 
-### Miscellaneous Chores
+#### Miscellaneous Chores
 
-- (**release**) 2.9.0-next.2 [skip ci]\n\n# [2.9.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.1...v2.9.0-next.2) (2025-02-28) - (d21b61d) - semantic-release-bot
+- (**deps**) update pre-commit and github actions - (8f0f65c) - renovate[bot]
+- (**deps**) update pnpm to v10.9.0 - (66771bd) - renovate[bot]
+- (**deps**) update vitest monorepo to v3.1.2 - (5705628) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4f1ae9a) - renovate[bot]
+- (**deps**) update linters - (4d20570) - renovate[bot]
+- (**deps**) update linters - (d36824b) - renovate[bot]
+- (**deps**) update dependency @vitest/eslint-plugin to v1.1.43 - (e60648d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e662768) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (6183d5f) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.251.0 - (dc692c9) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.250.1 - (5715dcf) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.30.0 - (168b073) - renovate[bot]
+- (**deps**) update pnpm to v10.8.1 - (2a6c8aa) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.248.1 - (07c01ed) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (28b05d6) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (31e50bb) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ecedfb2) - renovate[bot]
+- (**release**) 2.11.0 [skip ci]\n\n# [2.11.0](https://github.com/AliSajid/random-wait-action/compare/v2.10.1...v2.11.0) (2025-04-29) - (d6a310d) - semantic-release-bot
+- (**release**) 2.11.0-next.1 [skip ci]\n\n# [2.11.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.1...v2.11.0-next.1) (2025-04-23) - (bd7b722) - semantic-release-bot
 
----
+#### Style
 
-## v2.9.0 - 2026-02-05
-
-### Miscellaneous Chores
-
-- (**release**) 2.9.0 [skip ci]\n\n# [2.9.0](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0) (2025-02-27) - (61cd084) - semantic-release-bot
-
----
-
-## v2.9.0-next.1 - 2026-02-05
-
-### Features
-
-- add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (fb3225c) - Ali Sajid Imami
-
-### Bug Fixes
-
-- update the distribution - (31187b8) - Ali Sajid Imami
-- refactor input validation to its own function - (b81099a) - Ali Sajid Imami
-- update the max limit to 2 minutes - (e5f077e) - Ali Sajid Imami
-
-### Documentation
-
-- add a security review for the project - (bea94d7) - Ali Sajid Imami
-
-### Build system
-
-- remove unused packages - (fad49be) - Ali Sajid Imami
-- remove unnecessary package @types/eslint\_\_js - (4f1a0d3) - Ali Sajid Imami
-- remove unnecessary package @types/eslint\_\_js - (9299781) - Ali Sajid Imami
-
-### Continuous Integration
-
-- remove unnecessary workflow - (151ee27) - Ali Sajid Imami
-- remove unnecessary workflow - (2ea2111) - Ali Sajid Imami
-- simplify mdbook workflow - (bb72c78) - Ali Sajid Imami
-- simplify mdbook workflow - (7f6ee06) - Ali Sajid Imami
-- simplify mdbook workflow - (2f5cb52) - Ali Sajid Imami
-- simplify mdbook workflow - (6eb6f05) - Ali Sajid Imami
-- fix a reference in mdbook workflow - (1cc3afe) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update dependency @types/node to v22.13.5 - (0b50595) - renovate[bot]
-- (**deps**) update pnpm to v10.5.2 - (dbc998d) - renovate[bot]
-- (**deps**) pin dependency @types/eslint to 9.6.1 - (8aaa33b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (30d1a7b) - renovate[bot]
-- (**deps**) update dependency globals to v16 - (d7d2fdc) - renovate[bot]
-- (**deps**) update dependency globals to v16 - (16d0651) - renovate[bot]
-- (**deps**) update linters - (0d7ced5) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.2.6 - (2f4f6e0) - renovate[bot]
-- (**deps**) update dependency @types/eslint\_\_js to v9 - (0abbeaa) - renovate[bot]
-- (**deps**) update pnpm to v10.5.1 - (42ddae5) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.13.5 - (7644a0c) - renovate[bot]
-- (**deps**) update dependency globals to v16 - (49d5d3a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (75887f7) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.3 - (d025416) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a4a7d58) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.48.19 - (f193836) - renovate[bot]
-- (**deps**) update linters - (7d17e8d) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.2.6 - (e2dcfba) - renovate[bot]
-- (**deps**) update dependency @types/eslint\_\_js to v9 - (d744785) - renovate[bot]
-- (**deps**) update pnpm to v10.5.1 - (e4de686) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.13.5 - (c3ae2b5) - renovate[bot]
-- (**deps**) update dependency globals to v16 - (e14e35a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (b9f142f) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.49.3 - (89bd580) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (737f958) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.48.19 - (e2bf3af) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v4 - (caf263c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f0801c0) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.24.1 - (1820611) - renovate[bot]
-- (**deps**) update pnpm to v10.4.1 - (720bf94) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (bd0ed15) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.13.4 - (afc96c7) - renovate[bot]
-- (**deps**) update dependency prettier to v3.5.1 - (d1ade0d) - renovate[bot]
-- (**deps**) update pnpm to v10.4.0 - (8095c20) - renovate[bot]
-- (**deps**) update taiki-e/install-action action to v2.48.11 - (37b215a) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2aaaab8) - renovate[bot]
-- (**deps**) update dependency globals to v15.15.0 - (dcb2440) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (27932ee) - renovate[bot]
-- (**deps**) update pnpm to v10.3.0 - (c8331ef) - renovate[bot]
-- (**deps**) update linters - (edc6bcb) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ca26b00) - renovate[bot]
-- (**deps**) update linters - (ae68a73) - renovate[bot]
-- (**deps**) update linters to v9.20.0 - (b5c137f) - renovate[bot]
-- (**release**) 2.9.0-next.1 [skip ci]\n\n# [2.9.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0-next.1) (2025-02-27) - (e5a67ff) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (24e60ee) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (94609d8) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (10bdbb9) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (7977d01) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (c4adf48) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (7266e5d) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (823772a) - semantic-release-bot
+- ensure prettier and eslint have the same config - (578cf97) - Ali Sajid Imami
+- add semicolon at the end of lines - (c051ede) - Ali Sajid Imami
 
 ---
 
-## v2.8.0 - 2026-02-05
+## v2.10.1 - 2025-04-13
 
-### Documentation
+#### Miscellaneous Chores
 
-- add a security assurance case - (1325af1) - Ali Sajid Imami
-- remove docusaurus - (5d33284) - Ali Sajid Imami
-- add documentation in a github pages page - (a342907) - Ali Sajid Imami
-- create a guide directory with mdbook - (b6d84c5) - Ali Sajid Imami
-
-### Build system
-
-- remove unnecessary fiels - (600e13d) - Ali Sajid Imami
-- update logfile - (e7cbb73) - Ali Sajid Imami
-- remove docusaurus docs - (cce870a) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update pre-commit and github actions - (bfd0898) - renovate[bot]
-- (**deps**) update dependency prettier-plugin-multiline-arrays to v4 - (8284661) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.13.1 - (f2d40c1) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v3 - (0933c78) - renovate[bot]
-- (**deps**) update linters - (f17ab55) - renovate[bot]
-- (**deps**) update pnpm to v10 - (899d2e1) - renovate[bot]
-- (**deps**) update pnpm to v9.15.5 - (ba11cfb) - renovate[bot]
-- (**deps**) update dependency typescript to v5.7.3 - (1c486a4) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (cd555fe) - renovate[bot]
-- (**release**) 2.8.0 [skip ci]\n\n# [2.8.0](https://github.com/AliSajid/random-wait-action/compare/v2.7.1...v2.8.0) (2025-02-07) - (01a89d4) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (8888f9d) - semantic-release-bot
+- (**release**) 2.10.1 [skip ci]\n\n## [2.10.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1) (2025-04-13) - (ce4b719) - semantic-release-bot
 
 ---
 
-## v2.8.0-next.3 - 2026-02-05
+## v2.10.1-next.1 - 2025-04-13
 
-### Features
+#### Miscellaneous Chores
 
-- move files to git LFS - (e88f5d4) - Ali Sajid Imami
-
-### Documentation
-
-- update the documentation - (58861c1) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.8.0-next.3 [skip ci]\n\n# [2.8.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.8.0-next.2...v2.8.0-next.3) (2025-02-05) - (6415190) - semantic-release-bot
+- (**release**) 2.10.1-next.1 [skip ci]\n\n## [2.10.1-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.10.0...v2.10.1-next.1) (2025-04-13) - (bc0e2e0) - semantic-release-bot
 
 ---
 
-## v2.8.0-next.2 - 2026-02-05
+## v2.10.0-next.3 - 2025-04-13
 
-### Features
+#### Bug Fixes
 
-- move files to git LFS - (aa93dfe) - Ali Sajid Imami
+- fix the merge strategy - (7de83b4) - Ali Sajid Imami
 
-### Documentation
+#### Miscellaneous Chores
 
-- create a passing build for docusaurus - (f230403) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**release**) 2.8.0-next.2 [skip ci]\n\n# [2.8.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.8.0-next.1...v2.8.0-next.2) (2025-02-05) - (a7ae63e) - semantic-release-bot
+- (**release**) 2.10.0-next.3 [skip ci]\n\n# [2.10.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.10.0-next.2...v2.10.0-next.3) (2025-04-13) - (701a7f6) - semantic-release-bot
 
 ---
 
-## v2.8.0-next.1 - 2026-02-05
+## v2.10.0-next.2 - 2025-04-13
 
-### Features
+#### Bug Fixes
 
-- update the build with tests - (8b9fe7c) - Ali Sajid Imami
+- fix two minor issues reported by codacy (#641) - (2f8f458) - Ali Sajid Imami
+- fix two minor issues reported by codacy - (b73fab3) - Ali Sajid Imami
 
-### Bug Fixes
+#### Continuous Integration
 
-- (**deps**) update docusaurus monorepo to v3.7.0 - (f4520c8) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.3 - (62ff57d) - renovate[bot]
-- (**deps**) update react monorepo to v19 - (038807d) - renovate[bot]
-- (**deps**) update dependency prism-react-renderer to v2.4.1 - (081efc4) - renovate[bot]
-- (**deps**) update dependency typescript to v5.7.2 - (2a44c71) - renovate[bot]
-- update the bundles of generated files - (3c24f10) - Ali Sajid Imami
-- update the bundles of generated files - (73e70a4) - Ali Sajid Imami
+- add code coverage upload to codacy (#640) - (45e0d6b) - Ali Sajid Imami
+- add code coverage upload to codacy - (5f57885) - Ali Sajid Imami
+- fix minor issues with CI (#639) - (6243a76) - Ali Sajid Imami
+- fix minor issues with CI - (d9ace33) - Ali Sajid Imami
 
-### Documentation
+#### Miscellaneous Chores
 
-- (**build**) remove the unnecessary default docusaurus images - (22d53a5) - Ali Sajid Imami
-- (**build**) removed the unnecessary js files - (aab17ce) - Ali Sajid Imami
-- (**reuse**) added license information to the repository for REUSE compliance - (abf0bee) - Ali Sajid Imami
-- add a `SECURITY.md` file - (7072c0c) - Ali Sajid Imami
-- update documentation subdir readme - (82db345) - Ali Sajid Imami
-- add documentation - (07699fc) - Ali Sajid Imami
-- add docs - (99b98be) - Ali Sajid Imami
-- add a `SECURITY.md` file - (5797d36) - Ali Sajid Imami
-
-### Build system
-
-- update dev dependencies - (1398649) - Ali Sajid Imami
-- update versions to fix conflict - (123d76d) - renovate[bot]
-- update the docs building - (2e68dd9) - Ali Sajid Imami
-- fix the formatting check scripts - (1aee5e8) - Ali Sajid Imami
-
-### Continuous Integration
-
-- update the docs deployment workflow - (b3ec1c8) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update linters - (bdc4b3b) - renovate[bot]
-- (**deps**) update dependency globals to v15.13.0 - (9bb3bc4) - renovate[bot]
-- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.2 - (93624df) - renovate[bot]
-- (**deps**) update pnpm to v9.15.4 - (c864082) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7c34b03) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.10.7 - (7d4ac07) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.10.2 - (980932b) - renovate[bot]
-- (**deps**) update dependency prettier-plugin-multiline-arrays to v4 - (fd6f8fc) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (a442ddc) - renovate[bot]
-- (**deps**) update pnpm to v9.15.1 - (92e0f56) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (de5fbd9) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (31472f4) - renovate[bot]
-- (**deps**) update linters - (ac45fc2) - renovate[bot]
-- (**deps**) update dependency globals to v15.14.0 - (4053688) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (5b92bed) - renovate[bot]
-- (**deps**) pin dependencies - (0e4d8f7) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (522249f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e198115) - renovate[bot]
-- (**release**) 2.8.0-next.1 [skip ci]\n\n# [2.8.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.2...v2.8.0-next.1) (2025-02-05) - (a5876a8) - semantic-release-bot
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (02f51f1) - semantic-release-bot
-- (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (3d3c408) - semantic-release-bot
+- (**release**) 2.10.0-next.2 [skip ci]\n\n# [2.10.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.10.0-next.1...v2.10.0-next.2) (2025-04-13) - (83d3329) - semantic-release-bot
 
 ---
 
-## v2.7.1-next.2 - 2026-02-05
+## v2.10.0 - 2025-04-13
 
-### Miscellaneous Chores
+#### Miscellaneous Chores
 
-- (**deps**) update pnpm to v9.14.4 - (37baf99) - renovate[bot]
-- (**deps**) update linters - (b33de84) - renovate[bot]
-- (**deps**) update dependency globals to v15.13.0 - (2b8b187) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (125c598) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.10.1 - (4701621) - renovate[bot]
-- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (8d88869) - semantic-release-bot
+- (**release**) 2.10.0 [skip ci]\n\n# [2.10.0](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0) (2025-04-13) - (63e65f0) - semantic-release-bot
 
 ---
 
-## v2.7.1 - 2026-02-05
+## v2.10.0-next.1 - 2025-04-13
 
-### Bug Fixes
+#### Bug Fixes
 
-- (**deps**) update docusaurus monorepo to v3.6.3 - (07020cc) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.2 - (b8f3639) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.1 - (2eb63f4) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.0 - (e894c1d) - renovate[bot]
-- (**deps**) update dependency @mdx-js/react to v3.1.0 - (cadeca0) - renovate[bot]
-- update the bundles of generated files - (6382931) - Ali Sajid Imami
-- update the bundles of generated files - (bcb25cf) - Ali Sajid Imami
+- (**deps**) pin dependencies - (0ff9d12) - renovate[bot]
 
-### Documentation
+#### Continuous Integration
 
-- (**build**) remove the unnecessary default docusaurus images - (787d81c) - Ali Sajid Imami
-- (**build**) removed the unnecessary js files - (a04a273) - Ali Sajid Imami
-- (**build**) remove the unnecessary default docusaurus images - (feae692) - Ali Sajid Imami
-- (**build**) removed the unnecessary js files - (ace96c1) - Ali Sajid Imami
-- (**reuse**) added license information to the repository for REUSE compliance - (0421c2b) - Ali Sajid Imami
-- (**reuse**) added license information to the repository for REUSE compliance - (8570590) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (90c187a) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (4a031ca) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (44ac04a) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (62b7608) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (639efcc) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (eb516b9) - Ali Sajid Imami
-- update documentation subdir readme - (54c2d1b) - Ali Sajid Imami
-- add documentation - (4d41544) - Ali Sajid Imami
-- add docs - (546df2d) - Ali Sajid Imami
-- add a `SECURITY.md` file - (595debd) - Ali Sajid Imami
-- add a `SECURITY.md` file - (d8fe413) - Ali Sajid Imami
-- add a `SECURITY.md` file - (e5d1e60) - Ali Sajid Imami
-- add a `SECURITY.md` file - (1959787) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (777f72c) - Ali Sajid Imami
-- update documentation subdir readme - (3cbcede) - Ali Sajid Imami
+- remove the extra unicode character from renovate.json - (83433b3) - Ali Sajid Imami
 
-### Build system
+#### Miscellaneous Chores
 
-- fix the formatting check scripts - (78f6329) - Ali Sajid Imami
-- fix the formatting check scripts - (61c60ba) - Ali Sajid Imami
-- update the blast radius for prettier - (f6b3dfe) - Ali Sajid Imami
-- update the blast radius for prettier - (9fd9ace) - Ali Sajid Imami
+- (**release**) 2.10.0-next.1 [skip ci]\n\n# [2.10.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.9.0...v2.10.0-next.1) (2025-04-13) - (4de7952) - semantic-release-bot
 
-### Continuous Integration
+#### Style
 
-- harden security for the sonar-cloud and scorecard workflows - (480be5a) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (3b884f1) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (11d8b71) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (cd3f5d9) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (ca18f37) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (4882913) - Ali Sajid Imami
-- add the npm action so the version bumps are synced - (d8ab7b5) - Ali Sajid Imami
-- add the npm action so the version bumps are synced - (3aa5ed5) - Ali Sajid Imami
-- add pages deployment - (b448030) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (63c0131) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (f41b2ec) - renovate[bot]
-- (**deps**) update dependency typescript to v5.7.2 - (2b4be37) - renovate[bot]
-- (**deps**) update linters - (07d1e0d) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4 - (5d64bb9) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.10.0 - (e56d3de) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1377234) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c5fcb41) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (605fc1f) - renovate[bot]
-- (**deps**) update pnpm to v9.14.2 - (3c9da9d) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.9.1 - (394448e) - renovate[bot]
-- (**deps**) update the github actions and pre-commit - (a3a0699) - Ali Sajid Imami
-- (**deps**) update pre-commit and github actions - (7a214b5) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (7032e75) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (e0dace6) - renovate[bot]
-- (**deps**) update linters - (1e72f4d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (3bed874) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.19.1 - (8b4acab) - renovate[bot]
-- (**deps**) update pnpm to v9.13.2 - (20f85c0) - renovate[bot]
-- (**deps**) update dependency @vercel/ncc to v0.38.3 - (32238af) - renovate[bot]
-- (**deps**) update pre-commit and github actions to v5 - (3fefec2) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (b4ab07a) - renovate[bot]
-- (**deps**) update linters - (13b322f) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.14.0 - (278b0aa) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (fd96e61) - renovate[bot]
-- (**deps**) update linters - (186472a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.7.5 - (434dce4) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.9.0 - (0184520) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2048acc) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39 - (5f8398c) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.142.7 - (9be14b0) - renovate[bot]
-- (**deps**) update dependency globals to v15.12.0 - (1fa4a27) - renovate[bot]
-- (**deps**) update linters - (bd3ea64) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.5 - (5643f45) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.8.7 - (da41ddc) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9b0abad) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.8.4 - (b7102a6) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.135.1 - (213794d) - renovate[bot]
-- (**deps**) update dependency node to v22 - (a8119c7) - renovate[bot]
-- (**deps**) update pnpm to v9.12.3 - (54f3000) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.133.2 - (2dbf909) - renovate[bot]
-- (**deps**) update dependency @types/node to v22 - (7ac0489) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.12.1 - (d626e5c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (34bebf8) - renovate[bot]
-- (**deps**) update definitelytyped - (3f6d951) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.4 - (249319a) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.3 - (9315cf5) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.13 - (d12a64d) - renovate[bot]
-- (**deps**) update linters to v9.13.0 - (70e64ad) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.12 - (2c04382) - renovate[bot]
-- (**deps**) update pnpm to v9.12.2 - (11e569b) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.10.0 - (e2de119) - renovate[bot]
-- (**deps**) update dependency node to v20 - (5832fea) - renovate[bot]
-- (**deps**) pin dependencies - (95bae5a) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (2095b1a) - renovate[bot]
-- (**deps**) pin dependencies - (0eed811) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (b6d87e3) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (ec25c4d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e2b359c) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (189017a) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (0ee94df) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (41c60c8) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (bd23c36) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7eaa92f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a4197fe) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1cbe244) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (6f6079c) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (9e4e0b6) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (e371354) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (891e91d) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (6c075a8) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (a5bf385) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1719033) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e22bef0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (05d7606) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (8e74b11) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (2b806fa) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (9f23664) - renovate[bot]
-- (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (40d889c) - semantic-release-bot
-- update .gitignore file - (be5638c) - Ali Sajid Imami
+- run prettier against all files - (e98978c) - Ali Sajid Imami
 
 ---
 
-## v2.7.1-next.1 - 2026-02-05
+## v2.9.0-next.6 - 2025-04-12
 
-### Bug Fixes
+#### Bug Fixes
 
-- (**deps**) update docusaurus monorepo to v3.6.2 - (fbdfb56) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.1 - (315be3a) - renovate[bot]
-- (**deps**) update docusaurus monorepo to v3.6.0 - (1ca93f6) - renovate[bot]
-- (**deps**) update dependency @mdx-js/react to v3.1.0 - (51cbcf0) - renovate[bot]
-- update the bundles of generated files - (c19e827) - Ali Sajid Imami
-- update the bundles of generated files - (c709a61) - Ali Sajid Imami
+- update the dist files - (7136671) - Ali Sajid Imami
 
-### Documentation
+#### Build system
 
-- add documentation - (fe230aa) - Ali Sajid Imami
-- add docs - (67a7c2b) - Ali Sajid Imami
-- add a `SECURITY.md` file - (c0ef5a0) - Ali Sajid Imami
-- add a `SECURITY.md` file - (7df9102) - Ali Sajid Imami
-- add a `SECURITY.md` file - (b521c8b) - Ali Sajid Imami
-- add a `SECURITY.md` file - (fe0768a) - Ali Sajid Imami
-- add JSDoc documentation to the functions - (87a5d75) - Ali Sajid Imami
+- update deps - (2ecd4ec) - Ali Sajid Imami
+- update the dist files - (dc3034f) - Ali Sajid Imami
+- standardize yaml file extensions to .yaml - (652e626) - Ali Sajid Imami
 
-### Continuous Integration
+#### Continuous Integration
 
-- add pages deployment - (f1a7ea1) - Ali Sajid Imami
-- harden security for the sonar-cloud and scorecard workflows - (83a44ac) - Ali Sajid Imami
+- fix the http accesses - (598e282) - Ali Sajid Imami
+- harden the runners with explicit outgoing connections - (e74c60f) - Ali Sajid Imami
+- update the names of Node.js installation actions - (613c110) - Ali Sajid Imami
 
-### Miscellaneous Chores
+#### Miscellaneous Chores
 
-- (**deps**) update pnpm to v9.14.2 - (8653d87) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.9.1 - (8189581) - renovate[bot]
-- (**deps**) update the github actions and pre-commit - (dd4f919) - Ali Sajid Imami
-- (**deps**) update pre-commit and github actions - (96dc683) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (5815779) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (f0213d5) - renovate[bot]
-- (**deps**) update linters - (5555613) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (49ef16a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.19.1 - (caa3525) - renovate[bot]
-- (**deps**) update pnpm to v9.13.2 - (562f5e8) - renovate[bot]
-- (**deps**) update dependency @vercel/ncc to v0.38.3 - (be5b4d9) - renovate[bot]
-- (**deps**) update pre-commit and github actions to v5 - (a8c7517) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (fd0e1c4) - renovate[bot]
-- (**deps**) update linters - (b2bcb4b) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.14.0 - (0f06444) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (48b7909) - renovate[bot]
-- (**deps**) update linters - (4efcc3a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.7.5 - (fc5397b) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.9.0 - (de5d244) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (3e37124) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39 - (a4659fd) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.142.7 - (405cb20) - renovate[bot]
-- (**deps**) update dependency globals to v15.12.0 - (9ad71ea) - renovate[bot]
-- (**deps**) update linters - (fcdc6ef) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.5 - (1c9efd7) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.8.7 - (570c3da) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1a494e0) - renovate[bot]
-- (**deps**) update dependency @types/node to v22.8.4 - (ae8a7df) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.135.1 - (f7d803d) - renovate[bot]
-- (**deps**) update dependency node to v22 - (14d7d08) - renovate[bot]
-- (**deps**) update pnpm to v9.12.3 - (f92afb9) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.133.2 - (60f6c03) - renovate[bot]
-- (**deps**) update dependency @types/node to v22 - (1f6acb8) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.12.1 - (ea28d56) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (661562c) - renovate[bot]
-- (**deps**) update definitelytyped - (373e889) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.4 - (2ce1f47) - renovate[bot]
-- (**deps**) update dependency jsdoc-to-markdown to v9.0.3 - (7208a3c) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.13 - (dec5fc0) - renovate[bot]
-- (**deps**) update linters to v9.13.0 - (4341540) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.12 - (f48f4af) - renovate[bot]
-- (**deps**) update pnpm to v9.12.2 - (f9aeab2) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.10.0 - (0223621) - renovate[bot]
-- (**deps**) update dependency node to v20 - (bf6ca76) - renovate[bot]
-- (**deps**) pin dependencies - (4dfe0a1) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (efd5fbb) - renovate[bot]
-- (**deps**) pin dependencies - (504cd26) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (a3533d1) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (d1d60aa) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9980ea5) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (75516fa) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (cae959b) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (d1f30f9) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (eb6587d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (fdee652) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c892ac1) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (60c8094) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (414b8de) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (48bf906) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (170b872) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (8f9dd18) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (24d7283) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (a73e7a6) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (97f2718) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (89e5dc7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0d862bb) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (08a9779) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.3 - (a634048) - renovate[bot]
-- (**deps**) pin dependency ts-node to 10.9.2 - (aab9022) - renovate[bot]
-- update .gitignore file - (dc12818) - Ali Sajid Imami
+- (**release**) 2.9.0-next.6 [skip ci]\n\n# [2.9.0-next.6](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.5...v2.9.0-next.6) (2025-04-12) - (390ba2d) - semantic-release-bot
 
 ---
 
-## v2.7.0 - 2026-02-05
+## v2.9.0-next.5 - 2025-04-12
 
-### Continuous Integration
+#### Bug Fixes
 
-- merge pull request #401 from AliSajid/next - (d75d522) - Ali Sajid Imami
-- remove further PNPM versions - (86c75f9) - Ali Sajid Imami
+- mark private vars as readonly - (8b1888d) - Ali Sajid Imami
 
----
+#### Tests
 
-## v2.7.0-next.1 - 2026-02-05
+- (**ci**) update the github action to ensure coverage is uploaded - (94f954f) - Ali Sajid Imami
+- add tests for invalid inputs for `wait` - (07c6eee) - Ali Sajid Imami
+- add tests for the constants - (dea0509) - Ali Sajid Imami
 
-### Miscellaneous Chores
+#### Miscellaneous Chores
 
-- merge branch 'main' into next - (58fe07a) - Ali Sajid Imami
-
----
-
-## v2.6.0 - 2026-02-05
-
-### Features
-
-- update the files with conflicts removed - (174a412) - Ali Sajid Imami
-- update tests with fuzzing - (c1a37d4) - Ali Sajid Imami
-- add an additional check to test for behavior - (d1da64c) - Ali Sajid Imami
-
-### Bug Fixes
-
-- (**deps**) update dependency @actions/core to v1.11.1 - (5bdc0e4) - renovate[bot]
-- (**deps**) update dependency @actions/core to v1.11.0 - (bfbbe7c) - renovate[bot]
-- (**deps**) update dependency @actions/core to v1.11.1 - (5d43793) - renovate[bot]
-- (**deps**) update dependency @actions/core to v1.11.0 - (fa924cc) - renovate[bot]
-- fix an eslint diagnostic - (1e328f7) - Ali Sajid Imami
-- fix the type annotation x2 - (628681d) - Ali Sajid Imami
-
-### Documentation
-
-- update `CONTRIBUTING.md` - (aae7372) - Ali Sajid Imami
-- add a `GOVERNANCE.md` file - (f6342c3) - Ali Sajid Imami
-
-### Tests
-
-- update jest config to typescript - (9659e70) - Ali Sajid Imami
-- update jest config to select proper paths - (dd18f6e) - Ali Sajid Imami
-- add another test - (2f8b189) - Ali Sajid Imami
-- update jest config to typescript - (0bfc413) - Ali Sajid Imami
-- update jest config to select proper paths - (2efb356) - Ali Sajid Imami
-
-### Build system
-
-- correct the version number - (3ca753c) - Ali Sajid Imami
-- add dependency on fast-check - (ddad451) - Ali Sajid Imami
-- add dependency on fast-check - (3e76c55) - Ali Sajid Imami
-- update dependencies - (9f1982e) - Ali Sajid Imami
-- add an env var in mise - (875f7fb) - Ali Sajid Imami
-- add dependency on fast-check - (3171013) - Ali Sajid Imami
-
-### Continuous Integration
-
-- update caching mechanisms for the github actions - (662afa8) - Ali Sajid Imami
-- consistent quotation marks in codeql-analysis action - (f64e596) - Ali Sajid Imami
-- add coverage reporting to sonarcloud - (f0444ab) - Ali Sajid Imami
-- update base directory for sonar - (423ed4d) - Ali Sajid Imami
-- add codecov upload action - (e3dfd5c) - Ali Sajid Imami
-- add sonarcloud GitHub Action integration - (da90329) - Ali Sajid Imami
-- remove hardcoded PNPM version - (28effa3) - Ali Sajid Imami
-- update caching mechanisms for the github actions - (c146370) - Ali Sajid Imami
-- consistent quotation marks in codeql-analysis action - (7755b69) - Ali Sajid Imami
-- add coverage reporting to sonarcloud - (e725f12) - Ali Sajid Imami
-- update base directory for sonar - (3a01b7b) - Ali Sajid Imami
-- add codecov upload action - (a083b70) - Ali Sajid Imami
-- add sonarcloud GitHub Action integration - (f5a1aa1) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update pre-commit and github actions - (9189c1d) - renovate[bot]
-- (**deps**) update linters - (76abbe8) - renovate[bot]
-- (**deps**) update pnpm to v9.12.0 - (46f5429) - renovate[bot]
-- (**deps**) update linters - (4e65fb1) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/pre-commit-hooks to v5 - (c1b62d5) - renovate[bot]
-- (**deps**) update pnpm to v9.12.1 - (b8541fb) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (05d4877) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (65b38b6) - renovate[bot]
-- (**deps**) update pnpm to v9.12.0 - (cb47d90) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.106.4 - (b34da89) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.11 - (7cba841) - renovate[bot]
-- (**deps**) update actions/upload-artifact action to v4 - (2cefb97) - renovate[bot]
-- (**deps**) update dependency globals to v15.11.0 - (fa3d36b) - renovate[bot]
-- (**deps**) update pnpm to v9.12.1 - (a00eef0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c8ed828) - renovate[bot]
-- (**deps**) update linters - (7a4b467) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7149a8c) - renovate[bot]
+- (**release**) 2.9.0-next.5 [skip ci]\n\n# [2.9.0-next.5](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.4...v2.9.0-next.5) (2025-04-12) - (d629a9d) - semantic-release-bot
 
 ---
 
-## v2.6.0-next.1 - 2026-02-05
+## v2.9.0-next.4 - 2025-04-12
 
-### Features
+#### Bug Fixes
 
-- update the files with conflicts removed - (d614a68) - Ali Sajid Imami
-- update tests with fuzzing - (31f80d7) - Ali Sajid Imami
-- add an additional check to test for behavior - (36ac7e2) - Ali Sajid Imami
+- (**deps**) update dependency true-myth to v8.5.3 - (39a290e) - renovate[bot]
+- remove inferrable types from the constants - (053e577) - Ali Sajid Imami
 
-### Bug Fixes
+#### Tests
 
-- (**deps**) update dependency @actions/core to v1.11.1 - (dcb45ce) - renovate[bot]
-- (**deps**) update dependency @actions/core to v1.11.0 - (5174bc4) - renovate[bot]
-- (**deps**) update dependency @actions/core to v1.11.1 - (8b3a6ee) - renovate[bot]
-- (**deps**) update dependency @actions/core to v1.11.0 - (4681d96) - renovate[bot]
-- fix an eslint diagnostic - (470ccbf) - Ali Sajid Imami
-- fix the type annotation x2 - (f639366) - Ali Sajid Imami
+- ensure the property based test for negatives does not generate zero - (ac42660) - Ali Sajid Imami
+- isolate vitest and eslint's typescript config - (1ad02c8) - Ali Sajid Imami
+- update test infrastructure - (ed04c67) - Ali Sajid Imami
 
-### Documentation
+#### Build system
 
-- update `CONTRIBUTING.md` - (e578a15) - Ali Sajid Imami
-- add a `GOVERNANCE.md` file - (f5b1e64) - Ali Sajid Imami
+- remove the vitest types from main tsconfig - (efeab1c) - Ali Sajid Imami
+- ensure vitest types are available to tsconfig - (a60d4d0) - Ali Sajid Imami
+- fixed the vitest watch behavior - (2ce9bfc) - Ali Sajid Imami
 
-### Tests
+#### Miscellaneous Chores
 
-- add another test - (6f08cca) - Ali Sajid Imami
-
-### Build system
-
-- correct the version number - (14b8dae) - Ali Sajid Imami
-- add dependency on fast-check - (ba95f8b) - Ali Sajid Imami
-- add dependency on fast-check - (d3fdf58) - Ali Sajid Imami
-- update dependencies - (d46b975) - Ali Sajid Imami
-- add an env var in mise - (95d9eee) - Ali Sajid Imami
-- add dependency on fast-check - (91877a0) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update linters - (5960c46) - renovate[bot]
-- (**deps**) update pnpm to v9.12.0 - (48332f0) - renovate[bot]
-- (**deps**) update linters - (c4fce1c) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/pre-commit-hooks to v5 - (5923b40) - renovate[bot]
-- (**deps**) update pnpm to v9.12.1 - (cb926af) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (3364b8c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7dbd59b) - renovate[bot]
-- (**deps**) update pnpm to v9.12.0 - (df29c7d) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.106.4 - (70ee7c1) - renovate[bot]
-- (**deps**) pin step-security/harden-runner action to 91182cc - (847f38f) - renovate[bot]
-- (**deps**) pin step-security/harden-runner action to 91182cc - (ad9d83d) - renovate[bot]
+- (**deps**) pin dependencies - (c490ac3) - renovate[bot]
+- (**release**) 2.9.0-next.4 [skip ci]\n\n# [2.9.0-next.4](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.3...v2.9.0-next.4) (2025-04-12) - (130c3fe) - semantic-release-bot
 
 ---
 
-## v2.5.0 - 2026-02-05
+## v2.9.0-next.3 - 2025-04-12
+
+#### Features
+
+- update the structure to use true-myth - (d4cf4a6) - Ali Sajid Imami
+- add types for errors and success - (785f8b5) - Ali Sajid Imami
+- add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (86c1e01) - Ali Sajid Imami
+
+#### Bug Fixes
+
+- refactor input validation to its own function - (496a5f5) - Ali Sajid Imami
+
+#### Tests
+
+- allow coverage json to be generated - (8244337) - Ali Sajid Imami
+
+#### Build system
+
+- remove references to jest - (623b888) - Ali Sajid Imami
+- downgrade to the compatible typescript verison - (9ae9bba) - Ali Sajid Imami
+- remove unused packages - (2334c83) - Ali Sajid Imami
+- rename action.yml to action.yaml - (f0e954d) - Ali Sajid Imami
+
+#### Refactoring
+
+- validateInputs now uses the types - (aa87088) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update dependency ts-jest to v29.3.1 - (af8ccbb) - renovate[bot]
+- (**deps**) update dependency typescript to v5.8.3 - (d47c24f) - renovate[bot]
+- (**deps**) update linters - (c48efa1) - renovate[bot]
+- (**deps**) update pnpm to v10.8.0 - (f083e42) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.47 - (a71974b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8148a99) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5cada5a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (bacad57) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.44 - (e044b15) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f2954b5) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (dae5d26) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.37 - (30d96cf) - renovate[bot]
+- (**deps**) update pnpm to v10.7.0 - (a42ae35) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.36 - (5bb1b16) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (15308d8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5958f75) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.3.0 - (c83fc80) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.28.0 - (27005cb) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3300bc8) - renovate[bot]
+- (**deps**) update linters - (cbed5ea) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.32 - (12b775a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c41f7b9) - renovate[bot]
+- (**deps**) update pnpm to v10.6.5 - (57b9615) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.30 - (c41631b) - renovate[bot]
+- (**deps**) update pnpm to v10.6.4 - (2bcc459) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0a4d477) - renovate[bot]
+- (**deps**) update pnpm to v10.6.3 - (76c6e83) - renovate[bot]
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.3 - (a368527) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.200.2 - (01783ac) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b04d1a5) - renovate[bot]
+- (**deps**) update dependency typescript to v5.8.2 - (5fb8dce) - renovate[bot]
+- (**deps**) update pnpm to v10.6.2 - (b547183) - renovate[bot]
+- (**deps**) update linters - (231a7b9) - renovate[bot]
+- (**deps**) update dependency node to v22 - (6613e7b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9d78c4a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a6f780a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (52bf5df) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.16 - (4559252) - renovate[bot]
+- (**deps**) update actions/attest-build-provenance action to v2.2.3 - (fbe16eb) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (09efaee) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5f2f6ac) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8db49a6) - renovate[bot]
+- (**deps**) update dependency prettier to v3.5.3 - (89b4f6e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (bfff81b) - renovate[bot]
+- (**release**) 2.9.0-next.3 [skip ci]\n\n# [2.9.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.2...v2.9.0-next.3) (2025-04-12) - (700f30c) - semantic-release-bot
 
 ---
 
-## v2.5.0-next.1 - 2026-02-05
+## v2.9.0-next.2 - 2025-02-28
 
-### Features
+#### Features
 
-- update distribution files - (e0bb8ce) - Ali Sajid Imami
+- add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (e467c15) - Ali Sajid Imami
 
-### Documentation
+#### Bug Fixes
 
-- add badges to the repo - (8832ec5) - Ali Sajid Imami
-- add CONTRIBUTING.md - (a4db73a) - Ali Sajid Imami
-- add code_of_conduct.md - (47ad9df) - Ali Sajid Imami
-- fix the SHA for the version - (c01d2fd) - Ali Sajid Imami
-- update the README.md with current versions - (c378ebc) - Ali Sajid Imami
+- refactor input validation to its own function - (6cb6ee1) - Ali Sajid Imami
 
-### Build system
+#### Build system
 
-- ensure the `package.json` uses `pnpm` instead of `npm` - (b2a8baf) - Ali Sajid Imami
-- add stylistic to automerge group - (3140d1a) - Ali Sajid Imami
-- add additional dependency on stylistic rules - (4f02349) - Ali Sajid Imami
-- update the reuse configuration - (6d3c4ca) - Ali Sajid Imami
+- remove unused packages - (5aa8002) - Ali Sajid Imami
 
-### Continuous Integration
+#### Miscellaneous Chores
 
-- update releaserc to generate CHANGELOG - (94bf3b7) - Ali Sajid Imami
-- simplify multiline YAML - (aaddcdc) - Ali Sajid Imami
-- pin the cycjimmy/semantic-release-action to v4.1.0 by SHA - (935fe50) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**config**) migrate config renovate.json - (7ad1da6) - renovate[bot]
-- (**config**) migrate config renovate.json - (0bcca8f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (68f192c) - renovate[bot]
-- (**deps**) update actions/upload-artifact action to v4 - (bc63b32) - renovate[bot]
-- (**deps**) update dependency globals to v15.10.0 - (ae72b84) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.8.0 - (f914668) - renovate[bot]
-- (**deps**) update dependency @vercel/ncc to v0.38.2 - (e9ff544) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.10 - (7663b37) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.101.1 - (002419c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (529a4dd) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (54d112d) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.9 - (a47301b) - renovate[bot]
-- (**deps**) update pnpm to v9.11.0 - (4771946) - renovate[bot]
-- (**deps**) update linters - (153fde4) - renovate[bot]
-- (**deps**) update github/codeql-action action to v3.26.9 - (4db8d70) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0603971) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a5d40f5) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0de6a35) - renovate[bot]
-- (**deps**) update dependency @types/jest to v29.5.13 - (ab410a6) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.88.0 - (a3c9576) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.86.0 - (4b45e0e) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.6.0 - (f5e0261) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (207fed4) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (de0fefc) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.3 - (d65ca02) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.2 - (b7d4869) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.0 - (fb9d3ba) - renovate[bot]
-- (**deps**) update pnpm to v9.10.0 - (c905348) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.76.1 - (d07be80) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.74.1 - (b7e3f12) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.73.3 - (256de85) - renovate[bot]
-- (**deps**) update linters - (228e573) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (82a2991) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (58f6ac7) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.67.4 - (12dbb99) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.5 - (a4ea94e) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.8.3 - (598dab0) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.66.1 - (03d7721) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.4.0 - (50f6725) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.64.0 - (fc6780a) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.3 - (5e64404) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.8.2 - (e49daf6) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9d51b41) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.10 - (808b729) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.101.1 - (31c97d1) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c746393) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ca33d62) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.9 - (b565a52) - renovate[bot]
-- (**deps**) update pnpm to v9.11.0 - (d58989a) - renovate[bot]
-- (**deps**) update linters - (c52fe9f) - renovate[bot]
-- (**deps**) update github/codeql-action action to v3.26.9 - (f6fee28) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1973d61) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (b2fe6fc) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e658054) - renovate[bot]
-- (**deps**) update dependency @types/jest to v29.5.13 - (e535e99) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.88.0 - (4f05c4a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.86.0 - (b2b165e) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.6.0 - (c83cc44) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (379949c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (cfa4fb0) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.3 - (c246651) - renovate[bot]
-- (**deps**) update dependency typescript to v5.6.2 - (e00bf2e) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.0 - (2fbc9e9) - renovate[bot]
-- (**deps**) update pnpm to v9.10.0 - (6be1616) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.76.1 - (5e8f1b9) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.74.1 - (eecb67b) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.73.3 - (957c67f) - renovate[bot]
-- (**deps**) update linters - (a472d55) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1a5db12) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (22f68cf) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.67.4 - (b50d4db) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.5 - (55ca474) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.8.3 - (6d201c1) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.66.1 - (c7505ec) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.4.0 - (6d558b1) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.64.0 - (3d3cf06) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.3 - (6eecd55) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.8.2 - (c5d63b0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (590a32d) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.7.2 - (d58eb47) - renovate[bot]
-- (**deps**) update pnpm to v9.9.0 - (0693826) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.2 - (4e581f8) - renovate[bot]
-- (**deps**) update linters - (b0b4f74) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (302afe9) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.57.0 - (115dfa9) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.56.0 - (a2dd65a) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.55.2 - (a905c93) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f4bb9f8) - renovate[bot]
-- (**deps**) update pnpm to v9.8.0 - (028a876) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.2.5 - (0c81304) - renovate[bot]
-- (**deps**) update linters to v9.9.1 - (667b853) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (990f81a) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.2.0 - (d6a7771) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (cc5e633) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.45.0 - (d45bb33) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (4b5776d) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.1 - (aa1efd3) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.39.6 - (7b5356a) - renovate[bot]
-- (**deps**) update pnpm to v9.7.1 - (e782646) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.4 - (594e262) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.15.0 - (dcf94df) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (f4ae5a0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9fec4c3) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.1.0 - (a5b8926) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (921f986) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.25.3 - (55e10b4) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (db0864e) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.2 - (829e109) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.15 - (dc41f06) - renovate[bot]
-- (**deps**) update pnpm to v9.7.0 - (3668bc9) - renovate[bot]
-- (**deps**) update linters - (467b163) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.23.2 - (b5f7991) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.21.3 - (a582e18) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (c80b7ed) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.7.2 - (722318b) - renovate[bot]
-- (**deps**) update pnpm to v9.9.0 - (f79529e) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.2 - (ff7329a) - renovate[bot]
-- (**deps**) update linters - (9e34919) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0b234e0) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.57.0 - (a9e72c0) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.56.0 - (d27b247) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.55.2 - (669e805) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (48d63d4) - renovate[bot]
-- (**deps**) update pnpm to v9.8.0 - (17ee94c) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.2.5 - (b63b4e1) - renovate[bot]
-- (**deps**) update linters to v9.9.1 - (d3a9823) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a161c44) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.2.0 - (5c6b9eb) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (01141ef) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.45.0 - (4cff7af) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (cd92ea0) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.16.1 - (e35aed5) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.39.6 - (54e50a2) - renovate[bot]
-- (**deps**) update pnpm to v9.7.1 - (56204ca) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.4 - (929034b) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.15.0 - (97d2085) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (ad0092f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (e28140f) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8.1.0 - (157efdd) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1b73629) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.25.3 - (f8a0106) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (9e32f83) - renovate[bot]
-- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.2 - (7bc7ad3) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.15 - (3b48cef) - renovate[bot]
-- (**deps**) update pnpm to v9.7.0 - (9545ebd) - renovate[bot]
-- (**deps**) update linters - (6bee627) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.23.2 - (4b7ee1f) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.21.3 - (96520eb) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (55efc73) - renovate[bot]
-- (**deps**) pin dependency @stylistic/eslint-plugin to 2.6.1 - (8109cf5) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v8 - (dd00cc7) - renovate[bot]
-- (**deps**) update dependency typescript to v5.5.4 - (b21d888) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.13 - (0bd5b81) - renovate[bot]
-- (**deps**) update linters to v9.8.0 - (11a6705) - renovate[bot]
-- (**deps**) update pnpm to v9.6.0 - (ad1e3f8) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v7.18.0 - (9540d3f) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.2.4 - (aaeca99) - renovate[bot]
-- (**deps**) update dependency globals to v15.9.0 - (ac01cab) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.18.4 - (9839644) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.17.1 - (d46ffa0) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (0f924f0) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.10.0 - (3d69c73) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (89462d5) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38 - (1b4262d) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (93bb679) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.440.5 - (6a9c864) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.440.0 - (e293a0c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (29f220b) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.433.2 - (1e3e30c) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.28.0 - (f2c23f1) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.432.0 - (df7d4de) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.431.7 - (5f8d97f) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (1005141) - renovate[bot]
-- (**deps**) update dependency prettier to v3.3.3 - (df26cd2) - renovate[bot]
-- (**deps**) update linters to v9.7.0 - (ce5e3c7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (a4a2a80) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.10 - (826450a) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v7.16.0 - (4d70f1c) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.2.2 - (62a9f3e) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.429.0 - (f83d34c) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7c125c7) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (14e58de) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (7913237) - renovate[bot]
-- (**deps**) update pnpm to v9.5.0 - (c17de4f) - renovate[bot]
-- (**deps**) update dependency globals to v15.8.0 - (4168fc3) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (2edb102) - renovate[bot]
-- (**deps**) update pre-commit hook fsfe/reuse-tool to v4 - (015b5ff) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.424.0 - (26d05f1) - renovate[bot]
-- (**deps**) update dependency typescript-eslint to v7.15.0 - (fa92952) - renovate[bot]
-- (**deps**) update dependency typescript to v5.5.3 - (018f498) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.421.6 - (ecc245b) - renovate[bot]
-- (**deps**) update dependency globals to v15.7.0 - (b543c1f) - renovate[bot]
-- (**deps**) update linters to v9.6.0 - (2a90d6b) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (801b2a9) - renovate[bot]
-- (**deps**) update pre-commit and github actions - (724254b) - renovate[bot]
+- (**release**) 2.9.0-next.2 [skip ci]\n\n# [2.9.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.9.0-next.1...v2.9.0-next.2) (2025-02-28) - (5cb0dfb) - semantic-release-bot
 
 ---
 
-## v2.4.1 - 2026-02-05
+## v2.9.0 - 2025-02-27
 
-### Bug Fixes
+#### Miscellaneous Chores
 
-- update package - (f910971) - Ali Sajid Imami
-
-### Continuous Integration
-
-- increase the permissions for the token - (4726cd8) - Ali Sajid Imami
-- pin dependencies to digests - (bea00f6) - Ali Sajid Imami
-- build provenance action - (e5a9c93) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) pin dependency typescript-eslint to 7.14.1 - (540b133) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.420.0 - (7b980a4) - renovate[bot]
+- (**release**) 2.9.0 [skip ci]\n\n# [2.9.0](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0) (2025-02-27) - (9a3d5f0) - semantic-release-bot
 
 ---
 
-## v2.4.0 - 2026-02-05
+## v2.9.0-next.1 - 2025-02-27
 
-### Features
+#### Features
 
-- updated the dependencies - (0542fe5) - Ali Sajid Imami
+- add MAXIMUM_ALLOWED and MINIMUM_ALLOWED limits - (19bde05) - Ali Sajid Imami
 
-### Build system
+#### Bug Fixes
 
-- (**deps**) update to eslint v9 - (2499eb5) - Ali Sajid Imami
-- update the eslint config - (04d7a7a) - Ali Sajid Imami
-- remove lockfile mainetenace from the renovate config - (03a631e) - Ali Sajid Imami
-- update automerge file - (354168b) - Ali Sajid Imami
-- add automerge bool - (ec5c008) - Ali Sajid Imami
-- remove the CODEOWNERS file - (9152f33) - Ali Sajid Imami
-- add automerge bool - (44ca70c) - Ali Sajid Imami
-- remove the CODEOWNERS file - (11bd1ad) - Ali Sajid Imami
-- update the renovate config to automerge updates - (41ff2fe) - Ali Sajid Imami
-- update the vscode config - (64185f6) - Ali Sajid Imami
-- add the renovate.json config validation to the repo - (47b1f80) - Ali Sajid Imami
+- update the distribution - (a62d6cb) - Ali Sajid Imami
+- refactor input validation to its own function - (af2fc3b) - Ali Sajid Imami
+- update the max limit to 2 minutes - (e992c0b) - Ali Sajid Imami
 
-### Continuous Integration
+#### Documentation
 
-- configure grouping of the package updates - (ce43015) - Ali Sajid Imami
+- add a security review for the project - (ce44e70) - Ali Sajid Imami
 
-### Miscellaneous Chores
+#### Build system
 
-- (**config**) migrate config renovate.json - (50828a6) - renovate[bot]
-- (**deps**) pin dependency @types/eslint\_\_js to 8.42.3 - (1b5e44c) - renovate[bot]
-- (**deps**) update dependency typescript to v5.5.2 - (860bf3b) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.9 - (dc1b68e) - renovate[bot]
-- (**deps**) update pnpm to v9.4.0 - (98f2ee5) - renovate[bot]
-- (**deps**) update dependency globals to v15.6.0 - (db4826f) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.14.1 - (febc4cb) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.1.5 - (9af4401) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.417.1 - (8af30bc) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.415.0 - (a9d2bdf) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.414.1 - (7acb881) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.413.3 - (f77e3af) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.413.2 - (0ca0681) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.412.1 - (3bf000c) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.410.3 - (fddc534) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.409.1 - (9182ff4) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.5.0 - (40ba3fe) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.408.2 - (7e2c5c3) - renovate[bot]
-- (**deps**) pin dependencies - (34ffbe6) - renovate[bot]
-- (**deps**) pin dependency globals to 15.4.0 - (5d4fa98) - renovate[bot]
-- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.18.4 - (5876e6e) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.408.1 - (417e703) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.14.2 - (d9c69c7) - renovate[bot]
-- (**deps**) update pnpm to v9.3.0 - (5dad8e1) - renovate[bot]
-- (**deps**) update pnpm to v9.1.2 - (f4df097) - renovate[bot]
-- (**deps**) pin dependencies - (cae22e6) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.407.4 - (02b768e) - renovate[bot]
-- (**deps**) update github/codeql-action digest to 23acc5c - (419ed3f) - renovate[bot]
-- (**deps**) update actions/checkout digest to 692973e - (bab2e0d) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.406.2 - (70f4184) - renovate[bot]
-- (**deps**) update github/codeql-action digest to 530d4fe - (3f7553f) - renovate[bot]
-- (**deps**) update dependency prettier to v3.3.2 - (b30357d) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.13.0 - (c2d43e1) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.399.9 - (9f0cfae) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.395.0 - (3a8607a) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.6.0 - (4a969aa) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.392.0 - (cefa0d0) - renovate[bot]
-- (**deps**) update dependency prettier to v3.3.1 - (7c2d726) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.390.1 - (b5cacf1) - renovate[bot]
-- (**deps**) update github/codeql-action digest to 2e230e8 - (a8cde69) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.388.1 - (ca57646) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.12.0 - (66f7243) - renovate[bot]
-- (**deps**) update dependency prettier-plugin-multiline-arrays to v3.0.6 - (853dcec) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.385.0 - (28fba06) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.4.0 - (5c403d1) - renovate[bot]
-- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.18.3 - (0f6bb74) - renovate[bot]
-- (**deps**) update github/codeql-action digest to f079b84 - (fad89aa) - renovate[bot]
-- (**deps**) update dependency prettier to v3.3.0 - (9b14a10) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.382.3 - (a746bea) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.381.9 - (3b3680d) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.381.6 - (ba84aab) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.1.4 - (8149765) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.379.0 - (a5c312e) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.11.0 - (95a4b27) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.377.7 - (2ef0f2e) - renovate[bot]
-- (**deps**) update pre-commit hook igorshubovych/markdownlint-cli to v0.41.0 - (2808b33) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.10.0 - (a7ed8a8) - renovate[bot]
-- (**deps**) pin dependencies - (952b3d1) - renovate[bot]
-- (**deps**) pin dependencies - (801d58f) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.377.2 - (b02205c) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.374.3 - (6c9538f) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.375.2 - (5af00e3) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.5.0 - (0b3d584) - renovate[bot]
-- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.374.3 - (a7567b3) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.3.0 - (6e8e81a) - renovate[bot]
-- (**deps**) update pre-commit hook yelp/detect-secrets to v1.5.0 - (0327b6f) - renovate[bot]
-- (**deps**) update pre-commit hook igorshubovych/markdownlint-cli to v0.40.0 - (e11d829) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.3.0 - (de44c9d) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.27.0 - (5e15a4e) - renovate[bot]
-- (**deps**) update dependency ts-jest to v29.1.3 - (6dfce94) - renovate[bot]
+- remove unused packages - (7a9e638) - Ali Sajid Imami
+- remove unnecessary package @types/eslint__js - (e55c97a) - Ali Sajid Imami
+- remove unnecessary package @types/eslint__js - (a7b8531) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- remove unnecessary workflow - (5f10c26) - Ali Sajid Imami
+- remove unnecessary workflow - (bb6be3d) - Ali Sajid Imami
+- simplify mdbook workflow - (c8bb58f) - Ali Sajid Imami
+- simplify mdbook workflow - (8380d23) - Ali Sajid Imami
+- simplify mdbook workflow - (6b01a8d) - Ali Sajid Imami
+- simplify mdbook workflow - (6f5357b) - Ali Sajid Imami
+- fix a reference in mdbook workflow - (64c64d2) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update dependency @types/node to v22.13.5 - (bdb31e6) - renovate[bot]
+- (**deps**) update pnpm to v10.5.2 - (15108c2) - renovate[bot]
+- (**deps**) pin dependency @types/eslint to 9.6.1 - (fbe4462) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (6feb48a) - renovate[bot]
+- (**deps**) update dependency globals to v16 - (8847706) - renovate[bot]
+- (**deps**) update dependency globals to v16 - (38a9b77) - renovate[bot]
+- (**deps**) update linters - (48fe349) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.2.6 - (9e3d187) - renovate[bot]
+- (**deps**) update dependency @types/eslint__js to v9 - (1b6c699) - renovate[bot]
+- (**deps**) update pnpm to v10.5.1 - (d0100da) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.13.5 - (cde3def) - renovate[bot]
+- (**deps**) update dependency globals to v16 - (2ee7ed7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (98abf67) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.3 - (c457b72) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (81b0198) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.48.19 - (acb01e9) - renovate[bot]
+- (**deps**) update linters - (8deb93f) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.2.6 - (5a46886) - renovate[bot]
+- (**deps**) update dependency @types/eslint__js to v9 - (9bd1694) - renovate[bot]
+- (**deps**) update pnpm to v10.5.1 - (9d73b59) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.13.5 - (31aa7d7) - renovate[bot]
+- (**deps**) update dependency globals to v16 - (802af02) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (dc65305) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.49.3 - (1741648) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (427cb3d) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.48.19 - (f98c183) - renovate[bot]
+- (**deps**) renovate updates (#519) - (db97d6d) - Ali Sajid Imami
+- (**deps**) update dependency @stylistic/eslint-plugin to v4 - (0e52f46) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a3060ec) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.24.1 - (cc7624c) - renovate[bot]
+- (**deps**) update pnpm to v10.4.1 - (4a862f8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b0c079d) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.13.4 - (72c0a04) - renovate[bot]
+- (**deps**) update dependency prettier to v3.5.1 - (1e737df) - renovate[bot]
+- (**deps**) update pnpm to v10.4.0 - (641be15) - renovate[bot]
+- (**deps**) update taiki-e/install-action action to v2.48.11 - (2f32903) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8a04aa6) - renovate[bot]
+- (**deps**) update dependency globals to v15.15.0 - (d9221f6) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (054e7d5) - renovate[bot]
+- (**deps**) update pnpm to v10.3.0 - (4ba3c67) - renovate[bot]
+- (**deps**) update linters - (fd84377) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (db3aeec) - renovate[bot]
+- (**deps**) update linters - (fea9d47) - renovate[bot]
+- (**deps**) update linters to v9.20.0 - (ce1d98e) - renovate[bot]
+- (**release**) 2.9.0-next.1 [skip ci]\n\n# [2.9.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.8.0...v2.9.0-next.1) (2025-02-27) - (576fa18) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (6563a06) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (b50e0b7) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (431fd9a) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (421280d) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (2f97d43) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (4f9ca88) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (6408a02) - semantic-release-bot
 
 ---
 
-## v2.3.2 - 2026-02-05
+## v2.8.0 - 2025-02-07
 
-### Bug Fixes
+#### Documentation
 
-- add license for the funding.yaml file - (52790b4) - Ali Sajid Imami
+- add a security assurance case - (1a9ced4) - Ali Sajid Imami
+- remove docusaurus - (8560f2d) - Ali Sajid Imami
+- add documentation in a github pages page - (f203da1) - Ali Sajid Imami
+- create a guide directory with mdbook - (f039502) - Ali Sajid Imami
 
-### Documentation
+#### Build system
 
-- update the badges - (9b1b774) - Ali Sajid Imami
+- remove unnecessary fiels - (d4f94f1) - Ali Sajid Imami
+- update logfile - (9b6c3af) - Ali Sajid Imami
+- remove docusaurus docs - (0ccf1de) - Ali Sajid Imami
 
-### Build system
+#### Miscellaneous Chores
 
-- pin the eslint version to ^8 - (f1ae07a) - Ali Sajid Imami
-- update pre-commit settings - (7084a6b) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update dependency typescript to v5.4.5 - (2215556) - renovate[bot]
-- (**deps**) update pnpm to v9.0.6 - (5ddae84) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.7.1 - (68820f2) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.12.7 - (71095a5) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.7.1 - (aaace6f) - renovate[bot]
-- (**deps**) update dependency typescript to v5.4.5 - (e160cb1) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.1.1 - (364d66a) - renovate[bot]
-- (**deps**) update pnpm to v9 - (e351fdc) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.12.7 - (8103c8f) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.24.0 - (707737e) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.22.0 - (119555d) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.6.0 - (4948537) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.2.0 - (98ce7db) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/pre-commit-hooks to v4.6.0 - (1710489) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28.1.1 - (b6a2bc7) - renovate[bot]
-- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.21.3 - (023cb6e) - renovate[bot]
-- (**deps**) update dependency @types/node to v20.12.5 - (398a3ed) - renovate[bot]
-- (**deps**) update dependency typescript to v5.4.4 - (b14edfe) - renovate[bot]
-- (**deps**) update pnpm to v8.15.6 - (bd65ac7) - renovate[bot]
-- (**deps**) update dependency @typescript-eslint/parser to v7.5.0 - (582abfb) - renovate[bot]
-- (**deps**) update pre-commit hook compilerla/conventional-pre-commit to v3.2.0 - (08d6072) - renovate[bot]
-- (**deps**) update pre-commit hook sirosen/texthooks to v0.6.6 - (69def51) - renovate[bot]
-- (**deps**) update dependency eslint-plugin-jest to v28 - (4f106ca) - renovate[bot]
-- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9 - (fd55806) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (efe6e29) - renovate[bot]
+- (**deps**) renovate updates (#519) - (977fdfe) - Ali Sajid Imami
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v4 - (3d6a7e6) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.13.1 - (af8506e) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v3 - (6dc9c05) - renovate[bot]
+- (**deps**) update linters - (7bbfe95) - renovate[bot]
+- (**deps**) update pnpm to v10 - (d304132) - renovate[bot]
+- (**deps**) update pnpm to v9.15.5 - (1662ded) - renovate[bot]
+- (**deps**) update dependency typescript to v5.7.3 - (13d9845) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a3ff933) - renovate[bot]
+- (**release**) 2.8.0 [skip ci]\n\n# [2.8.0](https://github.com/AliSajid/random-wait-action/compare/v2.7.1...v2.8.0) (2025-02-07) - (edfaf42) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (3b07226) - semantic-release-bot
 
 ---
 
-## v2.3.1 - 2026-02-05
+## v2.8.0-next.3 - 2025-02-05
 
-### Bug Fixes
+#### Features
 
-- ensure the dist files are up to date - (e64e2d7) - Ali Sajid Imami
+- move files to git LFS - (fb5ddfd) - Ali Sajid Imami
 
-### Documentation
+#### Documentation
 
-- add the reuse compliance badge - (7f8f91c) - Ali Sajid Imami
+- update the documentation - (4736a53) - Ali Sajid Imami
 
-### Build system
+#### Miscellaneous Chores
 
-- add reuse compliance - (b0703c7) - Ali Sajid Imami
-- rename the ci workflow files - (5d15f1f) - Ali Sajid Imami
-
-### Continuous Integration
-
-- cleanup the test workflow - (4094412) - Ali Sajid Imami
-- cleanup the codeql-analysis workflow - (17030fb) - Ali Sajid Imami
-- ensure the release runs on the 'next' branch - (06e12d7) - Ali Sajid Imami
+- (**release**) 2.8.0-next.3 [skip ci]\n\n# [2.8.0-next.3](https://github.com/AliSajid/random-wait-action/compare/v2.8.0-next.2...v2.8.0-next.3) (2025-02-05) - (09ccbf8) - semantic-release-bot
 
 ---
 
-## v2.3.0 - 2026-02-05
+## v2.8.0-next.2 - 2025-02-05
 
-### Features
+#### Features
 
-- do not autoformat the dist files - (fda72bd) - Ali Sajid Imami
-- do not autoformat the dist files - (b5a0a13) - Ali Sajid Imami
-- update the binaries - (b18b706) - Ali Sajid Imami
+- move files to git LFS - (a46d730) - Ali Sajid Imami
 
-### Build system
+#### Documentation
 
-- (**deps-dev**) bump typescript from 5.3.3 to 5.4.2 - (ec04a10) - dependabot[bot]
-- (**deps-dev**) bump @typescript-eslint/parser from 7.1.0 to 7.3.1 - (7195751) - dependabot[bot]
-- (**deps-dev**) bump @types/node from 20.11.21 to 20.11.30 - (6608299) - dependabot[bot]
-- (**deps-dev**) bump eslint-plugin-github from 4.10.1 to 4.10.2 - (d80de6c) - dependabot[bot]
-- (**deps-dev**) bump @typescript-eslint/parser from 7.0.2 to 7.1.0 - (51b1612) - dependabot[bot]
-- (**deps-dev**) bump @types/node from 20.11.20 to 20.11.21 - (b9981a0) - dependabot[bot]
-- ensure all dependencies are up to date - (4845a07) - Ali Sajid Imami
-- update things for pre-commit compliance - (859be08) - Ali Sajid Imami
-- update the pre-commit file - (cbfd874) - Ali Sajid Imami
-- update .releaserc to use the 'next' branch - (4730126) - Ali Sajid Imami
-- add .mise.toml file - (e19b018) - Ali Sajid Imami
+- create a passing build for docusaurus - (91e655c) - Ali Sajid Imami
 
-### Continuous Integration
+#### Miscellaneous Chores
 
-- update the renovate config file - (acc6aa2) - Ali Sajid Imami
-- remove the dependabot config file - (54e6ad7) - Ali Sajid Imami
-
-### Miscellaneous Chores
-
-- (**deps**) update pnpm to v8.15.5 - (a85a080) - renovate[bot]
-- (**deps**) update dependency typescript to v5.4.3 - (2280654) - renovate[bot]
-- (**deps**) update dependency typescript to v5.4.3 - (da238df) - renovate[bot]
-- bump version - (d67faf1) - Ali Sajid Imami
+- (**release**) 2.8.0-next.2 [skip ci]\n\n# [2.8.0-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.8.0-next.1...v2.8.0-next.2) (2025-02-05) - (acd2717) - semantic-release-bot
 
 ---
 
-## v2.2.1 - 2026-02-05
+## v2.8.0-next.1 - 2025-02-05
 
-### Bug Fixes
+#### Features
 
-- move github up - (01b5375) - Ali Sajid Imami
+- update the build with tests - (1fde041) - Ali Sajid Imami
 
-### Build system
+#### Bug Fixes
 
-- bump the version number - (8996b49) - Ali Sajid Imami
+- (**deps**) update docusaurus monorepo to v3.7.0 - (e28d948) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.3 - (dd59a6c) - renovate[bot]
+- (**deps**) update react monorepo to v19 - (00d6038) - renovate[bot]
+- (**deps**) update dependency prism-react-renderer to v2.4.1 - (c0d5c91) - renovate[bot]
+- (**deps**) update dependency typescript to v5.7.2 - (b2d0e30) - renovate[bot]
+- update the bundles of generated files - (a8acd11) - Ali Sajid Imami
+- update the bundles of generated files - (56ab8c3) - Ali Sajid Imami
 
----
+#### Documentation
 
-## v2.2.0 - 2026-02-05
+- (**build**) remove the unnecessary default docusaurus images - (d293107) - Ali Sajid Imami
+- (**build**) removed the unnecessary js files - (2d667d2) - Ali Sajid Imami
+- (**reuse**) added license information to the repository for REUSE compliance - (c75939a) - Ali Sajid Imami
+- add a `SECURITY.md` file - (9e88af5) - Ali Sajid Imami
+- update documentation subdir readme - (a31065b) - Ali Sajid Imami
+- add documentation - (d25c0d6) - Ali Sajid Imami
+- add docs - (4861468) - Ali Sajid Imami
+- add a `SECURITY.md` file - (1e22d27) - Ali Sajid Imami
 
-### Features
+#### Build system
 
-- remove eslint warnings - (6ac6cca) - Ali Sajid Imami
+- update dev dependencies - (3bc06fd) - Ali Sajid Imami
+- update versions to fix conflict - (121e138) - renovate[bot]
+- update the docs building - (63f2466) - Ali Sajid Imami
+- fix the formatting check scripts - (b87f938) - Ali Sajid Imami
 
-### Bug Fixes
+#### Continuous Integration
 
-- update the dependencies - (3777703) - Ali Sajid Imami
+- update the docs deployment workflow - (e9c2464) - Ali Sajid Imami
 
-### Build system
+#### Miscellaneous Chores
 
-- (**deps**) bump github/codeql-action from 2 to 3 - (b0d8613) - dependabot[bot]
-- (**deps-dev**) bump @vercel/ncc from 0.36.1 to 0.38.1 - (ac69b0c) - dependabot[bot]
-- ensure version is bumped in package.json - (0462314) - Ali Sajid Imami
-
-### Continuous Integration
-
-- fix releaserc file - (8be67d4) - Ali Sajid Imami
-
-### Style
-
-- remove comments - (833b6e5) - Ali Sajid Imami
-
----
-
-## v2.1.0 - 2026-02-05
-
-### Features
-
-- update dependencies - (ef9ea41) - Ali Sajid Imami
-
----
-
-## v2.0.0 - 2026-02-05
-
-### Features
-
-- update all actions - (58f3883) - Ali Sajid Imami
-
----
-
-## v1.4.0 - 2026-02-05
-
-### Features
-
-- bump to node20 x2 - (16528b8) - Ali Sajid Imami
-
----
-
-## v1.3.0 - 2026-02-05
-
-### Features
-
-- bump to node20 - (ca75f59) - Ali Sajid Imami
-
-### Build system
-
-- (**deps**) upgrade typescript from 4.9.5 to 5.0.3 - (c83196f) - Ali Sajid Imami
-- (**deps**) bump cycjimmy/semantic-release-action from 2 to 3 - (3e06a73) - dependabot[bot]
-- (**deps-dev**) bump @types/node from 18.16.15 to 20.2.4 - (d0ac93e) - dependabot[bot]
-- (**deps-dev**) bump typescript from 4.9.5 to 5.0.3 - (db9dc2b) - dependabot[bot]
+- (**deps**) update linters - (51ae7c5) - renovate[bot]
+- (**deps**) update dependency globals to v15.13.0 - (fec3b87) - renovate[bot]
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v4.0.2 - (4088912) - renovate[bot]
+- (**deps**) update pnpm to v9.15.4 - (493b6b0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (28c4e44) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.10.7 - (45ebfa2) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.10.2 - (69365eb) - renovate[bot]
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v4 - (f208115) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (4375d10) - renovate[bot]
+- (**deps**) update pnpm to v9.15.1 - (e53ecec) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (51fdc60) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4b48c30) - renovate[bot]
+- (**deps**) update linters - (b4f9c41) - renovate[bot]
+- (**deps**) update dependency globals to v15.14.0 - (f1f22cd) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (6e689aa) - renovate[bot]
+- (**deps**) pin dependencies - (09d16f1) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (9c5784f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (bc2ff71) - renovate[bot]
+- (**release**) 2.8.0-next.1 [skip ci]\n\n# [2.8.0-next.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.2...v2.8.0-next.1) (2025-02-05) - (8729bb1) - semantic-release-bot
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (af313db) - semantic-release-bot
+- (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (8d404d6) - semantic-release-bot
 
 ---
 
-## v1.2.0 - 2026-02-05
+## v2.7.1-next.2 - 2024-12-03
 
-### Build system
+#### Miscellaneous Chores
 
-- rebuild dist/ - (52acb7d) - Ali Sajid Imami
-
----
-
-## v1.2.0-beta.1 - 2026-02-05
-
-### Build system
-
-- (**deps**) bump actions/setup-node from 3.5.1 to 3.6.0 - (76690cf) - dependabot[bot]
-- update vercel/ncc package - (3ba8794) - Ali Sajid Imami
-
-### Style
-
-- update the branding for the marketplace - (0d47349) - Ali Sajid Imami
+- (**deps**) update pnpm to v9.14.4 - (4d10169) - renovate[bot]
+- (**deps**) update linters - (633b2af) - renovate[bot]
+- (**deps**) update dependency globals to v15.13.0 - (08c5427) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c9cb13e) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.10.1 - (897424d) - renovate[bot]
+- (**release**) 2.7.1-next.2 [skip ci]\n\n## [2.7.1-next.2](https://github.com/AliSajid/random-wait-action/compare/v2.7.1-next.1...v2.7.1-next.2) (2024-12-03) - (bf49682) - semantic-release-bot
 
 ---
 
-## v1.1.0 - 2026-02-05
+## v2.7.1 - 2024-12-03
 
-### Features
+#### Bug Fixes
 
-- make the input arguments optional - (16e5c59) - Ali Sajid Imami
-- return the correct value from the action - (90ae655) - Ali Sajid Imami
+- (**deps**) update docusaurus monorepo to v3.6.3 - (7a88e42) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.2 - (67229cf) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.1 - (e0be34f) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.0 - (1c4ea1c) - renovate[bot]
+- (**deps**) update dependency @mdx-js/react to v3.1.0 - (4e5a9a4) - renovate[bot]
+- update the bundles of generated files - (b7f2dcc) - Ali Sajid Imami
+- update the bundles of generated files - (ff29e38) - Ali Sajid Imami
 
-### Documentation
+#### Documentation
 
-- update the README with the optional arguments - (02a09a9) - Ali Sajid Imami
-- updated the readme file - (d2f3db7) - Ali Sajid Imami
+- (**build**) remove the unnecessary default docusaurus images - (dcc81b8) - Ali Sajid Imami
+- (**build**) removed the unnecessary js files - (e2d08f1) - Ali Sajid Imami
+- (**build**) remove the unnecessary default docusaurus images - (14d7097) - Ali Sajid Imami
+- (**build**) removed the unnecessary js files - (c00b51c) - Ali Sajid Imami
+- (**reuse**) added license information to the repository for REUSE compliance - (8d68f75) - Ali Sajid Imami
+- (**reuse**) added license information to the repository for REUSE compliance - (228858f) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (bf684ad) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (a035114) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (8c3ef29) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (d9c32aa) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (6f38ae3) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (5e5b70b) - Ali Sajid Imami
+- update documentation subdir readme - (fa82028) - Ali Sajid Imami
+- add documentation - (f139eaf) - Ali Sajid Imami
+- add docs - (7d4e040) - Ali Sajid Imami
+- add a `SECURITY.md` file - (8c6b3a1) - Ali Sajid Imami
+- add a `SECURITY.md` file - (7134eb8) - Ali Sajid Imami
+- add a `SECURITY.md` file - (580bcd2) - Ali Sajid Imami
+- add a `SECURITY.md` file - (d470af6) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (2bd93bb) - Ali Sajid Imami
+- update documentation subdir readme - (b8af0ba) - Ali Sajid Imami
 
-### Tests
+#### Build system
 
-- update test to account for delays - (fdc5949) - Ali Sajid Imami
+- fix the formatting check scripts - (c432b15) - Ali Sajid Imami
+- fix the formatting check scripts - (97d5b58) - Ali Sajid Imami
+- update the blast radius for prettier - (60ac825) - Ali Sajid Imami
+- update the blast radius for prettier - (22b0604) - Ali Sajid Imami
 
-### Build system
+#### Continuous Integration
 
-- fix the multiline error in releaserc - (4223eaa) - Ali Sajid Imami
-- fix the version configuration - (65b148c) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (2151d91) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (cf71885) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (445d818) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (96d7e15) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (162b3d9) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (c8ed915) - Ali Sajid Imami
+- add the npm action so the version bumps are synced - (8992e52) - Ali Sajid Imami
+- add the npm action so the version bumps are synced - (e5e8858) - Ali Sajid Imami
+- add pages deployment - (0129581) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (3e77ed1) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update dependency jsdoc-to-markdown to v9.1.1 - (fbee491) - renovate[bot]
+- (**deps**) update dependency typescript to v5.7.2 - (0c056d8) - renovate[bot]
+- (**deps**) update linters - (b3ba06d) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v4 - (7756088) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.10.0 - (3863d44) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (2a236d1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4b53b59) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (756fd97) - renovate[bot]
+- (**deps**) update pnpm to v9.14.2 - (19c1ac8) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.9.1 - (8e5787e) - renovate[bot]
+- (**deps**) update the github actions and pre-commit - (f1cfcd9) - Ali Sajid Imami
+- (**deps**) update pre-commit and github actions - (aecb33f) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (dfca131) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (a7f4ae1) - renovate[bot]
+- (**deps**) update linters - (d2f44b4) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (94c1b63) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.19.1 - (507cdcf) - renovate[bot]
+- (**deps**) update pnpm to v9.13.2 - (a1eb6bf) - renovate[bot]
+- (**deps**) update dependency @vercel/ncc to v0.38.3 - (44b1cc0) - renovate[bot]
+- (**deps**) update pre-commit and github actions to v5 - (8327602) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (84ae2f8) - renovate[bot]
+- (**deps**) update linters - (9ac415e) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.14.0 - (50bfd11) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (402a3d4) - renovate[bot]
+- (**deps**) update linters - (668800c) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.7.5 - (206a7f0) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.9.0 - (4218e8d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b3e2999) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39 - (61e3cfe) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.142.7 - (9085b00) - renovate[bot]
+- (**deps**) update dependency globals to v15.12.0 - (bd1a9ef) - renovate[bot]
+- (**deps**) update linters - (abe44fa) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.5 - (f511dd5) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.8.7 - (b793b5e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (3c6aec9) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.8.4 - (df2450b) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.135.1 - (7978483) - renovate[bot]
+- (**deps**) update dependency node to v22 - (f974ef3) - renovate[bot]
+- (**deps**) update pnpm to v9.12.3 - (0f3c7ca) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.133.2 - (c32909d) - renovate[bot]
+- (**deps**) update dependency @types/node to v22 - (2910eac) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.12.1 - (5c50907) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1ed3d43) - renovate[bot]
+- (**deps**) update definitelytyped - (f625d10) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.4 - (2eaf39b) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.3 - (182cd6d) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.13 - (e331f87) - renovate[bot]
+- (**deps**) update linters to v9.13.0 - (8cba61d) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.12 - (2a39711) - renovate[bot]
+- (**deps**) update pnpm to v9.12.2 - (55647d4) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.10.0 - (1a687d1) - renovate[bot]
+- (**deps**) update dependency node to v20 - (15a7ad4) - renovate[bot]
+- (**deps**) pin dependencies - (0003afe) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (4c37423) - renovate[bot]
+- (**deps**) pin dependencies - (c63968f) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (aa1e0ec) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (680c810) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (edd3a57) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (b89d54b) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (8d4df10) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (473ed99) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (702e24d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (01241f0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c674bd4) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5c788a5) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (5ec6b7c) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (73ee545) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (635d05b) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (b7a2602) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (9097734) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (b036705) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (47c0d47) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d2f755d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5190f60) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (477ba84) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (0abeb69) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (d2cbe26) - renovate[bot]
+- (**release**) 2.7.1 [skip ci]\n\n## [2.7.1](https://github.com/AliSajid/random-wait-action/compare/v2.7.0...v2.7.1) (2024-12-03) - (5fd1b67) - semantic-release-bot
+- update .gitignore file - (8e48157) - Ali Sajid Imami
 
 ---
 
-## v1.1.0-beta.1 - 2026-02-05
+## v2.7.1-next.1 - 2024-11-20
 
-### Build system
+#### Bug Fixes
 
-- fix the multiline error in releaserc - (b35cc80) - Ali Sajid Imami
-- fix the version configuration - (8ef2c56) - Ali Sajid Imami
+- (**deps**) update docusaurus monorepo to v3.6.2 - (0bc80b0) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.1 - (a8343af) - renovate[bot]
+- (**deps**) update docusaurus monorepo to v3.6.0 - (eeb2805) - renovate[bot]
+- (**deps**) update dependency @mdx-js/react to v3.1.0 - (3037d01) - renovate[bot]
+- update the bundles of generated files - (18c8291) - Ali Sajid Imami
+- update the bundles of generated files - (5090cef) - Ali Sajid Imami
+
+#### Documentation
+
+- add documentation - (bc534dc) - Ali Sajid Imami
+- add docs - (2d59089) - Ali Sajid Imami
+- add a `SECURITY.md` file - (99b5b97) - Ali Sajid Imami
+- add a `SECURITY.md` file - (c53aeae) - Ali Sajid Imami
+- add a `SECURITY.md` file - (6a0c318) - Ali Sajid Imami
+- add a `SECURITY.md` file - (75f9851) - Ali Sajid Imami
+- add JSDoc documentation to the functions - (5bb8e5f) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- add pages deployment - (02680f4) - Ali Sajid Imami
+- harden security for the sonar-cloud and scorecard workflows - (0f1eb18) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update pnpm to v9.14.2 - (b3ffd33) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.9.1 - (bd995fc) - renovate[bot]
+- (**deps**) update the github actions and pre-commit - (0e20f9c) - Ali Sajid Imami
+- (**deps**) update pre-commit and github actions - (f6e6a6a) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (74cd6c8) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (b575f50) - renovate[bot]
+- (**deps**) update linters - (16c52c1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (2e29357) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.19.1 - (182e285) - renovate[bot]
+- (**deps**) update pnpm to v9.13.2 - (833878e) - renovate[bot]
+- (**deps**) update dependency @vercel/ncc to v0.38.3 - (8882f7b) - renovate[bot]
+- (**deps**) update pre-commit and github actions to v5 - (fa4aaff) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0ba2175) - renovate[bot]
+- (**deps**) update linters - (464d1ee) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.14.0 - (da63d99) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (fa228f4) - renovate[bot]
+- (**deps**) update linters - (ba397d9) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39.7.5 - (2a38f4e) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.9.0 - (990e917) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (1253865) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v39 - (2867355) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.142.7 - (d930ae8) - renovate[bot]
+- (**deps**) update dependency globals to v15.12.0 - (f8a5ace) - renovate[bot]
+- (**deps**) update linters - (0a97fbf) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.5 - (d7d9775) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.8.7 - (2928200) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (2011805) - renovate[bot]
+- (**deps**) update dependency @types/node to v22.8.4 - (7594824) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.135.1 - (b7a564d) - renovate[bot]
+- (**deps**) update dependency node to v22 - (8644393) - renovate[bot]
+- (**deps**) update pnpm to v9.12.3 - (b1e73a1) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.133.2 - (3ab8b02) - renovate[bot]
+- (**deps**) update dependency @types/node to v22 - (b4ac5ff) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.12.1 - (3744891) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c5c47a5) - renovate[bot]
+- (**deps**) update definitelytyped - (ffd08ad) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.4 - (3b43d94) - renovate[bot]
+- (**deps**) update dependency jsdoc-to-markdown to v9.0.3 - (f0c8ab1) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.13 - (21c9e4d) - renovate[bot]
+- (**deps**) update linters to v9.13.0 - (f2044e2) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.12 - (fce877a) - renovate[bot]
+- (**deps**) update pnpm to v9.12.2 - (1d6fa6f) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.10.0 - (a210e62) - renovate[bot]
+- (**deps**) update dependency node to v20 - (da71ef5) - renovate[bot]
+- (**deps**) pin dependencies - (c883511) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (9e6840e) - renovate[bot]
+- (**deps**) pin dependencies - (90690d1) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (b09a2e0) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (7b70c44) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e0948fd) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (1cad1d9) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (f36c3a4) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (1adf4f7) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (b173d18) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (03e2706) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e8b9a61) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (41fe3d1) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (5c19afb) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (b833d11) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (1efaa07) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (7a207d0) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (ac45239) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.126.1 - (14e8fdc) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b240ee0) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (dcea7f2) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4ef5af4) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.120.1 - (0370740) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.3 - (0173617) - renovate[bot]
+- (**deps**) pin dependency ts-node to 10.9.2 - (52c2243) - renovate[bot]
+- update .gitignore file - (f318798) - Ali Sajid Imami
 
 ---
 
-## v1.0.0-beta.3 - 2026-02-05
+## v2.7.0 - 2024-10-13
 
-### Features
+#### Continuous Integration
 
-- make the input arguments optional - (cc28b27) - Ali Sajid Imami
-- return the correct value from the action - (8541442) - Ali Sajid Imami
-
-### Documentation
-
-- update the README with the optional arguments - (7df76dd) - Ali Sajid Imami
-- updated the readme file - (e7e1a0f) - Ali Sajid Imami
-
-### Tests
-
-- update test to account for delays - (5d90990) - Ali Sajid Imami
+- merge pull request #401 from AliSajid/next - (bd1e4ac) - Ali Sajid Imami
+- remove further PNPM versions - (ae928b7) - Ali Sajid Imami
 
 ---
 
-## v1.0.0 - 2026-02-05
+## v2.7.0-next.1 - 2024-10-12
 
-### Features
+#### Miscellaneous Chores
 
-- update the primary code again - (2ee703a) - Ali Sajid Imami
-
-### Tests
-
-- fixed the expectations in test - (3d10cb7) - Ali Sajid Imami
-
-### Continuous Integration
-
-- add the semantic release workflow and config - (6cf89d0) - Ali Sajid Imami
+- merge branch 'main' into next - (a191f38) - Ali Sajid Imami
 
 ---
 
-## v1.0.0-beta.2 - 2026-02-05
+## v2.6.0 - 2024-10-12
 
-### Features
+#### Features
 
-- update the primary code again - (d7b3b3a) - Ali Sajid Imami
+- update the files with conflicts removed - (eb1b2aa) - Ali Sajid Imami
+- update tests with fuzzing - (313844f) - Ali Sajid Imami
+- add an additional check to test for behavior - (92fd20a) - Ali Sajid Imami
 
-### Tests
+#### Bug Fixes
 
-- fixed the expectations in test - (005f11d) - Ali Sajid Imami
+- (**deps**) update dependency @actions/core to v1.11.1 - (bbb7b7d) - renovate[bot]
+- (**deps**) update dependency @actions/core to v1.11.0 - (ab9f734) - renovate[bot]
+- (**deps**) update dependency @actions/core to v1.11.1 - (b165f49) - renovate[bot]
+- (**deps**) update dependency @actions/core to v1.11.0 - (ea98c1c) - renovate[bot]
+- fix an eslint diagnostic - (bea759c) - Ali Sajid Imami
+- fix the type annotation x2 - (f21125d) - Ali Sajid Imami
+
+#### Documentation
+
+- update `CONTRIBUTING.md` - (189b74a) - Ali Sajid Imami
+- add a `GOVERNANCE.md` file - (cad644c) - Ali Sajid Imami
+
+#### Tests
+
+- update jest config to typescript - (8726431) - Ali Sajid Imami
+- update jest config to select proper paths - (aeaeb09) - Ali Sajid Imami
+- add another test - (e1be736) - Ali Sajid Imami
+- update jest config to typescript - (0c7db8e) - Ali Sajid Imami
+- update jest config to select proper paths - (19f900e) - Ali Sajid Imami
+
+#### Build system
+
+- correct the version number - (7e9b109) - Ali Sajid Imami
+- add dependency on fast-check - (e1fe683) - Ali Sajid Imami
+- add dependency on fast-check - (fb593c6) - Ali Sajid Imami
+- update dependencies - (50d8284) - Ali Sajid Imami
+- add an env var in mise - (f8b87b6) - Ali Sajid Imami
+- add dependency on fast-check - (ffdc1cc) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- update caching mechanisms for the github actions - (812eab9) - Ali Sajid Imami
+- consistent quotation marks in codeql-analysis action - (ac8fad5) - Ali Sajid Imami
+- add coverage reporting to sonarcloud - (1e3888f) - Ali Sajid Imami
+- update base directory for sonar - (ffd820c) - Ali Sajid Imami
+- add codecov upload action - (add41d9) - Ali Sajid Imami
+- add sonarcloud GitHub Action integration - (4a355f2) - Ali Sajid Imami
+- remove hardcoded PNPM version - (b798ae3) - Ali Sajid Imami
+- update caching mechanisms for the github actions - (cba1142) - Ali Sajid Imami
+- consistent quotation marks in codeql-analysis action - (5cc74b3) - Ali Sajid Imami
+- add coverage reporting to sonarcloud - (c8fb579) - Ali Sajid Imami
+- update base directory for sonar - (c6f44a6) - Ali Sajid Imami
+- add codecov upload action - (6e904e8) - Ali Sajid Imami
+- add sonarcloud GitHub Action integration - (5b31986) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update pre-commit and github actions - (2346b76) - renovate[bot]
+- (**deps**) update linters - (4aa630d) - renovate[bot]
+- (**deps**) update pnpm to v9.12.0 - (260b722) - renovate[bot]
+- (**deps**) update linters - (a94a572) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/pre-commit-hooks to v5 - (7dca2b8) - renovate[bot]
+- (**deps**) update pnpm to v9.12.1 - (02ffb83) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7180f3e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8a83c26) - renovate[bot]
+- (**deps**) update pnpm to v9.12.0 - (feae0a3) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.106.4 - (9b42e38) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.11 - (9832dd9) - renovate[bot]
+- (**deps**) update actions/upload-artifact action to v4 - (dd4b889) - renovate[bot]
+- (**deps**) update dependency globals to v15.11.0 - (f53450d) - renovate[bot]
+- (**deps**) update pnpm to v9.12.1 - (30d6ea5) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (eed2e67) - renovate[bot]
+- (**deps**) update linters - (5b7b03c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (286c11d) - renovate[bot]
 
 ---
 
-## v1.0.0-beta.1 - 2026-02-05
+## v2.6.0-next.1 - 2024-10-11
 
-### Features
+#### Features
 
-- add the main body function - (3735888) - Ali Sajid Imami
-- add the time waited as output - (91cb808) - Ali Sajid Imami
-- updated inputs for this action - (3acaf79) - Ali Sajid Imami
+- update the files with conflicts removed - (5ed3620) - Ali Sajid Imami
+- update tests with fuzzing - (b0f7790) - Ali Sajid Imami
+- add an additional check to test for behavior - (dd1be29) - Ali Sajid Imami
 
-### Bug Fixes
+#### Bug Fixes
 
-- update the package manager specification - (3755eb7) - Ali Sajid Imami
-- update the generated js files - (56921bb) - Ali Sajid Imami
+- (**deps**) update dependency @actions/core to v1.11.1 - (0057749) - renovate[bot]
+- (**deps**) update dependency @actions/core to v1.11.0 - (6ac2499) - renovate[bot]
+- (**deps**) update dependency @actions/core to v1.11.1 - (fa5383e) - renovate[bot]
+- (**deps**) update dependency @actions/core to v1.11.0 - (f604f23) - renovate[bot]
+- fix an eslint diagnostic - (367fb4b) - Ali Sajid Imami
+- fix the type annotation x2 - (c21c351) - Ali Sajid Imami
 
-### Build system
+#### Documentation
 
-- added pre-commit config - (2b04a6b) - Ali Sajid Imami
-- update the dependency versions - (a5a8c00) - Ali Sajid Imami
-- update ignorelist for eslint - (ef0cdb7) - Ali Sajid Imami
-- inl;cude longer timeouts for jest - (8c4dd29) - Ali Sajid Imami
-- update the package.json - (33bb4a5) - Ali Sajid Imami
-- add the pnpm lockfile - (f55af6f) - Ali Sajid Imami
+- update `CONTRIBUTING.md` - (5be2d4a) - Ali Sajid Imami
+- add a `GOVERNANCE.md` file - (86c6725) - Ali Sajid Imami
 
-### Continuous Integration
+#### Tests
 
-- add the semantic release workflow and config - (9f2debd) - Ali Sajid Imami
-- update the workflows to use pnpm - (9ce265c) - Ali Sajid Imami
-- update CI Variables - (710f5a7) - Ali Sajid Imami
+- add another test - (c762d55) - Ali Sajid Imami
 
-### Style
+#### Build system
 
-- everything conforms to the prettier style - (b05b580) - Ali Sajid Imami
+- correct the version number - (a886180) - Ali Sajid Imami
+- add dependency on fast-check - (18101d8) - Ali Sajid Imami
+- add dependency on fast-check - (356e2ee) - Ali Sajid Imami
+- update dependencies - (454590a) - Ali Sajid Imami
+- add an env var in mise - (d14bac5) - Ali Sajid Imami
+- add dependency on fast-check - (79e9174) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update linters - (28bc86d) - renovate[bot]
+- (**deps**) update pnpm to v9.12.0 - (6d55883) - renovate[bot]
+- (**deps**) update linters - (00e7fbc) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/pre-commit-hooks to v5 - (f9fc528) - renovate[bot]
+- (**deps**) update pnpm to v9.12.1 - (f52dc34) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (4ef695c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f3ea855) - renovate[bot]
+- (**deps**) update pnpm to v9.12.0 - (45b2890) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.106.4 - (d0e39a5) - renovate[bot]
+- (**deps**) pin step-security/harden-runner action to 91182cc - (bcd7215) - renovate[bot]
+- (**deps**) pin step-security/harden-runner action to 91182cc - (c5395dc) - renovate[bot]
+
+---
+
+## v2.5.0 - 2024-10-02
+
+---
+
+## v2.5.0-next.1 - 2024-10-02
+
+#### Features
+
+- update distribution files - (714c62b) - Ali Sajid Imami
+
+#### Documentation
+
+- add badges to the repo - (59575a5) - Ali Sajid Imami
+- add CONTRIBUTING.md - (47e2b3c) - Ali Sajid Imami
+- add code_of_conduct.md - (63b29dc) - Ali Sajid Imami
+- fix the SHA for the version - (928d55a) - Ali Sajid Imami
+- update the README.md with current versions - (2f14d4b) - Ali Sajid Imami
+
+#### Build system
+
+- ensure the `package.json` uses `pnpm` instead of `npm` - (9714be9) - Ali Sajid Imami
+- add stylistic to automerge group - (338e376) - Ali Sajid Imami
+- add additional dependency on stylistic rules - (7e7bbe6) - Ali Sajid Imami
+- update the reuse configuration - (436777f) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- restrict CI permissions - (c20e24e) - StepSecurity Bot
+- harden GitHub Actions - (281f10d) - StepSecurity Bot
+- update releaserc to generate CHANGELOG - (139f998) - Ali Sajid Imami
+- create scorecard workflow - (5819404) - Ali Sajid Imami
+- simplify multiline YAML - (81997b4) - Ali Sajid Imami
+- pin the cycjimmy/semantic-release-action to v4.1.0 by SHA - (b6ee76b) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**config**) migrate config renovate.json - (35967c3) - renovate[bot]
+- (**config**) migrate config renovate.json - (0069f9e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (af6bf29) - renovate[bot]
+- (**deps**) update actions/upload-artifact action to v4 - (5f51a5a) - renovate[bot]
+- (**deps**) update dependency globals to v15.10.0 - (e123f33) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.8.0 - (37a7b28) - renovate[bot]
+- (**deps**) update dependency @vercel/ncc to v0.38.2 - (e502c43) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.10 - (0af4b75) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.101.1 - (4c62477) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ed58cdb) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f33873d) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.9 - (de6adbd) - renovate[bot]
+- (**deps**) update pnpm to v9.11.0 - (af569ef) - renovate[bot]
+- (**deps**) update linters - (ddc4947) - renovate[bot]
+- (**deps**) update github/codeql-action action to v3.26.9 - (4175f53) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f5602e8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (c9c7912) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b0f9034) - renovate[bot]
+- (**deps**) update dependency @types/jest to v29.5.13 - (b040cea) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.88.0 - (1108a1f) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.86.0 - (8489099) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.6.0 - (422b9df) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e91fa16) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0ec6a5b) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.3 - (1a52858) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.2 - (10de8ec) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.0 - (29f51d7) - renovate[bot]
+- (**deps**) update pnpm to v9.10.0 - (e11b930) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.76.1 - (06013ec) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.74.1 - (da8a074) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.73.3 - (f70e36e) - renovate[bot]
+- (**deps**) update linters - (d111273) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d38cfed) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (080e267) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.67.4 - (268423c) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.5 - (8994b6e) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.8.3 - (4ac7fd2) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.66.1 - (1ddb05d) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.4.0 - (0bc7c51) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.64.0 - (7cc8bd7) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.3 - (20eaab5) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.8.2 - (b33087f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (2ef3b34) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.10 - (1532d40) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.101.1 - (bfc2ca5) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e79e1f4) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0c481c6) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.9 - (c5705dc) - renovate[bot]
+- (**deps**) update pnpm to v9.11.0 - (215fa5e) - renovate[bot]
+- (**deps**) update linters - (6d87dd5) - renovate[bot]
+- (**deps**) update github/codeql-action action to v3.26.9 - (c8d007d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8fdf8c3) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (89e8525) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (68be6cf) - renovate[bot]
+- (**deps**) update dependency @types/jest to v29.5.13 - (1b1a5be) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.88.0 - (da11204) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.86.0 - (c8a8be7) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.6.0 - (f569dc4) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (93980b7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (eb3fe42) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.3 - (63391c0) - renovate[bot]
+- (**deps**) update dependency typescript to v5.6.2 - (6cb2855) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.77.0 - (7163123) - renovate[bot]
+- (**deps**) update pnpm to v9.10.0 - (092a8d7) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.76.1 - (c71cd47) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.74.1 - (0244d7e) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.73.3 - (67f71a5) - renovate[bot]
+- (**deps**) update linters - (7a33f33) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (88d010c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (579ed58) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.67.4 - (ae75576) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.5 - (a260d90) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.8.3 - (107ea7c) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.66.1 - (84470c5) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.4.0 - (3c6f11f) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.64.0 - (5d8a552) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.3 - (997b185) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.8.2 - (e4e8e51) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ee179a3) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.7.2 - (8f00a4f) - renovate[bot]
+- (**deps**) update pnpm to v9.9.0 - (515c1a4) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.2 - (7cb6a92) - renovate[bot]
+- (**deps**) update linters - (de42769) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9ab2bc4) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.57.0 - (c5451b5) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.56.0 - (534f21c) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.55.2 - (2513a34) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (14f9d19) - renovate[bot]
+- (**deps**) update pnpm to v9.8.0 - (af07bdf) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.2.5 - (6906921) - renovate[bot]
+- (**deps**) update linters to v9.9.1 - (11d68aa) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f39be61) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.2.0 - (3c30ac8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0721e3e) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.45.0 - (04ad6f8) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ac65126) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.1 - (ad9fdb2) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.39.6 - (cdc16ad) - renovate[bot]
+- (**deps**) update pnpm to v9.7.1 - (c52c97e) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.4 - (fd1f61c) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.15.0 - (6e4b33d) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f0fb245) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ce5cf22) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.1.0 - (725cf37) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (0692967) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.25.3 - (67c22c2) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f77c8e1) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.2 - (aa02b20) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.15 - (a1d2952) - renovate[bot]
+- (**deps**) update pnpm to v9.7.0 - (98e375f) - renovate[bot]
+- (**deps**) update linters - (5045614) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.23.2 - (369065d) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.21.3 - (8e886f1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (13cc2eb) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.7.2 - (6d5bfbf) - renovate[bot]
+- (**deps**) update pnpm to v9.9.0 - (5c38089) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.2 - (39d46f2) - renovate[bot]
+- (**deps**) update linters - (b46ab9f) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8c39111) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.57.0 - (16c4337) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.56.0 - (bf1863b) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.55.2 - (5dd1bcc) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9da75c2) - renovate[bot]
+- (**deps**) update pnpm to v9.8.0 - (5053887) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.2.5 - (ce95d09) - renovate[bot]
+- (**deps**) update linters to v9.9.1 - (33187b7) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (17a1421) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.2.0 - (4ae1f42) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e0794ed) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.45.0 - (09a77e1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (080b122) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.16.1 - (bec2c34) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.39.6 - (0bc2c83) - renovate[bot]
+- (**deps**) update pnpm to v9.7.1 - (ea8af7a) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.4 - (d00a278) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.15.0 - (8f38921) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (a79905b) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (ebf69f9) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8.1.0 - (a839c0e) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (39e3071) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.25.3 - (44ec09c) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f776501) - renovate[bot]
+- (**deps**) update dependency @stylistic/eslint-plugin to v2.6.2 - (e676c39) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.15 - (76d336d) - renovate[bot]
+- (**deps**) update pnpm to v9.7.0 - (4bf0928) - renovate[bot]
+- (**deps**) update linters - (6c48476) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.23.2 - (b7ab59f) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.21.3 - (5fc5a3a) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (8e57883) - renovate[bot]
+- (**deps**) pin dependency @stylistic/eslint-plugin to 2.6.1 - (a9be28d) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v8 - (81fa2c1) - renovate[bot]
+- (**deps**) update dependency typescript to v5.5.4 - (6cce2d3) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.13 - (cdb998c) - renovate[bot]
+- (**deps**) update linters to v9.8.0 - (32260b2) - renovate[bot]
+- (**deps**) update pnpm to v9.6.0 - (5c4205c) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v7.18.0 - (1b8e0ef) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.2.4 - (2cf2e48) - renovate[bot]
+- (**deps**) update dependency globals to v15.9.0 - (9e80af9) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.18.4 - (4d8c200) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.17.1 - (e28b207) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (33b62f9) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38.10.0 - (95cae72) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (d679be1) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v38 - (d1f17f4) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (7d2d598) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.440.5 - (b00358b) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.440.0 - (32285a3) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (62bfb4f) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.433.2 - (471099a) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.28.0 - (05d00a2) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.432.0 - (a8f91f4) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.431.7 - (db06dbc) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (e4b5fa0) - renovate[bot]
+- (**deps**) update dependency prettier to v3.3.3 - (4ea3eca) - renovate[bot]
+- (**deps**) update linters to v9.7.0 - (1632d35) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b054e8d) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.10 - (401a8c8) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v7.16.0 - (04cd674) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.2.2 - (6b72c27) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.429.0 - (82e3802) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (5a23fbb) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (b21c516) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (86ae671) - renovate[bot]
+- (**deps**) update pnpm to v9.5.0 - (4dc4cf2) - renovate[bot]
+- (**deps**) update dependency globals to v15.8.0 - (0238ee1) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (9af4c9c) - renovate[bot]
+- (**deps**) update pre-commit hook fsfe/reuse-tool to v4 - (f2e6305) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.424.0 - (9383f40) - renovate[bot]
+- (**deps**) update dependency typescript-eslint to v7.15.0 - (fad3ab0) - renovate[bot]
+- (**deps**) update dependency typescript to v5.5.3 - (7d0e717) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.421.6 - (d35facf) - renovate[bot]
+- (**deps**) update dependency globals to v15.7.0 - (d4d0541) - renovate[bot]
+- (**deps**) update linters to v9.6.0 - (6337bd9) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (f629e08) - renovate[bot]
+- (**deps**) update pre-commit and github actions - (34d1457) - renovate[bot]
+
+---
+
+## v2.4.1 - 2024-06-27
+
+#### Bug Fixes
+
+- update package - (1d72761) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- increase the permissions for the token - (5851061) - Ali Sajid Imami
+- pin dependencies to digests - (b94083d) - Ali Sajid Imami
+- build provenance action - (7d6d414) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) pin dependency typescript-eslint to 7.14.1 - (35a95cd) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.420.0 - (555438d) - renovate[bot]
+
+---
+
+## v2.4.0 - 2024-06-27
+
+#### Features
+
+- updated the dependencies - (ceb9f04) - Ali Sajid Imami
+
+#### Build system
+
+- (**deps**) update to eslint v9 - (d30572e) - Ali Sajid Imami
+- update the eslint config - (fff9b1c) - Ali Sajid Imami
+- remove lockfile mainetenace from the renovate config - (a6dd095) - Ali Sajid Imami
+- update automerge file - (31a165b) - Ali Sajid Imami
+- add automerge bool - (e54c987) - Ali Sajid Imami
+- remove the CODEOWNERS file - (3d55f0a) - Ali Sajid Imami
+- add automerge bool - (ff6b6f5) - Ali Sajid Imami
+- remove the CODEOWNERS file - (0c79286) - Ali Sajid Imami
+- update the renovate config to automerge updates - (34ea2ad) - Ali Sajid Imami
+- update the vscode config - (8900654) - Ali Sajid Imami
+- add the renovate.json config validation to the repo - (5361b7b) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- configure grouping of the package updates - (8ba65de) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**config**) migrate config renovate.json - (968d662) - renovate[bot]
+- (**deps**) pin dependency @types/eslint__js to 8.42.3 - (8cf728e) - renovate[bot]
+- (**deps**) update dependency typescript to v5.5.2 - (4101a55) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.9 - (2f0d891) - renovate[bot]
+- (**deps**) update pnpm to v9.4.0 - (78239ee) - renovate[bot]
+- (**deps**) update dependency globals to v15.6.0 - (082c7bc) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.14.1 - (5cc0b71) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.1.5 - (649359d) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.417.1 - (e27c338) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.415.0 - (03b446a) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.414.1 - (5adfa0e) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.413.3 - (f4dd332) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.413.2 - (6d4d308) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.412.1 - (aaee698) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.410.3 - (34f4f54) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.409.1 - (4574a4a) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.5.0 - (5c36d95) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.408.2 - (019190c) - renovate[bot]
+- (**deps**) pin dependencies - (fe80ef3) - renovate[bot]
+- (**deps**) pin dependency globals to 15.4.0 - (3abfed2) - renovate[bot]
+- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.18.4 - (b03f1bc) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.408.1 - (e8ee770) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.14.2 - (da6060a) - renovate[bot]
+- (**deps**) update pnpm to v9.3.0 - (43e3887) - renovate[bot]
+- (**deps**) update pnpm to v9.1.2 - (47e4f2c) - renovate[bot]
+- (**deps**) pin dependencies - (0c8d127) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.407.4 - (c905479) - renovate[bot]
+- (**deps**) update github/codeql-action digest to 23acc5c - (edb8e43) - renovate[bot]
+- (**deps**) update actions/checkout digest to 692973e - (6e83d36) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.406.2 - (8da4d1d) - renovate[bot]
+- (**deps**) update github/codeql-action digest to 530d4fe - (8239c3c) - renovate[bot]
+- (**deps**) update dependency prettier to v3.3.2 - (beff2bb) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.13.0 - (e59c638) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.399.9 - (8a6c0d3) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.395.0 - (db3c6f5) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.6.0 - (57efd6c) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.392.0 - (307b165) - renovate[bot]
+- (**deps**) update dependency prettier to v3.3.1 - (f3f2b82) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.390.1 - (82e3324) - renovate[bot]
+- (**deps**) update github/codeql-action digest to 2e230e8 - (d1f4fad) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.388.1 - (b28214c) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.12.0 - (269f4cd) - renovate[bot]
+- (**deps**) update dependency prettier-plugin-multiline-arrays to v3.0.6 - (07e07ff) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.385.0 - (f295daa) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.4.0 - (f3f70ed) - renovate[bot]
+- (**deps**) update pre-commit hook zricethezav/gitleaks to v8.18.3 - (6b01042) - renovate[bot]
+- (**deps**) update github/codeql-action digest to f079b84 - (b085e53) - renovate[bot]
+- (**deps**) update dependency prettier to v3.3.0 - (28c0f38) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.382.3 - (18ae599) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.381.9 - (58202eb) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.381.6 - (32e354f) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.1.4 - (53bd2d2) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.379.0 - (4ef0544) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.11.0 - (60e37cf) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.377.7 - (17a599b) - renovate[bot]
+- (**deps**) update pre-commit hook igorshubovych/markdownlint-cli to v0.41.0 - (cf4bdde) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.10.0 - (7d51b55) - renovate[bot]
+- (**deps**) pin dependencies - (bd1ad75) - renovate[bot]
+- (**deps**) pin dependencies - (a4d2b53) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.377.2 - (b4c9323) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.374.3 - (2d4d751) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.375.2 - (5740165) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.5.0 - (90eed6b) - renovate[bot]
+- (**deps**) update pre-commit hook renovatebot/pre-commit-hooks to v37.374.3 - (d6e08e5) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.3.0 - (83c27e1) - renovate[bot]
+- (**deps**) update pre-commit hook yelp/detect-secrets to v1.5.0 - (8fa76ca) - renovate[bot]
+- (**deps**) update pre-commit hook igorshubovych/markdownlint-cli to v0.40.0 - (b8ed9c4) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.3.0 - (bf64cd1) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.27.0 - (4a33e6d) - renovate[bot]
+- (**deps**) update dependency ts-jest to v29.1.3 - (7a833fc) - renovate[bot]
+
+---
+
+## v2.3.2 - 2024-04-25
+
+#### Bug Fixes
+
+- add license for the funding.yaml file - (94625c3) - Ali Sajid Imami
+
+#### Documentation
+
+- update the badges - (51c16c9) - Ali Sajid Imami
+
+#### Build system
+
+- pin the eslint version to ^8 - (b56b8a0) - Ali Sajid Imami
+- update pre-commit settings - (03ca644) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update dependency typescript to v5.4.5 - (a5fe105) - renovate[bot]
+- (**deps**) update pnpm to v9.0.6 - (b5bedca) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.7.1 - (a897775) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.12.7 - (e479d8e) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.7.1 - (66d5705) - renovate[bot]
+- (**deps**) update dependency typescript to v5.4.5 - (d62c481) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9.1.1 - (41c48f4) - renovate[bot]
+- (**deps**) update pnpm to v9 - (3e31758) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.12.7 - (efc382e) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.24.0 - (491183d) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.22.0 - (84cc027) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.6.0 - (a66eb42) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.2.0 - (aacef33) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/pre-commit-hooks to v4.6.0 - (3693df1) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28.1.1 - (8b9190b) - renovate[bot]
+- (**deps**) update pre-commit hook commitizen-tools/commitizen to v3.21.3 - (54c558c) - renovate[bot]
+- (**deps**) update dependency @types/node to v20.12.5 - (674dd50) - renovate[bot]
+- (**deps**) update dependency typescript to v5.4.4 - (91a536d) - renovate[bot]
+- (**deps**) update pnpm to v8.15.6 - (2831c72) - renovate[bot]
+- (**deps**) update dependency @typescript-eslint/parser to v7.5.0 - (7970544) - renovate[bot]
+- (**deps**) update pre-commit hook compilerla/conventional-pre-commit to v3.2.0 - (c54ed40) - renovate[bot]
+- (**deps**) update pre-commit hook sirosen/texthooks to v0.6.6 - (1c8fb0a) - renovate[bot]
+- (**deps**) update dependency eslint-plugin-jest to v28 - (4d74776) - renovate[bot]
+- (**deps**) update pre-commit hook pre-commit/mirrors-eslint to v9 - (3ac29ee) - renovate[bot]
+- create FUNDING.yml - (525cef0) - Ali Sajid Imami
+
+---
+
+## v2.3.1 - 2024-03-21
+
+#### Bug Fixes
+
+- ensure the dist files are up to date - (7241f22) - Ali Sajid Imami
+
+#### Documentation
+
+- add the reuse compliance badge - (1f67081) - Ali Sajid Imami
+
+#### Build system
+
+- add reuse compliance - (fc544c9) - Ali Sajid Imami
+- rename the ci workflow files - (c22f08f) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- cleanup the test workflow - (9c9b232) - Ali Sajid Imami
+- cleanup the codeql-analysis workflow - (7ff1773) - Ali Sajid Imami
+- ensure the release runs on the 'next' branch - (48c5344) - Ali Sajid Imami
+
+---
+
+## v2.3.0 - 2024-03-21
+
+#### Features
+
+- do not autoformat the dist files - (760afa7) - Ali Sajid Imami
+- do not autoformat the dist files - (6f24f88) - Ali Sajid Imami
+- update the binaries - (38e9c0c) - Ali Sajid Imami
+
+#### Build system
+
+- (**deps-dev**) bump typescript from 5.3.3 to 5.4.2 - (8e422f5) - dependabot[bot]
+- (**deps-dev**) bump @typescript-eslint/parser from 7.1.0 to 7.3.1 - (06cbcd8) - dependabot[bot]
+- (**deps-dev**) bump @types/node from 20.11.21 to 20.11.30 - (70cca44) - dependabot[bot]
+- (**deps-dev**) bump eslint-plugin-github from 4.10.1 to 4.10.2 - (b363f52) - dependabot[bot]
+- (**deps-dev**) bump @typescript-eslint/parser from 7.0.2 to 7.1.0 - (390302c) - dependabot[bot]
+- (**deps-dev**) bump @types/node from 20.11.20 to 20.11.21 - (6d2e9a0) - dependabot[bot]
+- ensure all dependencies are up to date - (98a0cbb) - Ali Sajid Imami
+- update things for pre-commit compliance - (9045a11) - Ali Sajid Imami
+- update the pre-commit file - (3a55295) - Ali Sajid Imami
+- update .releaserc to use the 'next' branch - (7f73339) - Ali Sajid Imami
+- add .mise.toml file - (36c38e9) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- update the renovate config file - (75e3d74) - Ali Sajid Imami
+- remove the dependabot config file - (7789e8d) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- (**deps**) update pnpm to v8.15.5 - (35f418b) - renovate[bot]
+- (**deps**) update dependency typescript to v5.4.3 - (5506717) - renovate[bot]
+- (**deps**) update dependency typescript to v5.4.3 - (61a568d) - renovate[bot]
+- (**deps**) add renovate configuration - (cacaf62) - renovate[bot]
+- bump version - (3f8cec9) - Ali Sajid Imami
+
+---
+
+## v2.2.1 - 2024-02-26
+
+#### Bug Fixes
+
+- move github up - (80cc38c) - Ali Sajid Imami
+
+#### Build system
+
+- bump the version number - (6c4b601) - Ali Sajid Imami
+
+---
+
+## v2.2.0 - 2024-02-26
+
+#### Features
+
+- remove eslint warnings - (78c7ce7) - Ali Sajid Imami
+
+#### Bug Fixes
+
+- update the dependencies - (1556ce2) - Ali Sajid Imami
+
+#### Build system
+
+- (**deps**) bump github/codeql-action from 2 to 3 - (ccd233b) - dependabot[bot]
+- (**deps-dev**) bump @vercel/ncc from 0.36.1 to 0.38.1 - (392c1c8) - dependabot[bot]
+- ensure version is bumped in package.json - (1ee6728) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- fix releaserc file - (4a56f4d) - Ali Sajid Imami
+
+#### Style
+
+- remove comments - (7b957ad) - Ali Sajid Imami
+
+---
+
+## v2.1.0 - 2024-02-26
+
+#### Features
+
+- update dependencies - (b68988c) - Ali Sajid Imami
+
+---
+
+## v2.0.0 - 2024-02-26
+
+#### Features
+
+- update all actions - (97a09cf) - Ali Sajid Imami
+
+---
+
+## v1.4.0 - 2024-02-26
+
+#### Features
+
+- bump to node20 x2 - (e1c5fff) - Ali Sajid Imami
+
+---
+
+## v1.3.0 - 2024-02-26
+
+#### Features
+
+- bump to node20 - (c3f9750) - Ali Sajid Imami
+
+#### Build system
+
+- (**deps**) upgrade typescript from 4.9.5 to 5.0.3 - (187f56c) - Ali Sajid Imami
+- (**deps**) bump cycjimmy/semantic-release-action from 2 to 3 - (05148dd) - dependabot[bot]
+- (**deps-dev**) bump @types/node from 18.16.15 to 20.2.4 - (43ef0ec) - dependabot[bot]
+- (**deps-dev**) bump typescript from 4.9.5 to 5.0.3 - (6fb380b) - dependabot[bot]
+
+---
+
+## v1.2.0 - 2023-03-22
+
+#### Build system
+
+- rebuild dist/ - (5ca4c64) - Ali Sajid Imami
+
+---
+
+## v1.2.0-beta.1 - 2023-03-22
+
+#### Build system
+
+- (**deps**) bump actions/setup-node from 3.5.1 to 3.6.0 - (7b6ac6a) - dependabot[bot]
+- update vercel/ncc package - (c052198) - Ali Sajid Imami
+
+#### Style
+
+- update the branding for the marketplace - (b9ec5b5) - Ali Sajid Imami
+
+---
+
+## v1.1.0 - 2022-11-05
+
+#### Features
+
+- make the input arguments optional - (0bbcee3) - Ali Sajid Imami
+- return the correct value from the action - (6e81349) - Ali Sajid Imami
+
+#### Documentation
+
+- update the README with the optional arguments - (541212c) - Ali Sajid Imami
+- updated the readme file - (96a633b) - Ali Sajid Imami
+
+#### Tests
+
+- update test to account for delays - (b9ea309) - Ali Sajid Imami
+
+#### Build system
+
+- fix the multiline error in releaserc - (e308d02) - Ali Sajid Imami
+- fix the version configuration - (7896182) - Ali Sajid Imami
+
+---
+
+## v1.1.0-beta.1 - 2022-11-05
+
+#### Build system
+
+- fix the multiline error in releaserc - (cc92dbd) - Ali Sajid Imami
+- fix the version configuration - (3b4cbea) - Ali Sajid Imami
+
+---
+
+## v1.0.0-beta.3 - 2022-11-05
+
+#### Features
+
+- make the input arguments optional - (b0c6acd) - Ali Sajid Imami
+- return the correct value from the action - (d6c563f) - Ali Sajid Imami
+
+#### Documentation
+
+- update the README with the optional arguments - (87e1ee0) - Ali Sajid Imami
+- updated the readme file - (fe51c9f) - Ali Sajid Imami
+
+#### Tests
+
+- update test to account for delays - (04efddd) - Ali Sajid Imami
+
+---
+
+## v1.0.0 - 2022-11-02
+
+#### Features
+
+- update the primary code again - (9e9fd93) - Ali Sajid Imami
+
+#### Tests
+
+- fixed the expectations in test - (3f8200e) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- add the semantic release workflow and config - (9dbba09) - Ali Sajid Imami
+
+---
+
+## v1.0.0-beta.2 - 2022-11-02
+
+#### Features
+
+- update the primary code again - (b22c2a2) - Ali Sajid Imami
+
+#### Tests
+
+- fixed the expectations in test - (f904f5d) - Ali Sajid Imami
+
+---
+
+## v1.0.0-beta.1 - 2022-11-02
+
+#### Features
+
+- add the main body function - (725ccab) - Ali Sajid Imami
+- add the time waited as output - (2a45b2d) - Ali Sajid Imami
+- updated inputs for this action - (87f8d43) - Ali Sajid Imami
+
+#### Bug Fixes
+
+- update the package manager specification - (bc806fc) - Ali Sajid Imami
+- update the generated js files - (af65eb2) - Ali Sajid Imami
+
+#### Build system
+
+- (**deps**) bump actions/checkout from 2 to 3 - (46a207c) - dependabot[bot]
+- (**deps**) bump actions/upload-artifact from 2 to 3 - (c6e8ec1) - dependabot[bot]
+- (**deps**) bump github/codeql-action from 1 to 2 - (3525e87) - dependabot[bot]
+- added pre-commit config - (1a21270) - Ali Sajid Imami
+- update the dependency versions - (c1b7654) - Ali Sajid Imami
+- update ignorelist for eslint - (eed6190) - Ali Sajid Imami
+- inl;cude longer timeouts for jest - (5b0828b) - Ali Sajid Imami
+- update the package.json - (60dc913) - Ali Sajid Imami
+- add the pnpm lockfile - (0a2936d) - Ali Sajid Imami
+
+#### Continuous Integration
+
+- add the semantic release workflow and config - (c342f01) - Ali Sajid Imami
+- update the workflows to use pnpm - (2a9a9eb) - Ali Sajid Imami
+- update CI Variables - (7d9f05a) - Ali Sajid Imami
+
+#### Miscellaneous Chores
+
+- initial commit - (8d2a62c) - Ali Sajid Imami
+
+#### Style
+
+- everything conforms to the prettier style - (dcbe3d4) - Ali Sajid Imami
