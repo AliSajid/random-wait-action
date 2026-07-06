@@ -44,9 +44,6 @@ vale = "3.15.1"
 # =============================================================================
 
 [env]
-# Node.js VM modules for ESM compatibility
-NODE_OPTIONS = "--experimental-vm-modules"
-
 # Development environment
 NODE_ENV = "development"
 
