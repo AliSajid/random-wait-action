@@ -1,4 +1,4 @@
-## Unreleased (9fe2575..51b7572)
+## Unreleased (9fe2575..245ce08)
 
 #### Features
 
@@ -34,6 +34,7 @@
 #### Documentation
 
 - (**reuse**) added license information to the repository for REUSE compliance - (fde93ff) - Ali Sajid Imami
+- regenerate the changelog - (ab5f188) - Ali Sajid Imami
 - fix comment mentioning node 22 version - (d4ccb1e) - Ali Sajid Imami
 - update the license years - (df6973c) - Ali Sajid Imami
 - fix style probnlems in CHANGELOG.md - (76bedb2) - Ali Sajid Imami
@@ -153,6 +154,7 @@
 - (**mise**) convert github actions to use mise instead - (80356a7) - Ali Sajid Imami
 - (**mise**) update the list of mise tasks - (4853cf4) - Ali Sajid Imami
 - (**sonar-cloud**) remove pull_requests: write permission from the workflow - (ace7162) - Ali Sajid Imami
+- add incremental release notes generation - (245ce08) - Ali Sajid Imami
 - fix the calling commands for cocogitto - (cf9d197) - Ali Sajid Imami
 - fix the sha256 hash for softprops/action-gh-release action - (7970a21) - Ali Sajid Imami
 - add the updated cocogitto-based release workflow - (b2014eb) - Ali Sajid Imami
