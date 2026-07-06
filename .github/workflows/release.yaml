@@ -73,11 +73,11 @@ jobs:
 
             - name: Bump version (pre-release)
               if: steps.has_changes.outputs.has_changes == 'true' && steps.release_type.outputs.pre_release == 'true'
-              run: cog bump --yes --no-commit --no-tag --pre-release
+              run: cog bump --auto --disable-bump-commit --pre
 
             - name: Bump version (stable)
               if: steps.has_changes.outputs.has_changes == 'true' && steps.release_type.outputs.pre_release == 'false'
-              run: cog bump --yes --no-commit --no-tag
+              run: cog bump --auto --disable-bump-commit
 
             - name: Get new version
               if: steps.has_changes.outputs.has_changes == 'true'
