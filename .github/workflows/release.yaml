@@ -2,8 +2,8 @@ on:
     push:
         branches:
             - main
-            - alpha
-            - beta
+            - next
+            - build/cocogitto-x2
 
 name: Release
 
@@ -12,14 +12,18 @@ permissions:
 
 jobs:
     release:
-        name: Semantic Release
+        name: Cocogitto Release
         runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
         permissions:
             id-token: write
             attestations: write
             contents: write
             issues: write
             pull-requests: write
+        outputs:
+            version: ${{ steps.version.outputs.version }}
+            has_changes: ${{ steps.has_changes.outputs.has_changes }}
         steps:
             - name: Harden Runner
               uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -39,7 +43,6 @@ jobs:
               uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
               with:
                   fetch-depth: 0
-                  persist-credentials: false
 
             - name: Install mise
               uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
@@ -50,22 +53,67 @@ jobs:
             - name: Build and verify
               run: mise run ci
 
-            - name: Attest build provenance
-              id: attest
-              uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
-              with:
-                  subject-path: dist/index.js
+            - name: Check for releasable changes
+              id: has_changes
+              run: |
+                  if cog log | grep -q .; then
+                      echo "has_changes=true" >> $GITHUB_OUTPUT
+                  else
+                      echo "has_changes=false" >> $GITHUB_OUTPUT
+                  fi
 
-            - name: Move attestation file to dist/
-              run: mv ${{ steps.attest.outputs.bundle-path }} dist/attestation.jsonl
+            - name: Determine release type
+              id: release_type
+              run: |
+                  if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+                      echo "pre_release=false" >> $GITHUB_OUTPUT
+                  else
+                      echo "pre_release=true" >> $GITHUB_OUTPUT
+                  fi
 
-            - name: Semantic Release
-              uses: cycjimmy/semantic-release-action@b12c8f6015dc215fe37bc154d4ad456dd3833c90 # v6.0.0
-              id: semantic
-              with:
-                  semantic_version: 24.0.0
-                  extra_plugins: |
-                      @semantic-release/exec@6
-                      @semantic-release/git@10
+            - name: Bump version (pre-release)
+              if: steps.has_changes.outputs.has_changes == 'true' && steps.release_type.outputs.pre_release == 'true'
+              run: cog bump --yes --no-commit --no-tag --pre-release
+
+            - name: Bump version (stable)
+              if: steps.has_changes.outputs.has_changes == 'true' && steps.release_type.outputs.pre_release == 'false'
+              run: cog bump --yes --no-commit --no-tag
+
+            - name: Get new version
+              if: steps.has_changes.outputs.has_changes == 'true'
+              id: version
+              run: |
+                  NEW_VERSION=$(node -p "require('./package.json').version")
+                  echo "version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+
+            - name: Commit and push changes
+              if: steps.has_changes.outputs.has_changes == 'true'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  git config user.name "imamiland-bot[bot]"
+                  git config user.email "152510784+imamiland-bot@users.noreply.github.com"
+                  REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+                  git add CHANGELOG.md package.json
+                  git commit -m "chore(release): ${{ steps.version.outputs.version }} [skip ci]"
+                  git push "$REMOTE" HEAD:${{ github.ref_name }}
+
+            - name: Create Git tag
+              if: steps.has_changes.outputs.has_changes == 'true'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+                  TAG="v${{ steps.version.outputs.version }}"
+                  git tag -a "$TAG" -m "Release $TAG"
+                  git push "$REMOTE" "$TAG"
+
+            - name: Create GitHub Release
+              if: steps.has_changes.outputs.has_changes == 'true'
+              uses: softprops/action-gh-release@de2c0eb89ae2a0f3314937b7aa5d7acfab4e53a2 # v2.2.5
+              with:
+                  tag_name: 'v${{ steps.version.outputs.version }}'
+                  name: 'Release v${{ steps.version.outputs.version }}'
+                  body_path: CHANGELOG.md
+                  draft: false
+                  prerelease: ${{ steps.release_type.outputs.pre_release == 'true' }}
