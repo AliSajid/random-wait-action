@@ -41,6 +41,8 @@ export async function wait(
         const secs =
             Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
 
-        setTimeout(() => resolve(Result.ok(secs)), secs * 1000)
+        setTimeout(() => {
+            resolve(Result.ok(secs))
+        }, secs * 1000)
     })
 }
