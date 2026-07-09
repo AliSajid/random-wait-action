@@ -178,7 +178,7 @@ jobs:
             - name: Check for releasable changes
               id: has_changes
               run: |
-                  CURRENT=$(cog get-version | tail -1)
+                  CURRENT=$(cog get-version)
                   if [ "${{ steps.release_type.outputs.pre_release }}" = "true" ]; then
                       EXPECTED=$(cog bump --auto --dry-run --pre --skip-untracked | sed 's/^v//')
                   else
