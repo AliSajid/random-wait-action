@@ -12,12 +12,15 @@ generate_mono_repository_package_tags = false
 branch_whitelist = ["main", "next", "build/github-app-based-release-*"]
 skip_ci = "[skip ci]"
 skip_untracked = false
+tag_prefix = "v"
+pre = "next.*"
+
+# Keep default/local Cocogitto behavior boring.
+# CI release preparation uses the named bump profile below.
 pre_bump_hooks = []
 post_bump_hooks = []
 pre_package_bump_hooks = []
 post_package_bump_hooks = []
-tag_prefix = "v"
-pre = "next.*"
 
 [git_hooks]
 
@@ -28,3 +31,7 @@ path = "CHANGELOG.md"
 authors = []
 
 [bump_profiles]
+
+[bump_profiles.ci-release-prepare]
+pre_bump_hooks = ["npm pkg set version={{version}}"]
+post_bump_hooks = []
