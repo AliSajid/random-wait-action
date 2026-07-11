@@ -86,13 +86,16 @@ jobs:
         timeout-minutes: 20
 
         if: >
+            always() &&
             (
-                github.event_name == 'pull_request_target' &&
-                github.event.pull_request.merged == true &&
-                !contains(github.event.pull_request.title, '[skip ci]') &&
-                needs.validate-pr-author.outputs.is_valid == 'true'
-            ) ||
-            github.event_name == 'workflow_dispatch'
+                (
+                    github.event_name == 'pull_request_target' &&
+                    github.event.pull_request.merged == true &&
+                    !contains(github.event.pull_request.title, '[skip ci]') &&
+                    needs.validate-pr-author.outputs.is_valid == 'true'
+                ) ||
+                github.event_name == 'workflow_dispatch'
+            )
 
         permissions:
             contents: write
@@ -135,8 +138,10 @@ jobs:
               run: |
                   if [ "${{ steps.branch.outputs.branch }}" = "main" ]; then
                       echo "pre_release=false" >> "$GITHUB_OUTPUT"
+                      echo "Cutting a regular release"
                   else
                       echo "pre_release=true" >> "$GITHUB_OUTPUT"
+                      echo "Cutting a pre-release"
                   fi
 
             - name: Determine run mode
@@ -156,8 +161,6 @@ jobs:
               with:
                   app-id: ${{ vars.RELEASE_APP_ID }}
                   private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
-                  # No owner/repositories set -> scopes the token to only this
-                  # repository (actions/create-github-app-token's documented default).
 
             - name: Checkout repository
               uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -178,68 +181,137 @@ jobs:
             - name: Check for releasable changes
               id: has_changes
               run: |
-                  CURRENT=$(cog get-version)
+                  set -euo pipefail
+
+                  CURRENT="$(cog -v get-version | sed 's/^v//')"
+
                   if [ "${{ steps.release_type.outputs.pre_release }}" = "true" ]; then
-                      EXPECTED=$(cog bump --auto --dry-run --pre --skip-untracked | sed 's/^v//')
+                      EXPECTED="$(cog bump --auto --dry-run --pre --skip-untracked | sed 's/^v//')"
                   else
-                      EXPECTED=$(cog bump --auto --dry-run --skip-untracked | sed 's/^v//')
+                      EXPECTED="$(cog bump --auto --dry-run --skip-untracked | sed 's/^v//')"
                   fi
-                  echo "current=${CURRENT}" >> $GITHUB_OUTPUT
-                  echo "expected=${EXPECTED}" >> $GITHUB_OUTPUT
+
+                  echo "current=${CURRENT}" >> "$GITHUB_OUTPUT"
+                  echo "Current Release Version: ${CURRENT}"
+                  echo "expected=${EXPECTED}" >> "$GITHUB_OUTPUT"
+                  echo "Calculated Release Version: ${EXPECTED}"
+
                   if [ "$CURRENT" != "$EXPECTED" ]; then
-                      echo "has_changes=true" >> $GITHUB_OUTPUT
+                      echo "has_changes=true" >> "$GITHUB_OUTPUT"
+                      echo "Unreleased changes found."
+                      echo "Proceeding to release"
                   else
-                      echo "has_changes=false" >> $GITHUB_OUTPUT
+                      echo "has_changes=false" >> "$GITHUB_OUTPUT"
+                      echo "No unreleased changes found"
+                      echo "Skipping the release process"
                   fi
 
-            - name: Bump version (pre-release)
-              if: steps.has_changes.outputs.has_changes == 'true' && steps.release_type.outputs.pre_release == 'true'
-              run: cog bump --auto --disable-bump-commit --pre --skip-untracked
-
-            - name: Bump version (stable)
-              if: steps.has_changes.outputs.has_changes == 'true' && steps.release_type.outputs.pre_release == 'false'
-              run: cog bump --auto --disable-bump-commit --skip-untracked
-
-            - name: Get new version
+            - name: Record release version
               if: steps.has_changes.outputs.has_changes == 'true'
               id: version
               run: |
-                  NEW_VERSION="$(node -p "require('./package.json').version")"
+                  NEW_VERSION="${{ steps.has_changes.outputs.expected }}"
+
                   echo "version=${NEW_VERSION}" >> "$GITHUB_OUTPUT"
                   echo "New version: ${NEW_VERSION}"
+
+            - name: Prepare release files in isolated Cocogitto clone
+              if: steps.has_changes.outputs.has_changes == 'true'
+              env:
+                  VERSION: ${{ steps.version.outputs.version }}
+                  PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
+              run: |
+                  set -euo pipefail
+
+                  BASE_SHA="$(git rev-parse HEAD)"
+                  TMP_DIR="$(mktemp -d)"
+                  TMP_REPO="$TMP_DIR/repo"
+                  VERSION_TAG="v${VERSION}"
+
+                  cleanup() {
+                      rm -rf "$TMP_DIR"
+                  }
+                  trap cleanup EXIT
+
+                  git clone --shared "$GITHUB_WORKSPACE" "$TMP_REPO"
+                  git -C "$TMP_REPO" checkout --detach "$BASE_SHA"
+
+                  cd "$TMP_REPO"
+
+                  # Keep Cocogitto's tag side effects inside this disposable clone.
+                  # The real release commit is created later through GitHub's
+                  # createCommitOnBranch mutation using the GitHub App identity.
+
+                  if [ "$PRE_RELEASE" = "true" ]; then
+                      cog bump --auto --disable-bump-commit --pre --skip-untracked --hook-profile ci-release-prepare
+                  else
+                      cog bump --auto --disable-bump-commit --skip-untracked --hook-profile ci-release-prepare
+                  fi
+
+                  if cog changelog --at "$VERSION_TAG" > "$TMP_DIR/release_notes.md"; then
+                      echo "Generated release notes for $VERSION_TAG"
+                  else
+                      cog changelog --at "$VERSION" > "$TMP_DIR/release_notes.md"
+                      echo "Generated release notes for $VERSION"
+                  fi
+
+                  git diff --name-only -z --diff-filter=ACMRT > "$TMP_DIR/changed.z"
+                  git diff --name-only -z --diff-filter=D > "$TMP_DIR/deleted.z"
+
+                  if [ ! -s "$TMP_DIR/changed.z" ] && [ ! -s "$TMP_DIR/deleted.z" ]; then
+                      echo "::error::Cocogitto produced no release file changes."
+                      exit 1
+                  fi
+
+                  if [ -s "$TMP_DIR/changed.z" ]; then
+                      tar --null -cf "$TMP_DIR/release-files.tar" --files-from "$TMP_DIR/changed.z"
+                      tar -xf "$TMP_DIR/release-files.tar" -C "$GITHUB_WORKSPACE"
+                  fi
+
+                  if [ -s "$TMP_DIR/deleted.z" ]; then
+                      while IFS= read -r -d '' path; do
+                          case "$path" in
+                              /*|*../*)
+                                  echo "::error::Refusing unsafe deleted path: $path"
+                                  exit 1
+                                  ;;
+                          esac
+
+                          rm -f "$GITHUB_WORKSPACE/$path"
+                      done < "$TMP_DIR/deleted.z"
+                  fi
+
+                  cp "$TMP_DIR/release_notes.md" /tmp/release_notes.md
+
+                  echo
+                  echo "Generated release notes:"
+                  echo
+                  cat /tmp/release_notes.md
 
             - name: Validate release file changes
               if: steps.has_changes.outputs.has_changes == 'true'
               run: |
-                  ALLOWED='^(CHANGELOG\.md|package\.json|pnpm-lock\.yaml|action\.yml|action\.yaml)$'
+                  set -euo pipefail
+
+                  ALLOWED='^(CHANGELOG\.md|package\.json|package-lock\.json|pnpm-lock\.yaml|action\.ya?ml)$'
 
                   CHANGED_FILES="$(git diff --name-only)"
 
                   if [ -z "$CHANGED_FILES" ]; then
-                      echo "No files changed after version bump."
+                      echo "::error::No files changed after release preparation."
                       exit 1
                   fi
 
                   BAD_FILES="$(echo "$CHANGED_FILES" | grep -Ev "$ALLOWED" || true)"
 
                   if [ -n "$BAD_FILES" ]; then
-                      echo "Release commit contains unexpected files:"
+                      echo "::error::Release commit contains unexpected files:"
                       echo "$BAD_FILES"
                       exit 1
                   fi
 
                   echo "Release file changes are valid:"
                   echo "$CHANGED_FILES"
-
-            - name: Generate incremental release notes
-              if: steps.has_changes.outputs.has_changes == 'true'
-              run: |
-                  TAG="v${{ steps.version.outputs.version }}"
-                  cog changelog --at "$TAG" > /tmp/release_notes.md
-
-                  echo "Generated release notes for $TAG:"
-                  echo
-                  cat /tmp/release_notes.md
 
             - name: Show dry-run release changes
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'true'
@@ -254,7 +326,27 @@ jobs:
                   git diff --name-only
                   echo
                   echo "Diff:"
-                  git diff -- CHANGELOG.md package.json pnpm-lock.yaml action.yml action.yaml || true
+                  git diff -- CHANGELOG.md package.json package-lock.json pnpm-lock.yaml action.yml action.yaml || true
+                  echo
+                  echo "Release notes:"
+                  cat /tmp/release_notes.md
+
+            - name: Verify exact release tag does not exist remotely
+              if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
+              env:
+                  GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
+              run: |
+                  set -euo pipefail
+
+                  REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+                  VERSION_TAG="v${{ steps.version.outputs.version }}"
+
+                  if git ls-remote --exit-code --tags "$REMOTE" "refs/tags/$VERSION_TAG" >/dev/null 2>&1; then
+                      echo "::error::Remote tag $VERSION_TAG already exists."
+                      exit 1
+                  fi
+
+                  echo "Remote tag $VERSION_TAG does not exist."
 
             - name: Create verified release commit
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
@@ -278,22 +370,31 @@ jobs:
                         encoding: "utf8",
                       }).trim();
 
-                      const changedFiles = execSync("git diff --name-only", {
-                        encoding: "utf8",
-                      })
+                      const additions = execSync(
+                        "git diff --name-only --diff-filter=ACMRT",
+                        { encoding: "utf8" },
+                      )
                         .trim()
                         .split("\n")
-                        .filter(Boolean);
+                        .filter(Boolean)
+                        .map((path) => ({
+                          path,
+                          contents: fs.readFileSync(path).toString("base64"),
+                        }));
 
-                      if (changedFiles.length === 0) {
+                      const deletions = execSync(
+                        "git diff --name-only --diff-filter=D",
+                        { encoding: "utf8" },
+                      )
+                        .trim()
+                        .split("\n")
+                        .filter(Boolean)
+                        .map((path) => ({ path }));
+
+                      if (additions.length === 0 && deletions.length === 0) {
                         core.setFailed("No changed files to commit.");
                         return;
                       }
-
-                      const additions = changedFiles.map((path) => ({
-                        path,
-                        contents: fs.readFileSync(path).toString("base64"),
-                      }));
 
                       const mutation = `
                         mutation CreateReleaseCommit($input: CreateCommitOnBranchInput!) {
@@ -310,13 +411,14 @@ jobs:
                         input: {
                           branch: {
                             repositoryNameWithOwner: `${owner}/${repo}`,
-                            branchName,
+                            refName: branchName,
                           },
                           message: {
                             headline: `chore(release): ${version} [skip ci]`,
                           },
                           fileChanges: {
                             additions,
+                            deletions,
                           },
                           expectedHeadOid,
                         },
@@ -336,6 +438,8 @@ jobs:
               env:
                   GH_TOKEN: ${{ steps.app_token.outputs.token }}
               run: |
+                  set -euo pipefail
+
                   EXPECTED_SHA="${{ steps.release_commit.outputs.sha }}"
 
                   if [ -z "$EXPECTED_SHA" ]; then
@@ -343,7 +447,7 @@ jobs:
                       exit 1
                   fi
 
-                  # Verify the commit exists on the remote via API
+                  # Verify the commit exists on the remote via API.
                   gh api repos/${{ github.repository }}/commits/"$EXPECTED_SHA" --jq '.sha' >/dev/null 2>&1 || {
                       echo "::error::Could not verify release commit $EXPECTED_SHA on remote."
                       exit 1
@@ -356,6 +460,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
               run: |
+                  set -euo pipefail
+
                   BASE_REF="${{ steps.branch.outputs.branch }}"
 
                   git fetch origin "$BASE_REF"
@@ -365,7 +471,7 @@ jobs:
                   EXPECTED_SHA="${{ steps.release_commit.outputs.sha }}"
 
                   if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
-                      echo "Local checkout is not at the release commit."
+                      echo "::error::Local checkout is not at the release commit."
                       echo "Current:  $CURRENT_SHA"
                       echo "Expected: $EXPECTED_SHA"
                       exit 1
@@ -377,6 +483,8 @@ jobs:
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               id: tags
               run: |
+                  set -euo pipefail
+
                   VERSION_TAG="v${{ steps.version.outputs.version }}"
 
                   MAJOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+)\..*/\1/')"
@@ -386,7 +494,7 @@ jobs:
                   echo "major_tag=$MAJOR_TAG" >> "$GITHUB_OUTPUT"
                   echo "minor_tag=$MINOR_TAG" >> "$GITHUB_OUTPUT"
 
-                  git tag -f "$VERSION_TAG"
+                  git tag "$VERSION_TAG"
                   git tag -f "$MINOR_TAG"
                   git tag -f "$MAJOR_TAG"
 
@@ -400,6 +508,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
               run: |
+                  set -euo pipefail
+
                   REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
                   VERSION_TAG="${{ steps.tags.outputs.version_tag }}"
@@ -418,6 +528,8 @@ jobs:
               env:
                   GH_TOKEN: ${{ steps.app_token.outputs.token }}
               run: |
+                  set -euo pipefail
+
                   TAG="v${{ steps.version.outputs.version }}"
 
                   if [ "${{ steps.release_type.outputs.pre_release }}" = "true" ]; then
