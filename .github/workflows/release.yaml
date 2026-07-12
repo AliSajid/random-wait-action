@@ -166,7 +166,7 @@ jobs:
 
             - name: Create GitHub App token
               id: app_token
-              uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+              uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
               with:
                   app-id: ${{ vars.RELEASE_APP_ID }}
                   private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
@@ -366,7 +366,7 @@ jobs:
             - name: Create verified release commit
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               id: release_commit
-              uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+              uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
               env:
                   BASE_REF: ${{ steps.branch.outputs.branch }}
                   VERSION: ${{ steps.version.outputs.version }}
@@ -426,7 +426,7 @@ jobs:
                         input: {
                           branch: {
                             repositoryNameWithOwner: `${owner}/${repo}`,
-                            refName: branchName,
+                            branchName,
                           },
                           message: {
                             headline: `chore(release): ${version} [skip ci]`,
