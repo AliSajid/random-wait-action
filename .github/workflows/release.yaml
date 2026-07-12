@@ -502,22 +502,37 @@ jobs:
 
                   VERSION_TAG="v${{ steps.version.outputs.version }}"
 
+                  SHOULD_MOVE_TAGS=false
+                  if [ "${{ steps.branch.outputs.branch }}" = "main" ] &&
+                  [ "${{ steps.release_type.outputs.pre_release }}" = "false" ]; then
+                      SHOULD_MOVE_TAGS=true
+                  fi
+
                   MAJOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+)\..*/\1/')"
                   MINOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+\.[0-9]+)\..*/\1/')"
 
                   echo "version_tag=$VERSION_TAG" >> "$GITHUB_OUTPUT"
                   echo "major_tag=$MAJOR_TAG" >> "$GITHUB_OUTPUT"
                   echo "minor_tag=$MINOR_TAG" >> "$GITHUB_OUTPUT"
+                  echo "moving_tags=$SHOULD_MOVE_TAGS" >> "$GITHUB_OUTPUT"
 
                   git tag "$VERSION_TAG"
-                  git tag -f "$MINOR_TAG"
-                  git tag -f "$MAJOR_TAG"
 
                   echo "Created local tags:"
                   echo "$VERSION_TAG"
-                  echo "$MINOR_TAG"
-                  echo "$MAJOR_TAG"
 
+                  if [ "$SHOULD_MOVE_TAGS" = "true" ]; then
+                      git tag -f "$MINOR_TAG"
+                      git tag -f "$MAJOR_TAG"
+
+                      echo "Created moving tags for stable main release:"
+                      echo "$MINOR_TAG"
+                      echo "$MAJOR_TAG"
+                  else
+                      echo "Skipping moving major/minor tags because this is not a stable main release."
+                      echo "Branch:      ${{ steps.branch.outputs.branch }}"
+                      echo "Pre-release: ${{ steps.release_type.outputs.pre_release }}"
+                  fi
             - name: Push semver tags
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
