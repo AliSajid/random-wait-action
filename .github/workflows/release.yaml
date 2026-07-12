@@ -12,15 +12,17 @@ on:
     workflow_dispatch:
         inputs:
             release_branch:
-                description: 'Branch to run the release workflow against'
+                description: >
+                    Branch to run the release workflow against.
+                    Only main and next can publish;
+                    every other branch is forced to dry-run.
                 required: true
                 default: 'main'
-                type: choice
-                options:
-                    - main
-                    - next
+                type: string
             dry_run:
-                description: 'Prepare the release but do not create commits, tags, or GitHub releases'
+                description: >
+                    Prepare the release but do not create
+                    commits, tags, or GitHub releases.
                 required: true
                 default: false
                 type: boolean
@@ -111,7 +113,7 @@ jobs:
               uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
               with:
                   disable-sudo: true
-                  egress-policy: block
+                  egress-policy: enforce
                   disable-core-dump: true
                   allowed-endpoints: >
                       api.github.com:443
@@ -147,9 +149,16 @@ jobs:
             - name: Determine run mode
               id: mode
               run: |
-                  if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+                  BRANCH="${{ steps.branch.outputs.branch }}"
+
+                  if [ "$BRANCH" != "main" ] && [ "$BRANCH" != "next" ]; then
                       echo "dry_run=true" >> "$GITHUB_OUTPUT"
                       echo "Dry run: true"
+                      echo "Dry run was forced because '$BRANCH' is not main or next."
+                  elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+                      echo "dry_run=true" >> "$GITHUB_OUTPUT"
+                      echo "Dry run: true"
+                      echo "Dry run was requested manually."
                   else
                       echo "dry_run=false" >> "$GITHUB_OUTPUT"
                       echo "Dry run: false"
@@ -220,6 +229,7 @@ jobs:
               env:
                   VERSION: ${{ steps.version.outputs.version }}
                   PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
+                  RELEASE_BRANCH: ${{ steps.branch.outputs.branch }}
               run: |
                   set -euo pipefail
 
@@ -234,14 +244,19 @@ jobs:
                   trap cleanup EXIT
 
                   git clone --shared "$GITHUB_WORKSPACE" "$TMP_REPO"
-                  git -C "$TMP_REPO" checkout --detach "$BASE_SHA"
+                  git -C "$TMP_REPO" checkout -B "$RELEASE_BRANCH" "$BASE_SHA"
+
+                  TMP_BRANCH="$(git -C "$TMP_REPO" branch --show-current)"
+                  if [ "$TMP_BRANCH" != "$RELEASE_BRANCH" ]; then
+                      echo "::error::Temporary Cocogitto clone is on '$TMP_BRANCH', expected '$RELEASE_BRANCH'."
+                      exit 1
+                  fi
 
                   cd "$TMP_REPO"
 
                   # Keep Cocogitto's tag side effects inside this disposable clone.
                   # The real release commit is created later through GitHub's
                   # createCommitOnBranch mutation using the GitHub App identity.
-
                   if [ "$PRE_RELEASE" = "true" ]; then
                       cog bump --auto --disable-bump-commit --pre --skip-untracked --hook-profile ci-release-prepare
                   else
