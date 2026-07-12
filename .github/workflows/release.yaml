@@ -270,8 +270,8 @@ jobs:
                       echo "Generated release notes for $VERSION"
                   fi
 
-                  git diff --name-only -z --diff-filter=ACMRT > "$TMP_DIR/changed.z"
-                  git diff --name-only -z --diff-filter=D > "$TMP_DIR/deleted.z"
+                  git diff --name-only --staged -z --diff-filter=ACMRT > "$TMP_DIR/changed.z"
+                  git diff --name-only --staged -z --diff-filter=D > "$TMP_DIR/deleted.z"
 
                   if [ ! -s "$TMP_DIR/changed.z" ] && [ ! -s "$TMP_DIR/deleted.z" ]; then
                       echo "::error::Cocogitto produced no release file changes."
@@ -308,7 +308,7 @@ jobs:
               run: |
                   set -euo pipefail
 
-                  ALLOWED='^(CHANGELOG\.md|package\.json|package-lock\.json|pnpm-lock\.yaml|action\.ya?ml)$'
+                  ALLOWED='^(CHANGELOG\.md|package\.json)$'
 
                   CHANGED_FILES="$(git diff --name-only)"
 
@@ -341,7 +341,7 @@ jobs:
                   git diff --name-only
                   echo
                   echo "Diff:"
-                  git diff -- CHANGELOG.md package.json package-lock.json pnpm-lock.yaml action.yml action.yaml || true
+                  git diff -- CHANGELOG.md package.json || true
                   echo
                   echo "Release notes:"
                   cat /tmp/release_notes.md
