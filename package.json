@@ -27,9 +27,9 @@
         "@types/node": "26.1.1",
         "@vercel/ncc": "0.44.1",
         "@vitest/coverage-v8": "4.1.10",
-        "@vitest/eslint-plugin": "1.6.20",
+        "@vitest/eslint-plugin": "1.6.23",
         "@vitest/ui": "4.1.10",
-        "eslint": "10.6.0",
+        "eslint": "10.7.0",
         "fast-check": "4.9.0",
         "globals": "17.7.0",
         "prettier": "3.9.5",
@@ -37,7 +37,7 @@
         "rollup": "4.62.2",
         "tslib": "2.8.1",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.62.1",
+        "typescript-eslint": "8.63.0",
         "vitest": "4.1.10"
     },
     "keywords": [
@@ -48,7 +48,7 @@
     "license": "MIT",
     "main": "lib/main.js",
     "name": "random-wait-action",
-    "packageManager": "pnpm@11.9.0",
+    "packageManager": "pnpm@11.11.0",
     "private": true,
     "repository": {
         "type": "git",

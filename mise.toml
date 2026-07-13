@@ -16,14 +16,14 @@
 node = "24.16.0"
 
 # Package manager (locked version for consistency)
-pnpm = "11.9.0"
+pnpm = "11.11.0"
 
 # Python tools (for pre-commit hooks)
 python = "3.14.6"
 pre-commit = "4.6.0"
 
 # Documentation tooling (non-npm)
-"cargo:mdbook" = "0.5.0"
+"cargo:mdbook" = "0.5.4"
 
 # Git tooling (non-npm)
 hk = "1.50.0"
