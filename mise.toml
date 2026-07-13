@@ -16,7 +16,7 @@
 node = "24.16.0"
 
 # Package manager (locked version for consistency)
-pnpm = "11.11.0"
+pnpm = "11.9.0"
 
 # Python tools (for pre-commit hooks)
 python = "3.14.6"
@@ -34,7 +34,7 @@ cocogitto = "7.0.0"
 taplo = "0.10.0"
 yamllint = "1.38.0"
 gitleaks = "8.30.1"
-"npm:renovate" = "43.256.2"
+"npm:renovate" = "43.249.5"
 vale = "3.15.1"
 
 # Note: All npm-based tools (TypeScript, ESLint, Prettier, Vitest, Rollup, etc.)

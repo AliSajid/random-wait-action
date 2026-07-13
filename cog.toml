@@ -9,7 +9,7 @@ disable_changelog = false
 disable_bump_commit = false
 generate_mono_repository_global_tag = false
 generate_mono_repository_package_tags = false
-branch_whitelist = ["main", "next", "build/github-app-based-release-*"]
+branch_whitelist = ["main", "next"]
 skip_ci = "[skip ci]"
 skip_untracked = false
 tag_prefix = "v"
@@ -31,7 +31,3 @@ path = "CHANGELOG.md"
 authors = []
 
 [bump_profiles]
-
-[bump_profiles.ci-release-prepare]
-pre_bump_hooks = ["npm pkg set version={{version}}"]
-post_bump_hooks = []
