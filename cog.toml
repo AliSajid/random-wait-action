@@ -31,3 +31,7 @@ path = "CHANGELOG.md"
 authors = []
 
 [bump_profiles]
+
+[bump_profiles.ci-release-prepare]
+pre_bump_hooks = ["npm pkg set version={{version}}"]
+post_bump_hooks = []
