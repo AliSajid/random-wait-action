@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+---
 on:
     pull_request_target:
         types: [closed]
@@ -7,8 +11,14 @@ on:
 
 name: Release
 
-permissions:
-    contents: read
+permissions: {}
+
+concurrency:
+    group: >
+        release-${{ github.event_name == 'workflow_dispatch' &&
+        inputs.release_branch ||
+        github.event.pull_request.base.ref }}
+    cancel-in-progress: false
 
 jobs:
     release:
@@ -25,15 +35,63 @@ jobs:
               uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
               with:
                   disable-sudo: true
-                  egress-policy: audit
+                  egress-policy: enforce
+                  disable-core-dump: true
                   allowed-endpoints: >
                       api.github.com:443
-                      fulcio.sigstore.dev:443
                       github.com:443
+                      objects.githubusercontent.com:443
                       registry.npmjs.org:443
-                      rekor.sigstore.dev:443
                       mise.jdx.dev:443
                       uploads.github.com:443
+
+            - name: Determine target branch
+              id: branch
+              run: |
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                      BRANCH="${{ inputs.release_branch }}"
+                  else
+                      BRANCH="${{ github.event.pull_request.base.ref }}"
+                  fi
+
+                  echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+                  echo "Target branch: $BRANCH"
+
+            - name: Determine release type
+              id: release_type
+              run: |
+                  if [ "${{ steps.branch.outputs.branch }}" = "main" ]; then
+                      echo "pre_release=false" >> "$GITHUB_OUTPUT"
+                      echo "Cutting a regular release"
+                  else
+                      echo "pre_release=true" >> "$GITHUB_OUTPUT"
+                      echo "Cutting a pre-release"
+                  fi
+
+            - name: Determine run mode
+              id: mode
+              run: |
+                  BRANCH="${{ steps.branch.outputs.branch }}"
+
+                  if [ "$BRANCH" != "main" ] && [ "$BRANCH" != "next" ]; then
+                      echo "dry_run=true" >> "$GITHUB_OUTPUT"
+                      echo "Dry run: true"
+                      echo "Dry run was forced because '$BRANCH' is not main or next."
+                  elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+                      echo "dry_run=true" >> "$GITHUB_OUTPUT"
+                      echo "Dry run: true"
+                      echo "Dry run was requested manually."
+                  else
+                      echo "dry_run=false" >> "$GITHUB_OUTPUT"
+                      echo "Dry run: false"
+                  fi
+
+            - name: Create GitHub App token
+              id: app_token
+              uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+              with:
+                  app-id: ${{ vars.RELEASE_APP_ID }}
+                  private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
 
             - name: Checkout repository
               uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

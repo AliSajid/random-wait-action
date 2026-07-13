@@ -12,11 +12,15 @@ generate_mono_repository_package_tags = false
 branch_whitelist = ["main", "next"]
 skip_ci = "[skip ci]"
 skip_untracked = false
+tag_prefix = "v"
+pre = "next.*"
+
+# Keep default/local Cocogitto behavior boring.
+# CI release preparation uses the named bump profile below.
 pre_bump_hooks = []
 post_bump_hooks = []
 pre_package_bump_hooks = []
 post_package_bump_hooks = []
-tag_prefix = "v"
 
 [git_hooks]
 
