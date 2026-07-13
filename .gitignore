@@ -126,3 +126,6 @@ styles/*
 
 # Oh My Openagent
 .omo/
+
+# Backup files
+*.bak
