@@ -13,8 +13,8 @@ on:
         inputs:
             release_branch:
                 description: >
-                    Branch to run the release workflow against. Only main and next
-                    can publish; every other branch is forced to dry-run.
+                    Branch to run the release workflow against. Only main and next can
+                    publish; every other branch is forced to dry-run.
                 required: true
                 default: 'main'
                 type: string
@@ -223,6 +223,7 @@ jobs:
 
             - name: Prepare release files in isolated Cocogitto clone
               if: steps.has_changes.outputs.has_changes == 'true'
+              id: prepare
               env:
                   VERSION: ${{ steps.version.outputs.version }}
                   PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
@@ -300,10 +301,23 @@ jobs:
 
                   CHANGED_FILES="$(git diff --name-only)"
 
+                  # Copy release notes out of the disposable clone before any early exit.
+                  cp "$TMP_DIR/release_notes.md" /tmp/release_notes.md
+
                   if [ -z "$CHANGED_FILES" ]; then
-                      echo "::error::Cocogitto produced no release file changes."
-                      exit 1
+                      echo "has_file_changes=false" >> "$GITHUB_OUTPUT"
+                      echo "No release file changes were produced."
+                      echo "package.json and CHANGELOG.md already appear to contain $VERSION_TAG / $VERSION."
+                      echo "The workflow will treat this as an already-prepared release and,"
+                      echo "for non-dry-run runs,tag the current branch HEAD."
+                      echo
+                      echo "Generated release notes:"
+                      echo
+                      cat /tmp/release_notes.md
+                      exit 0
                   fi
+
+                  echo "has_file_changes=true" >> "$GITHUB_OUTPUT"
 
                   ALLOWED='^(CHANGELOG\.md|package\.json)$'
                   BAD_FILES="$(echo "$CHANGED_FILES" | grep -Ev "$ALLOWED" || true)"
@@ -328,15 +342,13 @@ jobs:
                       tar -xf "$TMP_DIR/release-files.tar" -C "$GITHUB_WORKSPACE"
                   fi
 
-                  cp "$TMP_DIR/release_notes.md" /tmp/release_notes.md
-
                   echo
                   echo "Generated release notes:"
                   echo
                   cat /tmp/release_notes.md
 
             - name: Validate release file changes
-              if: steps.has_changes.outputs.has_changes == 'true'
+              if: steps.has_changes.outputs.has_changes == 'true' && steps.prepare.outputs.has_file_changes == 'true'
               run: |
                   set -euo pipefail
 
@@ -368,12 +380,21 @@ jobs:
                   echo "Target branch: ${{ steps.branch.outputs.branch }}"
                   echo "Pre-release:   ${{ steps.release_type.outputs.pre_release }}"
                   echo "Version:       ${{ steps.version.outputs.version }}"
+                  echo "File changes:  ${{ steps.prepare.outputs.has_file_changes }}"
                   echo
-                  echo "Changed files:"
-                  git diff --name-only
+                  if [ "${{ steps.prepare.outputs.has_file_changes }}" = "true" ]; then
+                      echo "Changed files:"
+                      git diff --name-only
+                  else
+                      echo "No release file changes were needed; package.json and CHANGELOG.md were already prepared."
+                  fi
                   echo
                   echo "Diff:"
-                  git diff -- CHANGELOG.md package.json || true
+                  if [ "${{ steps.prepare.outputs.has_file_changes }}" = "true" ]; then
+                      git diff -- CHANGELOG.md package.json || true
+                  else
+                      echo "No diff."
+                  fi
                   echo
                   echo "Release notes:"
                   cat /tmp/release_notes.md
@@ -396,7 +417,9 @@ jobs:
                   echo "Remote tag $VERSION_TAG does not exist."
 
             - name: Create verified release commit
-              if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
+              if: steps.has_changes.outputs.has_changes == 'true' &&
+                  steps.prepare.outputs.has_file_changes == 'true' &&
+                  steps.mode.outputs.dry_run == 'false'
               id: release_commit
               uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
               env:
@@ -432,7 +455,7 @@ jobs:
 
                       if (unexpectedFiles.length > 0) {
                         core.setFailed(
-                          `Release commit may only change CHANGELOG.md and package.json.
+                          `Release commit may only change CHANGELOG.md and package.json. \
                            Unexpected files: ${unexpectedFiles.join(", ")}`,
                         );
                         return;
@@ -506,27 +529,47 @@ jobs:
                       core.setOutput("sha", oid);
                       core.setOutput("url", url);
 
-            - name: Verify release commit was created
+            - name: Determine release target commit
+              if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
+              id: release_target
+              run: |
+                  set -euo pipefail
+
+                  if [ "${{ steps.prepare.outputs.has_file_changes }}" = "true" ]; then
+                      TARGET_SHA="${{ steps.release_commit.outputs.sha }}"
+                      if [ -z "$TARGET_SHA" ]; then
+                          echo "::error::Release commit SHA is empty. Commit creation may have failed."
+                          exit 1
+                      fi
+                      echo "Using newly-created release commit: $TARGET_SHA"
+                  else
+                      TARGET_SHA="$(git rev-parse HEAD)"
+                      echo "No release file changes were needed. Using current branch HEAD as release target: $TARGET_SHA"
+                  fi
+
+                  echo "sha=$TARGET_SHA" >> "$GITHUB_OUTPUT"
+
+            - name: Verify release target commit exists
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
                   GH_TOKEN: ${{ steps.app_token.outputs.token }}
               run: |
                   set -euo pipefail
 
-                  EXPECTED_SHA="${{ steps.release_commit.outputs.sha }}"
+                  EXPECTED_SHA="${{ steps.release_target.outputs.sha }}"
 
                   if [ -z "$EXPECTED_SHA" ]; then
-                      echo "::error::Release commit SHA is empty. Commit creation may have failed."
+                      echo "::error::Release target SHA is empty."
                       exit 1
                   fi
 
-                  # Verify the commit exists on the remote via API.
+                  # Verify the target commit exists on the remote via API.
                   gh api repos/${{ github.repository }}/commits/"$EXPECTED_SHA" --jq '.sha' >/dev/null 2>&1 || {
-                      echo "::error::Could not verify release commit $EXPECTED_SHA on remote."
+                      echo "::error::Could not verify release target commit $EXPECTED_SHA on remote."
                       exit 1
                   }
 
-                  echo "Release commit $EXPECTED_SHA verified on remote."
+                  echo "Release target commit $EXPECTED_SHA verified on remote."
 
             - name: Refresh checkout to release commit
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
@@ -541,16 +584,16 @@ jobs:
                   git reset --hard "origin/$BASE_REF"
 
                   CURRENT_SHA="$(git rev-parse HEAD)"
-                  EXPECTED_SHA="${{ steps.release_commit.outputs.sha }}"
+                  EXPECTED_SHA="${{ steps.release_target.outputs.sha }}"
 
                   if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
-                      echo "::error::Local checkout is not at the release commit."
+                      echo "::error::Local checkout is not at the release target commit."
                       echo "Current:  $CURRENT_SHA"
                       echo "Expected: $EXPECTED_SHA"
                       exit 1
                   fi
 
-                  echo "Checkout refreshed to release commit: $CURRENT_SHA"
+                  echo "Checkout refreshed to release target commit: $CURRENT_SHA"
 
             - name: Create local semver tags
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
@@ -562,7 +605,7 @@ jobs:
 
                   SHOULD_MOVE_TAGS=false
                   if [ "${{ steps.branch.outputs.branch }}" = "main" ] &&
-                  [ "${{ steps.release_type.outputs.pre_release }}" = "false" ]; then
+                     [ "${{ steps.release_type.outputs.pre_release }}" = "false" ]; then
                       SHOULD_MOVE_TAGS=true
                   fi
 
