@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 ---
 name: 'Random Wait Action'
-description: 'A GitHub Action to introduce a random delay in a Job'
+description: 'Add configurable jitter to stagger parallel GitHub Actions jobs'
 author: 'Ali Sajid Imami'
 inputs:
     minimum:
