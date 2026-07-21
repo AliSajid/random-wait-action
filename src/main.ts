@@ -35,7 +35,11 @@ async function run(): Promise<void> {
         core.debug(`End Time: ${new Date().toTimeString()}`)
         core.setOutput('wait_time', waitTime.toString())
     } catch (error) {
-        if (error instanceof Error) core.setFailed(error.message)
+        if (error instanceof Error) {
+            core.setFailed(error.message)
+        } else {
+            core.setFailed(`Unknown error: ${String(error)}`)
+        }
     }
 }
 

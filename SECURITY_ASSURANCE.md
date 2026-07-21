@@ -31,7 +31,7 @@ meets security best practices and mitigates potential risks.
 - **Mitigation:**
     - The code validates that `minimum` and `maximum` inputs are numbers.
     - Ensures `minimum` is less than `maximum`.
-    - Enforces an upper limit of 100 seconds to prevent excessive wait times.
+    - Enforces an upper limit of 120 seconds to prevent excessive wait times.
 
 ### 3.2. Code Integrity and Authenticity
 
@@ -45,7 +45,8 @@ meets security best practices and mitigates potential risks.
 
 - **Threat:** Compromised dependencies introducing security vulnerabilities.
 - **Mitigation:**
-    - Uses `@actions/core`, a trusted GitHub package.
+    - Uses `@actions/core` (first-party GitHub package) and `true-myth` (zero runtime deps, MIT licensed).
+    - Both runtime dependencies vetted for supply-chain risk — no network I/O, file access, or dynamic code evaluation.
     - Developer dependencies are vetted independently.
     - Uses renovate bot to ensure timely updates for any security vulnerability.
     - Regular lockfile updates to mitigate known vulnerabilities.
@@ -54,7 +55,7 @@ meets security best practices and mitigates potential risks.
 
 - **Threat:** Excessive wait times or resource exhaustion due to large input values.
 - **Mitigation:**
-    - Limits maximum wait time to 100 seconds.
+    - Limits maximum wait time to 120 seconds.
     - Uses `setTimeout` to schedule execution without blocking the event loop.
     - Ensures the action runs in an isolated GitHub Actions environment.
 
@@ -70,13 +71,13 @@ meets security best practices and mitigates potential risks.
 
 - **Threat:** Unauthorized usage or unexpected behavior when used in GitHub workflows.
 - **Mitigation:**
-    - Encourages using the major version (such as `@v2` version) tag to avoid breaking changes.
+    - Encourages using the major version (such as `@v3` version) tag to avoid breaking changes.
     - Implements least privilege by not requiring any permissions.
     - Recommends limiting the workflow permissions to minimize exposure.
 
 ## 4. Security Recommendations
 
-- **Version Pinning:** Use `AliSajid/random-wait-action@v2` to ensure a stable and tested version.
+- **Version Pinning:** Use `AliSajid/random-wait-action@v3` to ensure a stable and tested version.
 - **Dependency Updates:** Regularly update dependencies and run security audits.
 - **GitHub Actions Permissions:** Restrict workflow permissions to the minimum required.
 - **Code Reviews:** Conduct periodic security reviews before merging changes.

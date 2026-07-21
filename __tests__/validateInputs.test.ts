@@ -15,7 +15,8 @@ describe('validateInputs (unit cases)', () => {
         ['non-integer maximum', 1, 9.9, /integers/],
         ['non-positive minimum', -1, 10, /positive/],
         ['non-positive maximum', 1, 0, /greater/],
-        ['minimum greater than maximum', 11, 10, /greater than/]
+        ['minimum greater than maximum', 11, 10, /greater than/],
+        ['maximum exceeds allowed limit', 1, 121, /exceed/]
     ])('%s', (_desc, min, max, expectedError) => {
         it(`should return error when min=${min}, max=${max}`, () => {
             const result = validateInputs(min, max)
@@ -42,11 +43,11 @@ describe('validateInputs (unit cases)', () => {
 })
 
 describe('validateInputs (property-based)', () => {
-    it('always returns ok for positive integers where min <= max', () => {
+    it('always returns ok for positive integers where min <= max (within allowed range)', () => {
         fc.assert(
             fc.property(
-                fc.integer({ min: 1, max: 1000 }),
-                fc.integer({ min: 1, max: 1000 }),
+                fc.integer({ min: 1, max: 120 }),
+                fc.integer({ min: 1, max: 120 }),
                 (a, b) => {
                     const min = Math.min(a, b)
                     const max = Math.max(a, b)
