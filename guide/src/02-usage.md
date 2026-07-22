@@ -25,7 +25,7 @@ This will wait between 1 and 10 seconds.
 
 ```yaml
 - name: Insert Random Wait
-  uses: AliSajid/random-wait-action@v2
+  uses: AliSajid/random-wait-action@v3
 ```
 
 ### Specifying Parameters
@@ -36,7 +36,7 @@ You can specify just the `minimum`:
 
 ```yaml
 - name: Insert Random Wait
-  uses: AliSajid/random-wait-action@v2
+  uses: AliSajid/random-wait-action@v3
   with:
       minimum: 5
 ```
@@ -45,20 +45,35 @@ or just the `maximum`:
 
 ```yaml
 - name: Insert Random Wait
-  uses: AliSajid/random-wait-action@v2
+  uses: AliSajid/random-wait-action@v3
   with:
       maximum: 5
 ```
 
 ### Recommended Usage
 
-Except for very simple use cases, we recommend specifying both parameters
-and using a pinned hash to the latest version.
+For production workflows, specify both parameters and pin the action to an
+immutable commit SHA for the v3 release.
 
 ```yaml
-name: Add Random Waiting Time
-uses: AliSajid/random-wait-action@f9109712daa7a8103f7be16b68634b9d376587a7 # v2.4.1
-with:
-    minimum: 1
-    maximum: 10
+- name: Add Random Waiting Time
+  id: random-wait
+  uses: AliSajid/random-wait-action@v3 # pin to the v3 commit SHA in hardened workflows
+  with:
+      minimum: 5
+      maximum: 30
+- name: Show selected delay
+  run: echo "Waited ${{ steps.random-wait.outputs.wait_time }} seconds"
 ```
+
+### Validation Rules
+
+The action validates inputs before waiting:
+
+- Both values must be integers (not decimals).
+- Both values must be non-negative.
+- Both cannot be zero simultaneously.
+- `minimum` cannot exceed `maximum`.
+- `maximum` is capped at **120 seconds** (2 minutes).
+
+If validation fails, the step fails with a descriptive error message.

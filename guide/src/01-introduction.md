@@ -9,37 +9,36 @@
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9500/badge)](https://www.bestpractices.dev/projects/9500)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/AliSajid/random-wait-action/badge)](https://scorecard.dev/viewer/?uri=github.com/AliSajid/random-wait-action)
 
-This is a very simple GitHub action that lets you wait for a random amount of
-time in seconds. This is useful for workflows that have to deal with external APIs with rate-limiting
-or steps where you have to let an external process complete.
+This is a very simple GitHub Action that lets you wait for a random amount of
+time in seconds. It pauses a job for a randomly selected duration, helping
+stagger parallel requests and reduce synchronized bursts against APIs, registries,
+deployment targets, and other shared services.
+
+Version 3 runs on the **Node 24** GitHub Actions runtime. See [Migration](./05-migration.md) for upgrade notes.
 
 ## Raison d'être
 
-I created this action to fix a problem I was having with my own workflows.
-I ran a build job for which I wanted to have individual results for each build.
-For this purpose, I opted to use the excellent
-[`schneegans/dynamic-badges-action`](https://github.com/schneegans/dynamic-badges-action)
-to generate a badge for each build. This action updates a file in a specified
-[Gist](https://gist.github.com), which can then be consumed by [Shields.io](https://shields.io)
-to generate a specific badge.
+This action was born from a real incident: a matrix of 12 jobs updating the same
+GitHub Gist simultaneously, causing 500 errors for later jobs due to API rate
+limiting. Adding a small randomized delay between jobs allowed them to complete
+successfully by spreading requests over a configurable interval.
 
-This appeared to be a simple solution. However, I kept running into 500
-errors from the GitHub Gist API. I theorized that the API was
-probably rate limiting me because I was hitting it with twelve requests at the same time.
-When I tried to find something that would let me add a some kind of non-identical delay
-after the build but before the `dynamic-badges-action` fires. I could not find
-one, so I decided to create this one.
+> [!NOTE]
+> Randomized delay is not a replacement for retries, exponential backoff,
+> GitHub Actions concurrency controls, or provider-specific rate-limit
+> handling. It addresses the narrower problem of unnecessary and unintended
+> synchronization.
 
 ## Broad Design Decisions
 
-This is an extremely simple action. In fact, it is not much different from the
-default action that is in the GitHub node-based actions template repository.
+This is an extremely simple action built on the GitHub Node 24 Actions toolkit.
 
-The action has no required inputs because we don't need any. By default, it waits
-between 1 and 10 seconds. If that proves insufficient, the action allows for
-customizing these values.
+The action has no required inputs. By default, it waits between **1 and 10 seconds**.
+Both bounds are configurable integers capped at **120 seconds** (2 minutes).
 
-The action has one output: The number of seconds the action waited.
+The action has one output: `wait_time` — the actual number of seconds waited.
+
+It requests no GitHub token permissions and makes no network requests.
 
 ## Licensing
 

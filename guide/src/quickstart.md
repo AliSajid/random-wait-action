@@ -9,17 +9,21 @@ You can use it with the defaults as follows:
 name: My Awesome GitHub Action Workflow
 on:
     push:
-permissions: read
+permissions:
+    contents: read
 
 jobs:
     my_job:
         name: My Awesome Job
-        runs-on: ubuntu-lates
+        runs-on: ubuntu-latest
         steps:
             - name: First Step
               uses: actions/checkout@v4
             - name: Add Waiting Time
-              uses: AliSajid/random-wait-action@v2
+              id: random-wait
+              uses: AliSajid/random-wait-action@v3
+            - name: Show selected delay
+              run: echo "Waited ${{ steps.random-wait.outputs.wait_time }} seconds"
             - name: Second Step
               run: python my_awesome_script.py
 ```
