@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-#MISE description="Install dependencies (internal)"
+#MISE description="Install website dependencies (internal)"
+#MISE dir="website"
 #MISE hide=true
-pnpm install --config.confirmModulesPurge=false
+pnpm install

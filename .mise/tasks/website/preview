@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Preview the built website locally"
+#MISE depends=["website:_install"]
+#MISE dir="website"
+pnpm exec astro preview
