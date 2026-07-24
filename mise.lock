@@ -340,43 +340,43 @@ url = "https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-windows-x
 url_api = "https://api.github.com/repos/tamasfe/taplo/releases/assets/257323062"
 
 [[tools.vale]]
-version = "3.15.1"
+version = "3.15.2"
 backend = "aqua:errata-ai/vale"
 
 [tools.vale."platforms.linux-arm64"]
-checksum = "sha256:281a419e140da11a408935356bab7a4ef770fed047a9d7bd1765c76acd647d01"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_Linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446050985"
+checksum = "sha256:e8240a3304e2c07b0476d30423f241a80296865cf6d2b78b128fb7e4e14cbb69"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_Linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374111"
 
 [tools.vale."platforms.linux-arm64-musl"]
-checksum = "sha256:281a419e140da11a408935356bab7a4ef770fed047a9d7bd1765c76acd647d01"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_Linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446050985"
+checksum = "sha256:e8240a3304e2c07b0476d30423f241a80296865cf6d2b78b128fb7e4e14cbb69"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_Linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374111"
 
 [tools.vale."platforms.linux-x64"]
-checksum = "sha256:c024d9c157874fb043d4f24a055d60050d1bb18755251f590593eed5bace1857"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_Linux_64-bit.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446050982"
+checksum = "sha256:fc72e64454d6bd7af91905d4faebbf411bae3eec17bb572f4101311212bc0d9e"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_Linux_64-bit.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374110"
 
 [tools.vale."platforms.linux-x64-musl"]
-checksum = "sha256:c024d9c157874fb043d4f24a055d60050d1bb18755251f590593eed5bace1857"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_Linux_64-bit.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446050982"
+checksum = "sha256:fc72e64454d6bd7af91905d4faebbf411bae3eec17bb572f4101311212bc0d9e"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_Linux_64-bit.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374110"
 
 [tools.vale."platforms.macos-arm64"]
-checksum = "sha256:968c6d8bf2052bc97aa24274234cc466dbcc249b55ace33dd382c2cdfa93b08c"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_macOS_arm64.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446050986"
+checksum = "sha256:d3f613ff9226935ace08895fc8557206f309cdbd3a81881d86b6ab5b8b408757"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_macOS_arm64.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374113"
 
 [tools.vale."platforms.macos-x64"]
-checksum = "sha256:9268383c9e244332c4483cb359e52bd4cb030542873e2cafc48e3bbfff6a989a"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_macOS_64-bit.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446050984"
+checksum = "sha256:5d56b292f1612758f6d9e8d735dd739aec4e475830d0ba8c1e0ef7d8f08fa198"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_macOS_64-bit.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374108"
 
 [tools.vale."platforms.windows-x64"]
-checksum = "sha256:3395fca0ddfb10a9b6caa28e091d5df709b1d6b6579afb7dece852cad89b94f3"
-url = "https://github.com/vale-cli/vale/releases/download/v3.15.1/vale_3.15.1_Windows_64-bit.zip"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/446051001"
+checksum = "sha256:062834458ab700ffb3a9fbb02099762efc9f48a62e1a88b835674d729af03ddc"
+url = "https://github.com/vale-cli/vale/releases/download/v3.15.2/vale_3.15.2_Windows_64-bit.zip"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/487374128"
 
 [[tools.yamllint]]
 version = "1.38.0"
