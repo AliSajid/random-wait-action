@@ -20,7 +20,7 @@ pnpm = "11.15.1"
 
 # Python tools (for pre-commit hooks)
 python = "3.14.6"
-pre-commit = "4.6.0"
+pre-commit = "4.6.1"
 
 # Documentation tooling (non-npm)
 "cargo:mdbook" = "0.5.4"
