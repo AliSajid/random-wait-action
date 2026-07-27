@@ -8,19 +8,19 @@ SPDX-PackageDownloadLocation = "https://github.com/AliSajid/random-wait-action"
 # ---------------------------------------------------------------------------
 [[annotations]]
 path = [
+    "**.json",
+    ".github/workflows/**.yaml",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "mise.lock",
+    "package.json",
+    "pnpm-lock.yaml",
     "renovate.json",
     "tsconfig.json",
-    "package.json",
     "website/package.json",
-    "pnpm-lock.yaml",
-    "website/pnpm-workspace.yaml",
     "website/pnpm-lock.yaml",
-    ".github/workflows/**.yaml",
-    "CODE_OF_CONDUCT.md",
-    "CHANGELOG.md",
-    "CONTRIBUTING.md",
-    "**.json",
-    "mise.lock",
+    "website/pnpm-workspace.yaml",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
@@ -46,20 +46,22 @@ SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
 # ---------------------------------------------------------------------------
 [[annotations]]
 path = [
+    ".codacy.yaml",
+    ".editorconfig",
     ".eslintignore",
+    ".gitattributes",
     ".gitignore",
-    "website/.gitignore",
     ".markdownlintignore",
+    ".pinact.yaml",
     ".prettierignore",
     ".secrets.baseline",
-    ".gitattributes",
+    ".vale.ini",
+    ".yamllint.yaml",
     "CODEOWNERS",
     "REUSE.toml",
     "sonar-project.properties",
-    ".codacy.yaml",
-    ".vale.ini",
     "styles/**/*.txt",
-    ".yamllint.yaml",
+    "website/.gitignore",
     "website/public/robots.txt",
 ]
 precedence = "aggregate"

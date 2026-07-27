@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 ---
 on:
-    pull_request_target:
+    pull_request:
         types: [closed]
         branches:
             - main
@@ -39,6 +39,7 @@ jobs:
     validate-pr-author:
         name: Validate PR Author
         runs-on: ubuntu-latest
+        timeout-minutes: 5
         if: github.event_name == 'pull_request_target' && github.event.pull_request.merged == true
         permissions:
             contents: read
@@ -124,35 +125,41 @@ jobs:
               id: branch
               run: |
                   if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-                      BRANCH="${{ inputs.release_branch }}"
+                      BRANCH="${INPUTS_RELEASE_BRANCH}"
                   else
-                      BRANCH="${{ github.event.pull_request.base.ref }}"
+                      BRANCH="${GITHUB_EVENT_PULL_REQUEST_BASE_REF}"
                   fi
 
                   echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
                   echo "Target branch: $BRANCH"
+              env:
+                  INPUTS_RELEASE_BRANCH: ${{ inputs.release_branch }}
+                  GITHUB_EVENT_PULL_REQUEST_BASE_REF: ${{ github.event.pull_request.base.ref }}
 
             - name: Determine release type
               id: release_type
               run: |
-                  if [ "${{ steps.branch.outputs.branch }}" = "main" ]; then
+                  if [ "${STEPS_BRANCH_OUTPUTS_BRANCH}" = "main" ]; then
                       echo "pre_release=false" >> "$GITHUB_OUTPUT"
                       echo "Cutting a regular release"
                   else
                       echo "pre_release=true" >> "$GITHUB_OUTPUT"
                       echo "Cutting a pre-release"
                   fi
+              env:
+                  STEPS_BRANCH_OUTPUTS_BRANCH: ${{ steps.branch.outputs.branch }}
 
             - name: Determine run mode
               id: mode
               run: |
-                  BRANCH="${{ steps.branch.outputs.branch }}"
+                  BRANCH="${STEPS_BRANCH_OUTPUTS_BRANCH}"
 
                   if [ "$BRANCH" != "main" ] && [ "$BRANCH" != "next" ]; then
                       echo "dry_run=true" >> "$GITHUB_OUTPUT"
                       echo "Dry run: true"
                       echo "Dry run was forced because '$BRANCH' is not main or next."
-                  elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+                  elif [ "${{ github.event_name }}" = "workflow_dispatch" ] &&
+                  [ "${{ inputs.dry_run }}" = "true" ]; then
                       echo "dry_run=true" >> "$GITHUB_OUTPUT"
                       echo "Dry run: true"
                       echo "Dry run was requested manually."
@@ -160,6 +167,8 @@ jobs:
                       echo "dry_run=false" >> "$GITHUB_OUTPUT"
                       echo "Dry run: false"
                   fi
+              env:
+                  STEPS_BRANCH_OUTPUTS_BRANCH: ${{ steps.branch.outputs.branch }}
 
             - name: Create GitHub App token
               id: app_token
@@ -167,11 +176,13 @@ jobs:
               with:
                   app-id: ${{ vars.RELEASE_APP_ID }}
                   private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+                  permission-contents: write
 
             - name: Checkout repository
               uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
                   fetch-depth: 0
+                  persist-credentials: false
                   ref: ${{ steps.branch.outputs.branch }}
                   token: ${{ steps.app_token.outputs.token }}
 
@@ -191,7 +202,7 @@ jobs:
 
                   CURRENT="$(cog -v get-version | sed 's/^v//')"
 
-                  if [ "${{ steps.release_type.outputs.pre_release }}" = "true" ]; then
+                  if [ "${STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE}" = "true" ]; then
                       EXPECTED="$(cog bump --auto --dry-run --pre --skip-untracked | sed 's/^v//')"
                   else
                       EXPECTED="$(cog bump --auto --dry-run --skip-untracked | sed 's/^v//')"
@@ -211,15 +222,19 @@ jobs:
                       echo "No unreleased changes found"
                       echo "Skipping the release process"
                   fi
+              env:
+                  STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
 
             - name: Record release version
               if: steps.has_changes.outputs.has_changes == 'true'
               id: version
               run: |
-                  NEW_VERSION="${{ steps.has_changes.outputs.expected }}"
+                  NEW_VERSION="${STEPS_HAS_CHANGES_OUTPUTS_EXPECTED}"
 
                   echo "version=${NEW_VERSION}" >> "$GITHUB_OUTPUT"
                   echo "New version: ${NEW_VERSION}"
+              env:
+                  STEPS_HAS_CHANGES_OUTPUTS_EXPECTED: ${{ steps.has_changes.outputs.expected }}
 
             - name: Prepare release files in isolated Cocogitto clone
               if: steps.has_changes.outputs.has_changes == 'true'
@@ -277,7 +292,8 @@ jobs:
                   # changed in the working tree. Generate the release notes explicitly
                   # and prepend them to CHANGELOG.md so the later GraphQL commit has a
                   # real, reviewable release-file change to publish.
-                  if [ -f CHANGELOG.md ] && { grep -Fq "$VERSION_TAG" CHANGELOG.md || grep -Fq "$VERSION" CHANGELOG.md; }; then
+                  if [ -f CHANGELOG.md ] &&
+                  { grep -Fq "$VERSION_TAG" CHANGELOG.md || grep -Fq "$VERSION" CHANGELOG.md; }; then
                       echo "CHANGELOG.md already contains $VERSION_TAG / $VERSION; not prepending duplicate notes."
                   elif [ -f CHANGELOG.md ] && head -n 1 CHANGELOG.md | grep -Eq '^# '; then
                       {
@@ -377,12 +393,12 @@ jobs:
               run: |
                   echo "Dry run enabled. Release commit, tags, and GitHub Release will not be created."
                   echo
-                  echo "Target branch: ${{ steps.branch.outputs.branch }}"
-                  echo "Pre-release:   ${{ steps.release_type.outputs.pre_release }}"
-                  echo "Version:       ${{ steps.version.outputs.version }}"
-                  echo "File changes:  ${{ steps.prepare.outputs.has_file_changes }}"
+                  echo "Target branch: ${STEPS_BRANCH_OUTPUTS_BRANCH}"
+                  echo "Pre-release:   ${STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE}"
+                  echo "Version:       ${STEPS_VERSION_OUTPUTS_VERSION}"
+                  echo "File changes:  ${STEPS_PREPARE_OUTPUTS_HAS_FILE_CHANGES}"
                   echo
-                  if [ "${{ steps.prepare.outputs.has_file_changes }}" = "true" ]; then
+                  if [ "${STEPS_PREPARE_OUTPUTS_HAS_FILE_CHANGES}" = "true" ]; then
                       echo "Changed files:"
                       git diff --name-only
                   else
@@ -390,7 +406,7 @@ jobs:
                   fi
                   echo
                   echo "Diff:"
-                  if [ "${{ steps.prepare.outputs.has_file_changes }}" = "true" ]; then
+                  if [ "${STEPS_PREPARE_OUTPUTS_HAS_FILE_CHANGES}" = "true" ]; then
                       git diff -- CHANGELOG.md package.json || true
                   else
                       echo "No diff."
@@ -398,16 +414,22 @@ jobs:
                   echo
                   echo "Release notes:"
                   cat /tmp/release_notes.md
+              env:
+                  STEPS_BRANCH_OUTPUTS_BRANCH: ${{ steps.branch.outputs.branch }}
+                  STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
+                  STEPS_VERSION_OUTPUTS_VERSION: ${{ steps.version.outputs.version }}
+                  STEPS_PREPARE_OUTPUTS_HAS_FILE_CHANGES: ${{ steps.prepare.outputs.has_file_changes }}
 
             - name: Verify exact release tag does not exist remotely
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
                   GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
+                  STEPS_VERSION_OUTPUTS_VERSION: ${{ steps.version.outputs.version }}
               run: |
                   set -euo pipefail
 
                   REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-                  VERSION_TAG="v${{ steps.version.outputs.version }}"
+                  VERSION_TAG="v${STEPS_VERSION_OUTPUTS_VERSION}"
 
                   if git ls-remote --exit-code --tags "$REMOTE" "refs/tags/$VERSION_TAG" >/dev/null 2>&1; then
                       echo "::error::Remote tag $VERSION_TAG already exists."
@@ -535,8 +557,8 @@ jobs:
               run: |
                   set -euo pipefail
 
-                  if [ "${{ steps.prepare.outputs.has_file_changes }}" = "true" ]; then
-                      TARGET_SHA="${{ steps.release_commit.outputs.sha }}"
+                  if [ "${STEPS_PREPARE_OUTPUTS_HAS_FILE_CHANGES}" = "true" ]; then
+                      TARGET_SHA="${STEPS_RELEASE_COMMIT_OUTPUTS_SHA}"
                       if [ -z "$TARGET_SHA" ]; then
                           echo "::error::Release commit SHA is empty. Commit creation may have failed."
                           exit 1
@@ -548,15 +570,19 @@ jobs:
                   fi
 
                   echo "sha=$TARGET_SHA" >> "$GITHUB_OUTPUT"
+              env:
+                  STEPS_PREPARE_OUTPUTS_HAS_FILE_CHANGES: ${{ steps.prepare.outputs.has_file_changes }}
+                  STEPS_RELEASE_COMMIT_OUTPUTS_SHA: ${{ steps.release_commit.outputs.sha }}
 
             - name: Verify release target commit exists
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
                   GH_TOKEN: ${{ steps.app_token.outputs.token }}
+                  STEPS_RELEASE_TARGET_OUTPUTS_SHA: ${{ steps.release_target.outputs.sha }}
               run: |
                   set -euo pipefail
 
-                  EXPECTED_SHA="${{ steps.release_target.outputs.sha }}"
+                  EXPECTED_SHA="${STEPS_RELEASE_TARGET_OUTPUTS_SHA}"
 
                   if [ -z "$EXPECTED_SHA" ]; then
                       echo "::error::Release target SHA is empty."
@@ -575,16 +601,18 @@ jobs:
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
                   GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
+                  STEPS_BRANCH_OUTPUTS_BRANCH: ${{ steps.branch.outputs.branch }}
+                  STEPS_RELEASE_TARGET_OUTPUTS_SHA: ${{ steps.release_target.outputs.sha }}
               run: |
                   set -euo pipefail
 
-                  BASE_REF="${{ steps.branch.outputs.branch }}"
+                  BASE_REF="${STEPS_BRANCH_OUTPUTS_BRANCH}"
 
                   git fetch origin "$BASE_REF"
                   git reset --hard "origin/$BASE_REF"
 
                   CURRENT_SHA="$(git rev-parse HEAD)"
-                  EXPECTED_SHA="${{ steps.release_target.outputs.sha }}"
+                  EXPECTED_SHA="${STEPS_RELEASE_TARGET_OUTPUTS_SHA}"
 
                   if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
                       echo "::error::Local checkout is not at the release target commit."
@@ -601,21 +629,23 @@ jobs:
               run: |
                   set -euo pipefail
 
-                  VERSION_TAG="v${{ steps.version.outputs.version }}"
+                  VERSION_TAG="v${STEPS_VERSION_OUTPUTS_VERSION}"
 
                   SHOULD_MOVE_TAGS=false
-                  if [ "${{ steps.branch.outputs.branch }}" = "main" ] &&
-                     [ "${{ steps.release_type.outputs.pre_release }}" = "false" ]; then
+                  if [ "${STEPS_BRANCH_OUTPUTS_BRANCH}" = "main" ] &&
+                     [ "${STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE}" = "false" ]; then
                       SHOULD_MOVE_TAGS=true
                   fi
 
                   MAJOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+)\..*/\1/')"
                   MINOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+\.[0-9]+)\..*/\1/')"
 
-                  echo "version_tag=$VERSION_TAG" >> "$GITHUB_OUTPUT"
-                  echo "major_tag=$MAJOR_TAG" >> "$GITHUB_OUTPUT"
-                  echo "minor_tag=$MINOR_TAG" >> "$GITHUB_OUTPUT"
-                  echo "moving_tags=$SHOULD_MOVE_TAGS" >> "$GITHUB_OUTPUT"
+                  {
+                    printf 'version_tag=%s\n' "$VERSION_TAG"
+                    printf 'major_tag=%s\n' "$MAJOR_TAG"
+                    printf 'minor_tag=%s\n' "$MINOR_TAG"
+                    printf 'moving_tags=%s\n' "$SHOULD_MOVE_TAGS"
+                  } >> "$GITHUB_OUTPUT"
 
                   git tag "$VERSION_TAG"
 
@@ -631,23 +661,31 @@ jobs:
                       echo "$MAJOR_TAG"
                   else
                       echo "Skipping moving major/minor tags because this is not a stable main release."
-                      echo "Branch:      ${{ steps.branch.outputs.branch }}"
-                      echo "Pre-release: ${{ steps.release_type.outputs.pre_release }}"
+                      echo "Branch:      ${STEPS_BRANCH_OUTPUTS_BRANCH}"
+                      echo "Pre-release: ${STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE}"
                   fi
+              env:
+                  STEPS_VERSION_OUTPUTS_VERSION: ${{ steps.version.outputs.version }}
+                  STEPS_BRANCH_OUTPUTS_BRANCH: ${{ steps.branch.outputs.branch }}
+                  STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
 
             - name: Push semver tags
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
                   GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
+                  STEPS_TAGS_OUTPUTS_VERSION_TAG: ${{ steps.tags.outputs.version_tag }}
+                  STEPS_TAGS_OUTPUTS_MINOR_TAG: ${{ steps.tags.outputs.minor_tag }}
+                  STEPS_TAGS_OUTPUTS_MAJOR_TAG: ${{ steps.tags.outputs.major_tag }}
+                  STEPS_TAGS_OUTPUTS_MOVING_TAGS: ${{ steps.tags.outputs.moving_tags }}
               run: |
                   set -euo pipefail
 
                   REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
-                  VERSION_TAG="${{ steps.tags.outputs.version_tag }}"
-                  MINOR_TAG="${{ steps.tags.outputs.minor_tag }}"
-                  MAJOR_TAG="${{ steps.tags.outputs.major_tag }}"
-                  MOVING_TAGS="${{ steps.tags.outputs.moving_tags }}"
+                  VERSION_TAG="${STEPS_TAGS_OUTPUTS_VERSION_TAG}"
+                  MINOR_TAG="${STEPS_TAGS_OUTPUTS_MINOR_TAG}"
+                  MAJOR_TAG="${STEPS_TAGS_OUTPUTS_MAJOR_TAG}"
+                  MOVING_TAGS="${STEPS_TAGS_OUTPUTS_MOVING_TAGS}"
 
                   # Exact version tag is never force-pushed: if it already exists,
                   # something is wrong and we want a loud failure.
@@ -667,12 +705,14 @@ jobs:
               if: steps.has_changes.outputs.has_changes == 'true' && steps.mode.outputs.dry_run == 'false'
               env:
                   GH_TOKEN: ${{ steps.app_token.outputs.token }}
+                  STEPS_VERSION_OUTPUTS_VERSION: ${{ steps.version.outputs.version }}
+                  STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE: ${{ steps.release_type.outputs.pre_release }}
               run: |
                   set -euo pipefail
 
-                  TAG="v${{ steps.version.outputs.version }}"
+                  TAG="v${STEPS_VERSION_OUTPUTS_VERSION}"
 
-                  if [ "${{ steps.release_type.outputs.pre_release }}" = "true" ]; then
+                  if [ "${STEPS_RELEASE_TYPE_OUTPUTS_PRE_RELEASE}" = "true" ]; then
                       PRERELEASE_FLAG="--prerelease"
                   else
                       PRERELEASE_FLAG=""

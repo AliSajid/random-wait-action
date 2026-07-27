@@ -1,0 +1,13 @@
+# yamllint disable-line rule:line-length
+# # yaml-language-server: $schema=https://raw.githubusercontent.com/suzuki-shunsuke/pinact/refs/heads/main/json-schema/pinact.json
+# pinact - https://github.com/suzuki-shunsuke/pinact
+version: 3
+min_age:
+    value: 7
+
+files:
+    - pattern: .github/workflows/*.yaml
+    # - pattern: README.md
+    # - pattern: website/**/*.md
+
+ignore_actions: []

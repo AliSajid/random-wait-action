@@ -9,6 +9,7 @@
     "extends": [
         "config:best-practices",
         "group:definitelyTyped",
+        "group:githubArtifactActions",
         "group:linters",
         ":pinDependencies",
         ":reviewer(AliSajid)"
@@ -17,60 +18,103 @@
         "dependencies",
         "renovate"
     ],
+    "minimumReleaseAge": "14 days",
+    "schedule": [
+        "before 5am every weekday",
+        "every weekend"
+    ],
+    "separateMinorPatch": true,
+    "customManagers": [
+        {
+            "customType": "regex",
+            "description": "Update the hk Pkl package imports together",
+            "managerFilePatterns": [
+                "/^hk\\.pkl$/"
+            ],
+            "matchStrings": [
+                "(?<directive>amends|import) \\\"package://github\\.com/jdx/hk/releases/download/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/hk@\\d+\\.\\d+\\.\\d+(?<suffix>#/(?:Config|Builtins)\\.pkl)\\\""
+            ],
+            "autoReplaceStringTemplate": "{{{directive}}} \\\"package://github.com/jdx/hk/releases/download/v{{{newValue}}}/hk@{{{newValue}}}{{{suffix}}}\\\"",
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "jdx/hk",
+            "packageNameTemplate": "jdx/hk",
+            "versioningTemplate": "semver"
+        }
+    ],
     "packageRules": [
         {
-            "automerge": true,
-            "description": "Automerge GitHub Actions digest and patch updates",
+            "description": "Automerge SHA refreshes for pinned GitHub Actions",
             "matchManagers": [
                 "github-actions"
             ],
             "matchUpdateTypes": [
-                "digest",
-                "patch"
+                "digest"
             ],
-            "minimumReleaseAge": "14 days"
+            "automerge": true
         },
         {
-            "dependencyDashboardApproval": true,
-            "description": "Require dashboard approval for GitHub Actions minor and major updates",
+            "description": "Require approval for GitHub Actions release updates",
             "matchManagers": [
                 "github-actions"
+            ],
+            "matchUpdateTypes": [
+                "patch",
+                "minor",
+                "major"
+            ],
+            "dependencyDashboardApproval": true
+        },
+        {
+            "description": "Keep Astro and Starlight compatible in one PR",
+            "matchManagers": [
+                "npm"
+            ],
+            "matchPackageNames": [
+                "astro",
+                "@astrojs/starlight",
+                "@astrojs/check"
+            ],
+            "groupName": "Astro documentation stack"
+        },
+        {
+            "description": "Automerge patch updates for development tooling",
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true
+        },
+        {
+            "description": "Automerge patch updates for mise-managed tools",
+            "matchManagers": [
+                "mise"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true
+        },
+        {
+            "description": "Require approval for non-patch mise tool updates",
+            "matchManagers": [
+                "mise"
             ],
             "matchUpdateTypes": [
                 "minor",
                 "major"
-            ]
+            ],
+            "dependencyDashboardApproval": true
         },
         {
-            "automerge": true,
-            "description": "Automerge non-major linting, formatting, and test-tool updates",
-            "matchDepTypes": [
-                "devDependencies"
-            ],
-            "matchPackageNames": [
-                "@eslint/**",
-                "@eslint-community/**",
-                "@stylistic/eslint-plugin**",
-                "@typescript-eslint/**",
-                "eslint**",
-                "typescript-eslint",
-                "prettier",
-                "prettier-**",
-                "@vitest/**",
-                "vitest"
-            ],
+            "description": "Require approval for dependency major updates",
             "matchUpdateTypes": [
-                "minor",
-                "patch"
+                "major"
             ],
-            "minimumReleaseAge": "14 days"
+            "dependencyDashboardApproval": true
         }
     ],
     "platformCommit": "enabled",
-    "schedule": [
-        "* 22-23,0-4 * * 1-5",
-        "* * * * 0,6"
-    ],
-    "semanticCommits": "enabled",
-    "separateMinorPatch": true
+    "semanticCommits": "enabled"
 }
