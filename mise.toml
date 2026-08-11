@@ -36,6 +36,7 @@ yamllint = "1.38.0"
 vale = "3.15.1"
 zizmor = "1.28.0"
 shfmt = "3.13.1"
+"npm:sort-package-json" = "4.0.0"
 
 # Tasks live in .mise/tasks/ so they remain executable, testable scripts.
 # Run `mise tasks ls` to inspect them.
