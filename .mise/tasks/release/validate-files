@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Validate release file changes contain only CHANGELOG.md and package.json"
+set -euo pipefail
+
+ALLOWED='^(CHANGELOG\.md|package\.json)$'
+
+CHANGED_FILES="$(git diff --name-only)"
+
+if [ -z "$CHANGED_FILES" ]; then
+        echo "::error::No files changed after release preparation."
+        exit 1
+fi
+
+BAD_FILES="$(echo "$CHANGED_FILES" | grep -Ev "$ALLOWED" || true)"
+
+if [ -n "$BAD_FILES" ]; then
+        echo "::error::Release commit contains unexpected files:"
+        echo "$BAD_FILES"
+        exit 1
+fi
+
+echo "Release file changes are valid:"
+echo "$CHANGED_FILES"
+
+echo "is_valid=true" >>"${GITHUB_OUTPUT:-/dev/null}"

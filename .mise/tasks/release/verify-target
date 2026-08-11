@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Verify release target commit exists on remote via GitHub API"
+set -euo pipefail
+
+GITHUB_TOKEN="${GITHUB_TOKEN:?GITHUB_TOKEN is required}"
+REPOSITORY="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is required}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+# Source state from determine-target
+if [ -f "$STATE_FILE" ]; then
+        set -a
+        # shellcheck source=/dev/null
+        source "$STATE_FILE"
+        set +a
+fi
+
+TARGET_SHA="${release_target_sha:?release_target_sha is required}"
+
+if [ -z "$TARGET_SHA" ]; then
+        echo "::error::Release target SHA is empty."
+        exit 1
+fi
+
+# Verify the target commit exists on the remote via API.
+gh api repos/"$REPOSITORY"/commits/"$TARGET_SHA" --jq '.sha' >/dev/null 2>&1 || {
+        echo "::error::Could not verify release target commit $TARGET_SHA on remote."
+        exit 1
+}
+
+echo "Release target commit $TARGET_SHA verified on remote."

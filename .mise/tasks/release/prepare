@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Prepare release files in isolated Cocogitto clone"
+set -euo pipefail
+
+VERSION="${VERSION:?VERSION is required}"
+PRE_RELEASE="${PRE_RELEASE:-false}"
+RELEASE_BRANCH="${RELEASE_BRANCH:?RELEASE_BRANCH is required}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+WORKSPACE="${GITHUB_WORKSPACE:-$(pwd)}"
+
+BASE_SHA="$(git rev-parse HEAD)"
+TMP_DIR="$(mktemp -d)"
+TMP_REPO="$TMP_DIR/repo"
+VERSION_TAG="v${VERSION}"
+
+cleanup() {
+        rm -rf "$TMP_DIR"
+}
+trap cleanup EXIT
+
+git clone --shared "$WORKSPACE" "$TMP_REPO"
+git -C "$TMP_REPO" checkout -B "$RELEASE_BRANCH" "$BASE_SHA"
+
+TMP_BRANCH="$(git -C "$TMP_REPO" branch --show-current)"
+if [ "$TMP_BRANCH" != "$RELEASE_BRANCH" ]; then
+        echo "::error::Temporary Cocogitto clone is on '$TMP_BRANCH', expected '$RELEASE_BRANCH'."
+        exit 1
+fi
+
+cd "$TMP_REPO"
+
+# Keep Cocogitto's tag side effects inside this disposable clone.
+# The real release commit is created later through GitHub's
+# createCommitOnBranch mutation using the GitHub App identity.
+if [ "$PRE_RELEASE" = "true" ]; then
+        cog bump --auto --disable-bump-commit --pre --skip-untracked --hook-profile ci-release-prepare
+else
+        cog bump --auto --disable-bump-commit --skip-untracked --hook-profile ci-release-prepare
+fi
+
+if cog changelog --at "$VERSION_TAG" >"$TMP_DIR/release_notes.md"; then
+        echo "Generated release notes for $VERSION_TAG"
+else
+        cog changelog --at "$VERSION" >"$TMP_DIR/release_notes.md"
+        echo "Generated release notes for $VERSION"
+fi
+
+if [ ! -s "$TMP_DIR/release_notes.md" ]; then
+        echo "::error::Cocogitto generated empty release notes."
+        exit 1
+fi
+
+# With --disable-bump-commit, Cocogitto may not leave CHANGELOG.md
+# changed in the working tree. Generate the release notes explicitly
+# and prepend them to CHANGELOG.md so the later GraphQL commit has a
+# real, reviewable release-file change to publish.
+if [ -f CHANGELOG.md ] &&
+        { grep -Fq "$VERSION_TAG" CHANGELOG.md || grep -Fq "$VERSION" CHANGELOG.md; }; then
+        echo "CHANGELOG.md already contains $VERSION_TAG / $VERSION; not prepending duplicate notes."
+elif [ -f CHANGELOG.md ] && head -n 1 CHANGELOG.md | grep -Eq '^# '; then
+        {
+                head -n 1 CHANGELOG.md
+                echo
+                cat "$TMP_DIR/release_notes.md"
+                echo
+                tail -n +2 CHANGELOG.md | sed '/./,$!d'
+        } >"$TMP_DIR/CHANGELOG.md"
+        mv "$TMP_DIR/CHANGELOG.md" CHANGELOG.md
+elif [ -f CHANGELOG.md ]; then
+        {
+                cat "$TMP_DIR/release_notes.md"
+                echo
+                cat CHANGELOG.md
+        } >"$TMP_DIR/CHANGELOG.md"
+        mv "$TMP_DIR/CHANGELOG.md" CHANGELOG.md
+else
+        cp "$TMP_DIR/release_notes.md" CHANGELOG.md
+fi
+
+CHANGED_FILES="$(git diff --name-only)"
+
+# Copy release notes out of the disposable clone before any early exit.
+cp "$TMP_DIR/release_notes.md" /tmp/release_notes.md
+
+if [ -z "$CHANGED_FILES" ]; then
+        HF="false"
+        echo "has_file_changes=false" >>"$STATE_FILE"
+        echo "No release file changes were produced."
+        echo "package.json and CHANGELOG.md already appear to contain $VERSION_TAG / $VERSION."
+        echo "The workflow will treat this as an already-prepared release and,"
+        echo "for non-dry-run runs, tag the current branch HEAD."
+        echo
+        echo "Generated release notes:"
+        echo
+        cat /tmp/release_notes.md
+        echo "has_file_changes=$HF" >>"${GITHUB_OUTPUT:-/dev/null}"
+        exit 0
+fi
+
+HF="true"
+echo "has_file_changes=true" >>"$STATE_FILE"
+
+ALLOWED='^(CHANGELOG\.md|package\.json)$'
+BAD_FILES="$(echo "$CHANGED_FILES" | grep -Ev "$ALLOWED" || true)"
+
+if [ -n "$BAD_FILES" ]; then
+        echo "::error::Release preparation changed files outside CHANGELOG.md and package.json:"
+        echo "$BAD_FILES"
+        exit 1
+fi
+
+DELETED_FILES="$(git diff --name-only --diff-filter=D)"
+if [ -n "$DELETED_FILES" ]; then
+        echo "::error::Release preparation must not delete files:"
+        echo "$DELETED_FILES"
+        exit 1
+fi
+
+git diff --name-only -z --diff-filter=ACMRT -- CHANGELOG.md package.json >"$TMP_DIR/changed.z"
+
+if [ -s "$TMP_DIR/changed.z" ]; then
+        tar --null -cf "$TMP_DIR/release-files.tar" --files-from "$TMP_DIR/changed.z"
+        tar -xf "$TMP_DIR/release-files.tar" -C "$WORKSPACE"
+fi
+
+echo "has_file_changes=$HF" >>"${GITHUB_OUTPUT:-/dev/null}"
+
+echo
+echo "Generated release notes:"
+echo
+cat /tmp/release_notes.md

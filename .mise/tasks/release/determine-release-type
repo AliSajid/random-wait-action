@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Determine release type (pre-release vs stable)"
+set -euo pipefail
+
+BRANCH="${BRANCH:?BRANCH is required}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+if [ "$BRANCH" = "main" ]; then
+        echo "Cutting a regular release"
+        PR="false"
+else
+        echo "Cutting a pre-release"
+        PR="true"
+fi
+echo "pre_release=$PR" >>"$STATE_FILE"
+echo "pre_release=$PR" >>"${GITHUB_OUTPUT:-/dev/null}"

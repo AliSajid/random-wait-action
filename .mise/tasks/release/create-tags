@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Create local semver tags for release"
+set -euo pipefail
+
+VERSION="${VERSION:?VERSION is required}"
+RELEASE_BRANCH="${RELEASE_BRANCH:?RELEASE_BRANCH is required}"
+PRE_RELEASE="${PRE_RELEASE:-false}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+VERSION_TAG="v${VERSION}"
+
+SHOULD_MOVE_TAGS=false
+if [ "$RELEASE_BRANCH" = "main" ] && [ "$PRE_RELEASE" = "false" ]; then
+        SHOULD_MOVE_TAGS=true
+fi
+
+MAJOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+)\..*/\1/')"
+MINOR_TAG="$(echo "$VERSION_TAG" | sed -E 's/^(v[0-9]+\.[0-9]+)\..*/\1/')"
+
+git tag "$VERSION_TAG"
+
+echo "Created local tags:"
+echo "$VERSION_TAG"
+
+if [ "$SHOULD_MOVE_TAGS" = "true" ]; then
+        git tag -f "$MINOR_TAG"
+        git tag -f "$MAJOR_TAG"
+
+        echo "Created moving tags for stable main release:"
+        echo "$MINOR_TAG"
+        echo "$MAJOR_TAG"
+else
+        echo "Skipping moving major/minor tags because this is not a stable main release."
+        echo "Branch:      $RELEASE_BRANCH"
+        echo "Pre-release: $PRE_RELEASE"
+fi
+
+# Output for downstream steps
+{
+        echo "VERSION_TAG=$VERSION_TAG"
+        echo "MAJOR_TAG=$MAJOR_TAG"
+        echo "MINOR_TAG=$MINOR_TAG"
+        echo "MOVING_TAGS=$SHOULD_MOVE_TAGS"
+} >>"$STATE_FILE"
+
+{
+        echo "version_tag=$VERSION_TAG"
+        echo "major_tag=$MAJOR_TAG"
+        echo "minor_tag=$MINOR_TAG"
+        echo "moving_tags=$SHOULD_MOVE_TAGS"
+} >>"${GITHUB_OUTPUT:-/dev/null}"

@@ -1,0 +1,172 @@
+#!/usr/bin/env node
+// SPDX-FileCopyrightText: Ali Sajid Imami
+//
+// SPDX-License-Identifier: MIT
+
+/**
+ * Create a verified release commit via GitHub GraphQL API.
+ *
+ * Creates a commit on the target branch containing only CHANGELOG.md
+ * and package.json changes, using the CreateCommitOnBranch mutation.
+ */
+
+const fs = require("fs");
+const { execSync } = require("child_process");
+const https = require("https");
+
+const BASE_REF = process.env.RELEASE_BRANCH;
+const VERSION = process.env.VERSION;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const REPOSITORY = process.env.GITHUB_REPOSITORY;
+
+if (!BASE_REF || !VERSION || !GITHUB_TOKEN || !REPOSITORY) {
+  console.error(
+    "::error::Missing required env vars: RELEASE_BRANCH, VERSION, GITHUB_TOKEN, GITHUB_REPOSITORY"
+  );
+  process.exit(1);
+}
+
+const [owner, repo] = REPOSITORY.split("/");
+const expectedHeadOid = execSync("git rev-parse HEAD", {
+  encoding: "utf8",
+}).trim();
+
+const allowedPaths = new Set(["CHANGELOG.md", "package.json"]);
+
+const changedFiles = execSync("git diff --name-only", {
+  encoding: "utf8",
+})
+  .trim()
+  .split("\n")
+  .filter(Boolean);
+
+const unexpectedFiles = changedFiles.filter((path) => !allowedPaths.has(path));
+
+if (unexpectedFiles.length > 0) {
+  console.error(
+    `::error::Release commit may only change CHANGELOG.md and package.json. ` +
+      `Unexpected files: ${unexpectedFiles.join(", ")}`
+  );
+  process.exit(1);
+}
+
+const deletedFiles = execSync(
+  "git diff --name-only --diff-filter=D -- CHANGELOG.md package.json",
+  { encoding: "utf8" }
+)
+  .trim()
+  .split("\n")
+  .filter(Boolean);
+
+if (deletedFiles.length > 0) {
+  console.error(
+    `::error::Release commit must not delete files: ${deletedFiles.join(", ")}`
+  );
+  process.exit(1);
+}
+
+const additions = execSync(
+  "git diff --name-only --diff-filter=ACMRT -- CHANGELOG.md package.json",
+  { encoding: "utf8" }
+)
+  .trim()
+  .split("\n")
+  .filter(Boolean)
+  .map((path) => ({
+    path,
+    contents: fs.readFileSync(path).toString("base64"),
+  }));
+
+if (additions.length === 0) {
+  console.error("::error::No changed release files to commit.");
+  process.exit(1);
+}
+
+const mutation = `
+  mutation CreateReleaseCommit($input: CreateCommitOnBranchInput!) {
+    createCommitOnBranch(input: $input) {
+      commit {
+        oid
+        url
+      }
+    }
+  }
+`;
+
+const variables = {
+  input: {
+    branch: {
+      repositoryNameWithOwner: `${owner}/${repo}`,
+      branchName: BASE_REF,
+    },
+    message: {
+      headline: `chore(release): ${VERSION} [skip ci]`,
+    },
+    fileChanges: {
+      additions,
+    },
+    expectedHeadOid,
+  },
+};
+
+function graphqlRequest(query, vars) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify({ query, variables: vars });
+
+    const req = https.request(
+      "https://api.github.com/graphql",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+          "Content-Type": "application/json",
+          "Content-Length": Buffer.byteLength(data),
+          "User-Agent": "random-wait-action-release",
+        },
+      },
+      (res) => {
+        let body = "";
+        res.on("data", (chunk) => (body += chunk));
+        res.on("end", () => {
+          try {
+            const parsed = JSON.parse(body);
+            if (parsed.errors) {
+              reject(new Error(`GraphQL errors: ${JSON.stringify(parsed.errors)}`));
+            } else {
+              resolve(parsed.data);
+            }
+          } catch (e) {
+            reject(new Error(`Failed to parse response: ${body}`));
+          }
+        });
+      }
+    );
+
+    req.on("error", reject);
+    req.write(data);
+    req.end();
+  });
+}
+
+(async () => {
+  try {
+    const result = await graphqlRequest(mutation, variables);
+    const oid = result.createCommitOnBranch.commit.oid;
+    const url = result.createCommitOnBranch.commit.url;
+
+    console.log(`Created verified release commit: ${oid}`);
+    console.log(url);
+
+    // Output SHA for downstream steps
+    const stateFile = process.env.RELEASE_STATE_FILE || "/tmp/release-state.env";
+    fs.appendFileSync(stateFile, `release_commit_sha=${oid}\n`);
+    fs.appendFileSync(stateFile, `release_commit_url=${url}\n`);
+
+    const ghOutput = process.env.GITHUB_OUTPUT || "/dev/null";
+    fs.appendFileSync(ghOutput, `sha=${oid}\n`);
+    fs.appendFileSync(ghOutput, `url=${url}\n`);
+  } catch (err) {
+    console.error(`::error::Failed to create release commit: ${err.message}`);
+    process.exit(1);
+  }
+})();

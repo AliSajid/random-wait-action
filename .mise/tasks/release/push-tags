@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Push semver tags to remote"
+set -euo pipefail
+
+GITHUB_TOKEN="${GITHUB_TOKEN:?GITHUB_TOKEN is required}"
+REPOSITORY="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is required}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
+
+# Source state from create-tags
+if [ -f "$STATE_FILE" ]; then
+        set -a
+        # shellcheck source=/dev/null
+        source "$STATE_FILE"
+        set +a
+fi
+
+VERSION_TAG="${VERSION_TAG:?VERSION_TAG not found in state file}"
+MINOR_TAG="${MINOR_TAG:?MINOR_TAG not found in state file}"
+MAJOR_TAG="${MAJOR_TAG:?MAJOR_TAG not found in state file}"
+MOVING_TAGS="${MOVING_TAGS:-false}"
+
+# Exact version tag is never force-pushed: if it already exists,
+# something is wrong and we want a loud failure.
+git push "$REMOTE" "$VERSION_TAG"
+
+if [ "$MOVING_TAGS" = "true" ]; then
+        # Major/minor tags are intentionally moving tags, but only for
+        # stable releases from main. Pre-releases from next must not move
+        # vX or vX.Y.
+        git push "$REMOTE" "$MINOR_TAG" --force
+        git push "$REMOTE" "$MAJOR_TAG" --force
+else
+        echo "Skipping moving major/minor tag push."
+fi

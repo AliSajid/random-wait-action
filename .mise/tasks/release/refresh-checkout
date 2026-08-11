@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Refresh checkout to release target commit"
+set -euo pipefail
+
+RELEASE_BRANCH="${RELEASE_BRANCH:?RELEASE_BRANCH is required}"
+GITHUB_TOKEN="${GITHUB_TOKEN:?GITHUB_TOKEN is required}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+# Source state from determine-target
+if [ -f "$STATE_FILE" ]; then
+        set -a
+        # shellcheck source=/dev/null
+        source "$STATE_FILE"
+        set +a
+fi
+
+TARGET_SHA="${release_target_sha:?release_target_sha is required}"
+
+git fetch origin "$RELEASE_BRANCH"
+git reset --hard "origin/$RELEASE_BRANCH"
+
+CURRENT_SHA="$(git rev-parse HEAD)"
+
+if [ "$CURRENT_SHA" != "$TARGET_SHA" ]; then
+        echo "::error::Local checkout is not at the release target commit."
+        echo "Current:  $CURRENT_SHA"
+        echo "Expected: $TARGET_SHA"
+        exit 1
+fi
+
+echo "Checkout refreshed to release target commit: $CURRENT_SHA"

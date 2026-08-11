@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Check if there are releasable changes via cocogitto"
+set -euo pipefail
+
+PRE_RELEASE="${PRE_RELEASE:-false}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+CURRENT="$(cog -v get-version | sed 's/^v//')"
+
+if [ "$PRE_RELEASE" = "true" ]; then
+        EXPECTED="$(cog bump --auto --dry-run --pre --skip-untracked | sed 's/^v//')"
+else
+        EXPECTED="$(cog bump --auto --dry-run --skip-untracked | sed 's/^v//')"
+fi
+
+echo "current=${CURRENT}" >>"$STATE_FILE"
+echo "Current Release Version: ${CURRENT}"
+echo "expected=${EXPECTED}" >>"$STATE_FILE"
+echo "Calculated Release Version: ${EXPECTED}"
+
+if [ "$CURRENT" != "$EXPECTED" ]; then
+        HC="true"
+        echo "Unreleased changes found."
+        echo "Proceeding to release"
+else
+        HC="false"
+        echo "No unreleased changes found"
+        echo "Skipping the release process"
+fi
+
+{
+        echo "has_changes=$HC" >>"$STATE_FILE"
+        echo "has_changes=$HC"
+        echo "current=$CURRENT"
+        echo "expected=$EXPECTED"
+} >>"${GITHUB_OUTPUT:-/dev/null}"

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Verify remote tag does not exist before release"
+set -euo pipefail
+
+GITHUB_TOKEN="${GITHUB_TOKEN:?GITHUB_TOKEN is required}"
+VERSION="${VERSION:?VERSION is required}"
+REPOSITORY="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is required}"
+
+REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
+VERSION_TAG="v${VERSION}"
+
+if git ls-remote --exit-code --tags "$REMOTE" "refs/tags/$VERSION_TAG" >/dev/null 2>&1; then
+        echo "::error::Remote tag $VERSION_TAG already exists."
+        exit 1
+fi
+
+echo "Remote tag $VERSION_TAG does not exist."
