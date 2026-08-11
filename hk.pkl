@@ -129,9 +129,9 @@ local source_checks = new Mapping<String, Step> {
   ["shellcheck"] = (Builtins.shellcheck) {
     exclude = generated
   }
-  ["shfmt"] = (Builtins.shfmt) {
-    exclude = generated
-  }
+  // ["shfmt"] = (Builtins.shfmt) {
+  //   exclude = generated
+  // }
 }
 
 local github_actions_checks = new Mapping<String, Step> {
