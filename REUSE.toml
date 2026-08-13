@@ -8,25 +8,26 @@ SPDX-PackageDownloadLocation = "https://github.com/AliSajid/random-wait-action"
 # ---------------------------------------------------------------------------
 [[annotations]]
 path = [
+    "**.json",
+    ".github/workflows/**.yaml",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "mise.lock",
+    "package.json",
+    "pnpm-lock.yaml",
     "renovate.json",
     "tsconfig.json",
-    "package.json",
-    "docs/package.json",
-    "pnpm-lock.yaml",
-    "docs/pnpm-lock.yaml",
-    ".github/workflows/**.yaml",
-    "CODE_OF_CONDUCT.md",
-    "CHANGELOG.md",
-    "CONTRIBUTING.md",
-    "**.json",
-    "mise.lock",
+    "website/package.json",
+    "website/pnpm-lock.yaml",
+    "website/pnpm-workspace.yaml",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = ["dist/**", "lib/**"]
+path = ["dist/**", "lib/**", "website/dist/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "MIT"
@@ -35,7 +36,7 @@ SPDX-License-Identifier = "MIT"
 # CC-BY-NC-SA-4.0 — Guide content
 # ---------------------------------------------------------------------------
 [[annotations]]
-path = "guide/src/**/*.md"
+path = ["website/src/**/*.md", "website/src/**/*.astro", "website/src/**/*.mdx"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"
 SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
@@ -45,21 +46,23 @@ SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
 # ---------------------------------------------------------------------------
 [[annotations]]
 path = [
+    ".codacy.yaml",
+    ".editorconfig",
     ".eslintignore",
+    ".gitattributes",
     ".gitignore",
-    "guide/.gitignore",
     ".markdownlintignore",
+    ".pinact.yaml",
     ".prettierignore",
     ".secrets.baseline",
-    ".gitattributes",
+    ".vale.ini",
+    ".yamllint.yaml",
     "CODEOWNERS",
     "REUSE.toml",
     "sonar-project.properties",
-    ".codacy.yaml",
-    "guide/book.toml",
-    ".vale.ini",
     "styles/**/*.txt",
-    ".yamllint.yaml",
+    "website/.gitignore",
+    "website/public/robots.txt",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Ali Sajid Imami <Ali.Sajid.Imami@gmail.com>"

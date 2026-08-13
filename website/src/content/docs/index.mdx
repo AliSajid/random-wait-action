@@ -1,0 +1,65 @@
+---
+title: Random Wait Action
+description: Add randomized jitter to GitHub Actions jobs and spread synchronized requests over time.
+template: splash
+hero:
+    tagline: A focused GitHub Action for staggering parallel jobs before they contact APIs, registries, deployment targets, and other shared services.
+    actions:
+        - text: Get started
+          link: ./getting-started/quickstart/
+          icon: right-arrow
+          variant: primary
+        - text: View on GitHub
+          link: https://github.com/AliSajid/random-wait-action
+          icon: external
+          variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components'
+import InstallSnippet from '../../components/InstallSnippet.astro'
+import JitterTimeline from '../../components/JitterTimeline.astro'
+
+<div class="home-lede">
+    Parallel jobs often fail not because they make too many requests, but
+    because they make them at exactly the same time. Random Wait Action adds a
+    small, independently selected delay before the sensitive step.
+</div>
+
+<InstallSnippet />
+
+<JitterTimeline />
+
+## Built for one narrow problem
+
+<CardGrid>
+    <Card title="Stagger matrix jobs" icon="rocket">
+        Prevent every matrix job from reaching the same external service at the
+        same instant.
+    </Card>
+    <Card title="Reduce synchronized bursts" icon="warning">
+        Spread individually reasonable requests over a configurable interval.
+    </Card>
+    <Card title="Introduce timing variation" icon="puzzle">
+        Exercise workflows that should not depend on an exact order of
+        completion.
+    </Card>
+</CardGrid>
+
+:::note[Deliberately small]
+Randomized jitter is not a replacement for retries, exponential backoff, concurrency controls, or provider-specific rate-limit handling. It solves the narrower problem of unnecessary synchronization.
+:::
+
+## Small action, maintained like infrastructure
+
+<div class="trust-row">
+    <span>Node 24 runtime</span>
+    <span>No network requests</span>
+    <span>No token required</span>
+    <span>Validated inputs</span>
+    <span>CodeQL</span>
+    <span>OpenSSF practices</span>
+</div>
+
+The action has no required inputs. By default, it waits between **1 and 10 seconds**. You can configure both bounds up to **120 seconds**, and read the selected delay from the `wait_time` output.
+
+[Start with a complete workflow →](./getting-started/quickstart/)

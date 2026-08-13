@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Create GitHub Release via gh CLI"
+set -euo pipefail
+
+GITHUB_TOKEN="${GITHUB_TOKEN:?GITHUB_TOKEN is required}"
+VERSION="${VERSION:?VERSION is required}"
+PRE_RELEASE="${PRE_RELEASE:-false}"
+
+TAG="v${VERSION}"
+
+if [ "$PRE_RELEASE" = "true" ]; then
+        PRERELEASE_FLAG="--prerelease"
+else
+        PRERELEASE_FLAG=""
+fi
+
+gh release create "$TAG" \
+        --title "Release $TAG" \
+        --notes-file /tmp/release_notes.md \
+        $PRERELEASE_FLAG

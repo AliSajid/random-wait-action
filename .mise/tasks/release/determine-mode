@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Determine run mode (dry-run vs live)"
+set -euo pipefail
+
+BRANCH="${BRANCH:?BRANCH is required}"
+GITHUB_EVENT_NAME="${GITHUB_EVENT_NAME:?GITHUB_EVENT_NAME is required}"
+INPUTS_DRY_RUN="${INPUTS_DRY_RUN:-false}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+DRY="false"
+if [ "$BRANCH" != "main" ] && [ "$BRANCH" != "next" ]; then
+        DRY="true"
+        echo "Dry run: true"
+        echo "Dry run was forced because '$BRANCH' is not main or next."
+elif [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$INPUTS_DRY_RUN" = "true" ]; then
+        DRY="true"
+        echo "Dry run: true"
+        echo "Dry run was requested manually."
+else
+        echo "Dry run: false"
+fi
+echo "dry_run=$DRY" >>"$STATE_FILE"
+echo "dry_run=$DRY" >>"${GITHUB_OUTPUT:-/dev/null}"

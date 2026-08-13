@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Validate PR author is a trusted collaborator (release gate)"
+set -euo pipefail
+
+AUTHOR="${AUTHOR:-}"
+AUTHOR_ASSOCIATION="${AUTHOR_ASSOCIATION:-}"
+REPO="${GITHUB_REPOSITORY:-}"
+
+if [ -z "$AUTHOR" ]; then
+        echo "::error::AUTHOR environment variable is required."
+        exit 1
+fi
+
+# GitHub's web editor attributes commits to "web-flow"; never let a
+# PR "authored" by that identity trigger a release.
+if [ "$AUTHOR" = "web-flow" ]; then
+        echo "::error::GitHub web-flow PRs are not allowed to trigger releases."
+        exit 1
+fi
+
+# Fast-fail obviously untrusted associations before calling the API.
+if [ "$AUTHOR_ASSOCIATION" = "NONE" ] || [ "$AUTHOR_ASSOCIATION" = "FIRST_TIME_CONTRIBUTOR" ]; then
+        echo "::error::PR author '$AUTHOR' association '$AUTHOR_ASSOCIATION' is not trusted."
+        exit 1
+fi
+
+# Defense in depth: confirm current collaborator status directly.
+if gh api "repos/${REPO}/collaborators/$AUTHOR" >/dev/null 2>&1; then
+        echo "PR author '$AUTHOR' validated as repository collaborator."
+        echo "is_valid=true" >>"${GITHUB_OUTPUT:-/dev/null}"
+else
+        echo "::error::PR author '$AUTHOR' is not a repository collaborator. Release aborted."
+        exit 1
+fi

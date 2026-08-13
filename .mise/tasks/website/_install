@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Install website dependencies (internal)"
+#MISE dir="website"
+#MISE hide=true
+pnpm install

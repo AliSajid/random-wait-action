@@ -41,9 +41,12 @@ the number of seconds waited.
 
 ### Dependency Review
 
-The GitHub Action has minimal dependencies. The only runtime dependency is
-the first-party `@actions/core` npm package. We verified that the dependency
-was authentic and sourced directly from GitHub
+The GitHub Action has minimal runtime dependencies:
+
+- **`@actions/core@3.0.1`** — First-party GitHub Actions utility package. Verified authentic and sourced directly from GitHub.
+- **`true-myth@9.4.0`** — Pure functional types (`Maybe`, `Result`) for safe parsing and error handling. Zero runtime dependencies, MIT licensed, actively maintained by two developers (ben.makuh, chriskrycho). No known CVEs. Package integrity verified via npm shasum and sha512 hash.
+
+Both dependencies were vetted for supply-chain risk. Neither performs network I/O, file access, or dynamic code evaluation.
 
 ### Input Validation
 
@@ -54,7 +57,7 @@ The two input values are validated for the following conditions:
 
 - `minimum` and `maximum` are both numbers
 - `minimum` is strictly less than `maximum`
-- Both `minimum` and `maximum` are less than the limit of 100
+- Both `minimum` and `maximum` are less than the limit of 120
 
 ### Random Number Generation
 

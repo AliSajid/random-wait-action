@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Build the website"
+#MISE depends=["website:_install", "website:check"]
+#MISE dir="website"
+#MISE outputs="website/dist"
+pnpm exec astro build

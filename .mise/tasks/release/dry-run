@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Show dry-run release changes without publishing"
+set -euo pipefail
+
+RELEASE_BRANCH="${RELEASE_BRANCH:?RELEASE_BRANCH is required}"
+PRE_RELEASE="${PRE_RELEASE:-false}"
+VERSION="${VERSION:?VERSION is required}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+# Source state
+if [ -f "$STATE_FILE" ]; then
+        set -a
+        # shellcheck source=/dev/null
+        source "$STATE_FILE"
+        set +a
+fi
+
+HAS_FILE_CHANGES="${has_file_changes:-false}"
+
+echo "Dry run enabled. Release commit, tags, and GitHub Release will not be created."
+echo
+echo "Target branch: ${RELEASE_BRANCH}"
+echo "Pre-release:   ${PRE_RELEASE}"
+echo "Version:       ${VERSION}"
+echo "File changes:  ${HAS_FILE_CHANGES}"
+echo
+
+if [ "$HAS_FILE_CHANGES" = "true" ]; then
+        echo "Changed files:"
+        git diff --name-only
+else
+        echo "No release file changes were needed; package.json and CHANGELOG.md were already prepared."
+fi
+echo
+
+echo "Diff:"
+if [ "$HAS_FILE_CHANGES" = "true" ]; then
+        git diff -- CHANGELOG.md package.json || true
+else
+        echo "No diff."
+fi
+echo
+
+echo "Release notes:"
+cat /tmp/release_notes.md

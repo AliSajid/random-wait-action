@@ -2,53 +2,44 @@
 #
 # SPDX-License-Identifier: MIT
 
-# mise configuration for Random Wait Action
-# See: https://mise.jdx.dev/configuration.html
-
-# =============================================================================
-# Tool Version Management
-# =============================================================================
-# All development tools and their exact versions
-# Run `mise install` to install all tools
+# Reproducible development toolchain for Random Wait Action.
+# JavaScript dependencies remain in package.json and are installed with pnpm.
 
 [tools]
-# Runtime (Node.js 24 for GitHub Actions compatibility)
+# Match the runtime declared by the v3 JavaScript action.
 node = "24.16.0"
-
-# Package manager (locked version for consistency)
 pnpm = "11.15.1"
 
 # Python tools (for pre-commit hooks)
-python = "3.14.7"
-pre-commit = "4.6.1"
-
-# Documentation tooling (non-npm)
-"cargo:mdbook" = "0.5.4"
+python = "3.14.6"
+pre-commit = "4.6.0"
 
 # Git tooling (non-npm)
-hk = "1.53.0"
+hk = "1.50.0"
 pkl = "0.31.1"
 "pipx:texthooks" = "0.7.1"
 cocogitto = "7.0.0"
 "pipx:reuse" = "6.2.0"
+"npm:renovate" = "43.249.5"
+gitleaks = "8.30.1"
+editorconfig-checker = "3.8.0"
+
+# GitHub Actions correctness, policy, pinning, and security analysis.
+actionlint = "1.7.12"
+ghalint = "1.5.6"
+pinact = "4.1.0"
+"pipx:zizmor" = "1.28.0"
+
+# Structured configuration, shell, and prose tooling used by hk.pkl.
 taplo = "0.10.0"
 yamllint = "1.38.0"
-gitleaks = "8.30.1"
-"npm:renovate" = "43.272.6"
-vale = "3.15.2"
+vale = "3.15.1"
+zizmor = "1.28.0"
+shfmt = "3.13.1"
+"npm:sort-package-json" = "4.0.0"
 
-# Note: All npm-based tools (TypeScript, ESLint, Prettier, Vitest, Rollup, etc.)
-# are installed via package.json and managed by pnpm. Use 'pnpm exec <tool>' to run them.
-# =============================================================================
-# Environment Variables
-# =============================================================================
+# Tasks live in .mise/tasks/ so they remain executable, testable scripts.
+# Run `mise tasks ls` to inspect them.
 
 [env]
-# Development environment
-NODE_ENV = "development"
-
-# =============================================================================
-# Task Definitions
-# =============================================================================
-# All tasks are defined as executable files in .mise/tasks/
-# Run `mise tasks ls` to see all available tasks
+PINACT_KEYRING_ENABLED = "true"

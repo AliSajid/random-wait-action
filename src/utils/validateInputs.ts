@@ -4,6 +4,7 @@
 
 // src/utils/validateInputs.ts
 import { Result, Unit } from 'true-myth'
+import { MAXIMUM_ALLOWED } from '../constants'
 import { InputValidationError } from './errors'
 
 /**
@@ -71,5 +72,14 @@ export function validateInputs(
             new InputValidationError('Minimum cannot be greater than maximum.')
         )
     }
+
+    if (maximum > MAXIMUM_ALLOWED) {
+        return Result.err(
+            new InputValidationError(
+                `Maximum cannot exceed ${MAXIMUM_ALLOWED} seconds.`
+            )
+        )
+    }
+
     return Result.ok(Unit)
 }

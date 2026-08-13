@@ -1,0 +1,50 @@
+<section class="jitter-demo" aria-labelledby="jitter-demo-title">
+  <div class="demo-heading">
+    <p class="eyebrow">Three jobs. One shared service.</p>
+    <h2 id="jitter-demo-title">Spread the requests—not the failures.</h2>
+  </div>
+
+  <div class="timeline-grid">
+    <article class="timeline-panel timeline-panel--burst">
+      <div class="panel-heading">
+        <span class="status-dot" aria-hidden="true"></span>
+        <div>
+          <p class="panel-kicker">Without jitter</p>
+          <h3>Everything arrives at once</h3>
+        </div>
+      </div>
+      <div class="axis" aria-label="Three jobs all request the API at zero seconds">
+        <span>0s</span><span>5s</span><span>10s</span><span>15s</span>
+      </div>
+      <div class="tracks">
+        {['Job 1', 'Job 2', 'Job 3'].map((job) => (
+          <div class="track">
+            <span class="track-label">{job}</span>
+            <span class="bar bar--burst" style="--length: 4%"></span>
+            <span class="request request--burst">API</span>
+          </div>
+        ))}
+      </div>
+      <p class="panel-note"><strong>3 simultaneous requests</strong> create a concentrated burst.</p>
+    </article>
+
+    <article class="timeline-panel timeline-panel--calm">
+      <div class="panel-heading">
+        <span class="status-dot" aria-hidden="true"></span>
+        <div>
+          <p class="panel-kicker">With randomized jitter</p>
+          <h3>Each job waits independently</h3>
+        </div>
+      </div>
+      <div class="axis" aria-label="Jobs request the API at two, seven, and thirteen seconds">
+        <span>0s</span><span>5s</span><span>10s</span><span>15s</span>
+      </div>
+      <div class="tracks">
+        <div class="track"><span class="track-label">Job 1</span><span class="bar" style="--length: 15%"></span><span class="request">2s</span></div>
+        <div class="track"><span class="track-label">Job 2</span><span class="bar" style="--length: 46%"></span><span class="request">7s</span></div>
+        <div class="track"><span class="track-label">Job 3</span><span class="bar" style="--length: 84%"></span><span class="request">13s</span></div>
+      </div>
+      <p class="panel-note"><strong>The same work,</strong> spread over a small interval.</p>
+    </article>
+  </div>
+</section>

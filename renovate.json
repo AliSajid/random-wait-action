@@ -12,48 +12,109 @@
         "group:githubArtifactActions",
         "group:linters",
         ":pinDependencies",
-        ":pinDevDependencies",
-        ":pinSkipCi",
-        ":reviewer(AliSajid)",
-        "security:minimumReleaseAgeNpm"
+        ":reviewer(AliSajid)"
     ],
     "labels": [
         "dependencies",
         "renovate"
     ],
+    "minimumReleaseAge": "14 days",
+    "schedule": [
+        "before 5am every weekday",
+        "every weekend"
+    ],
+    "separateMinorPatch": true,
+    "customManagers": [
+        {
+            "customType": "regex",
+            "description": "Update the hk Pkl package imports together",
+            "managerFilePatterns": [
+                "/^hk\\.pkl$/"
+            ],
+            "matchStrings": [
+                "(?<directive>amends|import) \\\"package://github\\.com/jdx/hk/releases/download/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/hk@\\d+\\.\\d+\\.\\d+(?<suffix>#/(?:Config|Builtins)\\.pkl)\\\""
+            ],
+            "autoReplaceStringTemplate": "{{{directive}}} \\\"package://github.com/jdx/hk/releases/download/v{{{newValue}}}/hk@{{{newValue}}}{{{suffix}}}\\\"",
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "jdx/hk",
+            "packageNameTemplate": "jdx/hk",
+            "versioningTemplate": "semver"
+        }
+    ],
     "packageRules": [
         {
-            "automerge": true,
+            "description": "Automerge SHA refreshes for pinned GitHub Actions",
             "matchManagers": [
-                "pre-commit",
                 "github-actions"
             ],
-            "schedule": [
-                "before 5am every weekday"
-            ]
+            "matchUpdateTypes": [
+                "digest"
+            ],
+            "automerge": true
         },
         {
-            "automerge": true,
-            "matchDepTypes": [
-                "devDependencies",
+            "description": "Require approval for GitHub Actions release updates",
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchUpdateTypes": [
+                "patch",
                 "minor",
-                "patch"
+                "major"
+            ],
+            "dependencyDashboardApproval": true
+        },
+        {
+            "description": "Keep Astro and Starlight compatible in one PR",
+            "matchManagers": [
+                "npm"
             ],
             "matchPackageNames": [
-                "eslint{/,}**",
-                "stylistic{/,}**",
-                "prettier{/,}**",
-                "vitest{/,}**"
-            ]
+                "astro",
+                "@astrojs/starlight",
+                "@astrojs/check"
+            ],
+            "groupName": "Astro documentation stack"
+        },
+        {
+            "description": "Automerge patch updates for development tooling",
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true
+        },
+        {
+            "description": "Automerge patch updates for mise-managed tools",
+            "matchManagers": [
+                "mise"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true
+        },
+        {
+            "description": "Require approval for non-patch mise tool updates",
+            "matchManagers": [
+                "mise"
+            ],
+            "matchUpdateTypes": [
+                "minor",
+                "major"
+            ],
+            "dependencyDashboardApproval": true
+        },
+        {
+            "description": "Require approval for dependency major updates",
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "dependencyDashboardApproval": true
         }
     ],
     "platformCommit": "enabled",
-    "pre-commit": {
-        "enabled": true
-    },
-    "schedule": [
-        "after 10pm every weekday",
-        "every weekend"
-    ],
     "semanticCommits": "enabled"
 }

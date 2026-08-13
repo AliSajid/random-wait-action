@@ -10,10 +10,13 @@ SPDX-License-Identifier: MIT
 
 We support the current major release. Please ensure you are using the latest version to receive security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.y.z   | :white_check_mark: |
-| <= 1.0  | :x:                |
+## Supported versions
+
+| Version | Support                                                           |
+| ------- | ----------------------------------------------------------------- |
+| 3.x     | Supported                                                         |
+| 2.x     | Maintenance-only; critical fixes may be backported when practical |
+| 1.x     | Unsupported                                                       |
 
 ## Reporting a Vulnerability
 

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Ali Sajid Imami
+#
+# SPDX-License-Identifier: MIT
+
+#MISE description="Determine target release branch"
+set -euo pipefail
+
+GITHUB_EVENT_NAME="${GITHUB_EVENT_NAME:?GITHUB_EVENT_NAME is required}"
+INPUTS_RELEASE_BRANCH="${INPUTS_RELEASE_BRANCH:-}"
+GITHUB_EVENT_PULL_REQUEST_BASE_REF="${GITHUB_EVENT_PULL_REQUEST_BASE_REF:-}"
+STATE_FILE="${RELEASE_STATE_FILE:-/tmp/release-state.env}"
+
+if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+        BRANCH="$INPUTS_RELEASE_BRANCH"
+else
+        BRANCH="$GITHUB_EVENT_PULL_REQUEST_BASE_REF"
+fi
+
+echo "Target branch: $BRANCH"
+echo "branch=$BRANCH" >>"$STATE_FILE"
+echo "branch=$BRANCH" >>"${GITHUB_OUTPUT:-/dev/null}"
